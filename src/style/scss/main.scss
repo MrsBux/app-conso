@@ -1,0 +1,36 @@
+$main-peach: #ffd2b8;
+$light-peach: #ffebe2;
+$red-wine: #b6124d;
+$green-leaf: #124b38;
+
+html {
+  min-height: 100vh;
+}
+
+body {
+  background-color: $main-peach;
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+#root {
+  min-height: 100vh;
+  font-family: "Atkinson Hyperlegible", sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: normal;
+}
+
+a {
+  font-weight: 600;
+  text-decoration: none;
+  font-family: "Manrope", sans-serif;
+}
+
+h1 {
+  font-family: "Cinzel", serif;
+  font-size: 3.2em;
+  line-height: 1.1;
+}

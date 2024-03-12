@@ -1,0 +1,120 @@
+header {
+  background-color: #b6124d;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+}
+@media all and (max-width: 700px) {
+  header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+  }
+}
+
+.logobeige {
+  max-width: 75px;
+}
+@media all and (max-width: 700px) {
+  .logobeige {
+    max-height: 75px;
+    max-width: fit-content;
+  }
+}
+
+.menu {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 20px;
+}
+@media all and (max-width: 700px) {
+  .menu {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    max-width: 100%;
+    gap: 10px;
+    margin: 0px;
+    padding: 0px;
+  }
+}
+@media all and (max-width: 400px) {
+  .menu {
+    flex-wrap: wrap-reverse;
+  }
+}
+.menu__link {
+  color: #ffd2b8;
+  font-size: 20px;
+  max-width: 140px;
+  text-align: right;
+}
+@media all and (max-width: 700px) {
+  .menu__link {
+    font-size: 16px;
+    max-width: auto;
+    text-align: center;
+  }
+}
+@media all and (max-width: 500px) {
+  .menu__link {
+    font-size: 14px;
+    max-width: auto;
+    text-align: center;
+  }
+}
+.menu__link__logo {
+  max-width: 50px;
+}
+@media all and (max-width: 700px) {
+  .menu__link__logo {
+    max-height: 50px;
+    max-width: fit-content;
+  }
+}
+@media all and (max-width: 500px) {
+  .menu__link__logo {
+    max-height: 40px;
+    max-width: fit-content;
+  }
+}
+.menu__link__logo2 {
+  max-width: 50%;
+  display: none;
+}
+@media all and (max-width: 700px) {
+  .menu__link__logo2 {
+    max-height: 50px;
+    max-width: fit-content;
+  }
+}
+@media all and (max-width: 500px) {
+  .menu__link__logo2 {
+    max-height: 40px;
+    max-width: fit-content;
+  }
+}
+.menu__link__logo3 {
+  max-width: 50%;
+  display: none;
+}
+@media all and (max-width: 700px) {
+  .menu__link__logo3 {
+    max-height: 50px;
+    max-width: fit-content;
+  }
+}
+@media all and (max-width: 500px) {
+  .menu__link__logo3 {
+    max-height: 40px;
+    max-width: fit-content;
+  }
+}
+
+/*# sourceMappingURL=header.css.map */
