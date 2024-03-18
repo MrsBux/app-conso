@@ -1,0 +1,39 @@
+.banner {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 70px;
+}
+.banner__box3 {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 15%;
+  position: relative;
+}
+
+#bt1,
+#bt2,
+#bt3 {
+  width: 250px;
+}
+
+#bt1,
+#bt2 {
+  height: 650px;
+}
+
+h1 {
+  text-align: center;
+  font-size: 48px;
+  font-family: "Cinzel", serif;
+  color: #b6124d;
+  padding: 0px;
+  margin: 0px;
+  max-width: 250px;
+  position: absolute;
+  top: 120px;
+  right: 100px;
+}
+
+/*# sourceMappingURL=banner.css.map */

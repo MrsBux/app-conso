@@ -1,0 +1,38 @@
+$main-peach: #ffd2b8;
+$light-peach: #ffebe2;
+$red-wine: #b6124d;
+$green-leaf: #124b38;
+
+.searchbox {
+  padding: 10px;
+  &__row {
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+
+    &__col {
+      &__box {
+        border-radius: 15px;
+        padding: 5px;
+        background-color: $light-peach;
+        color: #b6124d;
+      }
+    }
+
+    &__col {
+      &__btn {
+        background-color: $green-leaf;
+        border: none;
+        &__img {
+          max-width: 30px;
+        }
+      }
+    }
+  }
+}
+
+::placeholder {
+  color: $red-wine;
+  font-size: 14px;
+  font-weight: 600;
+}

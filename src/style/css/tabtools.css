@@ -1,0 +1,29 @@
+.tabtools {
+  background-color: #124b38;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+@media all and (max-width: 700px) {
+  .tabtools {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+  }
+}
+.tabtools__nav {
+  padding: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 10px;
+}
+.tabtools__nav__item__link {
+  color: #ffd2b8;
+}
+
+/*# sourceMappingURL=tabtools.css.map */

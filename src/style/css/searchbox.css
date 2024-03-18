@@ -1,0 +1,29 @@
+.searchbox {
+  padding: 10px;
+}
+.searchbox__row {
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+}
+.searchbox__row__col__box {
+  border-radius: 15px;
+  padding: 5px;
+  background-color: #ffebe2;
+  color: #b6124d;
+}
+.searchbox__row__col__btn {
+  background-color: #124b38;
+  border: none;
+}
+.searchbox__row__col__btn__img {
+  max-width: 30px;
+}
+
+::placeholder {
+  color: #b6124d;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+/*# sourceMappingURL=searchbox.css.map */
