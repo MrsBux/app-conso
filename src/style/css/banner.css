@@ -1,8 +1,73 @@
 .banner {
   display: flex;
   flex-direction: row;
-  justify-content: center;
-  gap: 70px;
+  justify-content: space-between;
+  padding: 0px 75px;
+}
+@media all and (min-width: 2051px) {
+  .banner {
+    padding: 0px 150px;
+  }
+}
+@media all and (min-width: 1850px) and (max-width: 2050px) {
+  .banner {
+    padding: 0px 100px;
+  }
+}
+@media all and (min-width: 1101px) and (max-width: 1300px) {
+  .banner {
+    padding: 0px 50px;
+  }
+}
+@media all and (min-width: 901px) and (max-width: 1100px) {
+  .banner {
+    padding: 0px 30px;
+  }
+}
+@media all and (min-width: 801px) and (max-width: 900px) {
+  .banner {
+    padding: 0px 10px;
+  }
+}
+@media all and (min-width: 601px) and (max-width: 800px) {
+  .banner {
+    display: flex;
+    flex-direction: column-reverse;
+    height: auto;
+    gap: 30px;
+    padding: 0px;
+  }
+}
+@media all and (max-width: 600px) {
+  .banner {
+    display: flex;
+    flex-direction: column-reverse;
+    height: auto;
+    gap: 10px;
+    padding: 0px;
+  }
+}
+@media all and (min-width: 601px) and (max-width: 800px) {
+  .banner__box1 {
+    max-height: 250px;
+  }
+}
+@media all and (max-width: 600px) {
+  .banner__box1 {
+    max-height: 120px;
+  }
+}
+@media all and (min-width: 601px) and (max-width: 800px) {
+  .banner__box2 {
+    max-height: 250px;
+    padding-bottom: 30px;
+  }
+}
+@media all and (max-width: 600px) {
+  .banner__box2 {
+    max-height: 120px;
+    padding-bottom: 30px;
+  }
 }
 .banner__box3 {
   display: flex;
@@ -11,29 +76,236 @@
   gap: 15%;
   position: relative;
 }
+@media all and (min-width: 601px) and (max-width: 800px) {
+  .banner__box3 {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+    gap: 0%;
+    align-items: end;
+    max-height: 250px;
+    min-width: 100%;
+  }
+}
+@media all and (max-width: 600px) {
+  .banner__box3 {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+    gap: 0%;
+    max-height: 250px;
+    min-width: 100%;
+  }
+}
 
 #bt1,
 #bt2,
 #bt3 {
-  width: 250px;
+  width: 350px;
+  position: relative;
+}
+@media all and (min-width: 2051px) {
+  #bt1,
+  #bt2,
+  #bt3 {
+    width: 550px;
+  }
+}
+@media all and (min-width: 1850px) and (max-width: 2050px) {
+  #bt1,
+  #bt2,
+  #bt3 {
+    width: 450px;
+  }
+}
+@media all and (min-width: 1101px) and (max-width: 1300px) {
+  #bt1,
+  #bt2,
+  #bt3 {
+    width: 280px;
+  }
+}
+@media all and (min-width: 901px) and (max-width: 1100px) {
+  #bt1,
+  #bt2,
+  #bt3 {
+    width: 200px;
+  }
+}
+@media all and (min-width: 801px) and (max-width: 900px) {
+  #bt1,
+  #bt2,
+  #bt3 {
+    width: 175px;
+  }
+}
+@media all and (min-width: 601px) and (max-width: 800px) {
+  #bt1,
+  #bt2,
+  #bt3 {
+    transform: rotate(90deg);
+    transform-origin: top left;
+    width: 250px;
+  }
+}
+@media all and (max-width: 600px) {
+  #bt1,
+  #bt2,
+  #bt3 {
+    transform: rotate(90deg);
+    transform-origin: top left;
+    width: 120px;
+  }
 }
 
 #bt1,
 #bt2 {
-  height: 650px;
+  height: 880px;
+}
+@media all and (min-width: 2051px) {
+  #bt1,
+  #bt2 {
+    height: 1280px;
+  }
+}
+@media all and (min-width: 1850px) and (max-width: 2050px) {
+  #bt1,
+  #bt2 {
+    height: 980px;
+  }
+}
+@media all and (min-width: 1101px) and (max-width: 1300px) {
+  #bt1,
+  #bt2 {
+    height: 700px;
+  }
+}
+@media all and (min-width: 901px) and (max-width: 1100px) {
+  #bt1,
+  #bt2 {
+    height: 500px;
+  }
+}
+@media all and (min-width: 801px) and (max-width: 900px) {
+  #bt1,
+  #bt2 {
+    height: 437.5px;
+  }
+}
+
+@media all and (min-width: 601px) and (max-width: 800px) {
+  #bt1 {
+    position: relative;
+    left: 100%;
+    height: 601px;
+  }
+}
+@media all and (max-width: 600px) {
+  #bt1 {
+    position: relative;
+    left: 100%;
+    height: 300px;
+  }
+}
+
+@media all and (min-width: 601px) and (max-width: 800px) {
+  #bt2 {
+    position: relative;
+    left: 600px;
+    height: 600px;
+  }
+}
+@media all and (max-width: 600px) {
+  #bt2 {
+    position: relative;
+    left: 300px;
+    height: 300px;
+  }
+}
+
+@media all and (min-width: 601px) and (max-width: 800px) {
+  #bt3 {
+    position: relative;
+    left: 250px;
+    top: 22px;
+    height: 300px;
+  }
+}
+@media all and (max-width: 600px) {
+  #bt3 {
+    position: relative;
+    left: 120px;
+  }
 }
 
 h1 {
   text-align: center;
-  font-size: 48px;
+  font-size: 72px;
   font-family: "Cinzel", serif;
   color: #b6124d;
   padding: 0px;
   margin: 0px;
   max-width: 250px;
   position: absolute;
-  top: 120px;
-  right: 100px;
+  top: 150px;
+  right: 260px;
+}
+@media all and (min-width: 2051px) {
+  h1 {
+    position: absolute;
+    top: 130px;
+    right: 500px;
+    font-size: 104px;
+  }
+}
+@media all and (min-width: 1850px) and (max-width: 2050px) {
+  h1 {
+    position: absolute;
+    top: 140px;
+    right: 450px;
+    font-size: 84px;
+  }
+}
+@media all and (min-width: 1101px) and (max-width: 1300px) {
+  h1 {
+    position: absolute;
+    top: 140px;
+    right: 120px;
+    font-size: 50px;
+  }
+}
+@media all and (min-width: 901px) and (max-width: 1100px) {
+  h1 {
+    position: absolute;
+    top: 70px;
+    right: 85px;
+    font-size: 44px;
+  }
+}
+@media all and (min-width: 801px) and (max-width: 900px) {
+  h1 {
+    position: absolute;
+    top: 60px;
+    right: 80px;
+    font-size: 42px;
+  }
+}
+@media all and (min-width: 601px) and (max-width: 800px) {
+  h1 {
+    position: absolute;
+    top: 44px;
+    right: 45px;
+    max-width: 300px;
+    font-size: 44px;
+  }
+}
+@media all and (max-width: 600px) {
+  h1 {
+    position: absolute;
+    top: 15px;
+    right: 8px;
+    font-size: 30px;
+  }
 }
 
 /*# sourceMappingURL=banner.css.map */
