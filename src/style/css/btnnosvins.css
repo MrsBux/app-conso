@@ -1,0 +1,100 @@
+.btnNV {
+  background-color: #b6124d;
+  color: #ffebe2;
+  height: 220px;
+  width: 220px;
+  border-radius: 110px;
+  box-shadow: 6px 6px 25px rgba(0, 0, 0, 0.5);
+  border: none;
+  transition: all 1000ms;
+}
+@media all and (min-width: 2051px) {
+  .btnNV {
+    height: 250px;
+    width: 250px;
+    border-radius: 250px;
+  }
+}
+@media all and (min-width: 1850px) and (max-width: 2050px) {
+  .btnNV {
+    height: 230px;
+    width: 230px;
+    border-radius: 230px;
+  }
+}
+@media all and (min-width: 1301px) and (max-width: 1550px) {
+  .btnNV {
+    height: 195px;
+    width: 195px;
+    border-radius: 100px;
+  }
+}
+@media all and (min-width: 1301px) and (max-width: 1550px) {
+  .btnNV {
+    height: 185px;
+    width: 185px;
+    border-radius: 100px;
+  }
+}
+@media all and (min-width: 1101px) and (max-width: 1300px) {
+  .btnNV {
+    height: 180px;
+    width: 180px;
+    border-radius: 100px;
+  }
+}
+@media all and (min-width: 811px) and (max-width: 1100px) {
+  .btnNV {
+    height: 175px;
+    width: 175px;
+    border-radius: 100px;
+  }
+}
+@media all and (min-width: 751px) and (max-width: 810px) {
+  .btnNV {
+    height: 170px;
+    width: 170px;
+    border-radius: 100px;
+  }
+}
+@media all and (min-width: 601px) and (max-width: 750px) {
+  .btnNV {
+    height: 160px;
+    width: 160px;
+    border-radius: 100px;
+  }
+}
+@media all and (min-width: 501px) and (max-width: 600px) {
+  .btnNV {
+    height: 150px;
+    width: 150px;
+    border-radius: 100px;
+  }
+}
+@media all and (min-width: 401px) and (max-width: 500px) {
+  .btnNV {
+    height: 140px;
+    width: 140px;
+    border-radius: 100px;
+  }
+}
+@media all and (min-width: 301px) and (max-width: 400px) {
+  .btnNV {
+    height: 130px;
+    width: 130px;
+    border-radius: 100px;
+  }
+}
+@media all and (max-width: 300px) {
+  .btnNV {
+    height: 120px;
+    width: 120px;
+    border-radius: 100px;
+  }
+}
+
+.btnNV:hover {
+  transform: scale(1.1);
+}
+
+/*# sourceMappingURL=btnnosvins.css.map */

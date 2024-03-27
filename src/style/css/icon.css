@@ -1,3 +1,54 @@
-
+.icon {
+  position: relative;
+  width: 150px;
+  height: 150px;
+  perspective: 130px;
+  transition: transform 1000ms;
+}
+.icon.flipped {
+  transform: scale(1.15) rotateY(180deg) translateY(-10px);
+}
+@media all and (min-width: 601px) and (max-width: 800px) {
+  .icon {
+    width: 100px;
+    height: 100px;
+  }
+}
+@media all and (max-width: 601px) {
+  .icon {
+    width: 75px;
+    height: 75px;
+  }
+}
+.icon .icon {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+}
+.icon .icon__front img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.icon .icon__back {
+  display: none;
+  transform: rotateY(180deg);
+}
+.icon .icon__back__p {
+  color: #124b38;
+  font-weight: 800;
+  font-size: 24px;
+  text-align: center;
+}
+.icon:hover .icon__front {
+  display: none;
+}
+.icon:hover .icon__back {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 
 /*# sourceMappingURL=icon.css.map */

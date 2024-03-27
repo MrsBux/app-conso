@@ -33,5 +33,40 @@ a {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  width: 100%;
   gap: 0px;
+}
+
+h2 {
+  color: $red-wine;
+  font-size: 42px;
+  font-family: "Manrope" sans-serif;
+  padding: 20px;
+  font-weight: 600;
+  @media all and (max-width: 600px) {
+    font-size: 28px;
+  }
+}
+
+h3 {
+  color: $red-wine;
+  font-size: 42px;
+  font-family: "Manrope" sans-serif;
+  padding: 20px;
+  font-weight: 400;
+  padding: 20px;
+  @media all and (max-width: 600px) {
+    font-size: 28px;
+    text-align: center;
+  }
+}
+
+h4 {
+  color: $green-leaf;
+  font-size: 30px;
+  font-family: "Manrope" sans-serif;
+  padding: 20px;
+  font-weight: 400;
+  padding: 0px;
+  margin: 0px;
 }

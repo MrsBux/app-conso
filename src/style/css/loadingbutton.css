@@ -1,0 +1,27 @@
+.btn-primary {
+  background-color: #124b38;
+  padding: 10px 20px;
+  border-radius: 30px;
+  font-size: 24px;
+  color: #ffebe2;
+  transition: all 0.3s;
+}
+@media all and (max-width: 600px) {
+  .btn-primary {
+    font-size: 18px;
+  }
+}
+
+.btn-primary:hover {
+  transform: scale(1.1); /* Agrandir le bouton au survol */
+}
+
+.btn-primary:active {
+  background-color: #b6124d; /* Changer la couleur au clic */
+}
+
+.loading {
+  background-color: #b6124d;
+}
+
+/*# sourceMappingURL=loadingbutton.css.map */

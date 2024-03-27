@@ -1,3 +1,100 @@
+.chiffre {
+  position: relative;
+  width: 150px;
+  height: 150px;
+  perspective: 130px;
+  transition: transform 1000ms;
+  line-height: 150px;
+}
+.chiffre.flipped {
+  transform: scale(1.15) rotateY(180deg) translateY(-10px);
+}
+.chiffre .chiffre {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+}
+.chiffre .chiffre__chiffre__title {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.chiffre .chiffre__back {
+  display: none;
+  transform: rotateY(180deg);
+}
+.chiffre .chiffre__back__p {
+  color: #124b38;
+  font-weight: 800;
+  font-size: 24px;
+  text-align: center;
+}
+.chiffre:hover .chiffre__front {
+  display: none;
+}
+.chiffre:hover .chiffre__back {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 
+#chiffre__0 {
+  font-size: 66px;
+  font-weight: 800;
+}
+@media all and (min-width: 601px) and (max-width: 800px) {
+  #chiffre__0 {
+    font-size: 46px;
+  }
+}
+@media all and (max-width: 601px) {
+  #chiffre__0 {
+    font-size: 30px;
+  }
+}
+#chiffre__1 {
+  font-size: 112px;
+  font-weight: 400;
+}
+@media all and (min-width: 601px) and (max-width: 800px) {
+  #chiffre__1 {
+    font-size: 56px;
+  }
+}
+@media all and (max-width: 601px) {
+  #chiffre__1 {
+    font-size: 46px;
+  }
+}
+#chiffre__2 {
+  font-size: 220px;
+  font-weight: 200;
+}
+@media all and (min-width: 601px) and (max-width: 800px) {
+  #chiffre__2 {
+    font-size: 120px;
+  }
+}
+@media all and (max-width: 601px) {
+  #chiffre__2 {
+    font-size: 80px;
+  }
+}
+#chiffre__3 {
+  font-size: 98px;
+  font-weight: 600;
+}
+@media all and (min-width: 601px) and (max-width: 800px) {
+  #chiffre__3 {
+    font-size: 60px;
+  }
+}
+@media all and (max-width: 601px) {
+  #chiffre__3 {
+    font-size: 58px;
+  }
+}
 
 /*# sourceMappingURL=chiffre.css.map */

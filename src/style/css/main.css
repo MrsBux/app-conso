@@ -24,17 +24,50 @@ a {
   font-family: "Manrope", sans-serif;
 }
 
-h1 {
-  font-family: "Cinzel", serif;
-  font-size: 3.2em;
-  line-height: 1.1;
-}
-
 .main {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  width: 100%;
   gap: 0px;
+}
+
+h2 {
+  color: #b6124d;
+  font-size: 42px;
+  font-family: "Manrope" sans-serif;
+  padding: 20px;
+  font-weight: 600;
+}
+@media all and (max-width: 600px) {
+  h2 {
+    font-size: 28px;
+  }
+}
+
+h3 {
+  color: #b6124d;
+  font-size: 42px;
+  font-family: "Manrope" sans-serif;
+  padding: 20px;
+  font-weight: 400;
+  padding: 20px;
+}
+@media all and (max-width: 600px) {
+  h3 {
+    font-size: 28px;
+    text-align: center;
+  }
+}
+
+h4 {
+  color: #124b38;
+  font-size: 30px;
+  font-family: "Manrope" sans-serif;
+  padding: 20px;
+  font-weight: 400;
+  padding: 0px;
+  margin: 0px;
 }
 
 /*# sourceMappingURL=main.css.map */

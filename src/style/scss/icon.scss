@@ -1,0 +1,63 @@
+$main-peach: #ffd2b8;
+$light-peach: #ffebe2;
+$red-wine: #b6124d;
+$green-leaf: #124b38;
+
+.icon {
+  position: relative;
+  width: 150px;
+  height: 150px;
+  perspective: 130px;
+  transition: transform 1000ms;
+  &.flipped {
+    transform: scale(1.15) rotateY(180deg) translateY(-10px);
+  }
+  @media all and (min-width: 601px) and (max-width: 800px) {
+    width: 100px;
+    height: 100px;
+  }
+
+  @media all and (max-width: 601px) {
+    width: 75px;
+    height: 75px;
+  }
+  .icon {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+
+    &__front {
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+
+    &__back {
+      display: none;
+      transform: rotateY(180deg);
+
+      &__p {
+        color: $green-leaf;
+        font-weight: 800;
+        font-size: 24px;
+        text-align: center;
+      }
+    }
+  }
+
+  &:hover {
+    .icon__front {
+      display: none;
+    }
+
+    .icon__back {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+}
