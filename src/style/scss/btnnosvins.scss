@@ -11,7 +11,7 @@ $green-leaf: #124b38;
   border-radius: 110px;
   box-shadow: 6px 6px 25px rgba(0, 0, 0, 0.5);
   border: none;
-  transition: all 1000ms;
+  transition: all 800ms ease-in-out;
 
   @media all and (min-width: 2051px) {
     height: 250px;
@@ -86,5 +86,5 @@ $green-leaf: #124b38;
 }
 
 .btnNV:hover {
-  transform: scale(1.1);
+  transform: scale(1.2) rotate(360deg);
 }

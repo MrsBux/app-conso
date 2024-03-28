@@ -3,6 +3,7 @@ import TabTools from "../components/TabTools/index";
 import Banner from "../components/Banner/index";
 import WhoWeAre from "../components/Whoweare";
 import NosVins from "../components/NosVins";
+import NosPrestations from "../components/NosPrestations";
 
 function Home() {
   const sectionsPage = ["a", "b", "c", "d", "e"];
@@ -14,6 +15,7 @@ function Home() {
         <Banner />
         <WhoWeAre />
         <NosVins />
+        <NosPrestations />
 
         <div className="card"></div>
       </div>

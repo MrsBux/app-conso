@@ -1,0 +1,46 @@
+$main-peach: #ffd2b8;
+$light-peach: #ffebe2;
+$red-wine: #b6124d;
+$green-leaf: #124b38;
+
+.nosprestations {
+  background-color: $green-leaf;
+  min-height: 450px;
+  margin-bottom: 100px;
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+  align-items: flex-start;
+  gap: 20px;
+
+  &__box {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 2px;
+
+    &__title {
+      color: $main-peach;
+      margin: 0px;
+      padding: 10px 5px;
+    }
+
+    &__p {
+      color: $light-peach;
+      font-weight: 600;
+      font-size: 16px;
+      line-height: 140%;
+      text-align: justify;
+      padding-right: 5px;
+    }
+
+    &__btns {
+      padding: 25px;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      align-items: center;
+    }
+  }
+}

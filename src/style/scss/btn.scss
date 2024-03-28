@@ -1,0 +1,21 @@
+$main-peach: #ffd2b8;
+$light-peach: #ffebe2;
+$red-wine: #b6124d;
+$green-leaf: #124b38;
+
+.btnG {
+  background-color: $red-wine;
+  width: 25%;
+  padding: 15px 20px;
+  border-radius: 50px;
+  border: 0;
+  box-shadow: 6px 6px 25px rgba(0, 0, 0, 0.5);
+  color: $light-peach;
+  font-family: "Manrope" sans-serif;
+  font-size: 18px;
+  transition: all 800ms;
+}
+
+.btnG:hover {
+  transform: scale(1.2);
+}

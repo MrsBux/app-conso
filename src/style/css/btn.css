@@ -1,0 +1,18 @@
+.btnG {
+  background-color: #b6124d;
+  width: 25%;
+  padding: 15px 20px;
+  border-radius: 50px;
+  border: 0;
+  box-shadow: 6px 6px 25px rgba(0, 0, 0, 0.5);
+  color: #ffebe2;
+  font-family: "Manrope" sans-serif;
+  font-size: 18px;
+  transition: all 800ms;
+}
+
+.btnG:hover {
+  transform: scale(1.2);
+}
+
+/*# sourceMappingURL=btn.css.map */
