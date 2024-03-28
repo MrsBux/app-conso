@@ -4,6 +4,7 @@ import Banner from "../components/Banner/index";
 import WhoWeAre from "../components/Whoweare";
 import NosVins from "../components/NosVins";
 import NosPrestations from "../components/NosPrestations";
+import Contact from "../components/Contact";
 
 function Home() {
   const sectionsPage = ["a", "b", "c", "d", "e"];
@@ -16,6 +17,7 @@ function Home() {
         <WhoWeAre />
         <NosVins />
         <NosPrestations />
+        <Contact />
 
         <div className="card"></div>
       </div>

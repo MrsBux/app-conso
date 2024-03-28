@@ -41,7 +41,7 @@ function NosPrestations() {
         </div>
       </div>
 
-      <img src={picturePrestations}></img>
+      <img src={picturePrestations} className="nosprestations__img"></img>
     </div>
   );
 }

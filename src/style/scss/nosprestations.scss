@@ -6,12 +6,28 @@ $green-leaf: #124b38;
 .nosprestations {
   background-color: $green-leaf;
   min-height: 450px;
-  margin-bottom: 100px;
   display: flex;
   flex-direction: row-reverse;
   justify-content: flex-end;
   align-items: flex-start;
   gap: 20px;
+
+  @media all and (max-width: 800px) {
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-start;
+  }
+
+  &__img {
+    margin: auto;
+
+    @media all and (max-width: 800px) {
+      margin: auto;
+      margin-bottom: 50px;
+      max-width: 100%;
+      object-fit: contain;
+    }
+  }
 
   &__box {
     padding: 20px;
@@ -36,11 +52,17 @@ $green-leaf: #124b38;
     }
 
     &__btns {
-      padding: 25px;
+      padding: 20px;
       display: flex;
       flex-direction: row;
       justify-content: space-around;
       align-items: center;
+      @media all and (max-width: 800px) {
+        padding: 10px;
+      }
+      @media all and (max-width: 400px) {
+        padding: 5px;
+      }
     }
   }
 }

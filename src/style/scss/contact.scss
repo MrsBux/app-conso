@@ -1,0 +1,94 @@
+$main-peach: #ffd2b8;
+$light-peach: #ffebe2;
+$red-wine: #b6124d;
+$green-leaf: #124b38;
+
+.contact {
+  max-width: 100%;
+  background-color: $light-peach;
+  min-height: 400px;
+  padding: 0px 20px 50px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow-x: hidden;
+  overflow-y: visible;
+  &__box {
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 10%;
+
+    @media all and (max-width: 600px) {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 75px;
+    }
+
+    &__btns {
+      min-height: 400px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      gap: 50px;
+
+      @media all and (max-width: 600px) {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: flex-start;
+        min-height: 300px;
+      }
+
+      &__1 {
+        display: flex;
+        flex-direction: column-reverse;
+        justify-content: space-between;
+        align-items: center;
+        gap: 30px;
+
+        @media all and (max-width: 600px) {
+          max-width: 50%;
+        }
+
+        &__btn {
+          color: #ffd2b8;
+          background-color: $green-leaf;
+          border-radius: 5px;
+          padding: 20px;
+          height: 120px;
+          width: 120px;
+          box-shadow: 6px 6px 25px rgba(0, 0, 0, 0.3);
+          transition: all 800ms;
+        }
+      }
+
+      &__2 {
+        display: flex;
+        flex-direction: column-reverse;
+        justify-content: space-between;
+        align-items: center;
+        gap: 20px;
+
+        &__btn {
+          color: #ffd2b8;
+          background-color: $green-leaf;
+          border-radius: 5px;
+          padding: 20px;
+          height: 120px;
+          width: 120px;
+          box-shadow: 6px 6px 25px rgba(0, 0, 0, 0.3);
+          transition: all 800ms;
+        }
+      }
+    }
+  }
+}
+
+.btnc:hover {
+  transform: scale(1.15);
+}

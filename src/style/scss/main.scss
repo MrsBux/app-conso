@@ -12,6 +12,8 @@ body {
   margin: 0;
   min-width: 320px;
   min-height: 100vh;
+  overflow-x: hidden; /* Cacher le débordement horizontal */
+  overflow-y: visible;
 }
 
 #root {
@@ -69,4 +71,15 @@ h4 {
   font-weight: 400;
   padding: 0px;
   margin: 0px;
+}
+
+h5 {
+  color: $red-wine;
+  font-size: 18px;
+  font-family: "Manrope" sans-serif;
+  padding: 20px;
+  font-weight: 800;
+  padding: 0px;
+  margin: 0px;
+  text-align: center;
 }

@@ -1,0 +1,107 @@
+form {
+  width: 50%;
+  border-radius: 15px;
+  padding: 50px 25px 100px 25px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  color: #ffebe2;
+  font-size: 18px;
+}
+@media all and (min-width: 1221px) and (max-width: 1400px) {
+  form {
+    padding: 40px 20px 90px 20px;
+  }
+}
+@media all and (min-width: 901px) and (max-width: 1220px) {
+  form {
+    padding: 30px 20px 80px 20px;
+  }
+}
+@media all and (min-width: 600px) and (max-width: 900px) {
+  form {
+    padding: 20px 15px 50px 15px;
+  }
+}
+@media all and (max-width: 600px) {
+  form {
+    padding: 20px 25px 40px 25px;
+    width: 95%;
+  }
+}
+
+input,
+textarea {
+  background-color: #ffd2b8;
+  padding: 10px;
+  border-radius: 10px;
+  border: #124b38 2px solid;
+}
+
+.form {
+  background-color: #b6124d;
+}
+.form__title {
+  color: #ffd2b8;
+  padding: 20px 0px;
+  margin: 0px;
+  font-weight: 800;
+  font-size: 2.3em;
+}
+@media all and (min-width: 1000px) and (max-width: 1290px) {
+  .form__title {
+    white-space: nowrap;
+    font-size: 2em;
+  }
+}
+@media all and (min-width: 801px) and (max-width: 1000px) {
+  .form__title {
+    white-space: nowrap;
+    font-size: 1.6em;
+  }
+}
+@media all and (min-width: 601px) and (max-width: 800px) {
+  .form__title {
+    font-size: 2em;
+  }
+}
+@media all and (max-width: 600px) {
+  .form__title {
+    font-size: 1.7em;
+  }
+}
+.form__groupe {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.form__identite {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+@media all and (max-width: 600px) {
+  .form__identite {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+}
+.form__identite__groupe {
+  width: 47.5%;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+@media all and (max-width: 600px) {
+  .form__identite__groupe {
+    width: 100%;
+  }
+}
+
+/*# sourceMappingURL=form.css.map */

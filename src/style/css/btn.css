@@ -1,14 +1,57 @@
 .btnG {
   background-color: #b6124d;
-  width: 25%;
+  width: 37%;
   padding: 15px 20px;
   border-radius: 50px;
   border: 0;
   box-shadow: 6px 6px 25px rgba(0, 0, 0, 0.5);
   color: #ffebe2;
   font-family: "Manrope" sans-serif;
-  font-size: 18px;
+  font-size: 100%;
   transition: all 800ms;
+}
+@media all and (min-width: 1251px) and (max-width: 1550px) {
+  .btnG {
+    white-space: nowrap;
+    font-size: 0.8em;
+  }
+}
+@media all and (min-width: 1101px) and (max-width: 1250px) {
+  .btnG {
+    white-space: nowrap;
+    font-size: 0.7em;
+  }
+}
+@media all and (min-width: 901px) and (max-width: 1100px) {
+  .btnG {
+    white-space: nowrap;
+    font-size: 0.7em;
+    padding: 15px 10px;
+  }
+}
+@media all and (min-width: 801px) and (max-width: 900px) {
+  .btnG {
+    white-space: nowrap;
+    font-size: 0.7em;
+    padding: 15px 5px;
+    width: 48%;
+  }
+}
+@media all and (min-width: 451px) and (max-width: 800px) {
+  .btnG {
+    white-space: nowrap;
+    font-size: 0.8em;
+    padding: 15px 2px;
+    width: 45%;
+  }
+}
+@media all and (min-width: 251px) and (max-width: 450px) {
+  .btnG {
+    white-space: nowrap;
+    font-size: 0.7em;
+    padding: 15px 2px;
+    width: 48%;
+  }
 }
 
 .btnG:hover {
