@@ -14,7 +14,7 @@ function Footer() {
           </p>
           <p className="footerBox__coordonates__adresse">
             {" "}
-            7 Chemin de Boursan, 84370 Bédarrides <br /> France{" "}
+            7 Chemin de Boursan, 84230 Châteauneuf-du-Pape <br /> France{" "}
           </p>
 
           <p className="footerBox__coordonates__copyright">

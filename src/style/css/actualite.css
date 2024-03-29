@@ -1,0 +1,113 @@
+.actu {
+  width: fit-content;
+  padding: 20px;
+}
+@media all and (min-width: 1301px) and (max-width: 1500px) {
+  .actu {
+    min-width: 250px;
+    padding: 20px;
+  }
+}
+@media all and (min-width: 1101px) and (max-width: 1300px) {
+  .actu {
+    min-width: 220px;
+    padding: 20px;
+  }
+}
+@media all and (min-width: 901px) and (max-width: 1100px) {
+  .actu {
+    min-width: 170px;
+    padding: 15px;
+  }
+}
+@media all and (min-width: 701px) and (max-width: 900px) {
+  .actu {
+    min-width: 150px;
+    padding: 10px;
+  }
+}
+@media all and (min-width: 401px) and (max-width: 700px) {
+  .actu {
+    min-width: 150px;
+    padding: 10px;
+  }
+}
+@media all and (min-width: 1px) and (max-width: 700px) {
+  .actu {
+    min-width: 200px;
+    padding: 10px;
+  }
+}
+.actu__card {
+  border-radius: 10px;
+  border: #124b38 2px solid;
+  box-shadow: 6px 6px 25px rgba(0, 0, 0, 0.4);
+  transition: all 800ms;
+}
+.actu__card__header {
+  padding: 10px;
+  border-radius: 10px 10px 0 0;
+  background-image: linear-gradient(to bottom, #ffd2b8, #ffebe2);
+  font-family: "Manrope" sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  color: #124b38;
+}
+@media all and (min-width: 401px) and (max-width: 900px) {
+  .actu__card__header {
+    white-space: nowrap;
+    font-size: 0.75em;
+  }
+}
+.actu__card__body {
+  padding: 15px 0px;
+}
+.actu__card__body__title {
+  padding: 5px 5px 15px 5px;
+  color: #b6124d;
+  font-family: "Manrope" sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  border-bottom: #ffebe2 3px solid;
+  text-align: center;
+}
+@media all and (min-width: 701px) and (max-width: 900px) {
+  .actu__card__body__title {
+    white-space: nowrap;
+    font-size: 0.9em;
+    padding: 5px;
+  }
+}
+@media all and (min-width: 201px) and (max-width: 700px) {
+  .actu__card__body__title {
+    white-space: nowrap;
+    font-size: 0.85em;
+    padding: 5px;
+  }
+}
+.actu__card__body__txt {
+  padding: 20px;
+  color: #124b38;
+  font-family: "Manrope" sans-serif;
+  font-size: 18px;
+}
+@media all and (min-width: 701px) and (max-width: 900px) {
+  .actu__card__body__txt {
+    white-space: nowrap;
+    font-size: 0.9em;
+    padding: 5px;
+  }
+}
+@media all and (min-width: 201px) and (max-width: 700px) {
+  .actu__card__body__txt {
+    white-space: nowrap;
+    font-size: 0.85em;
+    padding: 5px;
+  }
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+/*# sourceMappingURL=actualite.css.map */

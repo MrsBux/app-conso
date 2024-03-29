@@ -1,0 +1,29 @@
+.nosactus {
+  min-height: 200px;
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap-reverse;
+  padding: 20px 20px 20px 20px;
+}
+.nosactus__btn__b {
+  border-radius: 15px;
+  width: 100%;
+  font-weight: 600;
+}
+.nosactus__box {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 0px;
+  flex-wrap: wrap-reverse;
+}
+@media all and (min-width: 1px) and (max-width: 800px) {
+  .nosactus__box {
+    justify-content: center;
+  }
+}
+
+/*# sourceMappingURL=nosactus.css.map */

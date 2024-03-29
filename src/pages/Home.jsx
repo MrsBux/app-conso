@@ -5,6 +5,7 @@ import WhoWeAre from "../components/Whoweare";
 import NosVins from "../components/NosVins";
 import NosPrestations from "../components/NosPrestations";
 import Contact from "../components/Contact";
+import NosActus from "../components/NosActualites";
 
 function Home() {
   const sectionsPage = ["a", "b", "c", "d", "e"];
@@ -18,8 +19,7 @@ function Home() {
         <NosVins />
         <NosPrestations />
         <Contact />
-
-        <div className="card"></div>
+        <NosActus />
       </div>
     </>
   );

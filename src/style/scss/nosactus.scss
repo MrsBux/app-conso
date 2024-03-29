@@ -1,0 +1,34 @@
+$main-peach: #ffd2b8;
+$light-peach: #ffebe2;
+$red-wine: #b6124d;
+$green-leaf: #124b38;
+
+.nosactus {
+  min-height: 200px;
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap-reverse;
+  padding: 20px 20px 20px 20px;
+
+  &__btn {
+    &__b {
+      border-radius: 15px;
+      width: 100%;
+      font-weight: 600;
+    }
+  }
+
+  &__box {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 0px;
+    flex-wrap: wrap-reverse;
+    @media all and (min-width: 01px) and (max-width: 800px) {
+      justify-content: center;
+    }
+  }
+}
