@@ -1,6 +1,6 @@
-import bt1 from "../../assets/btrch913.webp";
-import bt2 from "../../assets/btrch923.webp";
-import bt3 from "../../assets/btrch933.webp";
+import bt1 from "../../assets/ch9R913.webp";
+import bt2 from "../../assets/ch9R923.webp";
+import bt3 from "../../assets/chR933.webp";
 import "../../style/css/banner.css";
 
 function Banner() {

@@ -1,0 +1,119 @@
+$main-peach: #ffd2b8;
+$light-peach: #ffebe2;
+$red-wine: #b6124d;
+$green-leaf: #124b38;
+
+.login {
+  max-width: 100%;
+  margin: 0px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: flex-start;
+  gap: 75px;
+
+  @media all and (min-width: 901px) and (max-width: 1200px) {
+    gap: 30px;
+  }
+
+  @media all and (min-width: 601px) and (max-width: 900px) {
+    gap: 0px;
+    justify-content: center;
+    gap: 50px;
+  }
+
+  @media all and (max-width: 600px) {
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: flex-start;
+    align-items: center;
+  }
+
+  &__btlles {
+    display: flex;
+    flex-direction: column-reverse;
+
+    &__img {
+      @media all and (min-width: 901px) and (max-width: 1200px) {
+        width: 280px;
+      }
+
+      @media all and (min-width: 601px) and (max-width: 900px) {
+        width: 220px;
+      }
+
+      @media all and (max-width: 600px) {
+        width: 150px;
+      }
+    }
+  }
+  &__form {
+    margin-top: 20%;
+    max-width: 40%;
+    background-color: #b6124d;
+    height: fit-content;
+    max-height: 500px;
+
+    @media all and (min-width: 901px) and (max-width: 1200px) {
+      max-width: 45%;
+    }
+
+    @media all and (min-width: 601px) and (max-width: 900px) {
+      max-width: 50%;
+    }
+
+    @media all and (max-width: 600px) {
+      max-width: 80%;
+    }
+
+    &__title {
+      color: $main-peach;
+      padding: 20px 0px;
+      margin: 0px;
+      font-weight: 800;
+      font-size: 2.3em;
+
+      @media all and (min-width: 1000px) and (max-width: 1290px) {
+        white-space: nowrap;
+        font-size: 2em;
+      }
+
+      @media all and (min-width: 801px) and (max-width: 1000px) {
+        white-space: nowrap;
+        font-size: 1.6em;
+      }
+
+      @media all and (min-width: 601px) and (max-width: 800px) {
+        font-size: 2em;
+      }
+
+      @media all and (max-width: 600px) {
+        font-size: 1.7em;
+      }
+    }
+
+    &__groupe {
+      margin: 20px 0px;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      width: 70%;
+
+      @media all and (max-width: 600px) {
+        margin: 10px 0px;
+      }
+    }
+
+    &__btn {
+      background-color: #124b38;
+      min-width: fit-content;
+      padding: 15px 25px;
+    }
+  }
+}
+
+.img2 {
+  @media all and (max-width: 600px) {
+    display: none;
+  }
+}

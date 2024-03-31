@@ -1,0 +1,124 @@
+.login {
+  max-width: 100%;
+  margin: 0px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: flex-start;
+  gap: 75px;
+}
+@media all and (min-width: 901px) and (max-width: 1200px) {
+  .login {
+    gap: 30px;
+  }
+}
+@media all and (min-width: 601px) and (max-width: 900px) {
+  .login {
+    gap: 0px;
+    justify-content: center;
+    gap: 50px;
+  }
+}
+@media all and (max-width: 600px) {
+  .login {
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: flex-start;
+    align-items: center;
+  }
+}
+.login__btlles {
+  display: flex;
+  flex-direction: column-reverse;
+}
+@media all and (min-width: 901px) and (max-width: 1200px) {
+  .login__btlles__img {
+    width: 280px;
+  }
+}
+@media all and (min-width: 601px) and (max-width: 900px) {
+  .login__btlles__img {
+    width: 220px;
+  }
+}
+@media all and (max-width: 600px) {
+  .login__btlles__img {
+    width: 150px;
+  }
+}
+.login__form {
+  margin-top: 20%;
+  max-width: 40%;
+  background-color: #b6124d;
+  height: fit-content;
+  max-height: 500px;
+}
+@media all and (min-width: 901px) and (max-width: 1200px) {
+  .login__form {
+    max-width: 45%;
+  }
+}
+@media all and (min-width: 601px) and (max-width: 900px) {
+  .login__form {
+    max-width: 50%;
+  }
+}
+@media all and (max-width: 600px) {
+  .login__form {
+    max-width: 80%;
+  }
+}
+.login__form__title {
+  color: #ffd2b8;
+  padding: 20px 0px;
+  margin: 0px;
+  font-weight: 800;
+  font-size: 2.3em;
+}
+@media all and (min-width: 1000px) and (max-width: 1290px) {
+  .login__form__title {
+    white-space: nowrap;
+    font-size: 2em;
+  }
+}
+@media all and (min-width: 801px) and (max-width: 1000px) {
+  .login__form__title {
+    white-space: nowrap;
+    font-size: 1.6em;
+  }
+}
+@media all and (min-width: 601px) and (max-width: 800px) {
+  .login__form__title {
+    font-size: 2em;
+  }
+}
+@media all and (max-width: 600px) {
+  .login__form__title {
+    font-size: 1.7em;
+  }
+}
+.login__form__groupe {
+  margin: 20px 0px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  width: 70%;
+}
+@media all and (max-width: 600px) {
+  .login__form__groupe {
+    margin: 10px 0px;
+  }
+}
+.login__form__btn {
+  background-color: #124b38;
+  min-width: fit-content;
+  padding: 15px 25px;
+}
+
+@media all and (max-width: 600px) {
+  .img2 {
+    display: none;
+  }
+}
+
+/*# sourceMappingURL=login.css.map */
