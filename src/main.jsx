@@ -26,12 +26,12 @@ ReactDOM.createRoot(document.getElementById("root")).render(
         <Route path="/salons" element={<Salons />} />
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/dashboardadmin" element={<DashboardAdmin />} />
-        <Route path="/error" element={<Error />} />
         <Route path="/login" element={<Login />} />
         <Route path="/loginadmin" element={<LoginAdmin />} />
         <Route path="/panier" element={<Panier />} />
         <Route path="/partners" element={<Partners />} />
         <Route path="/prestations" element={<Prestations />} />
+        <Route path="*" element={<Error />} />
       </Routes>
       <Footer />
     </Router>

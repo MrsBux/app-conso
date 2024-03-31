@@ -1,0 +1,140 @@
+.error {
+  color: #b6124d;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  max-width: 100%;
+  margin: 50px 0px;
+}
+@media all and (max-width: 640px) {
+  .error {
+    margin: 0px 0px;
+  }
+}
+.error__code {
+  font-size: 250px;
+  font-weight: 700;
+  padding: 20px;
+  margin: 8% 0px 0px 0px;
+}
+@media all and (min-width: 1601px) {
+  .error__code {
+    font-size: 350px;
+    margin: 5% 0px 0px 0px;
+  }
+}
+@media all and (min-width: 901px) and (max-width: 1100px) {
+  .error__code {
+    font-size: 200px;
+  }
+}
+@media all and (min-width: 601px) and (max-width: 900px) {
+  .error__code {
+    font-size: 180px;
+  }
+}
+@media all and (max-width: 640px) {
+  .error__code {
+    font-size: 150px;
+    text-align: center;
+  }
+}
+.error__txt {
+  font-size: 36px;
+  color: #124b38;
+}
+@media all and (min-width: 1601px) {
+  .error__txt {
+    font-size: 40px;
+  }
+}
+@media all and (min-width: 769px) and (max-width: 1024px) {
+  .error__txt {
+    font-size: 30px;
+  }
+}
+@media all and (min-width: 641px) and (max-width: 768px) {
+  .error__txt {
+    font-size: 24px;
+  }
+}
+@media all and (max-width: 640px) {
+  .error__txt {
+    font-size: 22px;
+    padding: 0px 15px;
+    text-align: center;
+  }
+}
+.error__link {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  min-width: 100%;
+  gap: 5%;
+}
+@media all and (min-width: 641px) and (max-width: 768px) {
+  .error__link {
+    gap: 3%;
+  }
+}
+@media all and (max-width: 640px) {
+  .error__link {
+    gap: 0px;
+    max-width: 100%;
+  }
+}
+.error__link__l {
+  font-size: 30px;
+  color: #124b38;
+  text-align: center;
+}
+@media all and (min-width: 1601px) {
+  .error__link__l {
+    font-size: 30px;
+  }
+}
+@media all and (min-width: 641px) and (max-width: 768px) {
+  .error__link__l {
+    font-size: 20px;
+  }
+}
+@media all and (max-width: 640px) {
+  .error__link__l {
+    font-size: 16px;
+    padding-bottom: 50px;
+  }
+}
+.error__link__img {
+  width: 450px;
+}
+@media all and (min-width: 1601px) {
+  .error__link__img {
+    width: 550px;
+  }
+}
+@media all and (min-width: 600px) and (max-width: 900px) {
+  .error__link__img {
+    width: 350px;
+  }
+}
+@media all and (max-width: 640px) {
+  .error__link__img {
+    width: 190px;
+  }
+}
+@media all and (max-width: 640px) {
+  .error__link {
+    font-size: 18px;
+    padding-bottom: 50px;
+  }
+}
+
+#errora {
+  margin: 0px;
+  padding: 0px;
+}
+
+/*# sourceMappingURL=error.css.map */
