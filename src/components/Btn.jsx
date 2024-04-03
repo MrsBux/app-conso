@@ -5,7 +5,7 @@ import "../style/css/btn.css";
 function Btn({ txt_btnG }) {
   return (
     <>
-      <Button variant="light" className="btnG">
+      <Button variant="light" id="btnG">
         {txt_btnG}
       </Button>{" "}
     </>

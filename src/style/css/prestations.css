@@ -1,0 +1,23 @@
+.prestations {
+  min-width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 50px;
+  background-color: #ffd2b8;
+}
+.prestations__title {
+  font-size: 80px;
+  margin: auto;
+  margin-top: 50px;
+  color: #b6124d;
+}
+@media all and (max-width: 600px) {
+  .prestations__title {
+    font-size: 42px;
+    text-align: center;
+  }
+}
+
+/*# sourceMappingURL=prestations.css.map */

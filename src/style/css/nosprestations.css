@@ -50,7 +50,6 @@
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  align-items: center;
 }
 @media all and (max-width: 800px) {
   .nosprestations__box__btns {

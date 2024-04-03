@@ -3,7 +3,7 @@ $light-peach: #ffebe2;
 $red-wine: #b6124d;
 $green-leaf: #124b38;
 
-.btn-primary {
+#btnload {
   background-color: #124b38;
   padding: 10px 20px;
   border-radius: 30px;
@@ -16,14 +16,6 @@ $green-leaf: #124b38;
   }
 }
 
-.btn-primary:hover {
+#btnload:hover {
   transform: scale(1.1); /* Agrandir le bouton au survol */
-}
-
-.btn-primary:active {
-  background-color: #b6124d; /* Changer la couleur au clic */
-}
-
-.loading {
-  background-color: #b6124d;
 }

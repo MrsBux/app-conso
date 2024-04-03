@@ -11,6 +11,7 @@ $green-leaf: #124b38;
   align-items: flex-start;
   background-color: $light-peach;
   min-height: fit-content;
+  color: $red-wine;
 
   @media all and (max-width: 600px) {
     max-width: 95%;
@@ -18,6 +19,30 @@ $green-leaf: #124b38;
     align-items: center;
     padding: 5px;
     padding-bottom: 20px;
+  }
+
+  &__maintitle {
+    color: $red-wine;
+    font-size: 42px;
+    font-family: "Manrope" sans-serif;
+    padding: 20px;
+    font-weight: 600;
+    @media all and (max-width: 600px) {
+      font-size: 28px;
+    }
+  }
+
+  &__title {
+    color: $red-wine;
+    font-size: 42px;
+    font-family: "Manrope" sans-serif;
+    padding: 20px;
+    font-weight: 400;
+    padding: 20px;
+    @media all and (max-width: 600px) {
+      font-size: 28px;
+      text-align: center;
+    }
   }
 
   &__icons {

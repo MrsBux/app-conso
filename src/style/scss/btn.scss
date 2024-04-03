@@ -3,7 +3,7 @@ $light-peach: #ffebe2;
 $red-wine: #b6124d;
 $green-leaf: #124b38;
 
-.btnG {
+#btnG {
   background-color: $red-wine;
   width: 37%;
   padding: 15px 20px;
@@ -51,43 +51,8 @@ $green-leaf: #124b38;
     padding: 15px 2px;
     width: 48%;
   }
-
-  // @media all and (min-width: 751px) and (max-width: 810px) {
-  //   height: 170px;
-  //   width: 170px;
-  //   border-radius: 100px;
-  // }
-  // @media all and (min-width: 601px) and (max-width: 750px) {
-  //   height: 160px;
-  //   width: 160px;
-  //   border-radius: 100px;
-  // }
-
-  // @media all and (min-width: 501px) and (max-width: 600px) {
-  //   height: 150px;
-  //   width: 150px;
-  //   border-radius: 100px;
-  // }
-
-  // @media all and (min-width: 401px) and (max-width: 500px) {
-  //   height: 140px;
-  //   width: 140px;
-  //   border-radius: 100px;
-  // }
-
-  // @media all and (min-width: 301px) and (max-width: 400px) {
-  //   height: 130px;
-  //   width: 130px;
-  //   border-radius: 100px;
-  // }
-
-  // @media all and (max-width: 300px) {
-  //   height: 120px;
-  //   width: 120px;
-  //   border-radius: 100px;
-  // }
 }
 
-.btnG:hover {
+#btnG:hover {
   transform: scale(1.2);
 }

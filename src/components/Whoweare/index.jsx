@@ -27,13 +27,13 @@ function WhoWeAre() {
   return (
     <>
       <div className="whoweare">
-        <h2> QUI SOMMES NOUS ? </h2>
+        <h2 className="whoweare__maintitle"> QUI SOMMES NOUS ? </h2>
         <div className="whoweare__icons">
           {icons.map((item, index) => (
             <Icon key={index} icon={item.icon} text_icon={item.text_icon} />
           ))}{" "}
         </div>
-        <h3> Quelques chiffres</h3>
+        <h3 className="whoweare__title"> Quelques chiffres</h3>
         <div className="whoweare__chiffres">
           {chiffres.map((item, index) => (
             <Chiffre

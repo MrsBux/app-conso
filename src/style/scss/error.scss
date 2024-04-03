@@ -11,7 +11,8 @@ $green-leaf: #124b38;
   align-items: center;
   gap: 30px;
   max-width: 100%;
-  margin: 50px 0px;
+  margin: 0px 0px;
+  background-color: $main-peach;
 
   @media all and (max-width: 640px) {
     margin: 0px 0px;

@@ -20,13 +20,14 @@ function LoadingButton() {
   const handleClick = () => setLoading(true);
 
   return (
-    <Button
+    <button
+      id="btnload"
       className={isLoading ? "loading" : ""}
       disabled={isLoading}
       onClick={!isLoading ? handleClick : null}
     >
       {isLoading ? "Téléchargement…" : "Télécharger la carte"}
-    </Button>
+    </button>
   );
 }
 

@@ -1,13 +1,21 @@
+import AllPrestations from "../components/AllPrestations";
+import GFV from "../components/GFV";
+import Faq from "../components/Faq";
+
+import "../style/css/prestations.css";
+
 function Prestations() {
   return (
     <>
-      <div>
-        <h1>Prestations</h1>
-        <div className="card"></div>
-        <p className="read-the-docs">
-          Click on the Vite and React logos to learn more
-        </p>
-      </div>
+      <main>
+        <div className="prestations">
+          <h2 className="prestations__title">NOS PRESTATIONS</h2>
+
+          <AllPrestations />
+          <Faq />
+          <GFV />
+        </div>
+      </main>
     </>
   );
 }

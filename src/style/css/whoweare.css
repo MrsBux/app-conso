@@ -6,6 +6,7 @@
   align-items: flex-start;
   background-color: #ffebe2;
   min-height: fit-content;
+  color: #b6124d;
 }
 @media all and (max-width: 600px) {
   .whoweare {
@@ -14,6 +15,32 @@
     align-items: center;
     padding: 5px;
     padding-bottom: 20px;
+  }
+}
+.whoweare__maintitle {
+  color: #b6124d;
+  font-size: 42px;
+  font-family: "Manrope" sans-serif;
+  padding: 20px;
+  font-weight: 600;
+}
+@media all and (max-width: 600px) {
+  .whoweare__maintitle {
+    font-size: 28px;
+  }
+}
+.whoweare__title {
+  color: #b6124d;
+  font-size: 42px;
+  font-family: "Manrope" sans-serif;
+  padding: 20px;
+  font-weight: 400;
+  padding: 20px;
+}
+@media all and (max-width: 600px) {
+  .whoweare__title {
+    font-size: 28px;
+    text-align: center;
   }
 }
 .whoweare__icons {

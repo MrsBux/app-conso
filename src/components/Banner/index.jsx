@@ -13,7 +13,7 @@ function Banner() {
         <img src={bt2} alt="partie 2 bouteille" id="bt2"></img>
       </div>
       <div className="banner__box3">
-        <h1>
+        <h1 className="banner__box3__title">
           DOMAINE <br /> LA CONSONNIERE
         </h1>
         <img src={bt3} alt="culot de bouteille" id="bt3"></img>

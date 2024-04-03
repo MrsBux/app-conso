@@ -30,6 +30,7 @@ function NosActus() {
         <div className="nosactus__btn">
           {visibleActus < actus.length ? (
             <button
+              id="btnV"
               name={"Voir plus ->"}
               className="nosactus__btn__b btnG"
               onClick={handleVoirPlusClick}
@@ -38,6 +39,7 @@ function NosActus() {
             </button>
           ) : (
             <button
+              id="btnM"
               name={"Voir moins <-"}
               className="nosactus__btn__b btnG"
               onClick={handleVoirMoinsClick}

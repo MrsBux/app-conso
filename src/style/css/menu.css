@@ -1,0 +1,60 @@
+.menuFaq {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-width: 100%;
+  max-width: fit-content;
+}
+.menuFaq button {
+  width: 100%;
+  background-color: #124b38;
+  color: #ffebe2;
+  font-size: 20px;
+  transition: transform 400ms;
+  border-radius: 10px;
+}
+.menuFaq__title {
+  width: 80%;
+  margin: 0px;
+  padding: 0px;
+}
+@media all and (max-width: 600px) {
+  .menuFaq__title {
+    width: 90%;
+  }
+}
+.menuFaq__name {
+  margin: 0px;
+  padding: 0px;
+}
+
+.menuFaq .accordion-button:hover {
+  transform: scale(1.075);
+}
+
+.menuFaq .accordion-button::after {
+  color: #ffebe2;
+}
+
+.menuFaq .accordion-button[aria-expanded=true] {
+  background-color: #b6124d;
+  color: #ffebe2;
+  font-size: 20px;
+  border-radius: 10px 10px 0px 0px;
+}
+
+.menuFaq .accordion-collapse {
+  min-width: 80%;
+  color: #124b38;
+  background-color: #ffd2b8;
+  border-radius: 0px 0px 10px 10px;
+  padding: 15px;
+}
+@media all and (max-width: 600px) {
+  .menuFaq .accordion-collapse {
+    width: 90%;
+  }
+}
+
+/*# sourceMappingURL=menu.css.map */

@@ -4,6 +4,7 @@ $red-wine: #b6124d;
 $green-leaf: #124b38;
 
 .nosactus {
+  background-color: $main-peach;
   min-height: 200px;
   display: flex;
   flex-direction: row-reverse;
@@ -31,4 +32,23 @@ $green-leaf: #124b38;
       justify-content: center;
     }
   }
+}
+
+#btnV,
+#btnM {
+  background-color: $red-wine;
+  border-radius: 15px;
+  width: 100%;
+  font-weight: 600;
+  padding: 15px 20px;
+  border: 0;
+  box-shadow: 6px 6px 25px rgba(0, 0, 0, 0.5);
+  color: $light-peach;
+  font-family: "Manrope" sans-serif;
+  font-size: 100%;
+  transition: all 800ms;
+}
+
+#btnG:hover {
+  transform: scale(1.2);
 }

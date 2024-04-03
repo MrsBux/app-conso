@@ -1,5 +1,4 @@
 import Form from "react-bootstrap/Form";
-import Button from "react-bootstrap/Button";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import "../../style/css/searchbox.css";
@@ -14,16 +13,17 @@ function SearchBox() {
             type="text"
             placeholder="Search"
             className=" mr-sm-2 searchbox__row__col__box"
+            id="bar"
           />
         </Col>
         <Col className="searchbox__row__col" xs="auto">
-          <Button type="submit" className="searchbox__row__col__btn">
+          <button type="submit" className="searchbox__row__col__btn" id="loupe">
             <img
               src={loupe}
               alt="loupe de recherche"
               className="searchbox__row__col__btn__img"
             ></img>
-          </Button>
+          </button>
         </Col>
       </Row>
     </Form>

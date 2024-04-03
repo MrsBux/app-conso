@@ -1,4 +1,4 @@
-.btnG {
+#btnG {
   background-color: #b6124d;
   width: 37%;
   padding: 15px 20px;
@@ -11,26 +11,26 @@
   transition: all 800ms;
 }
 @media all and (min-width: 1251px) and (max-width: 1550px) {
-  .btnG {
+  #btnG {
     white-space: nowrap;
     font-size: 0.8em;
   }
 }
 @media all and (min-width: 1101px) and (max-width: 1250px) {
-  .btnG {
+  #btnG {
     white-space: nowrap;
     font-size: 0.7em;
   }
 }
 @media all and (min-width: 901px) and (max-width: 1100px) {
-  .btnG {
+  #btnG {
     white-space: nowrap;
     font-size: 0.7em;
     padding: 15px 10px;
   }
 }
 @media all and (min-width: 801px) and (max-width: 900px) {
-  .btnG {
+  #btnG {
     white-space: nowrap;
     font-size: 0.7em;
     padding: 15px 5px;
@@ -38,7 +38,7 @@
   }
 }
 @media all and (min-width: 451px) and (max-width: 800px) {
-  .btnG {
+  #btnG {
     white-space: nowrap;
     font-size: 0.8em;
     padding: 15px 2px;
@@ -46,7 +46,7 @@
   }
 }
 @media all and (min-width: 251px) and (max-width: 450px) {
-  .btnG {
+  #btnG {
     white-space: nowrap;
     font-size: 0.7em;
     padding: 15px 2px;
@@ -54,7 +54,7 @@
   }
 }
 
-.btnG:hover {
+#btnG:hover {
   transform: scale(1.2);
 }
 

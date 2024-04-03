@@ -1,4 +1,5 @@
 .nosactus {
+  background-color: #ffd2b8;
   min-height: 200px;
   display: flex;
   flex-direction: row-reverse;
@@ -24,6 +25,25 @@
   .nosactus__box {
     justify-content: center;
   }
+}
+
+#btnV,
+#btnM {
+  background-color: #b6124d;
+  border-radius: 15px;
+  width: 100%;
+  font-weight: 600;
+  padding: 15px 20px;
+  border: 0;
+  box-shadow: 6px 6px 25px rgba(0, 0, 0, 0.5);
+  color: #ffebe2;
+  font-family: "Manrope" sans-serif;
+  font-size: 100%;
+  transition: all 800ms;
+}
+
+#btnG:hover {
+  transform: scale(1.2);
 }
 
 /*# sourceMappingURL=nosactus.css.map */

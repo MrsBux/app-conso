@@ -1,4 +1,5 @@
 .banner {
+  background-color: #ffd2b8;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -95,6 +96,75 @@
     gap: 0%;
     max-height: 250px;
     min-width: 100%;
+  }
+}
+.banner__box3__title {
+  text-align: center;
+  font-size: 72px;
+  font-family: "Cinzel", serif;
+  color: #b6124d;
+  padding: 0px;
+  margin: 0px;
+  max-width: 250px;
+  position: absolute;
+  top: 150px;
+  right: 260px;
+}
+@media all and (min-width: 2051px) {
+  .banner__box3__title {
+    position: absolute;
+    top: 130px;
+    right: 500px;
+    font-size: 104px;
+  }
+}
+@media all and (min-width: 1850px) and (max-width: 2050px) {
+  .banner__box3__title {
+    position: absolute;
+    top: 140px;
+    right: 450px;
+    font-size: 84px;
+  }
+}
+@media all and (min-width: 1101px) and (max-width: 1300px) {
+  .banner__box3__title {
+    position: absolute;
+    top: 140px;
+    right: 120px;
+    font-size: 50px;
+  }
+}
+@media all and (min-width: 901px) and (max-width: 1100px) {
+  .banner__box3__title {
+    position: absolute;
+    top: 70px;
+    right: 85px;
+    font-size: 44px;
+  }
+}
+@media all and (min-width: 801px) and (max-width: 900px) {
+  .banner__box3__title {
+    position: absolute;
+    top: 60px;
+    right: 80px;
+    font-size: 42px;
+  }
+}
+@media all and (min-width: 601px) and (max-width: 800px) {
+  .banner__box3__title {
+    position: absolute;
+    top: 44px;
+    right: 45px;
+    max-width: 300px;
+    font-size: 44px;
+  }
+}
+@media all and (max-width: 600px) {
+  .banner__box3__title {
+    position: absolute;
+    top: 15px;
+    right: 8px;
+    font-size: 30px;
   }
 }
 
@@ -235,76 +305,6 @@
   #bt3 {
     position: relative;
     left: 120px;
-  }
-}
-
-h1 {
-  text-align: center;
-  font-size: 72px;
-  font-family: "Cinzel", serif;
-  color: #b6124d;
-  padding: 0px;
-  margin: 0px;
-  max-width: 250px;
-  position: absolute;
-  top: 150px;
-  right: 260px;
-}
-@media all and (min-width: 2051px) {
-  h1 {
-    position: absolute;
-    top: 130px;
-    right: 500px;
-    font-size: 104px;
-  }
-}
-@media all and (min-width: 1850px) and (max-width: 2050px) {
-  h1 {
-    position: absolute;
-    top: 140px;
-    right: 450px;
-    font-size: 84px;
-  }
-}
-@media all and (min-width: 1101px) and (max-width: 1300px) {
-  h1 {
-    position: absolute;
-    top: 140px;
-    right: 120px;
-    font-size: 50px;
-  }
-}
-@media all and (min-width: 901px) and (max-width: 1100px) {
-  h1 {
-    position: absolute;
-    top: 70px;
-    right: 85px;
-    font-size: 44px;
-  }
-}
-@media all and (min-width: 801px) and (max-width: 900px) {
-  h1 {
-    position: absolute;
-    top: 60px;
-    right: 80px;
-    font-size: 42px;
-  }
-}
-@media all and (min-width: 601px) and (max-width: 800px) {
-  h1 {
-    position: absolute;
-    top: 44px;
-    right: 45px;
-    max-width: 300px;
-    font-size: 44px;
-  }
-}
-@media all and (max-width: 600px) {
-  h1 {
-    position: absolute;
-    top: 15px;
-    right: 8px;
-    font-size: 30px;
   }
 }
 

@@ -13,6 +13,18 @@ $green-leaf: #124b38;
   justify-content: center;
   overflow-x: hidden;
   overflow-y: visible;
+
+  &__title {
+    color: $red-wine;
+    font-size: 42px;
+    font-family: "Manrope" sans-serif;
+    padding: 20px;
+    font-weight: 600;
+    @media all and (max-width: 600px) {
+      font-size: 28px;
+    }
+  }
+
   &__box {
     height: 100%;
     display: flex;
@@ -55,6 +67,17 @@ $green-leaf: #124b38;
           max-width: 50%;
         }
 
+        &__h {
+          color: $red-wine;
+          font-size: 18px;
+          font-family: "Manrope" sans-serif;
+          padding: 20px;
+          font-weight: 800;
+          padding: 0px;
+          margin: 0px;
+          text-align: center;
+        }
+
         &__btn {
           color: #ffd2b8;
           background-color: $green-leaf;
@@ -73,6 +96,17 @@ $green-leaf: #124b38;
         justify-content: space-between;
         align-items: center;
         gap: 20px;
+
+        &__h {
+          color: $red-wine;
+          font-size: 18px;
+          font-family: "Manrope" sans-serif;
+          padding: 20px;
+          font-weight: 800;
+          padding: 0px;
+          margin: 0px;
+          text-align: center;
+        }
 
         &__btn {
           color: #ffd2b8;

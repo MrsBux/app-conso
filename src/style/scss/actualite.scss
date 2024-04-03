@@ -42,65 +42,68 @@ $green-leaf: #124b38;
     border: $green-leaf 2px solid;
     box-shadow: 6px 6px 25px rgba(0, 0, 0, 0.4);
     transition: all 800ms;
-    &__header {
-      padding: 10px;
-      border-radius: 10px 10px 0 0;
-      background-image: linear-gradient(to bottom, $main-peach, $light-peach);
-      font-family: "Manrope" sans-serif;
-      font-size: 18px;
-      font-weight: 600;
-      color: #124b38;
 
-      @media all and (min-width: 401px) and (max-width: 900px) {
-        white-space: nowrap;
-        font-size: 0.75em;
-      }
-    }
     &__body {
       padding: 15px 0px;
-      &__title {
-        padding: 5px 5px 15px 5px;
-        color: $red-wine;
-        font-family: "Manrope" sans-serif;
-        font-size: 18px;
-        font-weight: 600;
-        border-bottom: $light-peach 3px solid;
-        text-align: center;
-
-        @media all and (min-width: 701px) and (max-width: 900px) {
-          white-space: nowrap;
-          font-size: 0.9em;
-          padding: 5px;
-        }
-
-        @media all and (min-width: 201px) and (max-width: 700px) {
-          white-space: nowrap;
-          font-size: 0.85em;
-          padding: 5px;
-        }
-      }
-
-      &__txt {
-        padding: 20px;
-        color: #124b38;
-        font-family: "Manrope" sans-serif;
-        font-size: 18px;
-        @media all and (min-width: 701px) and (max-width: 900px) {
-          white-space: nowrap;
-          font-size: 0.9em;
-          padding: 5px;
-        }
-
-        @media all and (min-width: 201px) and (max-width: 700px) {
-          white-space: nowrap;
-          font-size: 0.85em;
-          padding: 5px;
-        }
-      }
     }
   }
 }
 
 .card:hover {
   transform: scale(1.05);
+}
+
+#actu_header {
+  padding: 10px;
+  border-radius: 10px 10px 0 0;
+  background-image: linear-gradient(to bottom, $main-peach, $light-peach);
+  font-family: "Manrope" sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  color: #124b38;
+
+  @media all and (min-width: 401px) and (max-width: 900px) {
+    white-space: nowrap;
+    font-size: 0.75em;
+  }
+}
+
+#actu_title {
+  padding: 5px 5px 15px 5px;
+  color: $red-wine;
+  font-family: "Manrope" sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  border-bottom: $light-peach 3px solid;
+  text-align: center;
+
+  @media all and (min-width: 701px) and (max-width: 900px) {
+    white-space: nowrap;
+    font-size: 0.9em;
+    padding: 5px;
+  }
+
+  @media all and (min-width: 201px) and (max-width: 700px) {
+    white-space: nowrap;
+    font-size: 0.85em;
+    padding: 5px;
+  }
+}
+
+#actu_txt {
+  padding: 20px;
+  color: #124b38;
+  font-family: "Manrope" sans-serif;
+  font-size: 18px;
+  @media all and (min-width: 701px) and (max-width: 900px) {
+    white-space: nowrap;
+    font-size: 0.9em;
+    padding: 5px;
+  }
+
+  @media all and (min-width: 201px) and (max-width: 700px) {
+    white-space: nowrap;
+    font-size: 0.85em;
+    padding: 5px;
+  }
 }

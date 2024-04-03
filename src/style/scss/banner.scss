@@ -4,6 +4,7 @@ $red-wine: #b6124d;
 $green-leaf: #124b38;
 
 .banner {
+  background-color: $main-peach;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -90,6 +91,69 @@ $green-leaf: #124b38;
       gap: 0%;
       max-height: 250px;
       min-width: 100%;
+    }
+
+    &__title {
+      text-align: center;
+      font-size: 72px;
+      font-family: "Cinzel", serif;
+      color: $red-wine;
+      padding: 0px;
+      margin: 0px;
+      max-width: 250px;
+      position: absolute;
+      top: 150px;
+      right: 260px;
+
+      @media all and (min-width: 2051px) {
+        position: absolute;
+        top: 130px;
+        right: 500px;
+        font-size: 104px;
+      }
+
+      @media all and (min-width: 1850px) and (max-width: 2050px) {
+        position: absolute;
+        top: 140px;
+        right: 450px;
+        font-size: 84px;
+      }
+
+      @media all and (min-width: 1101px) and (max-width: 1300px) {
+        position: absolute;
+        top: 140px;
+        right: 120px;
+        font-size: 50px;
+      }
+
+      @media all and (min-width: 901px) and (max-width: 1100px) {
+        position: absolute;
+        top: 70px;
+        right: 85px;
+        font-size: 44px;
+      }
+
+      @media all and (min-width: 801px) and (max-width: 900px) {
+        position: absolute;
+        top: 60px;
+        right: 80px;
+        font-size: 42px;
+      }
+
+      @media all and (min-width: 601px) and (max-width: 800px) {
+        position: absolute;
+        top: 44px;
+        right: 45px;
+        max-width: 300px;
+        font-size: 44px;
+      }
+
+      @media all and (max-width: 600px) {
+        position: absolute;
+        top: 15px;
+        right: 8px;
+        font-size: 30px;
+      }
     }
   }
 }
@@ -197,68 +261,5 @@ $green-leaf: #124b38;
   @media all and (max-width: 600px) {
     position: relative;
     left: 120px;
-  }
-}
-
-h1 {
-  text-align: center;
-  font-size: 72px;
-  font-family: "Cinzel", serif;
-  color: $red-wine;
-  padding: 0px;
-  margin: 0px;
-  max-width: 250px;
-  position: absolute;
-  top: 150px;
-  right: 260px;
-
-  @media all and (min-width: 2051px) {
-    position: absolute;
-    top: 130px;
-    right: 500px;
-    font-size: 104px;
-  }
-
-  @media all and (min-width: 1850px) and (max-width: 2050px) {
-    position: absolute;
-    top: 140px;
-    right: 450px;
-    font-size: 84px;
-  }
-
-  @media all and (min-width: 1101px) and (max-width: 1300px) {
-    position: absolute;
-    top: 140px;
-    right: 120px;
-    font-size: 50px;
-  }
-
-  @media all and (min-width: 901px) and (max-width: 1100px) {
-    position: absolute;
-    top: 70px;
-    right: 85px;
-    font-size: 44px;
-  }
-
-  @media all and (min-width: 801px) and (max-width: 900px) {
-    position: absolute;
-    top: 60px;
-    right: 80px;
-    font-size: 42px;
-  }
-
-  @media all and (min-width: 601px) and (max-width: 800px) {
-    position: absolute;
-    top: 44px;
-    right: 45px;
-    max-width: 300px;
-    font-size: 44px;
-  }
-
-  @media all and (max-width: 600px) {
-    position: absolute;
-    top: 15px;
-    right: 8px;
-    font-size: 30px;
   }
 }

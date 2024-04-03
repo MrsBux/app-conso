@@ -1,0 +1,63 @@
+$main-peach: #ffd2b8;
+$light-peach: #ffebe2;
+$red-wine: #b6124d;
+$green-leaf: #124b38;
+
+.menuFaq {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-width: 100%;
+  max-width: fit-content;
+  button {
+    width: 100%;
+    background-color: $green-leaf;
+    color: $light-peach;
+    font-size: 20px;
+    transition: transform 400ms;
+    border-radius: 10px;
+  }
+
+  &__title {
+    width: 80%;
+    margin: 0px;
+    padding: 0px;
+
+    @media all and (max-width: 600px) {
+      width: 90%;
+    }
+  }
+
+  &__name {
+    margin: 0px;
+    padding: 0px;
+  }
+}
+
+.menuFaq .accordion-button:hover {
+  transform: scale(1.075);
+}
+
+.menuFaq .accordion-button::after {
+  color: $light-peach;
+}
+
+.menuFaq .accordion-button[aria-expanded="true"] {
+  background-color: $red-wine;
+  color: $light-peach;
+  font-size: 20px;
+  border-radius: 10px 10px 0px 0px;
+}
+
+.menuFaq .accordion-collapse {
+  min-width: 80%;
+  color: $green-leaf;
+  background-color: $main-peach;
+  border-radius: 0px 0px 10px 10px;
+  padding: 15px;
+
+  @media all and (max-width: 600px) {
+    width: 90%;
+  }
+}

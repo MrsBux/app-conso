@@ -32,7 +32,7 @@ function Contact() {
 
   return (
     <div className="contact">
-      <h2>RESTONS EN CONTACT</h2>
+      <h2 className="contact__title">RESTONS EN CONTACT</h2>
       <div className="contact__box">
         <FormContact />
         <div className="contact__box__btns">

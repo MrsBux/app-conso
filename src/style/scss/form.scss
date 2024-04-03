@@ -3,7 +3,8 @@ $light-peach: #ffebe2;
 $red-wine: #b6124d;
 $green-leaf: #124b38;
 
-form {
+.form {
+  background-color: #b6124d;
   width: 50%;
   border-radius: 15px;
   padding: 50px 25px 100px 25px;
@@ -29,10 +30,7 @@ form {
     padding: 20px 25px 40px 25px;
     width: 95%;
   }
-}
 
-.form {
-  background-color: #b6124d;
   &__title {
     color: $main-peach;
     padding: 20px 0px;
@@ -94,4 +92,11 @@ form {
       background-color: $green-leaf;
     }
   }
+}
+
+#email_contact_home,
+#nom_contact_home,
+#prenom_contact_home,
+#message_contact_home {
+  background-color: $main-peach;
 }

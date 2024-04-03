@@ -1,0 +1,346 @@
+$main-peach: #ffd2b8;
+$light-peach: #ffebe2;
+$red-wine: #b6124d;
+$green-leaf: #124b38;
+
+.allprestations {
+  min-width: 100%;
+  min-height: fit-content;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: 100%;
+  gap: 50px;
+  overflow-x: hidden;
+  overflow-y: visible;
+  padding: 20px 0px 150px 0px;
+
+  &__img {
+    @media all and (min-width: 1101px) and (max-width: 1275px) {
+      width: 375px;
+    }
+
+    @media all and (min-width: 901px) and (max-width: 1100px) {
+      width: 350px;
+    }
+
+    @media all and (min-width: 701px) and (max-width: 900px) {
+      width: 460px;
+      position: absolute;
+      top: 0px;
+      left: -230px;
+    }
+
+    @media all and (min-width: 601px) and (max-width: 700px) {
+      width: 500px;
+      position: absolute;
+      top: 0px;
+      left: -250px;
+    }
+
+    @media all and (max-width: 600px) {
+      display: none;
+    }
+  }
+
+  &__all {
+    min-width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+
+    @media all and (min-width: 601px) and (max-width: 900px) {
+      padding: 0px 80px 10px 250px;
+    }
+
+    @media all and (max-width: 600px) {
+      gap: 10px;
+    }
+
+    &__btnNVP {
+      width: 260px;
+      height: 260px;
+    }
+  }
+
+  &__btn {
+    background: linear-gradient(to bottom right, #124b38, #b6124d);
+    font-weight: 800;
+    font-size: 18px;
+    padding: 25px 20px;
+    border-radius: 50px;
+    border: 0;
+    box-shadow: 6px 6px 25px rgba(0, 0, 0, 0.5);
+    color: $light-peach;
+    font-family: "Manrope" sans-serif;
+    font-size: 100%;
+    transition: all 800ms;
+
+    @media all and (min-width: 601px) and (max-width: 900px) {
+      margin-top: 50px;
+    }
+    @media all and (max-width: 600px) {
+      min-width: fit-content;
+      margin-top: 75px;
+      font-size: 14px;
+    }
+  }
+}
+
+#btnNVP__0,
+#btnNVP__1,
+#btnNVP__2,
+#btnNVP__3,
+#btnNVP__4,
+#btnNVP__5,
+#btnNVP__6,
+#btnNVP__7,
+#btnNVP__8,
+#btnNVP__9,
+#btnNVP__10 {
+  border-radius: 260px;
+  width: 250px;
+  height: 250px;
+  font-size: 18px;
+  padding: 15px;
+
+  @media all and (min-width: 1101px) and (max-width: 1275px) {
+    width: 200px;
+    height: 200px;
+    border-radius: 220px;
+  }
+
+  @media all and (min-width: 901px) and (max-width: 1100px) {
+    width: 190px;
+    height: 190px;
+    border-radius: 190px;
+    font-size: 16px;
+    padding: 10px;
+  }
+
+  @media all and (min-width: 801px) and (max-width: 900px) {
+    width: 220px;
+    height: 220px;
+    border-radius: 120px;
+    font-size: 16px;
+    padding: 10px;
+  }
+
+  @media all and (min-width: 601px) and (max-width: 800px) {
+    width: 155px;
+    height: 155px;
+    border-radius: 180px;
+    font-size: 14px;
+    padding: 7px;
+  }
+
+  @media all and (max-width: 600px) {
+    width: 145px;
+    height: 145px;
+    border-radius: 150px;
+    font-size: 14px;
+    padding: 7px;
+  }
+}
+
+#btnNVP__0 {
+  position: absolute;
+  top: 80px;
+  left: -20px;
+  @media all and (max-width: 900px) {
+    position: unset;
+  }
+}
+
+#btnNVP__1 {
+  position: absolute;
+  left: 175px;
+  top: 390px;
+
+  @media all and (min-width: 1100px) and (max-width: 1275px) {
+    left: 155px;
+    top: 370px;
+  }
+
+  @media all and (min-width: 901px) and (max-width: 1100px) {
+    left: 80px;
+    top: 300px;
+  }
+  @media all and (max-width: 900px) {
+    position: unset;
+  }
+}
+
+#btnNVP__2 {
+  position: absolute;
+  left: 320px;
+  top: 750px;
+
+  @media all and (min-width: 1100px) and (max-width: 1275px) {
+    left: 300px;
+    top: 650px;
+  }
+
+  @media all and (min-width: 901px) and (max-width: 1100px) {
+    left: 250px;
+    top: 640px;
+  }
+  @media all and (max-width: 900px) {
+    position: unset;
+  }
+}
+
+#btnNVP__3 {
+  position: absolute;
+  left: 10px;
+  bottom: 375px;
+
+  @media all and (min-width: 1100px) and (max-width: 1275px) {
+    left: 10px;
+    bottom: 420px;
+  }
+
+  @media all and (min-width: 901px) and (max-width: 1100px) {
+    left: 5px;
+    bottom: 420px;
+  }
+
+  @media all and (max-width: 900px) {
+    position: unset;
+  }
+}
+
+#btnNVP__4 {
+  position: absolute;
+  right: 200px;
+  top: 200px;
+
+  @media all and (min-width: 1100px) and (max-width: 1275px) {
+    right: 160px;
+    top: 180px;
+  }
+
+  @media all and (min-width: 901px) and (max-width: 1100px) {
+    right: 90px;
+    top: 190px;
+  }
+  @media all and (max-width: 900px) {
+    position: unset;
+  }
+}
+
+#btnNVP__5 {
+  position: absolute;
+  right: 0px;
+  top: 780px;
+
+  @media all and (min-width: 1100px) and (max-width: 1275px) {
+    right: 0px;
+    top: 720px;
+  }
+
+  @media all and (min-width: 901px) and (max-width: 1100px) {
+    right: 0px;
+    top: 700px;
+  }
+  @media all and (max-width: 900px) {
+    position: unset;
+  }
+}
+
+#btnNVP__6 {
+  position: absolute;
+  right: 10px;
+  top: 450px;
+
+  @media all and (min-width: 1100px) and (max-width: 1275px) {
+    right: 10px;
+    top: 420px;
+  }
+
+  @media all and (min-width: 901px) and (max-width: 1100px) {
+    right: 5px;
+    top: 440px;
+  }
+  @media all and (max-width: 900px) {
+    position: unset;
+  }
+}
+
+#btnNVP__7 {
+  position: absolute;
+  right: 300px;
+  bottom: 380px;
+
+  @media all and (min-width: 1100px) and (max-width: 1275px) {
+    right: 300px;
+    bottom: 480px;
+  }
+
+  @media all and (min-width: 901px) and (max-width: 1100px) {
+    right: 220px;
+    bottom: 400px;
+  }
+  @media all and (max-width: 900px) {
+    position: unset;
+  }
+}
+
+#btnNVP__8 {
+  position: absolute;
+  right: -10px;
+  top: 0px;
+
+  @media all and (min-width: 901px) and (max-width: 1100px) {
+    position: absolute;
+  }
+  @media all and (max-width: 900px) {
+    position: unset;
+  }
+}
+
+#btnNVP__9 {
+  position: absolute;
+  right: -200px;
+  bottom: 10px;
+
+  @media all and (min-width: 1100px) and (max-width: 1275px) {
+    right: -125px;
+    bottom: 10px;
+  }
+
+  @media all and (min-width: 901px) and (max-width: 1100px) {
+    display: none;
+  }
+  @media all and (max-width: 900px) {
+    display: NONE;
+  }
+}
+
+#btnNVP__10 {
+  position: absolute;
+  left: -150px;
+  bottom: 80px;
+
+  @media all and (min-width: 1100px) and (max-width: 1275px) {
+    left: -105px;
+    bottom: 170px;
+  }
+
+  @media all and (min-width: 901px) and (max-width: 1100px) {
+    left: -105px;
+    bottom: 190px;
+  }
+  @media all and (max-width: 900px) {
+    display: none;
+  }
+}
+
+.allprestations__btn:hover {
+  transform: scale(1.15);
+}
