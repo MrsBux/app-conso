@@ -1,0 +1,296 @@
+.bouteille {
+  padding: 50px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 100px;
+}
+@media all and (min-width: 1101px) and (max-width: 1250px) {
+  .bouteille {
+    padding: 50px 40px;
+  }
+}
+@media all and (min-width: 901px) and (max-width: 1100px) {
+  .bouteille {
+    padding: 50px 25px;
+  }
+}
+@media all and (min-width: 601px) and (max-width: 900px) {
+  .bouteille {
+    padding: 50px 20px;
+  }
+}
+@media all and (min-width: 400px) and (max-width: 600px) {
+  .bouteille {
+    padding: 40px 15px;
+  }
+}
+@media all and (max-width: 450px) {
+  .bouteille {
+    padding: 30px 10px;
+  }
+}
+.bouteille__img {
+  max-height: 500px;
+}
+.bouteille__card {
+  width: 50%;
+  min-width: fit-content;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  border: #124b38 solid 3px;
+  border-radius: 20px;
+  padding: 30px;
+}
+@media all and (min-width: 1101px) and (max-width: 1250px) {
+  .bouteille__card {
+    width: 60%;
+  }
+}
+@media all and (min-width: 901px) and (max-width: 1100px) {
+  .bouteille__card {
+    width: 65%;
+  }
+}
+@media all and (min-width: 601px) and (max-width: 900px) {
+  .bouteille__card {
+    width: 70%;
+  }
+}
+@media all and (min-width: 400px) and (max-width: 600px) {
+  .bouteille__card {
+    width: 100%;
+  }
+}
+@media all and (max-width: 450px) {
+  .bouteille__card {
+    width: 99%;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    padding: 20px 10px;
+  }
+}
+.bouteille__card__box1 {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+.bouteille__card__box1__name {
+  margin: 0px;
+  padding: 0px;
+  color: #b6124d;
+  font-family: "Atkinson Hyperlegible", sans-serif;
+  font-weight: 600;
+  font-size: 2.5em;
+}
+@media all and (min-width: 1101px) and (max-width: 1250px) {
+  .bouteille__card__box1__name {
+    font-size: 2.3em;
+  }
+}
+@media all and (min-width: 901px) and (max-width: 1100px) {
+  .bouteille__card__box1__name {
+    font-size: 2.1em;
+  }
+}
+@media all and (min-width: 601px) and (max-width: 900px) {
+  .bouteille__card__box1__name {
+    font-size: 1.9em;
+  }
+}
+@media all and (min-width: 400px) and (max-width: 600px) {
+  .bouteille__card__box1__name {
+    font-size: 1.7em;
+  }
+}
+@media all and (max-width: 450px) {
+  .bouteille__card__box1__name {
+    font-size: 1.5em;
+  }
+}
+.bouteille__card__box1__AOC {
+  margin: 0px;
+  padding: 0px;
+  color: #b6124d;
+  font-family: "Atkinson Hyperlegible", sans-serif;
+  font-size: 1.8em;
+}
+@media all and (min-width: 1101px) and (max-width: 1250px) {
+  .bouteille__card__box1__AOC {
+    font-size: 1.7em;
+  }
+}
+@media all and (min-width: 901px) and (max-width: 1100px) {
+  .bouteille__card__box1__AOC {
+    font-size: 1.6em;
+  }
+}
+@media all and (min-width: 601px) and (max-width: 900px) {
+  .bouteille__card__box1__AOC {
+    font-size: 1.5em;
+  }
+}
+@media all and (min-width: 400px) and (max-width: 600px) {
+  .bouteille__card__box1__AOC {
+    font-size: 1.4em;
+  }
+}
+@media all and (max-width: 450px) {
+  .bouteille__card__box1__AOC {
+    font-size: 1.3em;
+  }
+}
+.bouteille__card__box1__prix {
+  margin: 0px;
+  padding: 0px;
+  color: #b6124d;
+  font-family: "Atkinson Hyperlegible", sans-serif;
+  font-size: 1.8em;
+}
+@media all and (min-width: 1101px) and (max-width: 1250px) {
+  .bouteille__card__box1__prix {
+    font-size: 1.7em;
+  }
+}
+@media all and (min-width: 901px) and (max-width: 1100px) {
+  .bouteille__card__box1__prix {
+    font-size: 1.6em;
+  }
+}
+@media all and (min-width: 601px) and (max-width: 900px) {
+  .bouteille__card__box1__prix {
+    font-size: 1.5em;
+  }
+}
+@media all and (min-width: 400px) and (max-width: 600px) {
+  .bouteille__card__box1__prix {
+    font-size: 1.4em;
+  }
+}
+@media all and (max-width: 450px) {
+  .bouteille__card__box1__prix {
+    font-size: 1.3em;
+  }
+}
+.bouteille__card__box1__btnplus {
+  background-color: #124b38;
+  width: 80%;
+  padding: 15px;
+  border-radius: 30px;
+  border: 0;
+  box-shadow: 6px 6px 25px rgba(0, 0, 0, 0.5);
+  color: #ffebe2;
+  font-family: "Manrope" sans-serif;
+  font-size: 1.1em;
+  color: #ffebe2;
+  transition: all 800ms;
+  margin-top: 15px;
+}
+@media all and (min-width: 1101px) and (max-width: 1250px) {
+  .bouteille__card__box1__btnplus {
+    font-size: 1.1em;
+  }
+}
+@media all and (min-width: 901px) and (max-width: 1100px) {
+  .bouteille__card__box1__btnplus {
+    font-size: 1em;
+  }
+}
+@media all and (min-width: 601px) and (max-width: 900px) {
+  .bouteille__card__box1__btnplus {
+    font-size: 0.9em;
+  }
+}
+@media all and (min-width: 400px) and (max-width: 600px) {
+  .bouteille__card__box1__btnplus {
+    font-size: 0.8em;
+  }
+}
+@media all and (max-width: 450px) {
+  .bouteille__card__box1__btnplus {
+    font-size: 1em;
+    padding: 8px;
+  }
+}
+.bouteille__card__box2 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+@media all and (max-width: 450px) {
+  .bouteille__card__box2 {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap-reverse;
+    gap: 10px;
+  }
+}
+.bouteille__card__box2__like1 {
+  background-color: #ffd2b8;
+  border: none;
+}
+.bouteille__card__box2__like2 {
+  background-color: #ffd2b8;
+  border: none;
+}
+.bouteille__card__box2__caddy {
+  background-color: #ffd2b8;
+  border: none;
+}
+
+#like,
+#liked,
+#caddy {
+  max-width: 120px;
+}
+@media all and (min-width: 1101px) and (max-width: 1250px) {
+  #like,
+  #liked,
+  #caddy {
+    width: 115px;
+  }
+}
+@media all and (min-width: 901px) and (max-width: 1100px) {
+  #like,
+  #liked,
+  #caddy {
+    width: 110px;
+  }
+}
+@media all and (min-width: 601px) and (max-width: 900px) {
+  #like,
+  #liked,
+  #caddy {
+    width: 105px;
+  }
+}
+@media all and (min-width: 400px) and (max-width: 600px) {
+  #like,
+  #liked,
+  #caddy {
+    width: 95px;
+  }
+}
+@media all and (max-width: 450px) {
+  #like,
+  #liked,
+  #caddy {
+    width: 90px;
+  }
+}
+
+.bouteille__card__box1__btnplus:hover {
+  transform: scale(1.2);
+}
+
+/*# sourceMappingURL=bouteilleCard.css.map */

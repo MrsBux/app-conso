@@ -1,14 +1,18 @@
+import React from "react";
+import Catalogue from "../components/Catalogue";
+import Reviews from "../components/Reviews";
+
+import "../style/css/gallery.css";
+
 function Gallery() {
   return (
-    <>
-      <div>
-        <h1>Galerie des vins</h1>
-        <div className="card"></div>
-        <p className="read-the-docs">
-          Click on the Vite and React logos to learn more
-        </p>
+    <main>
+      <div className="gallery">
+        <h2 className="gallery__title">GALERIE DES VINS</h2>
+        <Catalogue />
+        <Reviews />
       </div>
-    </>
+    </main>
   );
 }
 export default Gallery;

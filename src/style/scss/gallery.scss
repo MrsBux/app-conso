@@ -1,0 +1,24 @@
+$main-peach: #ffd2b8;
+$light-peach: #ffebe2;
+$red-wine: #b6124d;
+$green-leaf: #124b38;
+
+.gallery {
+  background-color: $main-peach;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+
+  &__title {
+    text-align: left;
+    font-size: 80px;
+    margin: auto;
+    color: $red-wine;
+
+    @media all and (max-width: 600px) {
+      font-size: 42px;
+      text-align: center;
+    }
+  }
+}

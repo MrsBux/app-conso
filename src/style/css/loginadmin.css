@@ -1,4 +1,4 @@
-.login {
+.loginadmin {
   max-width: 100%;
   margin: 0px;
   display: flex;
@@ -9,49 +9,49 @@
   background-color: #ffd2b8;
 }
 @media all and (min-width: 901px) and (max-width: 1200px) {
-  .login {
+  .loginadmin {
     gap: 30px;
   }
 }
 @media all and (min-width: 601px) and (max-width: 900px) {
-  .login {
+  .loginadmin {
     gap: 0px;
     justify-content: center;
     gap: 50px;
   }
 }
 @media all and (max-width: 600px) {
-  .login {
+  .loginadmin {
     display: flex;
     flex-direction: column-reverse;
     justify-content: flex-start;
     align-items: center;
   }
 }
-.login__btlles {
+.loginadmin__btlles {
   display: flex;
   flex-direction: column-reverse;
 }
 @media all and (min-width: 901px) and (max-width: 1200px) {
-  .login__btlles__img {
+  .loginadmin__btlles__img {
     width: 280px;
   }
 }
 @media all and (min-width: 601px) and (max-width: 900px) {
-  .login__btlles__img {
+  .loginadmin__btlles__img {
     width: 220px;
   }
 }
 @media all and (max-width: 600px) {
-  .login__btlles__img {
+  .loginadmin__btlles__img {
     width: 150px;
   }
 }
-.login__form {
+.loginadmin__form {
   padding: 30px;
   margin-top: 20%;
   max-width: 40%;
-  background-color: #b6124d;
+  background-color: #124b38;
   height: fit-content;
   max-height: 500px;
   width: 50%;
@@ -66,21 +66,21 @@
   font-size: 18px;
 }
 @media all and (min-width: 901px) and (max-width: 1200px) {
-  .login__form {
+  .loginadmin__form {
     max-width: 45%;
   }
 }
 @media all and (min-width: 601px) and (max-width: 900px) {
-  .login__form {
+  .loginadmin__form {
     min-width: 60%;
   }
 }
 @media all and (max-width: 600px) {
-  .login__form {
+  .loginadmin__form {
     min-width: 90%;
   }
 }
-.login__form__title {
+.loginadmin__form__title {
   color: #ffd2b8;
   padding: 20px 0px;
   margin: 0px;
@@ -88,28 +88,28 @@
   font-size: 2.3em;
 }
 @media all and (min-width: 1000px) and (max-width: 1290px) {
-  .login__form__title {
+  .loginadmin__form__title {
     white-space: nowrap;
     font-size: 2em;
   }
 }
 @media all and (min-width: 801px) and (max-width: 1000px) {
-  .login__form__title {
+  .loginadmin__form__title {
     white-space: nowrap;
     font-size: 1.6em;
   }
 }
 @media all and (min-width: 601px) and (max-width: 800px) {
-  .login__form__title {
+  .loginadmin__form__title {
     font-size: 2em;
   }
 }
 @media all and (max-width: 600px) {
-  .login__form__title {
+  .loginadmin__form__title {
     font-size: 1.7em;
   }
 }
-.login__form__groupe {
+.loginadmin__form__groupe {
   margin: 20px 0px;
   display: flex;
   flex-direction: column;
@@ -117,12 +117,12 @@
   width: 70%;
 }
 @media all and (max-width: 600px) {
-  .login__form__groupe {
+  .loginadmin__form__groupe {
     margin: 10px 0px;
   }
 }
-.login__form__btn {
-  background-color: #124b38;
+.loginadmin__form__btn {
+  background-color: #b6124d;
   min-width: fit-content;
   padding: 15px 20px;
   border-radius: 50px;
@@ -134,14 +134,14 @@
   transition: all 800ms;
 }
 @media all and (min-width: 901px) and (max-width: 1100px) {
-  .login__form__btn {
+  .loginadmin__form__btn {
     white-space: nowrap;
     font-size: 0.9em;
     padding: 15px 10px;
   }
 }
 @media all and (min-width: 801px) and (max-width: 900px) {
-  .login__form__btn {
+  .loginadmin__form__btn {
     white-space: nowrap;
     font-size: 0.9em;
     padding: 15px 5px;
@@ -149,7 +149,7 @@
   }
 }
 @media all and (min-width: 451px) and (max-width: 800px) {
-  .login__form__btn {
+  .loginadmin__form__btn {
     white-space: nowrap;
     font-size: 0.9em;
     padding: 15px 2px;
@@ -157,7 +157,7 @@
   }
 }
 @media all and (min-width: 251px) and (max-width: 450px) {
-  .login__form__btn {
+  .loginadmin__form__btn {
     white-space: nowrap;
     font-size: 0.8em;
     padding: 15px 2px;
@@ -166,14 +166,9 @@
 }
 
 @media all and (max-width: 600px) {
-  .img2 {
+  .imgadmin2 {
     display: none;
   }
 }
 
-#email_login,
-#password_login {
-  background-color: #ffd2b8;
-}
-
-/*# sourceMappingURL=login.css.map */
+/*# sourceMappingURL=loginadmin.css.map */

@@ -1,0 +1,21 @@
+.gallery {
+  background-color: #ffd2b8;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+.gallery__title {
+  text-align: left;
+  font-size: 80px;
+  margin: auto;
+  color: #b6124d;
+}
+@media all and (max-width: 600px) {
+  .gallery__title {
+    font-size: 42px;
+    text-align: center;
+  }
+}
+
+/*# sourceMappingURL=gallery.css.map */

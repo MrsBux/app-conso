@@ -1,1 +1,1 @@
-{"version":3,"sourceRoot":"","sources":[],"names":[],"mappings":"","file":"gfv.css"}
+{"version":3,"sourceRoot":"","sources":["../scss/gfv.scss"],"names":[],"mappings":"AAKA;EACE;EACA;EACA;EACA;EACA;EACA;;AAEA;EARF;IASI;IACA;IACA;;;AAGF;EAdF;IAeI;;;AAGF;EACE;EACA,OAtBS;EAuBT;;AAEA;EALF;IAMI;;;AAEF;EARF;IASI;;;AAGF;EAZF;IAaI;;;AAGF;EAhBF;IAiBI;IACA;IACA","file":"gfv.css"}

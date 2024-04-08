@@ -1,0 +1,32 @@
+.filtres {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+.filtres__btn {
+  min-width: 125px;
+  width: fit-content;
+  background-color: #124b38;
+  border: 0;
+  border-radius: 5px;
+  box-shadow: 6px 6px 25px rgba(0, 0, 0, 0.5);
+  padding: 10px;
+  color: #ffebe2;
+  transition: 150ms ease-in-out;
+}
+@media all and (min-width: 601px) and (max-width: 750px) {
+  .filtres__btn {
+    min-width: 110px;
+  }
+}
+
+.filtres__btn:hover {
+  transform: scale(1.1);
+  filter: brightness(1.8);
+}
+
+.clicked {
+  background-color: #b6124d;
+}
+
+/*# sourceMappingURL=filtre.css.map */

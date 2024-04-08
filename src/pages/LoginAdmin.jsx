@@ -1,6 +1,6 @@
 import React from "react";
 import Form from "react-bootstrap/Form";
-import "../style/css/loginaddmin.css";
+import "../style/css/loginadmin.css";
 import btle from "../assets/ch9B.webp";
 import btle2 from "../assets/ch9B15r.webp";
 

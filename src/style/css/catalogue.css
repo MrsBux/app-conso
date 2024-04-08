@@ -1,0 +1,107 @@
+.catalogue {
+  padding: 50px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+}
+@media all and (max-width: 600px) {
+  .catalogue {
+    padding: 50px 5px;
+  }
+}
+.catalogue__filtres {
+  max-width: fit-content;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 10%;
+}
+@media all and (min-width: 751px) and (max-width: 900px) {
+  .catalogue__filtres {
+    gap: 5%;
+  }
+}
+@media all and (min-width: 601px) and (max-width: 750px) {
+  .catalogue__filtres {
+    gap: 2%;
+  }
+}
+@media all and (max-width: 600px) {
+  .catalogue__filtres {
+    display: none;
+  }
+}
+.catalogue__bouteilles {
+  padding: 50px 50px 10px 50px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  text-align: center;
+  gap: 15px;
+  flex-wrap: nowrap;
+}
+@media all and (min-width: 751px) and (max-width: 900px) {
+  .catalogue__bouteilles {
+    gap: 10px;
+  }
+}
+@media all and (min-width: 601px) and (max-width: 750px) {
+  .catalogue__bouteilles {
+    gap: 7px;
+  }
+}
+@media all and (max-width: 600px) {
+  .catalogue__bouteilles {
+    display: none;
+  }
+}
+.catalogue__bouteilles__bt {
+  max-height: 500px;
+  transition: 300ms ease-in;
+}
+@media all and (min-width: 1101px) and (max-width: 1250px) {
+  .catalogue__bouteilles__bt {
+    max-height: 450px;
+  }
+}
+@media all and (min-width: 901px) and (max-width: 1100px) {
+  .catalogue__bouteilles__bt {
+    max-height: 400px;
+  }
+}
+@media all and (min-width: 751px) and (max-width: 900px) {
+  .catalogue__bouteilles__bt {
+    max-height: 320px;
+  }
+}
+@media all and (min-width: 601px) and (max-width: 750px) {
+  .catalogue__bouteilles__bt {
+    max-height: 260px;
+  }
+}
+.catalogue__bouteille {
+  display: none;
+}
+@media all and (max-width: 600px) {
+  .catalogue__bouteille {
+    display: contents;
+  }
+}
+.catalogue__bouteille__carousel {
+  padding: 20px;
+}
+
+.catalogue__bouteilles__bt:hover {
+  transform: scale(1.22);
+}
+
+.d-block {
+  max-height: 700px;
+}
+
+/*# sourceMappingURL=catalogue.css.map */

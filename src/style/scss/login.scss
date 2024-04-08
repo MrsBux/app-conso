@@ -11,6 +11,7 @@ $green-leaf: #124b38;
   justify-content: space-around;
   align-items: flex-start;
   gap: 75px;
+  background-color: $main-peach;
 
   @media all and (min-width: 901px) and (max-width: 1200px) {
     gap: 30px;
@@ -48,22 +49,33 @@ $green-leaf: #124b38;
     }
   }
   &__form {
+    padding: 30px;
     margin-top: 20%;
     max-width: 40%;
     background-color: #b6124d;
     height: fit-content;
     max-height: 500px;
+    width: 50%;
+    border-radius: 15px;
+    padding: 50px 25px 100px 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    color: $light-peach;
+    font-size: 18px;
 
     @media all and (min-width: 901px) and (max-width: 1200px) {
       max-width: 45%;
     }
 
     @media all and (min-width: 601px) and (max-width: 900px) {
-      max-width: 50%;
+      min-width: 60%;
     }
 
     @media all and (max-width: 600px) {
-      max-width: 80%;
+      min-width: 90%;
     }
 
     &__title {
@@ -107,7 +119,41 @@ $green-leaf: #124b38;
     &__btn {
       background-color: #124b38;
       min-width: fit-content;
-      padding: 15px 25px;
+      padding: 15px 20px;
+      border-radius: 50px;
+      border: 0;
+      box-shadow: 6px 6px 25px rgba(0, 0, 0, 0.5);
+      color: $light-peach;
+      font-family: "Manrope" sans-serif;
+      font-size: 100%;
+      transition: all 800ms;
+
+      @media all and (min-width: 901px) and (max-width: 1100px) {
+        white-space: nowrap;
+        font-size: 0.9em;
+        padding: 15px 10px;
+      }
+
+      @media all and (min-width: 801px) and (max-width: 900px) {
+        white-space: nowrap;
+        font-size: 0.9em;
+        padding: 15px 5px;
+        width: 48%;
+      }
+
+      @media all and (min-width: 451px) and (max-width: 800px) {
+        white-space: nowrap;
+        font-size: 0.9em;
+        padding: 15px 2px;
+        width: 45%;
+      }
+
+      @media all and (min-width: 251px) and (max-width: 450px) {
+        white-space: nowrap;
+        font-size: 0.8em;
+        padding: 15px 2px;
+        width: 48%;
+      }
     }
   }
 }
@@ -116,4 +162,9 @@ $green-leaf: #124b38;
   @media all and (max-width: 600px) {
     display: none;
   }
+}
+
+#email_login,
+#password_login {
+  background-color: $main-peach;
 }

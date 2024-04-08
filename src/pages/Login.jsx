@@ -26,7 +26,7 @@ function Login() {
         <Form.Group className="login__form__groupe" controlId="login_email">
           <Form.Label>Email address</Form.Label>
           <Form.Control
-            id="inputemail"
+            id="email_login"
             type="email"
             placeholder="name@example.com"
           />
@@ -35,6 +35,7 @@ function Login() {
         <Form.Group className="login__form__groupe" controlId="login_password">
           <Form.Label>Password</Form.Label>
           <Form.Control
+            id="password_login"
             type="password"
             name="password"
             placeholder="Password"

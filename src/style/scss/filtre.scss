@@ -1,0 +1,35 @@
+$main-peach: #ffd2b8;
+$light-peach: #ffebe2;
+$red-wine: #b6124d;
+$green-leaf: #124b38;
+
+.filtres {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+
+  &__btn {
+    min-width: 125px;
+    width: fit-content;
+    background-color: $green-leaf;
+    border: 0;
+    border-radius: 5px;
+    box-shadow: 6px 6px 25px rgba(0, 0, 0, 0.5);
+    padding: 10px;
+    color: $light-peach;
+    transition: 150ms ease-in-out;
+
+    @media all and (min-width: 601px) and (max-width: 750px) {
+      min-width: 110px;
+    }
+  }
+}
+
+.filtres__btn:hover {
+  transform: scale(1.1);
+  filter: brightness(1.8);
+}
+
+.clicked {
+  background-color: $red-wine;
+}
