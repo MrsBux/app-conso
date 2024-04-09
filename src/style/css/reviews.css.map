@@ -1,1 +1,1 @@
-{"version":3,"sourceRoot":"","sources":[],"names":[],"mappings":"","file":"reviews.css"}
+{"version":3,"sourceRoot":"","sources":["../scss/reviews.scss"],"names":[],"mappings":"AAKA;EACE;EACA;EACA;EACA;EACA;EACA;EACA;;AAEA;EACE;EACA;EACA,OAfO;EAgBP;EACA;EACA;;AAEA;EARF;IASI;;;AAGF;EAZF;IAaI;;;AAGF;EAhBF;IAiBI;;;AAGF;EApBF;IAqBI;IACA;;;AAGF;EAzBF;IA0BI;IACA;IACA","file":"reviews.css"}
