@@ -1,0 +1,54 @@
+.cardSalon {
+  position: relative;
+  width: 150px;
+  height: 150px;
+  perspective: 130px;
+  transition: transform 1000ms;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.cardSalon.flipped {
+  transform: scale(1.15) rotateY(180deg) translateY(-10px);
+}
+.cardSalon .cardSalon {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+}
+.cardSalon .cardSalon__front {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.cardSalon .cardSalon__front img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  max-width: 150px;
+  max-height: 150px;
+}
+.cardSalon .cardSalon__back {
+  display: none;
+  transform: rotateY(180deg);
+}
+.cardSalon .cardSalon__back__p {
+  color: #124b38;
+  font-weight: 800;
+  font-size: 24px;
+  text-align: center;
+}
+.cardSalon:hover .cardSalon__front {
+  display: none;
+}
+.cardSalon:hover .cardSalon__back {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/*# sourceMappingURL=cardsalon.css.map */

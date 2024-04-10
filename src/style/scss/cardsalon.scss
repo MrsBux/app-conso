@@ -1,0 +1,70 @@
+$main-peach: #ffd2b8;
+$light-peach: #ffebe2;
+$red-wine: #b6124d;
+$green-leaf: #124b38;
+
+$main-peach: #ffd2b8;
+$light-peach: #ffebe2;
+$red-wine: #b6124d;
+$green-leaf: #124b38;
+
+.cardSalon {
+  position: relative;
+  width: 150px;
+  height: 150px;
+  perspective: 130px;
+  transition: transform 1000ms;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  &.flipped {
+    transform: scale(1.15) rotateY(180deg) translateY(-10px);
+  }
+
+  .cardSalon {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+
+    &__front {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        max-width: 150px;
+        max-height: 150px;
+      }
+    }
+
+    &__back {
+      display: none;
+      transform: rotateY(180deg);
+
+      &__p {
+        color: $green-leaf;
+        font-weight: 800;
+        font-size: 24px;
+        text-align: center;
+      }
+    }
+  }
+
+  &:hover {
+    .cardSalon__front {
+      display: none;
+    }
+
+    .cardSalon__back {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+}

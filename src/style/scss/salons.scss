@@ -1,0 +1,29 @@
+$main-peach: #ffd2b8;
+$light-peach: #ffebe2;
+$red-wine: #b6124d;
+$green-leaf: #124b38;
+
+.salons {
+  background-color: $main-peach;
+  min-height: 100vh-20vh;
+  padding: 0px;
+
+  &__title {
+    padding: 50px;
+    text-align: left;
+    font-size: 80px;
+    color: $red-wine;
+
+    @media all and (min-width: 901px) and (max-width: 1100px) {
+      font-size: 60px;
+    }
+    @media all and (min-width: 600px) and (max-width: 900px) {
+      font-size: 50px;
+    }
+
+    @media all and (max-width: 600px) {
+      font-size: 42px;
+      text-align: center;
+    }
+  }
+}

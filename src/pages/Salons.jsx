@@ -1,13 +1,22 @@
+import React from "react";
+
+import Carte from "../components/Carte.jsx";
+import SalonGallery from "../components/SalonsGallery/index.jsx";
+import SalonAgenda from "../components/SalonAgenda/index.jsx";
+
+import "../style/css/salons.css";
+
 function Salons() {
   return (
     <>
-      <div>
-        <h1>Salons</h1>
-        <div className="card"></div>
-        <p className="read-the-docs">
-          Click on the Vite and React logos to learn more
-        </p>
-      </div>
+      <main>
+        <div className="salons">
+          <h2 className="salons__title">NOS SALONS</h2>
+          <Carte />
+          <SalonGallery />
+          <SalonAgenda />
+        </div>
+      </main>
     </>
   );
 }

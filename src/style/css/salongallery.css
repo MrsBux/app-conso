@@ -1,0 +1,30 @@
+.salongallery {
+  display: flex;
+  flex-direction: column;
+}
+.salongallery__box {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 10%;
+}
+.salongallery__box__title {
+  color: #b6124d;
+  font-size: 62px;
+  font-family: "Manrope" sans-serif;
+  padding: 20px;
+  font-weight: 400;
+  padding: 20px;
+}
+@media all and (max-width: 600px) {
+  .salongallery__box__title {
+    font-size: 28px;
+    text-align: center;
+  }
+}
+.salongallery__box2 {
+  padding: 100px;
+}
+
+/*# sourceMappingURL=salongallery.css.map */

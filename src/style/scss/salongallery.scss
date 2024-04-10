@@ -1,0 +1,33 @@
+$main-peach: #ffd2b8;
+$light-peach: #ffebe2;
+$red-wine: #b6124d;
+$green-leaf: #124b38;
+
+.salongallery {
+  display: flex;
+  flex-direction: column;
+  &__box {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 10%;
+
+    &__title {
+      color: $red-wine;
+      font-size: 62px;
+      font-family: "Manrope" sans-serif;
+      padding: 20px;
+      font-weight: 400;
+      padding: 20px;
+      @media all and (max-width: 600px) {
+        font-size: 28px;
+        text-align: center;
+      }
+    }
+  }
+
+  &__box2 {
+    padding: 100px;
+  }
+}
