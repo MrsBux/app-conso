@@ -3,6 +3,104 @@ $light-peach: #ffebe2;
 $red-wine: #b6124d;
 $green-leaf: #124b38;
 
-.formpartners {
-  width: 100%;
+.formpartner {
+  margin-bottom: 20px;
+  background-color: #b6124d;
+  width: 50%;
+  border-radius: 15px;
+  padding: 50px 25px 50px 25px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  color: $light-peach;
+  font-size: 18px;
+
+  @media all and (min-width: 1221px) and (max-width: 1400px) {
+    padding: 20px 25px 20px 25px;
+  }
+  @media all and (min-width: 901px) and (max-width: 1220px) {
+    padding: 30px 25px 80px 25px;
+  }
+  @media all and (min-width: 600px) and (max-width: 900px) {
+    padding: 20px 25px 50px 25px;
+    width: 75%;
+  }
+
+  @media all and (max-width: 600px) {
+    padding: 20px 25px 40px 25px;
+    width: 95%;
+  }
+
+  &__title {
+    color: $main-peach;
+    padding: 20px 0px;
+    margin: 0px;
+    font-weight: 800;
+    font-size: 2.3em;
+
+    @media all and (min-width: 1000px) and (max-width: 1290px) {
+      white-space: nowrap;
+      font-size: 2em;
+    }
+
+    @media all and (min-width: 801px) and (max-width: 1000px) {
+      white-space: nowrap;
+      font-size: 1.6em;
+    }
+
+    @media all and (min-width: 601px) and (max-width: 800px) {
+      font-size: 2em;
+    }
+
+    @media all and (max-width: 600px) {
+      font-size: 1.7em;
+    }
+  }
+
+  &__groupe {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  &__identite {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    @media all and (max-width: 600px) {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    &__groupe {
+      width: 47.5%;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+
+      @media all and (max-width: 600px) {
+        width: 100%;
+      }
+    }
+
+    &__btn {
+      background-color: $green-leaf;
+    }
+  }
+}
+
+#email_partner,
+#nom_partner,
+#prenom_partner,
+#profession_partner,
+#message_partner {
+  color: $green-leaf;
+  background-color: $light-peach;
 }

@@ -6,4 +6,107 @@ $green-leaf: #124b38;
 .partenaires {
   background-color: $main-peach;
   min-height: 100vh-20vh;
+  padding: 0px 0px 0px 50px;
+
+  @media all and (min-width: 901px) and (max-width: 1200px) {
+    padding: 0px 0px 0px 20px;
+  }
+  @media all and (min-width: 601px) and (max-width: 900px) {
+    padding: 0px 0px 0px 5px;
+  }
+
+  @media all and (max-width: 600px) {
+    padding: 0px;
+  }
+
+  &__filtresbox {
+    width: 35%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 40px;
+    padding: 0px;
+    max-width: fit-content;
+
+    @media all and (min-width: 600px) and (max-width: 900px) {
+      width: 45%;
+      padding: 0px 0px 0px 0px;
+    }
+
+    @media all and (max-width: 600px) {
+      display: none;
+    }
+
+    &__img {
+      @media all and (min-width: 901px) and (max-width: 1200px) {
+        height: 380px;
+      }
+
+      @media all and (min-width: 600px) and (max-width: 900px) {
+        height: 250px;
+      }
+
+      @media all and (max-width: 600px) {
+        display: none;
+      }
+    }
+
+    &__box {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+    }
+  }
+
+  &__box {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    max-width: 100%;
+    @media all and (min-width: 601px) and (max-width: 900px) {
+      gap: 0px;
+    }
+    @media all and (max-width: 600px) {
+      justify-content: center;
+    }
+  }
+
+  &__boxform {
+    padding: 50px 50px 0px 0px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+
+    @media all and (min-width: 600px) and (max-width: 900px) {
+      padding: 50px;
+      justify-content: center;
+      align-items: center;
+    }
+
+    @media all and (max-width: 600px) {
+      padding: 0px;
+      justify-content: center;
+      align-items: center;
+    }
+
+    &__img {
+      height: 600px;
+
+      @media all and (min-width: 901px) and (max-width: 1200px) {
+        height: 580px;
+      }
+
+      @media all and (min-width: 600px) and (max-width: 900px) {
+        display: none;
+      }
+
+      @media all and (max-width: 600px) {
+        display: none;
+      }
+    }
+  }
 }

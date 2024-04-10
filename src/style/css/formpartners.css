@@ -1,5 +1,110 @@
-.formpartners {
+.formpartner {
+  margin-bottom: 20px;
+  background-color: #b6124d;
+  width: 50%;
+  border-radius: 15px;
+  padding: 50px 25px 50px 25px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  color: #ffebe2;
+  font-size: 18px;
+}
+@media all and (min-width: 1221px) and (max-width: 1400px) {
+  .formpartner {
+    padding: 20px 25px 20px 25px;
+  }
+}
+@media all and (min-width: 901px) and (max-width: 1220px) {
+  .formpartner {
+    padding: 30px 25px 80px 25px;
+  }
+}
+@media all and (min-width: 600px) and (max-width: 900px) {
+  .formpartner {
+    padding: 20px 25px 50px 25px;
+    width: 75%;
+  }
+}
+@media all and (max-width: 600px) {
+  .formpartner {
+    padding: 20px 25px 40px 25px;
+    width: 95%;
+  }
+}
+.formpartner__title {
+  color: #ffd2b8;
+  padding: 20px 0px;
+  margin: 0px;
+  font-weight: 800;
+  font-size: 2.3em;
+}
+@media all and (min-width: 1000px) and (max-width: 1290px) {
+  .formpartner__title {
+    white-space: nowrap;
+    font-size: 2em;
+  }
+}
+@media all and (min-width: 801px) and (max-width: 1000px) {
+  .formpartner__title {
+    white-space: nowrap;
+    font-size: 1.6em;
+  }
+}
+@media all and (min-width: 601px) and (max-width: 800px) {
+  .formpartner__title {
+    font-size: 2em;
+  }
+}
+@media all and (max-width: 600px) {
+  .formpartner__title {
+    font-size: 1.7em;
+  }
+}
+.formpartner__groupe {
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.formpartner__identite {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+@media all and (max-width: 600px) {
+  .formpartner__identite {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+}
+.formpartner__identite__groupe {
+  width: 47.5%;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+@media all and (max-width: 600px) {
+  .formpartner__identite__groupe {
+    width: 100%;
+  }
+}
+.formpartner__identite__btn {
+  background-color: #124b38;
+}
+
+#email_partner,
+#nom_partner,
+#prenom_partner,
+#profession_partner,
+#message_partner {
+  color: #124b38;
+  background-color: #ffebe2;
 }
 
 /*# sourceMappingURL=formpartners.css.map */
