@@ -42,6 +42,8 @@ $green-leaf: #124b38;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr;
     gap: 50px;
+    justify-content: center;
+    align-items: center;
 
     @media all and (min-width: 901px) and (max-width: 1100px) {
       grid-template-columns: 1fr 1fr 1fr;
@@ -55,9 +57,10 @@ $green-leaf: #124b38;
 
     @media all and (max-width: 600px) {
       grid-template-columns: 1fr 1fr;
-      gap: 30px;
+      gap: 20px;
       text-align: center;
       margin-top: 20px;
+      margin: 20px 0px;
     }
 
     &__btn {
@@ -73,6 +76,7 @@ $green-leaf: #124b38;
       font-size: 100%;
       font-weight: 600;
       transition: all 800ms;
+      margin-left: 20px;
     }
   }
 }

@@ -9,6 +9,26 @@
   justify-content: center;
   align-items: center;
 }
+@media all and (min-width: 501px) and (max-width: 600px) {
+  .logo {
+    min-width: 140px;
+    min-height: 140px;
+    max-width: fit-content;
+    max-height: fit-content;
+  }
+}
+@media all and (min-width: 401px) and (max-width: 500px) {
+  .logo {
+    min-width: 130px;
+    min-height: 130px;
+  }
+}
+@media all and (max-width: 400px) {
+  .logo {
+    min-width: 120px;
+    min-height: 120px;
+  }
+}
 .logo.flipped {
   transform: scale(1.15) rotateY(180deg) translateY(-10px);
 }
@@ -30,6 +50,18 @@
   object-fit: cover;
   max-width: 150px;
   max-height: 150px;
+}
+@media all and (min-width: 401px) and (max-width: 500px) {
+  .logo .logo__front img {
+    max-width: 130px;
+    max-height: 130px;
+  }
+}
+@media all and (max-width: 400px) {
+  .logo .logo__front img {
+    width: 120px;
+    max-height: 120px;
+  }
 }
 .logo .logo__back {
   display: none;
