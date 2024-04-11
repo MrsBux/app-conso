@@ -14,7 +14,7 @@ function CardSalon({ logo, name, date, localisation }) {
         <div className="cardSalon">
           <div className="cardSalon__front">
             <img src={logo} className="cardSalon__front__img"></img>
-            <p>{name}</p>
+            <p className="cardSalon__front__name">{name}</p>
           </div>
 
           <div className="cardSalon__back">

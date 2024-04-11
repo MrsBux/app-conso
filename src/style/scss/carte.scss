@@ -9,4 +9,16 @@ $green-leaf: #124b38;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  &__img {
+    @media all and (min-width: 601px) and (max-width: 900px) {
+      max-width: 550px;
+    }
+    @media all and (min-width: 401px) and (max-width: 600px) {
+      max-width: 390px;
+    }
+
+    @media all and (max-width: 400px) {
+      max-width: 250px;
+    }
+  }
 }

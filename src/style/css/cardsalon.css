@@ -1,13 +1,39 @@
 .cardSalon {
+  padding: 5px;
+  border: solid 1px #124b38;
+  border-radius: 4px;
   position: relative;
-  width: 150px;
-  height: 150px;
+  min-width: 170px;
+  min-height: 170px;
+  max-width: fit-content;
+  max-height: fit-content;
   perspective: 130px;
   transition: transform 1000ms;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  box-shadow: 6px 6px 25px rgba(0, 0, 0, 0.2);
+}
+@media all and (min-width: 501px) and (max-width: 600px) {
+  .cardSalon {
+    min-width: 140px;
+    min-height: 140px;
+    max-width: fit-content;
+    max-height: fit-content;
+  }
+}
+@media all and (min-width: 401px) and (max-width: 500px) {
+  .cardSalon {
+    min-width: 150px;
+    min-height: 150px;
+  }
+}
+@media all and (max-width: 400px) {
+  .cardSalon {
+    min-width: 250px;
+    min-height: 250px;
+  }
 }
 .cardSalon.flipped {
   transform: scale(1.15) rotateY(180deg) translateY(-10px);
@@ -27,9 +53,21 @@
 .cardSalon .cardSalon__front img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  max-width: 150px;
-  max-height: 150px;
+  object-fit: contain;
+  max-width: 75px;
+  max-height: 50px;
+}
+.cardSalon .cardSalon__front__name {
+  padding-top: 10px;
+  color: #124b38;
+  font-weight: 800;
+  font-size: 20px;
+  text-align: center;
+}
+@media all and (min-width: 401px) and (max-width: 600px) {
+  .cardSalon .cardSalon__front__name {
+    font-size: 16px;
+  }
 }
 .cardSalon .cardSalon__back {
   display: none;
@@ -37,8 +75,8 @@
 }
 .cardSalon .cardSalon__back__p {
   color: #124b38;
-  font-weight: 800;
-  font-size: 24px;
+  font-weight: 600;
+  font-size: 18px;
   text-align: center;
 }
 .cardSalon:hover .cardSalon__front {

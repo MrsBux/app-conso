@@ -2,3 +2,75 @@ $main-peach: #ffd2b8;
 $light-peach: #ffebe2;
 $red-wine: #b6124d;
 $green-leaf: #124b38;
+
+.salonagenda {
+  width: 100%;
+  display: flex;
+  padding: 20px 0px 100px 0px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+
+  &__box {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 10%;
+    &__title {
+      color: $red-wine;
+      font-size: 72px;
+      font-family: "Manrope" sans-serif;
+      padding: 20px;
+      font-weight: 400;
+      padding: 20px;
+      @media all and (min-width: 901px) and (max-width: 1100px) {
+        font-size: 56px;
+      }
+      @media all and (min-width: 601px) and (max-width: 900px) {
+        font-size: 46px;
+      }
+
+      @media all and (max-width: 600px) {
+        font-size: 28px;
+        text-align: center;
+      }
+    }
+
+    &__img {
+      @media all and (min-width: 901px) and (max-width: 1100px) {
+        max-width: 500px;
+      }
+
+      @media all and (min-width: 601px) and (max-width: 900px) {
+        max-width: 350px;
+      }
+
+      @media all and (min-width: 401px) and (max-width: 600px) {
+        max-width: 250px;
+      }
+      @media all and (max-width: 400px) {
+        max-width: 150px;
+      }
+    }
+  }
+
+  &__img {
+    @media all and (min-width: 901px) and (max-width: 1100px) {
+      max-width: 600px;
+    }
+
+    @media all and (min-width: 601px) and (max-width: 900px) {
+      max-width: 450px;
+    }
+
+    @media all and (min-width: 401px) and (max-width: 600px) {
+      max-width: 250px;
+    }
+    @media all and (max-width: 400px) {
+      max-width: 150px;
+    }
+  }
+}
