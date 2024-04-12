@@ -1,0 +1,229 @@
+.item {
+  background-color: #ffebe2;
+  padding: 20px;
+  max-height: 280px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  min-width: 100%;
+  border-bottom: #ffd2b8 10px solid;
+  border-radius: 5px;
+}
+@media all and (min-width: 601px) and (max-width: 900px) {
+  .item {
+    padding: 10px;
+  }
+}
+@media all and (max-width: 600px) {
+  .item {
+    padding: 5px;
+  }
+}
+.item__img {
+  max-height: 120px;
+}
+@media all and (min-width: 601px) and (max-width: 900px) {
+  .item__img {
+    max-height: 100px;
+  }
+}
+@media all and (max-width: 380px) {
+  .item__img {
+    display: none;
+  }
+}
+.item__details {
+  color: #124b38;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+@media all and (min-width: 601px) and (max-width: 900px) {
+  .item__details {
+    gap: 10px;
+  }
+}
+@media all and (max-width: 600px) {
+  .item__details {
+    max-height: 10px;
+  }
+}
+.item__details__name {
+  font-size: 20px;
+  font-weight: 600;
+  padding: 0px;
+  margin: 0px;
+}
+@media all and (min-width: 601px) and (max-width: 900px) {
+  .item__details__name {
+    font-size: 16px;
+    text-align: center;
+  }
+}
+@media all and (max-width: 600px) {
+  .item__details__name {
+    font-size: 16px;
+    text-align: center;
+  }
+}
+.item__details__p {
+  font-size: 18px;
+  font-weight: 400;
+  padding: 0px;
+  margin: 0px;
+}
+@media all and (min-width: 601px) and (max-width: 900px) {
+  .item__details__p {
+    font-size: 16px;
+  }
+}
+@media all and (max-width: 600px) {
+  .item__details__p {
+    font-size: 16px;
+    text-align: center;
+  }
+}
+.item__details__prix {
+  color: #b6124d;
+  font-size: 18px;
+  font-weight: 600;
+  padding: 0px;
+  margin: 0px;
+}
+@media all and (min-width: 601px) and (max-width: 900px) {
+  .item__details__prix {
+    font-size: 16px;
+  }
+}
+@media all and (max-width: 600px) {
+  .item__details__prix {
+    font-size: 16px;
+    text-align: center;
+  }
+}
+.item__quantite {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  border: 3px solid #124b38;
+  border-radius: 10px;
+  padding: 2px;
+}
+@media all and (min-width: 601px) and (max-width: 900px) {
+  .item__quantite {
+    padding: 1px;
+    border: 3px solid #124b38;
+  }
+}
+@media all and (max-width: 600px) {
+  .item__quantite {
+    padding: 1px;
+    border: 3px solid #124b38;
+  }
+}
+.item__quantite__number {
+  padding: 10px 5px;
+  font-size: 20px;
+  font-weight: 600;
+  color: #b6124d;
+  margin: 0px;
+}
+@media all and (min-width: 601px) and (max-width: 900px) {
+  .item__quantite__number {
+    font-size: 16px;
+  }
+}
+@media all and (max-width: 600px) {
+  .item__quantite__number {
+    font-size: 16px;
+  }
+}
+.item__quantite__btns {
+  display: flex;
+  flex-direction: column;
+}
+.item__quantite__btns__plus {
+  color: #b6124d;
+  font-size: 20px;
+  font-weight: 800;
+  background-color: #ffebe2;
+  border-right: 0px;
+  border-left: 2px solid #124b38;
+  border-bottom: 2px solid #124b38;
+  border-top: none;
+}
+@media all and (min-width: 601px) and (max-width: 900px) {
+  .item__quantite__btns__plus {
+    font-size: 14px;
+  }
+}
+@media all and (max-width: 600px) {
+  .item__quantite__btns__plus {
+    font-size: 14px;
+  }
+}
+.item__quantite__btns__moins {
+  color: #b6124d;
+  font-size: 20px;
+  font-weight: 800;
+  background-color: #ffebe2;
+  border-right: 0px;
+  border-left: 2px solid #124b38;
+  border-bottom: none;
+  border-top: none;
+  background-color: #ffebe2;
+}
+@media all and (min-width: 601px) and (max-width: 900px) {
+  .item__quantite__btns__moins {
+    font-size: 14px;
+  }
+}
+@media all and (max-width: 600px) {
+  .item__quantite__btns__moins {
+    font-size: 14px;
+  }
+}
+.item__total {
+  min-height: 180px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+.item__total__delete {
+  height: 50px;
+  width: 40px;
+}
+@media all and (min-width: 601px) and (max-width: 900px) {
+  .item__total__delete {
+    height: 35px;
+    width: 28px;
+  }
+}
+@media all and (max-width: 600px) {
+  .item__total__delete {
+    height: 25px;
+    width: 20px;
+  }
+}
+.item__total__prix {
+  color: #b6124d;
+  font-size: 22px;
+  font-weight: 600;
+}
+@media all and (min-width: 601px) and (max-width: 900px) {
+  .item__total__prix {
+    font-size: 18px;
+  }
+}
+@media all and (min-width: 601px) and (max-width: 900px) and (max-width: 600px) {
+  .item__total__prix {
+    font-size: 16px;
+  }
+}
+
+/*# sourceMappingURL=itempanier.css.map */

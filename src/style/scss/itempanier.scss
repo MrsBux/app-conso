@@ -1,0 +1,200 @@
+$main-peach: #ffd2b8;
+$light-peach: #ffebe2;
+$red-wine: #b6124d;
+$green-leaf: #124b38;
+
+.item {
+  background-color: $light-peach;
+  padding: 20px;
+  max-height: 280px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  min-width: 100%;
+  border-bottom: $main-peach 10px solid;
+  border-radius: 5px;
+  @media all and (min-width: 601px) and (max-width: 900px) {
+    padding: 10px;
+  }
+
+  @media all and (max-width: 600px) {
+    padding: 5px;
+  }
+
+  &__img {
+    max-height: 120px;
+    @media all and (min-width: 601px) and (max-width: 900px) {
+      max-height: 100px;
+    }
+    @media all and (max-width: 380px) {
+      display: none;
+    }
+  }
+
+  &__details {
+    color: $green-leaf;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+
+    @media all and (min-width: 601px) and (max-width: 900px) {
+      gap: 10px;
+    }
+    @media all and (max-width: 600px) {
+      max-height: 10px;
+    }
+
+    &__name {
+      font-size: 20px;
+      font-weight: 600;
+      padding: 0px;
+      margin: 0px;
+      @media all and (min-width: 601px) and (max-width: 900px) {
+        font-size: 16px;
+        text-align: center;
+      }
+      @media all and (max-width: 600px) {
+        font-size: 16px;
+        text-align: center;
+      }
+    }
+
+    &__p {
+      font-size: 18px;
+      font-weight: 400;
+      padding: 0px;
+      margin: 0px;
+      @media all and (min-width: 601px) and (max-width: 900px) {
+        font-size: 16px;
+      }
+      @media all and (max-width: 600px) {
+        font-size: 16px;
+        text-align: center;
+      }
+    }
+
+    &__prix {
+      color: $red-wine;
+      font-size: 18px;
+      font-weight: 600;
+      padding: 0px;
+      margin: 0px;
+      @media all and (min-width: 601px) and (max-width: 900px) {
+        font-size: 16px;
+      }
+      @media all and (max-width: 600px) {
+        font-size: 16px;
+        text-align: center;
+      }
+    }
+  }
+
+  &__quantite {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    border: 3px solid $green-leaf;
+    border-radius: 10px;
+    padding: 2px;
+    @media all and (min-width: 601px) and (max-width: 900px) {
+      padding: 1px;
+      border: 3px solid $green-leaf;
+    }
+    @media all and (max-width: 600px) {
+      padding: 1px;
+      border: 3px solid $green-leaf;
+    }
+
+    &__number {
+      padding: 10px 5px;
+      font-size: 20px;
+      font-weight: 600;
+      color: $red-wine;
+      margin: 0px;
+      @media all and (min-width: 601px) and (max-width: 900px) {
+        font-size: 16px;
+      }
+      @media all and (max-width: 600px) {
+        font-size: 16px;
+      }
+    }
+
+    &__btns {
+      display: flex;
+      flex-direction: column;
+
+      &__plus {
+        color: $red-wine;
+        font-size: 20px;
+        font-weight: 800;
+        background-color: $light-peach;
+        border-right: 0px;
+        border-left: 2px solid $green-leaf;
+        border-bottom: 2px solid $green-leaf;
+        border-top: none;
+        @media all and (min-width: 601px) and (max-width: 900px) {
+          font-size: 14px;
+        }
+        @media all and (max-width: 600px) {
+          font-size: 14px;
+        }
+      }
+
+      &__moins {
+        color: $red-wine;
+        font-size: 20px;
+        font-weight: 800;
+        background-color: $light-peach;
+        border-right: 0px;
+        border-left: 2px solid $green-leaf;
+        border-bottom: none;
+        border-top: none;
+        background-color: $light-peach;
+        @media all and (min-width: 601px) and (max-width: 900px) {
+          font-size: 14px;
+        }
+        @media all and (max-width: 600px) {
+          font-size: 14px;
+        }
+      }
+    }
+  }
+
+  &__total {
+    min-height: 180px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+    &__delete {
+      height: 50px;
+      width: 40px;
+
+      @media all and (min-width: 601px) and (max-width: 900px) {
+        height: 35px;
+        width: 28px;
+      }
+      @media all and (max-width: 600px) {
+        height: 25px;
+        width: 20px;
+      }
+    }
+
+    &__prix {
+      color: $red-wine;
+      font-size: 22px;
+      font-weight: 600;
+      @media all and (min-width: 601px) and (max-width: 900px) {
+        font-size: 18px;
+        @media all and (max-width: 600px) {
+          font-size: 16px;
+        }
+      }
+    }
+  }
+}
