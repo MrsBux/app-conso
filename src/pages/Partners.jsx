@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-
+import TabTools from "../components/TabTools/index";
 import Filtre from "../components/Catalogue/Filtre";
 import NosPartenaires from "../components/NosPartenaires";
 import FormPartners from "../components/FormPartners";
@@ -11,7 +11,6 @@ import "../style/css/partners.css";
 
 function Partners() {
   const filtres = [
-    { filtreName: "Type" },
     { filtreName: "Localisation" },
     { filtreName: "Restaurateurs" },
     { filtreName: "Caviste" },
@@ -29,6 +28,7 @@ function Partners() {
     <>
       {" "}
       <main>
+        <TabTools />
         <div className="partenaires">
           <section className="partenaires__box">
             <div></div>

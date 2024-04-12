@@ -1,0 +1,96 @@
+.menuD {
+  background-color: #b6124d;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  min-height: 100%;
+}
+@media all and (max-width: 600px) {
+  .menuD {
+    flex-direction: row;
+  }
+}
+.menuD__box {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+@media all and (max-width: 600px) {
+  .menuD__box {
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+}
+.menuD__box__title {
+  padding-top: 20px;
+  color: #ffebe2;
+  font-family: "Atkinson Hyperlegible", sans-serif;
+  font-weight: 800;
+}
+.menuD__box__sections {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 20px;
+  padding: 20px 20px 40px 20px;
+  border-bottom: #ffebe2 3px solid;
+}
+@media all and (max-width: 600px) {
+  .menuD__box__sections {
+    display: none;
+  }
+}
+.menuD__divers {
+  padding: 50px 20px 50px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  gap: 20px;
+  color: #ffebe2;
+  font-family: "Atkinson Hyperlegible", sans-serif;
+  font-weight: 600;
+}
+@media all and (max-width: 600px) {
+  .menuD__divers {
+    display: none;
+  }
+}
+.menuD__divers__ml {
+  margin: 0px;
+  padding: 0px;
+}
+.menuD__divers__btn {
+  background-color: #b6124d;
+  border: none;
+  color: #ffebe2;
+  font-family: "Atkinson Hyperlegible", sans-serif;
+  font-weight: 600;
+  margin: 0px;
+  padding: 0px;
+}
+.menuD__divers__ahelp {
+  color: #ffebe2;
+  font-family: "Atkinson Hyperlegible", sans-serif;
+  font-weight: 600;
+  text-decoration: none;
+}
+.menuD__divers__td {
+  margin: 0px;
+  padding: 0px;
+}
+
+#dropdown-basic-button {
+  display: none;
+}
+@media all and (max-width: 600px) {
+  #dropdown-basic-button {
+    display: block;
+    background-color: #ffebe2;
+    color: #124b38;
+  }
+}
+
+/*# sourceMappingURL=dashboardmenu.css.map */

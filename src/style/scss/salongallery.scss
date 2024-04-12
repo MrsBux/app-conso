@@ -58,6 +58,13 @@ $green-leaf: #124b38;
     }
   }
 
+  &__box1 {
+    margin: auto;
+    padding: 50px 0px 20px 0px;
+    display: flex;
+    gap: 10px;
+  }
+
   &__box2 {
     margin: 50px 100px;
     padding: 30px;

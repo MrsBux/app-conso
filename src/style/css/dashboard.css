@@ -1,0 +1,25 @@
+.dashboard {
+  width: 100%;
+  min-height: 90vh;
+  background-color: #ffd2b8;
+  display: flex;
+  flex-direction: row;
+}
+@media all and (max-width: 600px) {
+  .dashboard {
+    flex-direction: column;
+  }
+}
+.dashboard__box1 {
+  min-height: 100%;
+}
+.dashboard__box {
+  width: 90%;
+}
+@media all and (max-width: 600px) {
+  .dashboard__box {
+    width: 100%;
+  }
+}
+
+/*# sourceMappingURL=dashboard.css.map */

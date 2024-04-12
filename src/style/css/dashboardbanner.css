@@ -1,0 +1,46 @@
+.bannerd {
+  min-width: 100%;
+  height: 175px;
+  padding: 50px;
+  background-color: #ffebe2;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+@media all and (min-width: 601px) and (max-width: 800px) {
+  .bannerd {
+    padding: 20px;
+    justify-content: center;
+    align-items: center;
+  }
+}
+@media all and (max-width: 600px) {
+  .bannerd {
+    flex-direction: column-reverse;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    height: fit-content;
+  }
+}
+.bannerd__title {
+  color: #124b38;
+  font-size: 42px;
+}
+@media all and (min-width: 601px) and (max-width: 800px) {
+  .bannerd__title {
+    font-size: 32px;
+  }
+}
+@media all and (max-width: 600px) {
+  .bannerd__title {
+    font-size: 22px;
+  }
+}
+.bannerd__img {
+  height: 75px;
+  width: 75px;
+  border-radius: 50px;
+}
+
+/*# sourceMappingURL=dashboardbanner.css.map */

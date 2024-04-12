@@ -1,13 +1,31 @@
+import React from "react";
+import DashboardMenu from "../components/DashboardMenu";
+import DashboardBanner from "../components/DasboardBanner";
+import DashboardBoard from "../components/DasboardBoard";
+import TabTools from "../components/TabTools/index";
+
+import selfie from "../assets/selfiee.webp";
+
+import "../style/css/dashboard.css";
+
 function Dashboard() {
   return (
     <>
-      <div>
-        <h1>Dashboard</h1>
-        <div className="card"></div>
-        <p className="read-the-docs">
-          Click on the Vite and React logos to learn more
-        </p>
-      </div>
+      <main>
+        <TabTools />
+        <div className="dashboard">
+          <div className="dashboard__box1">
+            <DashboardMenu />
+          </div>
+          <div className="dashboard__box">
+            <DashboardBanner
+              nom_utilisateur={"Camille"}
+              img_utilisateur={selfie}
+            />
+            <DashboardBoard />
+          </div>
+        </div>
+      </main>
     </>
   );
 }

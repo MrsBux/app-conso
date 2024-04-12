@@ -1,0 +1,14 @@
+$main-peach: #ffd2b8;
+$light-peach: #ffebe2;
+$red-wine: #b6124d;
+$green-leaf: #124b38;
+
+.cardmd {
+  background-color: $light-peach;
+  border-radius: 10px;
+  border: $green-leaf 2px solid;
+  color: $green-leaf;
+  font-weight: 600;
+  padding: 20px 5px;
+  max-width: 200px;
+}

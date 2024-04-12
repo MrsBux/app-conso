@@ -1,0 +1,289 @@
+$main-peach: #ffd2b8;
+$light-peach: #ffebe2;
+$red-wine: #b6124d;
+$green-leaf: #124b38;
+
+.board {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+  @media all and (min-width: 601px) and (max-width: 950px) {
+    flex-direction: column-reverse;
+  }
+  @media all and (max-width: 600px) {
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__box {
+    padding: 50px;
+    min-width: 70%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    justify-items: center;
+    align-items: center;
+    gap: 50px;
+
+    @media all and (min-width: 951px) and (max-width: 1100px) {
+      gap: 30px;
+      padding: 30px;
+    }
+    @media all and (min-width: 801px) and (max-width: 950px) {
+      gap: 20px;
+      padding: 20px;
+    }
+
+    @media all and (min-width: 601px) and (max-width: 800px) {
+      grid-template-columns: 1fr;
+      grid-template-rows: 1fr 1fr 1fr 1fr;
+      gap: 20px;
+      padding: 20px;
+    }
+    @media all and (max-width: 600px) {
+      grid-template-columns: 1fr;
+      grid-template-rows: 1fr 1fr 1fr 1fr;
+      gap: 20px;
+      padding: 20px 10px;
+    }
+
+    &__card {
+      text-align: center;
+      padding: 30px;
+      width: 350px;
+      height: 350px;
+      border: $green-leaf 2px solid;
+      border-radius: 30px;
+      color: $red-wine;
+      box-shadow: 6px 6px 25px rgba(0, 0, 0.1, 0.2);
+
+      @media all and (min-width: 951px) and (max-width: 1100px) {
+        width: 300px;
+        height: 300px;
+      }
+
+      @media all and (min-width: 801px) and (max-width: 950px) {
+        width: 275px;
+        height: 275px;
+      }
+
+      @media all and (min-width: 601px) and (max-width: 800px) {
+        width: 350px;
+        height: 350px;
+      }
+      @media all and (max-width: 600px) {
+        width: 320px;
+        height: 320px;
+      }
+    }
+  }
+  &__deco {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+
+    @media all and (min-width: 601px) and (max-width: 950px) {
+      flex-direction: row;
+      flex-wrap: wrap;
+    }
+    @media all and (max-width: 600px) {
+      display: none;
+    }
+
+    &__img {
+      width: 75px;
+      height: 75px;
+    }
+  }
+}
+
+.board__box__card1 {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  &__title {
+    font-size: 28px;
+    font-weight: 600;
+    @media all and (min-width: 801px) and (max-width: 950px) {
+      font-size: 22px;
+    }
+  }
+
+  &__btn {
+    background-color: $red-wine;
+    color: $light-peach;
+    border: none;
+    font-weight: 600;
+    border-radius: 20px;
+    padding: 10px 25px;
+    box-shadow: 6px 6px 25px rgba(0, 0, 0.1, 0.2);
+    transition: all 800ms;
+  }
+}
+
+.board__box__card2 {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+
+  &__title {
+    font-size: 138px;
+    font-weight: 600;
+    padding: 0px;
+    margin: 0px;
+
+    @media all and (min-width: 951px) and (max-width: 1100px) {
+      font-size: 98px;
+    }
+    @media all and (min-width: 801px) and (max-width: 950px) {
+      font-size: 68px;
+    }
+
+    @media all and (max-width: 600px) {
+      font-size: 68px;
+    }
+  }
+
+  &__p {
+    width: 100%;
+    font-size: 35px;
+    text-align: right;
+    padding: 0px;
+    margin: 0px;
+    padding-bottom: 20px;
+    @media all and (min-width: 801px) and (max-width: 950px) {
+      font-size: 28px;
+    }
+    @media all and (max-width: 600px) {
+      font-size: 28px;
+    }
+  }
+
+  &__btn {
+    background-color: $light-peach;
+    color: $green-leaf;
+    font-weight: 600;
+    border: none;
+    border-radius: 20px;
+    padding: 10px 25px;
+    box-shadow: 6px 6px 25px rgba(0, 0, 0.1, 0.2);
+    transition: all 800ms;
+    @media all and (min-width: 801px) and (max-width: 950px) {
+      padding: 10px 20px;
+      font-size: 16px;
+    }
+    @media all and (max-width: 600px) {
+      padding: 10px 20px;
+      font-size: 16px;
+    }
+  }
+}
+
+.board__box__card3 {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+
+  &__title {
+    font-size: 28px;
+    font-weight: 600;
+    padding: 0px;
+    margin: 0px;
+    @media all and (min-width: 801px) and (max-width: 950px) {
+      font-size: 22px;
+      padding: 0px;
+    }
+
+    @media all and (max-width: 600px) {
+      font-size: 22px;
+      padding: 0px;
+    }
+  }
+
+  &__pn {
+    padding-top: 40px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 10px;
+    @media all and (min-width: 801px) and (max-width: 950px) {
+      padding-top: 20px;
+    }
+
+    @media all and (max-width: 600px) {
+      padding-top: 20px;
+    }
+  }
+
+  &__p {
+    font-weight: 400;
+    width: 100%;
+    font-size: 18px;
+    text-align: center;
+    padding: 0px;
+    margin: 0px;
+    padding-bottom: 20px;
+  }
+}
+
+.board__box__card4 {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 20px;
+
+  &__title {
+    font-size: 28px;
+    font-weight: 600;
+    padding: 0px 0px 50px 0px;
+    margin: 0px;
+    @media all and (min-width: 801px) and (max-width: 950px) {
+      font-size: 22px;
+      padding: 0px;
+    }
+
+    @media all and (max-width: 600px) {
+      font-size: 22px;
+      padding: 0px;
+    }
+  }
+
+  &__invit {
+    font-weight: 400;
+    width: 100%;
+    font-size: 18px;
+    text-align: center;
+    padding: 0px;
+    margin: 0px;
+    padding-bottom: 20px;
+    text-decoration: none;
+    color: $green-leaf;
+  }
+
+  &__btn {
+    background-color: $red-wine;
+    color: $light-peach;
+    border: none;
+    font-weight: 600;
+    border-radius: 20px;
+    padding: 10px 25px;
+    box-shadow: 6px 6px 25px rgba(0, 0, 0.1, 0.2);
+    transition: all 800ms;
+  }
+}
+
+.board__box__card1__btn:hover,
+.board__box__card2__btn:hover,
+.board__box__card4__btn:hover {
+  transform: scale(1.2);
+}

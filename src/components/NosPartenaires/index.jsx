@@ -177,7 +177,6 @@ function NosPartenaires() {
   const visiblePartners = partners.slice(0, visiblePartner);
 
   const filtres = [
-    { filtreName: "Type" },
     { filtreName: "Localisation" },
     { filtreName: "Restaurateurs" },
     { filtreName: "Caviste" },

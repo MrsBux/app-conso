@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import CardSalon from "./CardSalon";
+import Filtre from "../Catalogue/Filtre";
 
 import logo from "../../assets/logoallstarwine.webp";
 import logo2 from "../../assets/logopetitpatio.webp";
@@ -103,8 +104,19 @@ function SalonGallery() {
     },
   ];
 
+  const filtres = [
+    { filtreName: "Date" },
+    { filtreName: "Localisation" },
+    { filtreName: "Type" },
+  ];
+
   const handleToggleVisibility = () => {
     setVisibleSalon((visible) => (visible === 4 ? salons.length : 4));
+  };
+  const [selectedFilter, setSelectedFilter] = useState("Tous");
+
+  const handleFilterClick = (filterName) => {
+    setSelectedFilter(filterName);
   };
 
   const visibleSalons = salons.slice(0, visibleSalon);
@@ -119,6 +131,23 @@ function SalonGallery() {
         ></img>
         <h3 className="salongallery__box__title"> Tous nos salons</h3>
       </div>
+
+      <div className="salongallery__box1">
+        <Filtre
+          filtreName={"Tous"}
+          isSelected={selectedFilter === "Tous"}
+          onClick={() => handleFilterClick("Tous")}
+        />
+        {filtres.map((item, index) => (
+          <Filtre
+            key={index}
+            filtreName={item.filtreName}
+            isSelected={selectedFilter === item.filtreName}
+            onClick={() => handleFilterClick(item.filtreName)}
+          />
+        ))}
+      </div>
+
       <div className="salongallery__box2">
         {visibleSalons.map((item, index) => (
           <CardSalon

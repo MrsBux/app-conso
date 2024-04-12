@@ -1,0 +1,27 @@
+$main-peach: #ffd2b8;
+$light-peach: #ffebe2;
+$red-wine: #b6124d;
+$green-leaf: #124b38;
+
+.dashboard {
+  width: 100%;
+  min-height: 100vh-10vh;
+  background-color: $main-peach;
+  display: flex;
+  flex-direction: row;
+
+  @media all and (max-width: 600px) {
+    flex-direction: column;
+  }
+
+  &__box1 {
+    min-height: 100%;
+  }
+
+  &__box {
+    width: 90%;
+    @media all and (max-width: 600px) {
+      width: 100%;
+    }
+  }
+}
