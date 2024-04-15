@@ -24,3 +24,18 @@ $green-leaf: #124b38;
     }
   }
 }
+
+#prestations {
+  min-width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 50px;
+  background-color: $main-peach;
+}
+
+#faq,
+#gfv {
+  min-width: 100%;
+}

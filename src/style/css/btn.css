@@ -1,6 +1,6 @@
 #btnG {
   background-color: #b6124d;
-  width: 37%;
+  width: 100%;
   padding: 15px 20px;
   border-radius: 50px;
   border: 0;
@@ -45,7 +45,7 @@
     width: 45%;
   }
 }
-@media all and (min-width: 251px) and (max-width: 450px) {
+@media all and (max-width: 450px) {
   #btnG {
     white-space: nowrap;
     font-size: 0.7em;

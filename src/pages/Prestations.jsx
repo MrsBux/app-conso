@@ -9,13 +9,25 @@ function Prestations() {
   return (
     <>
       <main>
-        <TabTools />
         <div className="prestations">
-          <h2 className="prestations__title">NOS PRESTATIONS</h2>
+          <TabTools
+            sectionsPage={[
+              { page: "prestations", item: "Toutes les prestations" },
+              { page: "faq", item: "FAQ" },
+              { page: "gfv", item: "GFV" },
+            ]}
+          />
+          <div id="prestations">
+            <AllPrestations />
+          </div>
 
-          <AllPrestations />
-          <Faq />
-          <GFV />
+          <div id="faq">
+            <Faq />
+          </div>
+
+          <div id="gfv">
+            <GFV />
+          </div>
         </div>
       </main>
     </>

@@ -4,8 +4,10 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  min-width: 100%;
+  padding: 0px 5px;
 }
-@media all and (max-width: 700px) {
+@media all and (min-width: 601px) and (max-width: 700px) {
   .tabtools {
     display: flex;
     flex-direction: column;
@@ -20,16 +22,44 @@
   flex-direction: row;
   justify-content: flex-end;
   align-items: center;
-  gap: 10px;
+  gap: 25px;
+}
+@media all and (max-width: 600px) {
+  .tabtools__nav {
+    display: none;
+  }
+}
+.tabtools__nav a {
+  color: #ffd2b8;
+  text-decoration: none;
 }
 .tabtools__nav__item__link {
   color: #ffd2b8;
+}
+.tabtools__nav__item__link a {
+  color: #ffd2b8;
+  text-decoration: none;
+}
+.tabtools__mobile {
+  display: none;
+}
+@media all and (max-width: 600px) {
+  .tabtools__mobile {
+    display: flex;
+    padding-bottom: 10px;
+    color: #ffd2b8;
+  }
 }
 
 #tabtools_a1,
 #tabtools_a2,
 #tabtools_a3,
 #tabtools_a4 {
+  color: #ffd2b8;
+}
+
+#toggler {
+  background-color: #124b38;
   color: #ffd2b8;
 }
 

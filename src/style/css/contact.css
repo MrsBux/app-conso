@@ -75,6 +75,10 @@
   padding: 0px;
   margin: 0px;
   text-align: center;
+  text-decoration: none;
+}
+.contact__box__btns__1 a {
+  text-decoration: none;
 }
 .contact__box__btns__1__btn {
   color: #ffd2b8;

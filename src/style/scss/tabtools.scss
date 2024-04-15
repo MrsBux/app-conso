@@ -9,8 +9,10 @@ $green-leaf: #124b38;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  min-width: 100%;
+  padding: 0px 5px;
 
-  @media all and (max-width: 700px) {
+  @media all and (min-width: 601px) and (max-width: 700px) {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -24,12 +26,35 @@ $green-leaf: #124b38;
     flex-direction: row;
     justify-content: flex-end;
     align-items: center;
-    gap: 10px;
+    gap: 25px;
+
+    @media all and (max-width: 600px) {
+      display: none;
+    }
+
+    & a {
+      color: $main-peach;
+      text-decoration: none;
+    }
 
     &__item {
       &__link {
         color: #ffd2b8;
+
+        & a {
+          color: $main-peach;
+          text-decoration: none;
+        }
       }
+    }
+  }
+
+  &__mobile {
+    display: none;
+    @media all and (max-width: 600px) {
+      display: flex;
+      padding-bottom: 10px;
+      color: #ffd2b8;
     }
   }
 }
@@ -38,5 +63,10 @@ $green-leaf: #124b38;
 #tabtools_a2,
 #tabtools_a3,
 #tabtools_a4 {
+  color: $main-peach;
+}
+
+#toggler {
+  background-color: #124b38;
   color: $main-peach;
 }

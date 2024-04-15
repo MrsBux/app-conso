@@ -12,7 +12,7 @@ function Dashboard() {
   return (
     <>
       <main>
-        <TabTools />
+        <TabTools sectionsPage={[""]} />
         <div className="dashboard">
           <div className="dashboard__box1">
             <DashboardMenu />

@@ -26,7 +26,7 @@ function DashboardMenuAdmin() {
           ))}
         </div>
 
-        <DropdownButton id="dropdown-basic-button" title="Dropdown button">
+        <DropdownButton>
           <Dropdown.Item href="#/action-1">Tableau de Bord</Dropdown.Item>
           <Dropdown.Item href="#/action-2">
             Listes des vins et commandes

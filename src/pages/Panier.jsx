@@ -308,6 +308,14 @@ function Panier() {
                     checked={selectedOption3 === "option3"}
                     onChange={() => handleRadioChange3("option3")}
                   />
+
+                  <Form.Check
+                    type="radio"
+                    id="option4"
+                    label="Paiement au retrait (si option retrait au domaine ou en salon choisie)"
+                    checked={selectedOption3 === "option3"}
+                    onChange={() => handleRadioChange3("option4")}
+                  />
                 </div>
               </Form>
             </div>

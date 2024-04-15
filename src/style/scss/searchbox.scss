@@ -5,13 +5,27 @@ $green-leaf: #124b38;
 
 .searchbox {
   padding: 10px;
+  @media all and (max-width: 600px) {
+    padding: 0px;
+  }
+
   &__row {
     display: flex;
     flex-direction: row;
     gap: 5px;
 
+    @media all and (max-width: 600px) {
+      gap: 0px;
+    }
+
     &__col {
+      @media all and (max-width: 600px) {
+        margin: 0px;
+      }
       &__box {
+        @media all and (max-width: 600px) {
+          margin: 0px;
+        }
         border-radius: 15px;
         padding: 5px;
         background-color: $light-peach;
@@ -20,11 +34,18 @@ $green-leaf: #124b38;
     }
 
     &__col {
+      @media all and (max-width: 600px) {
+        margin: 0px;
+      }
+
       &__btn {
         background-color: $green-leaf;
         border: none;
         &__img {
           max-width: 30px;
+          @media all and (max-width: 600px) {
+            margin: 0px;
+          }
         }
       }
     }
@@ -40,4 +61,16 @@ $green-leaf: #124b38;
 #bar {
   background-color: $light-peach;
   color: $red-wine;
+}
+
+#loup {
+  margin: 0px;
+  padding: 0px;
+  color: $main-peach;
+}
+
+#loupe {
+  margin: 0px;
+  padding: 0px;
+  color: $main-peach;
 }

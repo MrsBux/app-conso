@@ -9,6 +9,7 @@ $green-leaf: #124b38;
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
+  width: 100%;
 
   &__title {
     text-align: left;
@@ -21,4 +22,10 @@ $green-leaf: #124b38;
       text-align: center;
     }
   }
+}
+
+#Catalogue,
+#Reviews {
+  min-width: 100%;
+  width: 100%;
 }

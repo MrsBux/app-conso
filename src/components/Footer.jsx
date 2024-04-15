@@ -1,7 +1,8 @@
 import { Link } from "react-router-dom";
 import "../style/css/footer.css";
 import Admin from "../assets/Admin.webp";
-import logoInsta from "../assets/icon_insta.webp";
+import logoInsta from "../assets/logoinst.webp";
+import logoFB from "../assets/logofb.webp";
 
 function Footer() {
   return (
@@ -32,9 +33,25 @@ function Footer() {
             ></img>
           </Link>
 
-          <a href="http://www.instagram.com" className="footerBox__login__a2">
+          <a
+            href="https://www.instagram.com/domaine_laconsonniere/"
+            target="_blank"
+            className="footerBox__login__a2"
+          >
             <img
               src={logoInsta}
+              alt="logoInsta"
+              className="footerBox__login__a2__logo"
+            ></img>
+          </a>
+
+          <a
+            href="https://www.facebook.com/Domainelaconsonniere/?locale=fr_FR"
+            className="footerBox__login__a2"
+            target="_blank"
+          >
+            <img
+              src={logoFB}
               alt="logoInsta"
               className="footerBox__login__a2__logo"
             ></img>

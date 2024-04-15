@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import TabTools from "../components/TabTools/index";
 import Filtre from "../components/Catalogue/Filtre";
 import NosPartenaires from "../components/NosPartenaires";
@@ -10,6 +10,10 @@ import lirac12 from "../assets/lirac12.webp";
 import "../style/css/partners.css";
 
 function Partners() {
+  useEffect(() => {
+    window.scrollTo(0, 0); // Scroll to the top on component mount
+  }, []);
+
   const filtres = [
     { filtreName: "Localisation" },
     { filtreName: "Restaurateurs" },
@@ -28,10 +32,14 @@ function Partners() {
     <>
       {" "}
       <main>
-        <TabTools />
+        <TabTools
+          sectionsPage={[
+            { page: "partners-list", item: "Liste des partenaires" },
+            { page: "partner-form", item: "Formulaire de contact" },
+          ]}
+        />
         <div className="partenaires">
-          <section className="partenaires__box">
-            <div></div>
+          <section className="partenaires__box" id="partners-list">
             <NosPartenaires />
 
             <div className="partenaires__filtresbox">
@@ -59,12 +67,13 @@ function Partners() {
             </div>
           </section>
 
-          <section className="partenaires__boxform">
+          <section className="partenaires__boxform" id="partner-form">
             <img
               src={lirac12}
               alt="Goulot Lirac"
               className="partenaires__boxform__img"
             ></img>
+
             <FormPartners />
           </section>
         </div>

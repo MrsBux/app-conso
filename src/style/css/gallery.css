@@ -4,6 +4,7 @@
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
+  width: 100%;
 }
 .gallery__title {
   text-align: left;
@@ -16,6 +17,12 @@
     font-size: 42px;
     text-align: center;
   }
+}
+
+#Catalogue,
+#Reviews {
+  min-width: 100%;
+  width: 100%;
 }
 
 /*# sourceMappingURL=gallery.css.map */

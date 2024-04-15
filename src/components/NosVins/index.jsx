@@ -5,11 +5,11 @@ import nosVins from "../../assets/nosVins.webp";
 
 function NosVins() {
   const txt = [
-    { txtbtn: "J'en veux !0" },
-    { txtbtn: "Où est-ce que je peux en trouver?1" },
-    { txtbtn: "Tester votre palais !2" },
-    { txtbtn: "GFV3" },
-    { txtbtn: "Venez déguster en salon!4" },
+    { txtbtn: "J'en veux !", page: "/gallery" },
+    { txtbtn: "Où est-ce que je peux en trouver?", page: "/partners" },
+    { txtbtn: "Tester votre palais !" },
+    { txtbtn: "GFV3", page: "/prestations" },
+    { txtbtn: "Venez déguster en salon!", page: "/salons" },
   ];
 
   return (
@@ -22,6 +22,7 @@ function NosVins() {
             key={index}
             txtBtnNosVins={item.txtbtn}
             id={`btnNV__${index}`}
+            page={item.page}
           />
         ))}
       </div>

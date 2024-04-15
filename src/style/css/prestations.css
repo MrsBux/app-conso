@@ -20,4 +20,19 @@
   }
 }
 
+#prestations {
+  min-width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 50px;
+  background-color: #ffd2b8;
+}
+
+#faq,
+#gfv {
+  min-width: 100%;
+}
+
 /*# sourceMappingURL=prestations.css.map */

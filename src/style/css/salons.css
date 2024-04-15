@@ -26,4 +26,10 @@
   }
 }
 
+#carte,
+#agenda,
+#gallery {
+  min-width: 100%;
+}
+
 /*# sourceMappingURL=salons.css.map */

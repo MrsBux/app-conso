@@ -16,7 +16,7 @@ function SearchBox() {
             id="bar"
           />
         </Col>
-        <Col className="searchbox__row__col" xs="auto">
+        <Col className="searchbox__row__col" xs="auto" id="loup">
           <button type="submit" className="searchbox__row__col__btn" id="loupe">
             <img
               src={loupe}

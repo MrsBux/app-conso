@@ -8,18 +8,34 @@ import Contact from "../components/Contact";
 import NosActus from "../components/NosActualites";
 
 function Home() {
-  const sectionsPage = ["a", "b", "c", "d", "e"];
+  const sectionsPage = [
+    { page: "who-we-are", item: "Qui sommes-nous" },
+    { page: "our-wines", item: "Nos vins" },
+    { page: "our-services", item: "Nos prestations" },
+    { page: "contact-us", item: "Contactez-nous" },
+    { page: "latest-news", item: "Dernières actualités" },
+  ];
 
   return (
     <>
       <div className="main">
         <TabTools sectionsPage={sectionsPage} />
         <Banner />
-        <WhoWeAre />
-        <NosVins />
-        <NosPrestations />
-        <Contact />
-        <NosActus />
+        <div id="who-we-are">
+          <WhoWeAre />
+        </div>
+        <div id="our-wines">
+          <NosVins />
+        </div>
+        <div id="our-services">
+          <NosPrestations />
+        </div>
+        <div id="contact-us">
+          <Contact />
+        </div>
+        <div id="latest-news">
+          <NosActus />
+        </div>
       </div>
     </>
   );

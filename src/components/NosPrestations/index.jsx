@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "../../style/css/nosprestations.css";
 import picturePrestations from "../../assets/prestationimg.webp";
 import Btn from "../Btn";
@@ -36,8 +37,12 @@ function NosPrestations() {
           différentes activités.
         </p>
         <div className="nosprestations__box__btns">
-          <Btn txt_btnG={"En savoir plus !"} />
-          <Btn txt_btnG={"Réserver votre prestation!"} />
+          <Link to="/prestations">
+            <Btn txt_btnG={"En savoir plus !"} id="nosprestations__btn" />
+          </Link>
+          <Link to="/prestations">
+            <Btn txt_btnG={"Réserver votre prestation!"} />
+          </Link>
         </div>
       </div>
 
