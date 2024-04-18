@@ -3,7 +3,7 @@ import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import "../style/css/modalt.css";
 
-function ModalT({ modalContent, btnShow }) {
+function ModalT({ title, modalContent, btnShow, btnname }) {
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
@@ -20,12 +20,12 @@ function ModalT({ modalContent, btnShow }) {
       <Modal show={show} onHide={handleClose}>
         <div className="modalt">
           <Modal.Header closeButton>
-            <Modal.Title>Title Modale</Modal.Title>
+            <Modal.Title>{title}</Modal.Title>
           </Modal.Header>
           <Modal.Body className="modalt"> {modalContent} </Modal.Body>
           <Modal.Footer>
             <Button id="modalt__btnsave" onClick={handleClose}>
-              Save Changes
+              {btnname}
             </Button>
           </Modal.Footer>
         </div>

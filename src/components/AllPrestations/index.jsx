@@ -1,6 +1,7 @@
 import React from "react";
 import BtnNV from "../NosVins/BtnNosVins";
 import ModalT from "../ModalT";
+import ReservationForm from "../ReservationsForm";
 
 import "../../style/css/allprestations.css";
 
@@ -8,15 +9,15 @@ import glass from "../../assets/verre.webp";
 
 function AllPrestations() {
   const txtP = [
-    { txtbtn: "Dégustation au caveau!0" },
-    { txtbtn: "Dégustation au caveau en groupe1" },
-    { txtbtn: "Restropective complète de nos millésimes (2009-2023)2" },
-    { txtbtn: "Bouteilles personnalisables3" },
-    { txtbtn: "Journées accord mets & vins4" },
-    { txtbtn: "Visite complète du domaine, masterclass dégustation5" },
-    { txtbtn: "J'offre une prestation6" },
-    { txtbtn: "Créer une prestation sur mesure7" },
-    { txtbtn: "Visite et deégustation dans les vignes8" },
+    { txtbtn: "Dégustation au caveau!" },
+    { txtbtn: "Dégustation au caveau en groupe" },
+    { txtbtn: "Restropective complète de nos millésimes (2009-2023)" },
+    { txtbtn: "Bouteilles personnalisables" },
+    { txtbtn: "Journées accord mets & vins" },
+    { txtbtn: "Visite complète du domaine, masterclass dégustation" },
+    { txtbtn: "J'offre une prestation" },
+    { txtbtn: "Créer une prestation sur mesure" },
+    { txtbtn: "Visite et deégustation dans les vignes" },
     { txtbtn: "9" },
     { txtbtn: "10" },
   ];
@@ -36,12 +37,14 @@ function AllPrestations() {
 
       <ModalT
         btnShow={
-          <button className="allprestations__btn btnG">
+          <p className="allprestations__btn btnG">
             {" "}
             Réserver votre prestation !
-          </button>
+          </p>
         }
-        modalContent={"Réservations prestations"}
+        modalContent={<ReservationForm />}
+        btnname={"Retour"}
+        title={"Réserver votre prestation"}
       />
     </div>
   );

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "../../style/css/cardpartner.css";
 import ModalT from "../ModalT";
 
-function CardPartner({ logo, name, modco }) {
+function CardPartner({ logo, name, coordonates, type }) {
   const [isCardFlipped, setIsCardFlipped] = useState(false);
 
   return (
@@ -19,7 +19,14 @@ function CardPartner({ logo, name, modco }) {
                 <img src={logo} className="logo__front__img"></img>
               </div>
             }
-            modalContent={modco}
+            title={name}
+            modalContent={
+              <div className="modalt">
+                <p>{coordonates}</p>
+                <p>{type}</p>
+              </div>
+            }
+            btnname={"Retour"}
           />
           <ModalT
             btnShow={
@@ -27,7 +34,14 @@ function CardPartner({ logo, name, modco }) {
                 <p className="logo__back__p">{name}</p>
               </div>
             }
-            modalContent={modco}
+            title={name}
+            modalContent={
+              <div className="modalt">
+                <p>{coordonates}</p>
+                <p>{type}</p>
+              </div>
+            }
+            btnname={"Retour"}
           />
         </div>
       </div>

@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import "../../style/css/contact.css";
 import FormContact from "../FormContact"; // Importer le composant de formulaire
 import ModalT from "../ModalT";
+import FormInscriptionNL from "./FormInscriptionNL";
 
 function Contact() {
   return (
@@ -24,10 +25,10 @@ function Contact() {
               S'abonner à la newsletter
             </h5>
             <ModalT
-              btnShow={
-                <button className="contact__box__btns__2__btn btnc"> N </button>
-              }
-              modalContent={"Hello"}
+              btnShow={<p className="contact__box__btns__2__btn btnc"> N </p>}
+              modalContent={<FormInscriptionNL />}
+              title={"Inscription à la Newsletter ! "}
+              btnname={"Je valide"}
             />{" "}
           </div>
         </div>

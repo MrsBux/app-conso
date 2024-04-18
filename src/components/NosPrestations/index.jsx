@@ -4,6 +4,7 @@ import "../../style/css/nosprestations.css";
 import picturePrestations from "../../assets/prestationimg.webp";
 import Btn from "../Btn";
 import ModalT from "../ModalT";
+import ReservationForm from "../ReservationsForm";
 
 function NosPrestations() {
   return (
@@ -43,7 +44,9 @@ function NosPrestations() {
           </Link>
           <ModalT
             btnShow={<Btn txt_btnG={"Réserver votre prestation!"} />}
-            modalContent={"Réserver votre prestation"}
+            modalContent={<ReservationForm />}
+            title={<h3>Demande de réservation</h3>}
+            btnname={"retour"}
           />
         </div>
       </div>

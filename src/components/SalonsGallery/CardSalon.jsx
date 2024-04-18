@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "../../style/css/cardsalon.css";
 import ModalT from "../ModalT";
 
-function CardSalon({ logo, name, date, localisation, modc }) {
+function CardSalon({ logo, name, date, localisation, type, imgsalon }) {
   const [isCardFlipped, setIsCardFlipped] = useState(false);
 
   return (
@@ -20,7 +20,20 @@ function CardSalon({ logo, name, date, localisation, modc }) {
                 <p className="cardSalon__front__name">{name}</p>
               </div>
             }
-            modalContent={modc}
+            title={{ name }}
+            modalContent={
+              <div className="modalt">
+                <p>{name}</p>
+                <p>{type}</p>
+                <img src={imgsalon}></img>
+                <p>{localisation}</p>
+                <p> {date}</p>
+                <button className="modalt__txt__btn">
+                  Télécharger ou demander votre invitation
+                </button>
+              </div>
+            }
+            btnname={"Retour"}
           />
           <ModalT
             btnShow={
@@ -29,7 +42,20 @@ function CardSalon({ logo, name, date, localisation, modc }) {
                 <p className="cardSalon__back__p">{localisation}</p>
               </div>
             }
-            modalContent={modc}
+            title={name}
+            modalContent={
+              <div className="modalt">
+                <p>{name}</p>
+                <p>{type}</p>
+                <img src={imgsalon}></img>
+                <p>{localisation}</p>
+                <p> {date}</p>
+                <button className="modalt__txt__btn">
+                  Télécharger ou demander votre invitation
+                </button>
+              </div>
+            }
+            btnname={"Retour"}
           />
         </div>
       </div>

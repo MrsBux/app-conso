@@ -1,4 +1,7 @@
 import React, { useState } from "react";
+
+import { Link } from "react-router-dom";
+
 import ItemPanier from "../components/Panier/item";
 import Form from "react-bootstrap/Form";
 
@@ -12,6 +15,16 @@ import logoexp from "../assets/logoexpedition.webp";
 import logopaypal from "../assets/logopaypal.webp";
 
 function Panier() {
+  const handleMailTo = () => {
+    window.location.href = `mailto:contact@domainelaconsonniere.fr?subject=Retrait de commande`;
+  };
+
+  const handlePayPalClick = () => {
+    // Mettre ici le code pour rediriger vers la page de paiement PayPal
+    // Par exemple : window.location.href = "lien_vers_page_paypal";
+    alert("Vous allez être redirigé vers la page de paiement PayPal.");
+  };
+
   const [items, setItems] = useState([
     {
       img_btlle: ch9B,
@@ -127,7 +140,36 @@ function Panier() {
                           ?{" "}
                         </button>
                       }
-                      modalContent={"Infos livraison"}
+                      title={"Explications de nos frais d'expédition"}
+                      btnname={"Fermer"}
+                      modalContent={
+                        <div className="modalt__txt">
+                          {" "}
+                          <p>
+                            Service d'expédition pratique et sécurisé pour
+                            recevoir nos vins directement chez vous.
+                          </p>
+                          <ul>
+                            {" "}
+                            Tarifs :<li>
+                              {" "}
+                              1 bouteille : à partir de 7 euros.
+                            </li>{" "}
+                            <li>6 bouteilles : à partir de 20 euros.</li>{" "}
+                            <li>12 bouteilles : à partir de 30 euros.</li>{" "}
+                            <li> 18 bouteilles : à partir de 50 euros.</li>
+                          </ul>
+                          <p className="modalt__txt__p">
+                            {" "}
+                            Service Personnalisé : Nous préparons et expédions
+                            vos commandes avec soin depuis notre domaine.
+                            Contactez-nous pour des commandes en grande quantité
+                            ou des demandes spécifiques. Faites-vous plaisir
+                            avec nos vins d'exception, livrés directement depuis
+                            notre domaine viticole jusqu'à chez vous."
+                          </p>
+                        </div>
+                      }
                     />
                   </div>
                   <p className="panier__box1__container__total__livraison__p">
@@ -201,7 +243,69 @@ function Panier() {
                         onChange={() => handleRadioChange("option1")}
                       />
                     }
-                    modalContent={"Explication retrait à domicile"}
+                    modalContent={
+                      <div className="retrait">
+                        <p>
+                          Vous avez également la possibilité de venir récupérer
+                          vos bouteilles directement sur place, pour une
+                          expérience encore plus personnalisée.
+                        </p>
+
+                        <h4>Modalités de Retrait (sous 31 jours) :</h4>
+                        <ul>
+                          <li>
+                            Pour récupérer vos bouteilles au domaine, il vous
+                            suffit de nous contacter par e-mail ou par téléphone
+                            au moins 48 heures à l'avance.
+                          </li>
+                          <li>
+                            Lors de votre appel ou de votre e-mail, nous
+                            fixerons ensemble le jour et l'heure qui vous
+                            conviennent le mieux pour venir retirer votre
+                            commande.
+                          </li>
+                        </ul>
+
+                        <h4>Avantages :</h4>
+                        <ul>
+                          <li>
+                            En choisissant le retrait au domaine, vous avez
+                            l'occasion de découvrir notre domaine viticole et de
+                            profiter d'un accueil chaleureux de notre équipe.
+                          </li>
+                          <li>
+                            C'est également l'opportunité de poser toutes vos
+                            questions sur nos vins et de bénéficier de conseils
+                            personnalisés.
+                          </li>
+                        </ul>
+
+                        <h4>Contact :</h4>
+                        <p>
+                          Pour organiser le retrait de votre commande ou pour
+                          toute autre demande, n'hésitez pas à nous contacter
+                          par e-mail à contact@domainelaconsonniere (en bas du
+                          texte lien direct) ou par téléphone au 06 03 49 48 81.
+                          Nous serons ravis de vous accueillir au Domaine.
+                        </p>
+
+                        <p>
+                          Profitez de l'occasion pour vivre une expérience
+                          authentique et rencontrer ceux qui donnent vie à nos
+                          vins, en venant récupérer votre commande directement
+                          au Domaine.
+                        </p>
+
+                        <button
+                          className="modalt__txt__btn"
+                          onClick={handleMailTo}
+                        >
+                          Contactez-nous par e-mail
+                        </button>
+                      </div>
+                    }
+                    title={"Détails retrait au domaine"}
+                    btnname={"Retour"}
                   />
 
                   <ModalT
@@ -227,7 +331,36 @@ function Panier() {
                         onChange={() => handleRadioChange("option3")}
                       />
                     }
-                    modalContent={"Explications Tarifs"}
+                    title={"Explications de nos frais d'expédition"}
+                    btnname={"Fermer"}
+                    modalContent={
+                      <div className="modalt__txt">
+                        {" "}
+                        <p>
+                          Service d'expédition pratique et sécurisé pour
+                          recevoir nos vins directement chez vous.
+                        </p>
+                        <ul>
+                          {" "}
+                          Tarifs :<li>
+                            {" "}
+                            1 bouteille : à partir de 7 euros.
+                          </li>{" "}
+                          <li>6 bouteilles : à partir de 20 euros.</li>{" "}
+                          <li>12 bouteilles : à partir de 30 euros.</li>{" "}
+                          <li> 18 bouteilles : à partir de 50 euros.</li>
+                        </ul>
+                        <p className="modalt__txt__p">
+                          {" "}
+                          Service Personnalisé : Nous préparons et expédions vos
+                          commandes avec soin depuis notre domaine.
+                          Contactez-nous pour des commandes en grande quantité
+                          ou des demandes spécifiques. Faites-vous plaisir avec
+                          nos vins d'exception, livrés directement depuis notre
+                          domaine viticole jusqu'à chez vous."
+                        </p>
+                      </div>
+                    }
                   />
                 </div>
               </Form>
@@ -236,19 +369,21 @@ function Panier() {
             <div className="panier__box2__coordonnees">
               <Form className="panier__box2__coordonnees__form">
                 <div className="panier__box2__coordonnees__form__box">
+                  <Link to="/login">
+                    <Form.Check
+                      type="radio"
+                      id="option4"
+                      label="Je me connecte à mon espace client (ou je le créé)"
+                      checked={selectedOption2 === "option4"}
+                      onChange={() => handleRadioChange2("option4")}
+                    />
+                  </Link>
                   <Form.Check
                     type="radio"
-                    id="option1"
-                    label="Je me connecte à mon espace client (ou je le créé)"
-                    checked={selectedOption2 === "option1"}
-                    onChange={() => handleRadioChange2("option1")}
-                  />
-                  <Form.Check
-                    type="radio"
-                    id="option2"
+                    id="option5"
                     label="Je rentre directement mes coordonnées "
-                    checked={selectedOption2 === "option2"}
-                    onChange={() => handleRadioChange2("option2")}
+                    checked={selectedOption2 === "option5"}
+                    onChange={() => handleRadioChange2("option5")}
                   />
 
                   <div className=" panier__box2__coordonnees__form__box__input">
@@ -315,52 +450,215 @@ function Panier() {
                     btnShow={
                       <Form.Check
                         type="radio"
-                        id="option1"
+                        id="option6"
                         label="Paiement par carte"
-                        checked={selectedOption3 === "option1"}
-                        onChange={() => handleRadioChange3("option1")}
+                        checked={selectedOption3 === "option6"}
+                        onChange={() => handleRadioChange3("option6")}
                       />
                     }
-                    modalContent={"Paypal lien"}
+                    modalContent={
+                      <div className="paiement-paypal">
+                        <p>
+                          Vous pouvez régler votre commande en toute sécurité
+                          via PayPal, un moyen de paiement rapide et sécurisé
+                          sur internet.
+                        </p>
+
+                        <h4>Comment Payer :</h4>
+                        <p>
+                          Après avoir cliqué sur "Valider la commande et payer",
+                          vous serez redirigé vers la page de paiement PayPal.
+                        </p>
+
+                        <h4>Avantages :</h4>
+                        <ul>
+                          <li>
+                            PayPal vous offre une protection des achats,
+                            garantissant la sécurité de vos transactions.
+                          </li>
+                          <li>
+                            Pas besoin de saisir vos informations bancaires à
+                            chaque fois, votre compte PayPal les conserve en
+                            toute sécurité si vous le souhaitez.
+                          </li>
+                        </ul>
+
+                        <h4>Contact :</h4>
+                        <p>
+                          Pour toute question concernant le paiement par PayPal,
+                          n'hésitez pas à nous contacter par e-mail à{" "}
+                          <a href="mailto:contact@domainelaconsonniere.fr">
+                            contact@domainelaconsonniere.fr
+                          </a>
+                          .
+                        </p>
+                      </div>
+                    }
+                    title={"Détails du paiement par Paypal"}
+                    btnname={"Retour"}
                   />
 
                   <ModalT
                     btnShow={
                       <Form.Check
                         type="radio"
-                        id="option2"
+                        id="option7"
                         label=" Paiement par virement "
-                        checked={selectedOption3 === "option2"}
-                        onChange={() => handleRadioChange3("option2")}
+                        checked={selectedOption3 === "option7"}
+                        onChange={() => handleRadioChange3("option7")}
                       />
                     }
-                    modalContent={"Info virement par virement"}
+                    modalContent={
+                      <div className="paiement-virement">
+                        <p>
+                          Possibilité de régler votre commande par virement
+                          bancaire.
+                        </p>
+
+                        <h4>Modalités de Paiement :</h4>
+                        <ul>
+                          <li>
+                            Une fois votre commande passée, vous recevrez un
+                            e-mail de confirmation contenant toutes les
+                            informations nécessaires pour effectuer votre
+                            virement.
+                          </li>
+                          <li>
+                            Il vous suffira alors d'effectuer le virement depuis
+                            votre compte bancaire en utilisant les coordonnées
+                            bancaires fournies dans l'e-mail de confirmation.
+                          </li>
+                          <li>
+                            N'oubliez pas d'indiquer votre numéro de commande
+                            dans la référence de votre virement pour faciliter
+                            le traitement de votre paiement.
+                          </li>
+                        </ul>
+
+                        <h4>Confirmation de Paiement :</h4>
+                        <p>
+                          Une fois votre virement reçu, nous vous enverrons une
+                          confirmation par e-mail et nous procéderons à
+                          l'expédition de votre commande dans les plus brefs
+                          délais.
+                        </p>
+
+                        <h4>Contact :</h4>
+                        <p>
+                          Pour toute question concernant le paiement par
+                          virement ou pour obtenir les informations nécessaires
+                          pour effectuer votre virement, n'hésitez pas à nous
+                          contacter par e-mail à{" "}
+                          <a href="mailto:contact@domainelaconsonniere.fr">
+                            contact@domainelaconsonniere.fr
+                          </a>
+                          .
+                        </p>
+                      </div>
+                    }
+                    title={"Détails paiement par virement"}
+                    btnname={"Retour"}
                   />
 
                   <ModalT
                     btnShow={
                       <Form.Check
                         type="radio"
-                        id="option3"
+                        id="option9"
                         label="Paiement par chèque"
-                        checked={selectedOption3 === "option3"}
-                        onChange={() => handleRadioChange3("option3")}
+                        checked={selectedOption3 === "option9"}
+                        onChange={() => handleRadioChange3("option9")}
                       />
                     }
-                    modalContent={"Info virement par chèque"}
+                    modalContent={
+                      <div className="paiement-cheque">
+                        <p>Possibilité de régler votre commande par chèque.</p>
+
+                        <h4>Modalités de Paiement :</h4>
+                        <ul>
+                          <li>
+                            Une fois votre commande passée, vous recevrez par
+                            e-mail le numéro de votre commande, l'oddre auquel
+                            libellé votre chèque ainsi que l'adresse à laquelle
+                            envoyer votre chèque.
+                          </li>
+                          <li>
+                            N'oubliez pas d'indiquer votre numéro de commande au
+                            dos du chèque pour faciliter le traitement de votre
+                            paiement.
+                          </li>
+                        </ul>
+
+                        <h4>Confirmation de Paiement :</h4>
+                        <p>
+                          Dès réception et encaissement de votre chèque, nous
+                          vous enverrons une confirmation par e-mail et nous
+                          procéderons à l'expédition de votre commande dans les
+                          plus brefs délais.
+                        </p>
+
+                        <h4>Contact :</h4>
+                        <p>
+                          Pour toute question concernant le paiement par chèque
+                          ou pour obtenir les informations nécessaires pour
+                          envoyer votre chèque, n'hésitez pas à nous contacter
+                          par e-mail à{" "}
+                          <a href="mailto:contact@domainelaconsonniere.fr">
+                            contact@domainelaconsonniere.fr
+                          </a>
+                          .
+                        </p>
+                      </div>
+                    }
+                    title={"Détails paiement par chèque"}
+                    btnname={"Retour"}
                   />
 
                   <ModalT
                     btnShow={
                       <Form.Check
                         type="radio"
-                        id="option4"
+                        id="option8"
                         label="Paiement au retrait (si option retrait au domaine ou en salon choisie)"
-                        checked={selectedOption3 === "option3"}
-                        onChange={() => handleRadioChange3("option4")}
+                        checked={selectedOption3 === "option8"}
+                        onChange={() => handleRadioChange3("option8")}
                       />
                     }
-                    modalContent={"Infos retrait au retrait"}
+                    modalContent={
+                      <div className="paiement-retrait">
+                        <p>
+                          Possibilité de régler votre commande lors du retrait.
+                          Vous pouvez venir chercher vos bouteilles directement
+                          au domaine et effectuer votre paiement sur place.
+                        </p>
+
+                        <h4>Modalités de Paiement :</h4>
+                        <ul>
+                          <li>
+                            Lors du retrait de votre commande, vous avez la
+                            possibilité de régler en personne.
+                          </li>
+                          <li>
+                            Vous disposez d'un délai maximum de 31 jours à
+                            partir de la date de la commande pour effectuer le
+                            paiement au retrait.
+                          </li>
+                        </ul>
+
+                        <h4>Contact :</h4>
+                        <p>
+                          Pour toute question concernant le paiement au retrait
+                          ou pour planifier votre venue, n'hésitez pas à nous
+                          contacter par e-mail à{" "}
+                          <a href="mailto:contact@domainelaconsonniere.fr">
+                            contact@domainelaconsonniere.fr
+                          </a>{" "}
+                          ou par téléphone au 0603494881.
+                        </p>
+                      </div>
+                    }
+                    title={"Détails paiement au retrait"}
+                    btnname={"Retour"}
                   />
                 </div>
               </Form>
