@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "../../style/css/contact.css";
 import FormContact from "../FormContact"; // Importer le composant de formulaire
+import ModalT from "../ModalT";
 
 function Contact() {
   return (
@@ -11,18 +12,23 @@ function Contact() {
         <FormContact />
         <div className="contact__box__btns">
           <div className="contact__box__btns__1">
+            <h5 className="contact__box__btns__1__h">
+              Créer un compte client fidélité / Se connecter à son compte
+            </h5>{" "}
             <Link to="/login">
-              <h5 className="contact__box__btns__1__h">
-                Créer un compte client fidélité / Se connecter à son compte
-              </h5>{" "}
+              <button className="contact__box__btns__1__btn btnc"> C</button>
             </Link>
-            <button className="contact__box__btns__1__btn btnc"> C</button>
           </div>
           <div className="contact__box__btns__2">
             <h5 className="contact__box__btns__2__h">
               S'abonner à la newsletter
             </h5>
-            <button className="contact__box__btns__2__btn btnc"> N </button>
+            <ModalT
+              btnShow={
+                <button className="contact__box__btns__2__btn btnc"> N </button>
+              }
+              modalContent={"Hello"}
+            />{" "}
           </div>
         </div>
       </div>

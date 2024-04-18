@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from "react";
 import CardSalon from "./CardSalon";
 import Filtre from "../Catalogue/Filtre";
+import BtnAjouter from "../BtnAjouter";
+import BtnModifier from "../BtnModifier";
+import BtnSupprimer from "../BtnSupprimer";
 
 import logo from "../../assets/logoallstarwine.webp";
 import logo2 from "../../assets/logopetitpatio.webp";
@@ -14,6 +17,10 @@ import ch9R12 from "../../assets/ch9R12.webp";
 function SalonGallery() {
   const [visibleSalon, setVisibleSalon] = useState();
   const [isMobileS, setIsMobileS] = useState(window.innerWidth <= 400);
+
+  const handleAdmiBtn = () => {
+    console.log("click");
+  };
 
   useEffect(() => {
     const handleResize = () => {
@@ -165,7 +172,10 @@ function SalonGallery() {
           >
             {visibleSalon === 4 ? "Voir plus" : "Voir moins"}
           </button>
-        )}
+        )}{" "}
+        <BtnAjouter onClick={handleAdmiBtn} />
+        <BtnModifier onClick={handleAdmiBtn} />
+        <BtnSupprimer onClick={handleAdmiBtn} />
       </div>
     </div>
   );

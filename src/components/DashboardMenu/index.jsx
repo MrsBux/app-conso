@@ -1,15 +1,16 @@
 import React from "react";
 import Dropdown from "react-bootstrap/Dropdown";
 import DropdownButton from "react-bootstrap/DropdownButton";
+import ModalT from "../ModalT";
 
 import CardMD from "./CardMD";
 import "../../style/css/dashboardmenu.css";
 
 function DashboardMenu() {
   const sections = [
-    { name: "Tableau de bord" },
-    { name: "Toutes mes commandes et factures" },
-    { name: "Informations personnelles" },
+    { name: "Tableau de bord", contentmod: "Content" },
+    { name: "Toutes mes commandes et factures", contentmod: "Content" },
+    { name: "Informations personnelles", contentmod: "Content" },
   ];
 
   const handleClick = () => {
@@ -22,7 +23,7 @@ function DashboardMenu() {
         <h6 className="menuD__box__title">Menu de navigation</h6>
         <div className="menuD__box__sections">
           {sections.map((item, index) => (
-            <CardMD key={index} name={item.name} onclick={handleClick} />
+            <CardMD key={index} name={item.name} contentmod={item.contentmod} />
           ))}
         </div>
 
@@ -41,15 +42,24 @@ function DashboardMenu() {
         </DropdownButton>
       </div>
       <div className="menuD__divers">
-        <p className="menuD__divers__ml">Mentions Légales</p>
+        <ModalT
+          btnShow={<p className="menuD__divers__ml">Mentions Légales</p>}
+          modalContent={"Mentions légales"}
+        />
         <button className="menuD__divers__btn" onClick={handleClick}>
           {" "}
           Se déconnecter
         </button>
-        <a href="" className="menuD__divers__ahelp">
-          {" "}
-          Besoin d'aide ?
-        </a>
+        <ModalT
+          btnShow={
+            <a href="" className="menuD__divers__ahelp">
+              {" "}
+              Besoin d'aide ?
+            </a>
+          }
+          modalContent={"Aide"}
+        />
+
         <p className="menuD__divers__td"> Tous droits réservés.</p>
       </div>
     </aside>

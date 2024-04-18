@@ -1,4 +1,5 @@
 import React from "react";
+import ModalT from "../ModalT";
 
 import logoAgenda from "../../assets/logo_agenda.webp";
 import ch9B13G from "../../assets/ch9B13G.webp";
@@ -15,12 +16,18 @@ function SalonAgenda() {
           className="salonagenda__box__img"
         ></img>{" "}
       </div>
-      <img
-        src={logoAgenda}
-        className="salonagenda__img"
-        alt="logo d'un agenda"
-        title="Cliquez pour voir l'agenda des salons du mois"
-      ></img>
+
+      <ModalT
+        btnShow={
+          <img
+            src={logoAgenda}
+            className="salonagenda__img"
+            alt="logo d'un agenda"
+            title="Cliquez pour voir l'agenda des salons du mois"
+          ></img>
+        }
+        modalContent={"Salon du mois"}
+      />
     </div>
   );
 }

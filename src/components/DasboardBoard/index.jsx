@@ -2,6 +2,7 @@ import React from "react";
 import bch2020 from "../../assets/bch2020.webp";
 import bch2017 from "../../assets/bch2017.webp";
 import bchR2018 from "../../assets/bchR2018.webp";
+import ModalT from "../ModalT";
 
 import "../../style/css/dashboardboard.css";
 
@@ -21,15 +22,23 @@ function DashboardBoard({
         <div className="board__box__card1 board__box__card">
           <h5 className="board__box__card1__title"> Dernière commande</h5>
           <p className="board__box__card1__lastc"> Dernière commande {lastc}</p>
-          <button className="board__box__card1__btn">Voir toutes</button>
+          <ModalT
+            btnShow={<div className="board__box__card1__btn">Voir toutes</div>}
+            modalContent={"Toues les commandes"}
+          />
         </div>
         <div className="board__box__card2 board__box__card">
           <h5 className="board__box__card2__title">{numberofpoints}273</h5>
           <p className="board__box__card2__p"> pts</p>
-          <button className="board__box__card2__btn">
-            {" "}
-            Programme de fidélité
-          </button>
+          <ModalT
+            btnShow={
+              <div className="board__box__card2__btn">
+                {" "}
+                Programme de fidélité
+              </div>
+            }
+            modalContent={"programme de fidélité"}
+          />
         </div>
         <div className="board__box__card3   board__box__card">
           <h5 className="board__box__card3__title"> Mon compte</h5>
@@ -68,7 +77,10 @@ function DashboardBoard({
             {invits}
           </a>
 
-          <button className="board__box__card4__btn">Voir toutes</button>
+          <ModalT
+            btnShow={<div className="board__box__card4__btn">Voir toutes</div>}
+            modalContent={"Invits salon"}
+          />
         </div>
       </div>
       <div className="board__deco">

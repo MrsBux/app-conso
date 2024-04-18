@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import ItemPanier from "../components/Panier/item";
 import Form from "react-bootstrap/Form";
 
+import ModalT from "../components/ModalT";
+
 import "../style/css/panier.css";
 
 import ch9B from "../assets/ch9B.webp";
@@ -118,10 +120,15 @@ function Panier() {
                       {" "}
                       Livraison
                     </p>
-                    <button className="panier__box1__container__total__livraison__box__q">
-                      {" "}
-                      ?{" "}
-                    </button>
+                    <ModalT
+                      btnShow={
+                        <button className="panier__box1__container__total__livraison__box__q">
+                          {" "}
+                          ?{" "}
+                        </button>
+                      }
+                      modalContent={"Infos livraison"}
+                    />
                   </div>
                   <p className="panier__box1__container__total__livraison__p">
                     {livraison} euros
@@ -162,7 +169,7 @@ function Panier() {
                   ></img>
                   <p className="panier__box1__container__infos__box__p">
                     {" "}
-                    Expédition / Retrait au domaien ou en salon
+                    Expédition / Retrait au domaine ou en salon
                   </p>
                 </div>
                 <div className="panier__box1__container__infos__box">
@@ -184,26 +191,43 @@ function Panier() {
             <div className="panier__box2__livraison">
               <Form className="panier__box2__livraison__form">
                 <div className="panier__box2__livraison__form__box">
-                  <Form.Check
-                    type="radio"
-                    id="option1"
-                    label="Retrait au domaine sous 31 jours (gratuit)"
-                    checked={selectedOption === "option1"}
-                    onChange={() => handleRadioChange("option1")}
+                  <ModalT
+                    btnShow={
+                      <Form.Check
+                        type="radio"
+                        id="option1"
+                        label="Retrait au domaine sous 31 jours (gratuit)"
+                        checked={selectedOption === "option1"}
+                        onChange={() => handleRadioChange("option1")}
+                      />
+                    }
+                    modalContent={"Explication retrait à domicile"}
                   />
-                  <Form.Check
-                    type="radio"
-                    id="option2"
-                    label="Retrait lors du salon le plus proche de chez moi (gratuit) "
-                    checked={selectedOption === "option2"}
-                    onChange={() => handleRadioChange("option2")}
+
+                  <ModalT
+                    btnShow={
+                      <Form.Check
+                        type="radio"
+                        id="option2"
+                        label="Retrait lors du salon le plus proche de chez moi (gratuit) "
+                        checked={selectedOption === "option2"}
+                        onChange={() => handleRadioChange("option2")}
+                      />
+                    }
+                    modalContent={"Choisir le salon"}
                   />
-                  <Form.Check
-                    type="radio"
-                    id="option3"
-                    label="Livraison à domicile (voir la grille explicative des tarifs)"
-                    checked={selectedOption === "option3"}
-                    onChange={() => handleRadioChange("option3")}
+
+                  <ModalT
+                    btnShow={
+                      <Form.Check
+                        type="radio"
+                        id="option3"
+                        label="Livraison à domicile (voir la grille explicative des tarifs)"
+                        checked={selectedOption === "option3"}
+                        onChange={() => handleRadioChange("option3")}
+                      />
+                    }
+                    modalContent={"Explications Tarifs"}
                   />
                 </div>
               </Form>
@@ -287,34 +311,56 @@ function Panier() {
             <div className="panier__box2__paiement">
               <Form className="panier__box2__paiement__form">
                 <div className="panier__box2__paiement__form__box">
-                  <Form.Check
-                    type="radio"
-                    id="option1"
-                    label="Paiement par carte"
-                    checked={selectedOption3 === "option1"}
-                    onChange={() => handleRadioChange3("option1")}
-                  />
-                  <Form.Check
-                    type="radio"
-                    id="option2"
-                    label=" Paiement par virement "
-                    checked={selectedOption3 === "option2"}
-                    onChange={() => handleRadioChange3("option2")}
-                  />
-                  <Form.Check
-                    type="radio"
-                    id="option3"
-                    label="Paiement par chèque"
-                    checked={selectedOption3 === "option3"}
-                    onChange={() => handleRadioChange3("option3")}
+                  <ModalT
+                    btnShow={
+                      <Form.Check
+                        type="radio"
+                        id="option1"
+                        label="Paiement par carte"
+                        checked={selectedOption3 === "option1"}
+                        onChange={() => handleRadioChange3("option1")}
+                      />
+                    }
+                    modalContent={"Paypal lien"}
                   />
 
-                  <Form.Check
-                    type="radio"
-                    id="option4"
-                    label="Paiement au retrait (si option retrait au domaine ou en salon choisie)"
-                    checked={selectedOption3 === "option3"}
-                    onChange={() => handleRadioChange3("option4")}
+                  <ModalT
+                    btnShow={
+                      <Form.Check
+                        type="radio"
+                        id="option2"
+                        label=" Paiement par virement "
+                        checked={selectedOption3 === "option2"}
+                        onChange={() => handleRadioChange3("option2")}
+                      />
+                    }
+                    modalContent={"Info virement par virement"}
+                  />
+
+                  <ModalT
+                    btnShow={
+                      <Form.Check
+                        type="radio"
+                        id="option3"
+                        label="Paiement par chèque"
+                        checked={selectedOption3 === "option3"}
+                        onChange={() => handleRadioChange3("option3")}
+                      />
+                    }
+                    modalContent={"Info virement par chèque"}
+                  />
+
+                  <ModalT
+                    btnShow={
+                      <Form.Check
+                        type="radio"
+                        id="option4"
+                        label="Paiement au retrait (si option retrait au domaine ou en salon choisie)"
+                        checked={selectedOption3 === "option3"}
+                        onChange={() => handleRadioChange3("option4")}
+                      />
+                    }
+                    modalContent={"Infos retrait au retrait"}
                   />
                 </div>
               </Form>

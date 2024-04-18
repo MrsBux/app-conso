@@ -6,6 +6,9 @@ import logoasw from "../../assets/logoallstarwine.webp";
 import logovintq from "../../assets/logovinotq.webp";
 import "../../style/css/nospartenaires.css";
 
+import BtnAjouter from "../BtnAjouter";
+import BtnSupprimer from "../BtnSupprimer";
+
 function NosPartenaires() {
   const [visiblePartner, setVisiblePartner] = useState();
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 600);
@@ -174,6 +177,10 @@ function NosPartenaires() {
     setVisiblePartner((visible) => (visible === 4 ? partners.length : 4));
   };
 
+  const handleAdmiBtn = () => {
+    console.log("click");
+  };
+
   const visiblePartners = partners.slice(0, visiblePartner);
 
   const filtres = [
@@ -209,7 +216,9 @@ function NosPartenaires() {
           >
             {visiblePartner === 4 ? "Voir plus" : "Voir moins"}
           </button>
-        )}
+        )}{" "}
+        <BtnAjouter onClick={handleAdmiBtn} />
+        <BtnSupprimer onClick={handleAdmiBtn} />
       </div>
     </div>
   );

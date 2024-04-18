@@ -3,11 +3,35 @@ import "../style/css/footer.css";
 import Admin from "../assets/Admin.webp";
 import logoInsta from "../assets/logoinst.webp";
 import logoFB from "../assets/logofb.webp";
+import BtnLogOut from "./BtnLogOut";
+import React, { useState } from "react";
 
 function Footer() {
+  const [isAdminConnected, setIsAdminConnect] = useState(false);
+
+  const handleAdmiBtn = () => {
+    console.log(click);
+  };
+
   return (
     <footer>
       <div className="footerBox">
+        <div className="footerBox__log">
+          <BtnLogOut onClick={handleAdmiBtn} />
+          <Link
+            to="/loginadmin"
+            className={`footerBox__login__a1 ${
+              isAdminConnected ? "isAdminConnectedClassLogin" : ""
+            }`}
+          >
+            <img
+              src={Admin}
+              alt="logo login admin"
+              className="footerBox__login__a1__img"
+            ></img>
+          </Link>
+        </div>
+
         <div className="footerBox__coordonates">
           <p className="footerBox__coordonates__mail">
             {" "}
@@ -25,14 +49,6 @@ function Footer() {
         </div>
 
         <nav className="footerBox__login">
-          <Link to="/loginadmin" className="footerBox__login__a1">
-            <img
-              src={Admin}
-              alt="logo login admin"
-              className="footerBox__login__a1__img"
-            ></img>
-          </Link>
-
           <a
             href="https://www.instagram.com/domaine_laconsonniere/"
             target="_blank"

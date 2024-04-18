@@ -1,15 +1,15 @@
 import React from "react";
 import Dropdown from "react-bootstrap/Dropdown";
 import DropdownButton from "react-bootstrap/DropdownButton";
-
+import ModalT from "../ModalT";
 import CardMD from "./CardMDAdmin";
 import "../../style/css/dashboardmenu.css";
 
 function DashboardMenuAdmin() {
   const sections = [
-    { name: "Listes des vins et partenaires" },
-    { name: "Toutes les demandes utilisateurs" },
-    { name: "Mes actions" },
+    { name: "Listes des vins et partenaires", contentmod: "Content" },
+    { name: "Toutes les demandes utilisateurs", contentmod: "Content" },
+    { name: "Mes actions", contentmod: "Content" },
   ];
 
   const handleClick = () => {
@@ -22,11 +22,11 @@ function DashboardMenuAdmin() {
         <h6 className="menuD__box__title">Menu de navigation</h6>
         <div className="menuD__box__sections">
           {sections.map((item, index) => (
-            <CardMD key={index} name={item.name} onclick={handleClick} />
+            <CardMD key={index} name={item.name} contentmod={item.contentmod} />
           ))}
         </div>
 
-        <DropdownButton>
+        <DropdownButton id="dropdown-basic-button" title="Dropdown button">
           <Dropdown.Item href="#/action-1">Tableau de Bord</Dropdown.Item>
           <Dropdown.Item href="#/action-2">
             Listes des vins et commandes
@@ -38,7 +38,10 @@ function DashboardMenuAdmin() {
         </DropdownButton>
       </div>
       <div className="menuD__divers">
-        <p className="menuD__divers__ml">Mentions Légales</p>
+        <ModalT
+          btnShow={<p className="menuD__divers__ml">Mentions Légales</p>}
+          modalContent={"Mentions légales"}
+        />
         <button className="menuD__divers__btn" onClick={handleClick}>
           {" "}
           Se déconnecter

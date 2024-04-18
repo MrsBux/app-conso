@@ -3,6 +3,9 @@ import { useState } from "react";
 import Actualite from "./actualite";
 import "../../style/css/nosactus.css";
 
+import BtnAjouter from "../BtnAjouter";
+import BtnSupprimer from "../BtnSupprimer";
+
 function NosActus() {
   const [visibleActus, setVisibleActus] = useState(4);
 
@@ -12,6 +15,10 @@ function NosActus() {
 
   const handleVoirMoinsClick = () => {
     setVisibleActus(4); // Revenir à l'état initial (afficher seulement les trois premières actus)
+  };
+
+  const handleAdmiBtn = () => {
+    console.log("click");
   };
 
   const actus = [
@@ -47,6 +54,9 @@ function NosActus() {
               Voir moins{" "}
             </button>
           )}
+
+          <BtnAjouter onClick={handleAdmiBtn} />
+          <BtnSupprimer onClick={handleAdmiBtn} />
         </div>
       )}
 

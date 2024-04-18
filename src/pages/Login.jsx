@@ -49,6 +49,8 @@ function Login() {
         >
           Se connecter{" "}
         </button>
+
+        <p className="login__register"> Créer un compte</p>
       </Form>
     </div>
   );

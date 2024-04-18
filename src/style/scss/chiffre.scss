@@ -10,8 +10,24 @@ $green-leaf: #124b38;
   perspective: 130px;
   transition: transform 1000ms;
   line-height: 150px;
+  line-height: 1;
   &.flipped {
-    transform: scale(1.15) rotateY(180deg) translateY(-10px);
+    transform: rotateY(180deg) translateY(-150px) translateX(-150px);
+
+    @media all and (min-width: 1201px) and (max-width: 1440px) {
+      transform: rotateY(180deg) translateY(-150px) translateX(-80px);
+    }
+    @media all and (min-width: 901px) and (max-width: 1200px) {
+      transform: rotateY(180deg) translateY(-150px) translateX(-15px);
+    }
+
+    @media all and (min-width: 601px) and (max-width: 900px) {
+      transform: rotateY(180deg) translateY(-150px) translateX(-10px);
+    }
+
+    @media all and (min-width: 200px) and (max-width: 600px) {
+      transform: rotateY(180deg) translateY(-110px) translateX(-10px);
+    }
   }
 
   .chiffre {
@@ -31,11 +47,30 @@ $green-leaf: #124b38;
     &__back {
       display: none;
       transform: rotateY(180deg);
+      width: 300px;
+      height: 450px;
+      object-fit: cover;
+
+      @media all and (min-width: 1200px) and (max-width: 1440px) {
+        width: 200px;
+      }
+
+      @media all and (min-width: 901px) and (max-width: 1200px) {
+        width: 180px;
+      }
+
+      @media all and (min-width: 600px) and (max-width: 900px) {
+        width: 140px;
+      }
+
+      @media all and (min-width: 200px) and (max-width: 600px) {
+        width: 105px;
+      }
 
       &__p {
         color: $green-leaf;
-        font-weight: 800;
-        font-size: 24px;
+        font-weight: 600;
+        font-size: 18px;
         text-align: center;
       }
     }
@@ -55,7 +90,7 @@ $green-leaf: #124b38;
   }
 }
 
-#chiffre {
+#chiffre__front {
   &__0 {
     font-size: 66px;
     font-weight: 800;
@@ -64,8 +99,8 @@ $green-leaf: #124b38;
       font-size: 46px;
     }
 
-    @media all and (max-width: 601px) {
-      font-size: 30px;
+    @media all and (max-width: 600px) {
+      font-size: 42px;
     }
   }
 
@@ -74,11 +109,11 @@ $green-leaf: #124b38;
     font-weight: 400;
 
     @media all and (min-width: 601px) and (max-width: 800px) {
-      font-size: 56px;
+      font-size: 46px;
     }
 
-    @media all and (max-width: 601px) {
-      font-size: 46px;
+    @media all and (max-width: 600px) {
+      font-size: 42px;
     }
   }
 
@@ -87,11 +122,11 @@ $green-leaf: #124b38;
     font-weight: 200;
 
     @media all and (min-width: 601px) and (max-width: 800px) {
-      font-size: 120px;
+      font-size: 46px;
     }
 
-    @media all and (max-width: 601px) {
-      font-size: 80px;
+    @media all and (max-width: 600px) {
+      font-size: 42px;
     }
   }
 
@@ -100,11 +135,11 @@ $green-leaf: #124b38;
     font-weight: 600;
 
     @media all and (min-width: 601px) and (max-width: 800px) {
-      font-size: 60px;
+      font-size: 46px;
     }
 
-    @media all and (max-width: 601px) {
-      font-size: 58px;
+    @media all and (max-width: 600px) {
+      font-size: 42px;
     }
   }
 }

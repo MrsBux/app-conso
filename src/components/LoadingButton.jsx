@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import Button from "react-bootstrap/Button";
 import "../style/css/loadingbutton.css";
 
-function LoadingButton() {
+function LoadingButton({ onClick }) {
   const [isLoading, setLoading] = useState(false);
 
   useEffect(() => {
@@ -17,14 +17,17 @@ function LoadingButton() {
     }
   }, [isLoading]);
 
-  const handleClick = () => setLoading(true);
+  const handleClick = () => {
+    setLoading(true);
+    onClick;
+  };
 
   return (
     <button
       id="btnload"
       className={isLoading ? "loading" : ""}
       disabled={isLoading}
-      onClick={!isLoading ? handleClick : null}
+      onClick={onClick}
     >
       {isLoading ? "Téléchargement…" : "Télécharger la carte"}
     </button>

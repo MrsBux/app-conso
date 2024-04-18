@@ -48,7 +48,6 @@
   }
 }
 .login__form {
-  padding: 30px;
   margin-top: 20%;
   max-width: 40%;
   background-color: #b6124d;
@@ -56,12 +55,12 @@
   max-height: 500px;
   width: 50%;
   border-radius: 15px;
-  padding: 50px 25px 100px 25px;
+  padding: 70px 25px 100px 25px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 20px;
+  gap: 15px;
   color: #ffebe2;
   font-size: 18px;
 }
@@ -82,7 +81,7 @@
 }
 .login__form__title {
   color: #ffd2b8;
-  padding: 20px 0px;
+  padding: 50px 0px 0px 0px;
   margin: 0px;
   font-weight: 800;
   font-size: 2.3em;

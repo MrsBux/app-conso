@@ -14,7 +14,7 @@ function NosVins() {
 
   return (
     <div className="nosvins">
-      <h2> NOS VINS</h2>
+      <h2 className="nosvins__title"> NOS VINS</h2>
       <img src={nosVins} className="nosvins__img"></img>
       <div className="nosvins__btns">
         {txt.map((item, index) => (

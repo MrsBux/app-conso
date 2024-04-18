@@ -14,7 +14,7 @@ $green-leaf: #124b38;
   color: $red-wine;
 
   @media all and (max-width: 600px) {
-    max-width: 95%;
+    max-width: 100%;
     text-align: center;
     align-items: center;
     padding: 5px;
@@ -38,7 +38,7 @@ $green-leaf: #124b38;
     font-family: "Manrope" sans-serif;
     padding: 20px;
     font-weight: 400;
-    padding: 20px;
+    padding: 70px 20px 20px 20px;
     @media all and (max-width: 600px) {
       font-size: 28px;
       text-align: center;
@@ -52,12 +52,22 @@ $green-leaf: #124b38;
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
-    gap: 40px;
+    gap: 2%;
     flex-wrap: wrap;
 
-    @media all and (max-width: 600px) {
-      max-width: 95%;
-      gap: 20px;
+    @media all and (min-width: 900px) and (max-width: 1440px) {
+      gap: 10%;
+      justify-content: center;
+    }
+
+    @media all and (min-width: 600px) and (max-width: 900px) {
+      gap: 8%;
+      justify-content: center;
+    }
+
+    @media all and (min-width: 200px) and (max-width: 900px) {
+      gap: 5%;
+      justify-content: center;
     }
   }
 
@@ -68,10 +78,19 @@ $green-leaf: #124b38;
     flex-direction: row;
     justify-content: space-around;
     align-items: flex-start;
-    flex-wrap: wrap;
+
+    @media all and (min-width: 901px) and (max-width: 1440px) {
+      gap: 10%;
+      justify-content: center;
+    }
+
+    @media all and (min-width: 601px) and (max-width: 900px) {
+      gap: 5%;
+      justify-content: center;
+    }
     @media all and (max-width: 600px) {
-      max-width: 95%;
-      gap: 20px;
+      gap: 0%;
+      justify-content: center;
     }
   }
 

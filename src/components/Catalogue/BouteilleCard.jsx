@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import like from "../../assets/like.webp";
 import liked from "../../assets/liked.webp";
 import caddy from "../../assets/caddy.webp";
+import ModalT from "../ModalT";
 
 import "../../style/css/bouteilleCard.css";
 
@@ -23,10 +24,18 @@ function BouteilleCard({ name, AOC, prix }) {
           <h3 className="bouteille__card__box1__name">{name}</h3>
           <p className="bouteille__card__box1__AOC">{AOC}</p>
           <p className="bouteille__card__box1__prix">{prix}</p>
-          <button className="bouteille__card__box1__btnplus">
-            {" "}
-            Voir plus{" "}
-          </button>
+
+          <ModalT
+            btnShow={
+              <button className="bouteille__card__box1__btnplus">
+                {" "}
+                Voir plus{" "}
+              </button>
+            }
+            modalContent={
+              <h3 className="bouteille__card__box1__name">{name}</h3>
+            }
+          />
         </div>
         <div className="bouteille__card__box2">
           {isLiked ? (

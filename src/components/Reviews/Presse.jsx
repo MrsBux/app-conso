@@ -1,26 +1,41 @@
 import React from "react";
 import presseBtn from "../../assets/presse.webp";
 import pelemele from "../../assets/presse_pelemele.webp";
-import pelemeleMax from "../../assets/pelememax.webp"; // Consistent naming
+import pelemeleMax from "../../assets/pelememax.webp";
+import BtnAjouter from "../BtnAjouter";
+import BtnSupprimer from "../BtnSupprimer";
+import ModalT from "../../components/ModalT";
 
 import "../../style/css/presse.css";
 
 function Presse() {
+  const handleAdmiBtn = () => {
+    console.log("click");
+  };
+
   return (
     <div className="presse">
       <h3 className="presse__title">Revue de presse et récompenses</h3>
       <div className="presse__box">
-        <button
-          className="presse__box__btn"
-          aria-label="Voir la presse et les récompenses"
-        >
-          CLIQUEZ ICI POUR VOIR TOUTE LA REVUE DE PRESSE & LES RECOMPENSES !
-          <img
-            src={presseBtn}
-            alt="logo médaille et presse"
-            className="presse__box__btn__img"
-          />
-        </button>
+        <BtnAjouter onClick={handleAdmiBtn} />
+        <BtnSupprimer onClick={handleAdmiBtn} />
+
+        <ModalT
+          btnShow={
+            <button
+              className="presse__box__btn"
+              aria-label="Voir la presse et les récompenses"
+            >
+              CLIQUEZ ICI POUR VOIR TOUTE LA REVUE DE PRESSE & LES RECOMPENSES !
+              <img
+                src={presseBtn}
+                alt="logo médaille et presse"
+                className="presse__box__btn__img"
+              />
+            </button>
+          }
+          modalContent={"hello"}
+        />
 
         <a
           href={pelemeleMax}

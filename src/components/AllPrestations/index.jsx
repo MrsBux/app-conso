@@ -1,5 +1,6 @@
 import React from "react";
 import BtnNV from "../NosVins/BtnNosVins";
+import ModalT from "../ModalT";
 
 import "../../style/css/allprestations.css";
 
@@ -32,10 +33,16 @@ function AllPrestations() {
           />
         ))}
       </div>
-      <button className="allprestations__btn btnG">
-        {" "}
-        Réserver votre prestation !
-      </button>
+
+      <ModalT
+        btnShow={
+          <button className="allprestations__btn btnG">
+            {" "}
+            Réserver votre prestation !
+          </button>
+        }
+        modalContent={"Réservations prestations"}
+      />
     </div>
   );
 }

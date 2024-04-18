@@ -2,12 +2,17 @@ import React, { useState } from "react";
 import { Carousel } from "react-bootstrap";
 import Filtre from "./Filtre";
 import BouteilleCard from "./BouteilleCard";
+import ModalT from "../ModalT";
 
 import ch9R from "../../assets/ch9R.webp";
 import ch9B from "../../assets/ch9B.webp";
 import lirac from "../../assets/lirac.webp";
 import viognier from "../../assets/viognier.webp";
 import pitchotte from "../../assets/pitchotte.webp";
+
+import BtnAjouter from "../BtnAjouter";
+import BtnSupprimer from "../BtnSupprimer";
+import BtnModifier from "../BtnModifier";
 
 import "../../style/css/catalogue.css";
 
@@ -84,6 +89,10 @@ function Catalogue() {
     setSelectedBottle(selectedIndex);
   };
 
+  const handleAdmiBtn = () => {
+    console.log("click");
+  };
+
   return (
     <section className="catalogue">
       <div className="catalogue__filtres">
@@ -113,6 +122,9 @@ function Catalogue() {
             onClick={() => setSelectedBottle(index)}
           ></img>
         ))}{" "}
+        <BtnAjouter onClick={handleAdmiBtn} />
+        <BtnModifier onClick={handleAdmiBtn} />
+        <BtnSupprimer onClick={handleAdmiBtn} />
       </div>
 
       <div className="catalogue__bouteille">

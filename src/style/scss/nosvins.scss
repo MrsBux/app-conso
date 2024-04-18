@@ -17,6 +17,26 @@ $green-leaf: #124b38;
     align-items: center;
   }
 
+  &__title {
+    text-align: left;
+    font-size: 80px;
+    margin: auto;
+    color: $red-wine;
+    margin: 20px 0px;
+
+    @media all and (min-width: 901px) and (max-width: 1100px) {
+      font-size: 60px;
+    }
+    @media all and (min-width: 600px) and (max-width: 900px) {
+      font-size: 50px;
+    }
+
+    @media all and (max-width: 600px) {
+      font-size: 42px;
+      text-align: center;
+    }
+  }
+
   &__img {
     position: absolute;
     top: 15%;

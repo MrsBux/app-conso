@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import "../../style/css/nosprestations.css";
 import picturePrestations from "../../assets/prestationimg.webp";
 import Btn from "../Btn";
+import ModalT from "../ModalT";
 
 function NosPrestations() {
   return (
@@ -40,9 +41,10 @@ function NosPrestations() {
           <Link to="/prestations">
             <Btn txt_btnG={"En savoir plus !"} id="nosprestations__btn" />
           </Link>
-          <Link to="/prestations">
-            <Btn txt_btnG={"Réserver votre prestation!"} />
-          </Link>
+          <ModalT
+            btnShow={<Btn txt_btnG={"Réserver votre prestation!"} />}
+            modalContent={"Réserver votre prestation"}
+          />
         </div>
       </div>
 

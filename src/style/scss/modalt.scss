@@ -1,0 +1,20 @@
+$main-peach: #ffd2b8;
+$light-peach: #ffebe2;
+$red-wine: #b6124d;
+$green-leaf: #124b38;
+
+.modalt {
+  padding: 0px;
+  margin: 0px;
+  background-color: $light-peach;
+  color: $green-leaf;
+
+  &__btnsave {
+    background-color: $green-leaf;
+  }
+}
+
+#modalt__btnsave {
+  background-color: $green-leaf;
+  color: $light-peach;
+}

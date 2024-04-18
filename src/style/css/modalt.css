@@ -1,0 +1,16 @@
+.modalt {
+  padding: 0px;
+  margin: 0px;
+  background-color: #ffebe2;
+  color: #124b38;
+}
+.modalt__btnsave {
+  background-color: #124b38;
+}
+
+#modalt__btnsave {
+  background-color: #124b38;
+  color: #ffebe2;
+}
+
+/*# sourceMappingURL=modalt.css.map */

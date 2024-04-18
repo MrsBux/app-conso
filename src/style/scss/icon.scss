@@ -10,9 +10,20 @@ $green-leaf: #124b38;
   perspective: 130px;
   transition: transform 1000ms;
   &.flipped {
-    transform: scale(1.15) rotateY(180deg) translateY(-10px);
+    transform: rotateY(180deg) translateX(-100px) translateY(-80px);
+
+    @media all and (min-width: 1201px) and (max-width: 1440px) {
+      transform: rotateY(180deg) translateX(-20px) translateY(-80px);
+    }
+    @media all and (min-width: 901px) and (max-width: 1200px) {
+      transform: rotateY(180deg) translateX(-10px) translateY(-80px);
+    }
+
+    @media all and (min-width: 200px) and (max-width: 900px) {
+      transform: rotateY(180deg) translateX(-22px) translateY(-80px);
+    }
   }
-  @media all and (min-width: 601px) and (max-width: 800px) {
+  @media all and (min-width: 601px) and (max-width: 1000px) {
     width: 100px;
     height: 100px;
   }
@@ -38,12 +49,33 @@ $green-leaf: #124b38;
     &__back {
       display: none;
       transform: rotateY(180deg);
+      width: 300px;
+      max-height: 320px;
+      object-fit: cover;
+      overflow-y: scroll;
+
+      @media all and (min-width: 1200px) and (max-width: 1440px) {
+        width: 200px;
+      }
+
+      @media all and (min-width: 901px) and (max-width: 1200px) {
+        width: 180px;
+      }
+
+      @media all and (min-width: 601px) and (max-width: 900px) {
+        width: 140px;
+      }
+
+      @media all and (min-width: 200px) and (max-width: 600px) {
+        width: 110px;
+      }
 
       &__p {
         color: $green-leaf;
-        font-weight: 800;
-        font-size: 24px;
+        font-weight: 600;
+        font-size: 14px;
         text-align: center;
+        overflow: auto;
       }
     }
   }

@@ -1,0 +1,42 @@
+$main-peach: #ffd2b8;
+$light-peach: #ffebe2;
+$red-wine: #b6124d;
+$green-leaf: #124b38;
+
+.btnadmin {
+  display: none;
+}
+
+.isAdminConnectedClass {
+  display: flex;
+  max-height: 40px;
+  margin: 30px 10px;
+  padding: 10px 20px;
+  border-radius: 15px;
+  background-color: $green-leaf;
+  color: #ffebe2;
+  box-shadow: 6px 6px 25px rgba(0, 0, 0, 0.5);
+  transition: ease-in-out 500ms;
+}
+
+.btnadmin:hover {
+  transform: scale(1.2);
+}
+
+.btnadminlogout {
+  display: none;
+}
+
+.isAdminConnectedClassLog {
+  text-align: center;
+  display: flex;
+  min-height: auto;
+  min-width: 160px;
+  margin: 30px 10px;
+  padding: 10px 20px;
+  border-radius: 15px;
+  background-color: $red-wine;
+  color: #ffebe2;
+  box-shadow: 6px 6px 25px rgba(0, 0, 0, 0.5);
+  transition: ease-in-out 500ms;
+}

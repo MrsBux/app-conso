@@ -6,7 +6,7 @@ import loupe from "../../assets/logo_loupe.webp";
 
 function SearchBox() {
   return (
-    <Form inline className="searchbox">
+    <Form className="searchbox">
       <Row className="searchbox__row">
         <Col className="searchbox__row__col" xs="auto">
           <Form.Control

@@ -1,11 +1,13 @@
 import React from "react";
 import "../../style/css/cardMD.css";
+import ModalT from "../ModalT";
 
-function CardMD({ name, onclick }) {
+function CardMD({ name, contentmod }) {
   return (
-    <button className="cardmd" onClick={onclick}>
-      {name}
-    </button>
+    <ModalT
+      btnShow={<div className="cardmd">{name}</div>}
+      modalContent={contentmod}
+    />
   );
 }
 export default CardMD;
