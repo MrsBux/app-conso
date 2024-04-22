@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "../style/css/btnadmin.css";
 
 function BtnSupprimer({ onClick }) {
-  const [isAdminConnected, setIsAdminConnect] = useState(false);
+  const [isAdminConnected, setIsAdminConnect] = useState(true);
 
   return (
     <button

@@ -4,22 +4,16 @@ import pelemele from "../../assets/presse_pelemele.webp";
 import pelemeleMax from "../../assets/pelememax.webp";
 import BtnAjouter from "../BtnAjouter";
 import BtnSupprimer from "../BtnSupprimer";
-import ModalT from "../../components/ModalT";
+import ModalT from "../ModalT";
+import DossierDePresse from "./DossierDePresse";
 
 import "../../style/css/presse.css";
 
 function Presse() {
-  const handleAdmiBtn = () => {
-    console.log("click");
-  };
-
   return (
     <div className="presse">
       <h3 className="presse__title">Revue de presse et récompenses</h3>
       <div className="presse__box">
-        <BtnAjouter onClick={handleAdmiBtn} />
-        <BtnSupprimer onClick={handleAdmiBtn} />
-
         <ModalT
           btnShow={
             <button
@@ -34,7 +28,9 @@ function Presse() {
               />
             </button>
           }
-          modalContent={"hello"}
+          title={"Dossier de Presse"}
+          modalContent={<DossierDePresse />}
+          btnname={"Fermer"}
         />
 
         <a

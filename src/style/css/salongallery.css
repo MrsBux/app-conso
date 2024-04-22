@@ -69,6 +69,11 @@
   display: flex;
   gap: 10px;
 }
+@media all and (max-width: 545px) {
+  .salongallery__box1 {
+    display: none;
+  }
+}
 .salongallery__box2 {
   margin: 50px 100px;
   padding: 30px;

@@ -1,0 +1,24 @@
+.dossierdepresse {
+  padding: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+.dossierdepresse__btn {
+  font-size: 1em;
+  display: flex;
+  padding: 10px 20px;
+  border: NONE;
+  border-radius: 15px;
+  background-color: #b6124d;
+  color: #ffebe2;
+  box-shadow: 6px 6px 25px rgba(0, 0, 0, 0.5);
+  transition: ease-in-out 500ms;
+}
+
+.dossierdepresse__btn:hover {
+  transform: scale(1.1);
+}
+
+/*# sourceMappingURL=dossierdepresse.css.map */

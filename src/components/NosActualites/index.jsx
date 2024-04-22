@@ -2,9 +2,12 @@ import React from "react";
 import { useState } from "react";
 import Actualite from "./actualite";
 import "../../style/css/nosactus.css";
+import Form from "react-bootstrap/Form";
+import Button from "react-bootstrap/esm/Button";
 
 import BtnAjouter from "../BtnAjouter";
 import BtnSupprimer from "../BtnSupprimer";
+import ModalT from "../ModalT";
 
 function NosActus() {
   const [visibleActus, setVisibleActus] = useState(4);
@@ -54,9 +57,45 @@ function NosActus() {
               Voir moins{" "}
             </button>
           )}
+          <ModalT
+            title={"Ajouter une nouvelle actu"}
+            btnShow={<BtnAjouter onClick={handleAdmiBtn} />}
+            modalContent={
+              <Form className="form__ajout__actu form__ajout">
+                <Form.Group
+                  className="form__groupe"
+                  controlId="date__ajoutactu"
+                >
+                  <Form.Label>Date</Form.Label>
+                  <Form.Control type="date" placeholder="date" />
+                </Form.Group>
 
-          <BtnAjouter onClick={handleAdmiBtn} />
-          <BtnSupprimer onClick={handleAdmiBtn} />
+                <Form.Group
+                  className="form__groupe"
+                  controlId="title__ajoutactu"
+                >
+                  <Form.Label>Title</Form.Label>
+                  <Form.Control type="text" placeholder="title" />
+                </Form.Group>
+
+                <Form.Group
+                  className="form__groupe"
+                  controlId="text__ajoutactu"
+                >
+                  <Form.Label>Contenu</Form.Label>
+                  <Form.Control
+                    as="textarea"
+                    rows={5}
+                    placeholder="texte actu"
+                  />
+                </Form.Group>
+                <button className="btn__submit" type="submit">
+                  Submit
+                </button>
+              </Form>
+            }
+            btnname={"Retour"}
+          />
         </div>
       )}
 

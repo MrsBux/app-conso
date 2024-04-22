@@ -1,9 +1,13 @@
 import React, { useState } from "react";
 import "../../style/css/cardpartner.css";
 import ModalT from "../ModalT";
+import BtnSupprimer from "../BtnSupprimer";
 
 function CardPartner({ logo, name, coordonates, type }) {
   const [isCardFlipped, setIsCardFlipped] = useState(false);
+  const handleAdmiBtn = () => {
+    console.log("click");
+  };
 
   return (
     <>
@@ -24,6 +28,7 @@ function CardPartner({ logo, name, coordonates, type }) {
               <div className="modalt">
                 <p>{coordonates}</p>
                 <p>{type}</p>
+                <BtnSupprimer onClick={handleAdmiBtn} />
               </div>
             }
             btnname={"Retour"}
@@ -39,6 +44,7 @@ function CardPartner({ logo, name, coordonates, type }) {
               <div className="modalt">
                 <p>{coordonates}</p>
                 <p>{type}</p>
+                <BtnSupprimer onClick={handleAdmiBtn} />
               </div>
             }
             btnname={"Retour"}

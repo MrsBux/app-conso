@@ -1,9 +1,13 @@
 import React, { useState } from "react";
 import "../../style/css/cardsalon.css";
 import ModalT from "../ModalT";
+import BtnSupprimer from "../BtnSupprimer";
 
 function CardSalon({ logo, name, date, localisation, type, imgsalon }) {
   const [isCardFlipped, setIsCardFlipped] = useState(false);
+  const handleAdmiBtn = () => {
+    console.log("click");
+  };
 
   return (
     <>
@@ -31,6 +35,7 @@ function CardSalon({ logo, name, date, localisation, type, imgsalon }) {
                 <button className="modalt__txt__btn">
                   Télécharger ou demander votre invitation
                 </button>
+                <BtnSupprimer onClick={handleAdmiBtn} />
               </div>
             }
             btnname={"Retour"}
@@ -53,6 +58,7 @@ function CardSalon({ logo, name, date, localisation, type, imgsalon }) {
                 <button className="modalt__txt__btn">
                   Télécharger ou demander votre invitation
                 </button>
+                <BtnSupprimer onClick={handleAdmiBtn} />
               </div>
             }
             btnname={"Retour"}

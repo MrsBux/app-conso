@@ -1,0 +1,28 @@
+$main-peach: #ffd2b8;
+$light-peach: #ffebe2;
+$red-wine: #b6124d;
+$green-leaf: #124b38;
+
+.dossierdepresse {
+  padding: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+
+  &__btn {
+    font-size: 1em;
+    display: flex;
+    padding: 10px 20px;
+    border: NONE;
+    border-radius: 15px;
+    background-color: $red-wine;
+    color: #ffebe2;
+    box-shadow: 6px 6px 25px rgba(0, 0, 0, 0.5);
+    transition: ease-in-out 500ms;
+  }
+}
+
+.dossierdepresse__btn:hover {
+  transform: scale(1.1);
+}

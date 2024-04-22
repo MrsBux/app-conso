@@ -9,6 +9,7 @@ import ch9B from "../../assets/ch9B.webp";
 import lirac from "../../assets/lirac.webp";
 import viognier from "../../assets/viognier.webp";
 import pitchotte from "../../assets/pitchotte.webp";
+import Form from "react-bootstrap/Form";
 
 import BtnAjouter from "../BtnAjouter";
 import BtnSupprimer from "../BtnSupprimer";
@@ -122,7 +123,49 @@ function Catalogue() {
             onClick={() => setSelectedBottle(index)}
           ></img>
         ))}{" "}
-        <BtnAjouter onClick={handleAdmiBtn} />
+        <ModalT
+          title={"Ajouter un nouveau vin"}
+          btnShow={<BtnAjouter onClick={handleAdmiBtn} />}
+          modalContent={
+            <Form className="form__ajout__vins form__ajout">
+              <Form.Group className="form__groupe" controlId="image__ajoutvin">
+                <Form.Label>Image</Form.Label>
+                <Form.Control type="file" accept="image/*" />
+              </Form.Group>
+
+              <Form.Group className="form__groupe" controlId="nom__ajoutvin">
+                <Form.Label>Nom</Form.Label>
+                <Form.Control type="text" placeholder="Nom du vin" />
+              </Form.Group>
+
+              <Form.Group className="form__groupe" controlId="AOC__ajoutvin">
+                <Form.Label>AOC</Form.Label>
+                <Form.Control
+                  type="text"
+                  placeholder="Appellation d'Origine Contrôlée"
+                />
+              </Form.Group>
+
+              <Form.Group className="form__groupe" controlId="prix__ajoutvin">
+                <Form.Label>Prix</Form.Label>
+                <Form.Control type="number" placeholder="Prix du vin" />
+              </Form.Group>
+
+              <Form.Group
+                className="form__groupe"
+                controlId="millesime__ajoutvin"
+              >
+                <Form.Label>Millésime</Form.Label>
+                <Form.Control type="number" placeholder="Millésime du vin" />
+              </Form.Group>
+
+              <button className="btn__submit" type="submit">
+                Submit
+              </button>
+            </Form>
+          }
+          btnname={"Retour"}
+        />
         <BtnModifier onClick={handleAdmiBtn} />
         <BtnSupprimer onClick={handleAdmiBtn} />
       </div>

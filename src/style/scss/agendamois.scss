@@ -1,0 +1,24 @@
+$main-peach: #ffd2b8;
+$light-peach: #ffebe2;
+$red-wine: #b6124d;
+$green-leaf: #124b38;
+
+.agendadumois {
+  padding: 50px 20px 20px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  font-size: 1.1em;
+
+  &__list {
+    text-align: center;
+    padding: 10px;
+  }
+}
+
+.salon-day {
+  background-color: $red-wine;
+  color: $light-peach;
+}

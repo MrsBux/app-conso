@@ -1,0 +1,39 @@
+$main-peach: #ffd2b8;
+$light-peach: #ffebe2;
+$red-wine: #b6124d;
+$green-leaf: #124b38;
+
+.mainbox {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+
+  &__title {
+    width: 100%;
+    color: $red-wine;
+    text-align: left;
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    gap: 20px;
+
+    &__a {
+      text-decoration: none;
+      color: $red-wine;
+      padding: 0px 10px;
+    }
+  }
+
+  &__btns {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    gap: 20px;
+  }
+}

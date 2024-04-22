@@ -1,6 +1,7 @@
 import React from "react";
 import Card from "react-bootstrap/Card";
 import "../../style/css/actualite.css";
+import BtnSupprimer from "../BtnSupprimer";
 
 function Actualite({ date, title, text }) {
   return (
@@ -17,6 +18,7 @@ function Actualite({ date, title, text }) {
           <Card.Text className="actu__card__body__txt" id="actu_txt">
             {text}
           </Card.Text>
+          <BtnSupprimer />
         </Card.Body>
       </Card>
       <br />

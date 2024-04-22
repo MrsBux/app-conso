@@ -1,0 +1,20 @@
+.agendadumois {
+  padding: 50px 20px 20px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  font-size: 1.1em;
+}
+.agendadumois__list {
+  text-align: center;
+  padding: 10px;
+}
+
+.salon-day {
+  background-color: #b6124d;
+  color: #ffebe2;
+}
+
+/*# sourceMappingURL=agendamois.css.map */

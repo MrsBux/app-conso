@@ -45,4 +45,20 @@ ul {
   margin: 0px;
 }
 
+.btn__submit {
+  display: flex;
+  margin: 30px 10px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 15px;
+  background-color: #b6124d;
+  color: #ffebe2;
+  box-shadow: 6px 6px 25px rgba(0, 0, 0, 0.5);
+  transition: ease-in-out 500ms;
+}
+
+.btn__submit:hover {
+  transform: scale(1.1);
+}
+
 /*# sourceMappingURL=modalt.css.map */

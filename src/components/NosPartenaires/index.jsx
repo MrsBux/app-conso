@@ -6,8 +6,10 @@ import logoasw from "../../assets/logoallstarwine.webp";
 import logovintq from "../../assets/logovinotq.webp";
 import "../../style/css/nospartenaires.css";
 
+import ModalT from "../ModalT";
+import Form from "react-bootstrap/Form";
+
 import BtnAjouter from "../BtnAjouter";
-import BtnSupprimer from "../BtnSupprimer";
 
 function NosPartenaires() {
   const [visiblePartner, setVisiblePartner] = useState();
@@ -217,8 +219,78 @@ function NosPartenaires() {
             {visiblePartner === 4 ? "Voir plus" : "Voir moins"}
           </button>
         )}{" "}
-        <BtnAjouter onClick={handleAdmiBtn} />
-        <BtnSupprimer onClick={handleAdmiBtn} />
+        <ModalT
+          title={"Ajouter un nouveau partenaire"}
+          btnShow={<BtnAjouter onClick={handleAdmiBtn} />}
+          modalContent={
+            <Form className="form__ajout__partenaire form__ajout">
+              <Form.Group
+                className="form__groupe"
+                controlId="name__ajoutpartenaire"
+              >
+                <Form.Label>Nom du partenaire</Form.Label>
+                <Form.Control type="text" placeholder="Nom du partenaire" />
+              </Form.Group>
+
+              <Form.Group
+                className="form__groupe"
+                controlId="description__ajoutpartenaire"
+              >
+                <Form.Label>Description du partenaire</Form.Label>
+                <Form.Control
+                  type="text"
+                  placeholder="Description du partenaire"
+                />
+              </Form.Group>
+
+              <Form.Group
+                className="form__groupe"
+                controlId="contact__ajoutpartenaire"
+              >
+                <Form.Label>Site web du partenaire</Form.Label>
+                <Form.Control
+                  type="text"
+                  placeholder="Site web du partenaire"
+                />
+              </Form.Group>
+
+              <Form.Group
+                className="form__groupe"
+                controlId="category__ajoutpartenaire"
+              >
+                <Form.Label>Catégorie du partenaire</Form.Label>
+                <Form.Control
+                  type="text"
+                  placeholder="Catégorie du partenaire"
+                />
+              </Form.Group>
+
+              <Form.Group
+                className="form__groupe"
+                controlId="localisation__ajoutpartenaire"
+              >
+                <Form.Label>Localisation du partenaire</Form.Label>
+                <Form.Control
+                  type="text"
+                  placeholder="Localisation du partenaire"
+                />
+              </Form.Group>
+
+              <Form.Group
+                className="form__groupe"
+                controlId="logo__ajoutpartenaire"
+              >
+                <Form.Label>Logo du partenaire</Form.Label>
+                <Form.Control type="file" accept="image/*" />
+              </Form.Group>
+
+              <button className="btn__submit" type="submit">
+                Submit
+              </button>
+            </Form>
+          }
+          btnname={"Retour"}
+        />
       </div>
     </div>
   );

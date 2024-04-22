@@ -1,0 +1,32 @@
+.mainbox {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+}
+.mainbox__title {
+  width: 100%;
+  color: #b6124d;
+  text-align: left;
+}
+.mainbox__list {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  gap: 20px;
+}
+.mainbox__list__a {
+  text-decoration: none;
+  color: #b6124d;
+  padding: 0px 10px;
+}
+.mainbox__btns {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  gap: 20px;
+}
+
+/*# sourceMappingURL=pressandprices.css.map */

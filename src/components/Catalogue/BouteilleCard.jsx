@@ -3,6 +3,7 @@ import like from "../../assets/like.webp";
 import liked from "../../assets/liked.webp";
 import caddy from "../../assets/caddy.webp";
 import ModalT from "../ModalT";
+import BtnSupprimer from "../BtnSupprimer";
 
 import "../../style/css/bouteilleCard.css";
 
@@ -16,6 +17,10 @@ function BouteilleCard({
   degustation,
 }) {
   const [isLiked, setIsLiked] = useState(false);
+
+  const handleAdmiBtn = () => {
+    console.log("click");
+  };
 
   const handleHeartClick = () => {
     if (isLiked) {
@@ -84,6 +89,7 @@ function BouteilleCard({
                     ></img>
                   </button>
                 )}
+                <BtnSupprimer />
               </div>
             }
             title={name}

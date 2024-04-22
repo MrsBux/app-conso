@@ -4,6 +4,8 @@ import Filtre from "../Catalogue/Filtre";
 import BtnAjouter from "../BtnAjouter";
 import BtnModifier from "../BtnModifier";
 import BtnSupprimer from "../BtnSupprimer";
+import ModalT from "../ModalT";
+import Form from "react-bootstrap/Form";
 
 import logo from "../../assets/logoallstarwine.webp";
 import logo2 from "../../assets/logopetitpatio.webp";
@@ -173,7 +175,41 @@ function SalonGallery() {
             {visibleSalon === 4 ? "Voir plus" : "Voir moins"}
           </button>
         )}{" "}
-        <BtnAjouter onClick={handleAdmiBtn} />
+        <ModalT
+          title={"Ajouter un nouveau salon"}
+          btnShow={<BtnAjouter onClick={handleAdmiBtn} />}
+          modalContent={
+            <Form className="form__ajout__salon form__ajout">
+              <Form.Group className="form__groupe" controlId="name__ajoutsalon">
+                <Form.Label>Nom du salon</Form.Label>
+                <Form.Control type="text" placeholder="Nom du salon" />
+              </Form.Group>
+
+              <Form.Group className="form__groupe" controlId="date__ajoutsalon">
+                <Form.Label>Date du salon</Form.Label>
+                <Form.Control type="text" placeholder="Date du salon" />
+              </Form.Group>
+
+              <Form.Group
+                className="form__groupe"
+                controlId="localisation__ajoutsalon"
+              >
+                <Form.Label>Localisation du salon</Form.Label>
+                <Form.Control type="text" placeholder="Localisation du salon" />
+              </Form.Group>
+
+              <Form.Group className="form__groupe" controlId="logo__ajoutsalon">
+                <Form.Label>Logo du salon</Form.Label>
+                <Form.Control type="file" accept="image/*" />
+              </Form.Group>
+
+              <button className="btn__submit" type="submit">
+                Submit
+              </button>
+            </Form>
+          }
+          btnname={"Retour"}
+        />
         <BtnModifier onClick={handleAdmiBtn} />
         <BtnSupprimer onClick={handleAdmiBtn} />
       </div>
