@@ -210,8 +210,6 @@ function SalonGallery() {
           }
           btnname={"Retour"}
         />
-        <BtnModifier onClick={handleAdmiBtn} />
-        <BtnSupprimer onClick={handleAdmiBtn} />
       </div>
     </div>
   );

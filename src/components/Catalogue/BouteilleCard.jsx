@@ -4,6 +4,7 @@ import liked from "../../assets/liked.webp";
 import caddy from "../../assets/caddy.webp";
 import ModalT from "../ModalT";
 import BtnSupprimer from "../BtnSupprimer";
+import BtnModifier from "../BtnModifier";
 
 import "../../style/css/bouteilleCard.css";
 
@@ -89,6 +90,12 @@ function BouteilleCard({
                     ></img>
                   </button>
                 )}
+                <ModalT
+                  btnShow={<BtnModifier />}
+                  title={"Modifier le vin"}
+                  modalContent={"modfier"}
+                  btnname={"Fermer"}
+                />
                 <BtnSupprimer />
               </div>
             }

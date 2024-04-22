@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "../../style/css/cardsalon.css";
 import ModalT from "../ModalT";
 import BtnSupprimer from "../BtnSupprimer";
+import BtnModifier from "../BtnModifier";
 
 function CardSalon({ logo, name, date, localisation, type, imgsalon }) {
   const [isCardFlipped, setIsCardFlipped] = useState(false);
@@ -35,6 +36,11 @@ function CardSalon({ logo, name, date, localisation, type, imgsalon }) {
                 <button className="modalt__txt__btn">
                   Télécharger ou demander votre invitation
                 </button>
+                <ModalT
+                  btnShow={<BtnModifier />}
+                  title={"Modifier le salon"}
+                  btnname={"Retour"}
+                />
                 <BtnSupprimer onClick={handleAdmiBtn} />
               </div>
             }
@@ -57,7 +63,12 @@ function CardSalon({ logo, name, date, localisation, type, imgsalon }) {
                 <p> {date}</p>
                 <button className="modalt__txt__btn">
                   Télécharger ou demander votre invitation
-                </button>
+                </button>{" "}
+                <ModalT
+                  btnShow={<BtnModifier />}
+                  title={"Modifier le salon"}
+                  btnname={"Retour"}
+                />
                 <BtnSupprimer onClick={handleAdmiBtn} />
               </div>
             }

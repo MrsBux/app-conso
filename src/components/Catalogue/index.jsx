@@ -166,8 +166,6 @@ function Catalogue() {
           }
           btnname={"Retour"}
         />
-        <BtnModifier onClick={handleAdmiBtn} />
-        <BtnSupprimer onClick={handleAdmiBtn} />
       </div>
 
       <div className="catalogue__bouteille">
