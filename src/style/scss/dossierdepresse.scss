@@ -9,6 +9,9 @@ $green-leaf: #124b38;
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  text-align: center;
 
   &__btn {
     font-size: 1em;

@@ -7,6 +7,8 @@ function CardMD({ name, contentmod }) {
     <ModalT
       btnShow={<div className="cardmd">{name}</div>}
       modalContent={contentmod}
+      title="Dossier Utilisateurs"
+      btnname={"Fermer"}
     />
   );
 }

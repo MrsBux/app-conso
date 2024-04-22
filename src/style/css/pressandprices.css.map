@@ -1,1 +1,1 @@
-{"version":3,"sourceRoot":"","sources":["../scss/pressandprices.scss"],"names":[],"mappings":"AAKA;EACE;EACA;EACA;EACA;EACA;;AAEA;EACE;EACA,OAZO;EAaP;;AAGF;EACE;EACA;EACA;EACA;;AAEA;EACE;EACA,OAxBK;EAyBL;;AAIJ;EACE;EACA;EACA;EACA;EACA","file":"pressandprices.css"}
+{"version":3,"sourceRoot":"","sources":["../scss/pressandprices.scss"],"names":[],"mappings":"AAKA;EACE;EACA;EACA;EACA;EACA;;AAEA;EACE;EACA,OAZO;EAaP;;AAGF;EACE;EACA;EACA;EACA;;AAEA;EACE;EACA,OAxBK;EAyBL;;AAIJ;EACE;EACA;EACA;EACA;EACA;;;AAIJ;EACE,kBAtCW;;;AAyCb;EACE","file":"pressandprices.css"}

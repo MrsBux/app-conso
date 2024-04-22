@@ -1,15 +1,21 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import Dropdown from "react-bootstrap/Dropdown";
 import DropdownButton from "react-bootstrap/DropdownButton";
 import ModalT from "../ModalT";
 import CardMD from "./CardMDAdmin";
+import MentionsLegales from "../DashboardMenu/MentionsLegales";
+import DossierAdmin from "./DossierDemandesAdmin/DossierAdmin";
+import DossierListAdmin from "./DossierListAdmin/DossierListAdmin";
 import "../../style/css/dashboardmenu.css";
 
 function DashboardMenuAdmin() {
   const sections = [
-    { name: "Listes des vins et partenaires", contentmod: "Content" },
-    { name: "Toutes les demandes utilisateurs", contentmod: "Content" },
-    { name: "Mes actions", contentmod: "Content" },
+    {
+      name: "Listes des vins et partenaires",
+      contentmod: <DossierListAdmin />,
+    },
+    { name: "Toutes les demandes utilisateurs", contentmod: <DossierAdmin /> },
   ];
 
   const handleClick = () => {
@@ -39,13 +45,17 @@ function DashboardMenuAdmin() {
       </div>
       <div className="menuD__divers">
         <ModalT
-          btnShow={<p className="menuD__divers__ml">Mentions Légales</p>}
-          modalContent={"Mentions légales"}
+          title={"Mentions Légales"}
+          btnShow={<p className="menuD__divers__btn">Mentions Légales</p>}
+          modalContent={<MentionsLegales />}
+          btnname={"Fermer"}
         />
-        <button className="menuD__divers__btn" onClick={handleClick}>
-          {" "}
-          Se déconnecter
-        </button>
+        <Link to="/loginadmin">
+          <button className="menuD__divers__btn" onClick={handleClick}>
+            {" "}
+            Se déconnecter
+          </button>{" "}
+        </Link>
         <p className="menuD__divers__td"> Tous droits réservés.</p>
       </div>
     </aside>

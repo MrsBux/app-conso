@@ -1,20 +1,31 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import Dropdown from "react-bootstrap/Dropdown";
 import DropdownButton from "react-bootstrap/DropdownButton";
 import ModalT from "../ModalT";
+import DossierUser from "./DossierUser";
+import MentionsLegales from "./MentionsLegales";
 
 import CardMD from "./CardMD";
 import "../../style/css/dashboardmenu.css";
 
 function DashboardMenu() {
   const sections = [
-    { name: "Tableau de bord", contentmod: "Content" },
-    { name: "Toutes mes commandes et factures", contentmod: "Content" },
+    { name: "Toutes mes commandes et factures", contentmod: <DossierUser /> },
     { name: "Informations personnelles", contentmod: "Content" },
   ];
 
+  const handleHelpClick = (e) => {
+    e.preventDefault(); // Empêcher le rafraîchissement de la page
+    // Ajoutez ici votre logique pour afficher la modale
+  };
+
   const handleClick = () => {
     console.log("click");
+  };
+
+  const handleContactByEmail = () => {
+    window.location.href = "mailto:contact@domainelaconsonniere.fr";
   };
 
   return (
@@ -43,21 +54,48 @@ function DashboardMenu() {
       </div>
       <div className="menuD__divers">
         <ModalT
-          btnShow={<p className="menuD__divers__ml">Mentions Légales</p>}
-          modalContent={"Mentions légales"}
+          title={"Mentions Légales"}
+          btnShow={<p className="menuD__divers__btn">Mentions Légales</p>}
+          modalContent={<MentionsLegales />}
+          btnname={"Fermer"}
         />
-        <button className="menuD__divers__btn" onClick={handleClick}>
+        <Link to="/login">
           {" "}
-          Se déconnecter
-        </button>
+          <button className="menuD__divers__btn" onClick={handleClick}>
+            {" "}
+            Se déconnecter
+          </button>
+        </Link>
         <ModalT
+          title={"Besoin d'aide?"}
           btnShow={
-            <a href="" className="menuD__divers__ahelp">
+            <a
+              href="#"
+              className="menuD__divers__ahelp"
+              onClick={handleHelpClick}
+            >
               {" "}
               Besoin d'aide ?
             </a>
           }
-          modalContent={"Aide"}
+          modalContent={
+            <div>
+              <p>
+                Pour toute demande, n'hésitez pas à nous contacter par e-mail à{" "}
+                <a href="mailto:contact@domainelaconsonniere.fr">
+                  contact@domainelaconsonniere.fr
+                </a>{" "}
+                ou par téléphone au 06 03 49 48 81.
+              </p>
+              <button
+                className="modalt__txt__btn"
+                onClick={handleContactByEmail}
+              >
+                Contactez-nous par e-mail
+              </button>
+            </div>
+          }
+          btnname={"Fermer"}
         />
 
         <p className="menuD__divers__td"> Tous droits réservés.</p>
