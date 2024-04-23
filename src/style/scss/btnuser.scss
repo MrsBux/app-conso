@@ -1,0 +1,21 @@
+$main-peach: #ffd2b8;
+$light-peach: #ffebe2;
+$red-wine: #b6124d;
+$green-leaf: #124b38;
+
+.btnuser {
+  border: none;
+  display: flex;
+  margin: 0px 10px;
+  padding: 5px 20px;
+  border-radius: 15px;
+  background-color: $red-wine;
+  color: #ffebe2;
+  font-size: 14px;
+  box-shadow: 6px 6px 25px rgba(0, 0, 0.2, 0.3);
+  transition: ease-in-out 500ms;
+}
+
+.btnadmin:hover {
+  transform: scale(1.05);
+}

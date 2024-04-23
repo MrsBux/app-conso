@@ -1,0 +1,41 @@
+$main-peach: #ffd2b8;
+$light-peach: #ffebe2;
+$red-wine: #b6124d;
+$green-leaf: #124b38;
+
+.userbook {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: flex-start;
+  gap: 20px;
+  &__box {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 10px;
+
+    &__txt {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 18px;
+
+      &__str {
+        font-size: 18px;
+      }
+
+      &__p {
+        font-size: 18px;
+        margin-bottom: 0px;
+      }
+    }
+  }
+}
+
+.btnbox {
+  display: flex;
+}

@@ -1,0 +1,35 @@
+.userbook {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: flex-start;
+  gap: 20px;
+}
+.userbook__box {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 10px;
+}
+.userbook__box__txt {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 18px;
+}
+.userbook__box__txt__str {
+  font-size: 18px;
+}
+.userbook__box__txt__p {
+  font-size: 18px;
+  margin-bottom: 0px;
+}
+
+.btnbox {
+  display: flex;
+}
+
+/*# sourceMappingURL=userbook.css.map */

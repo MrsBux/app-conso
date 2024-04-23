@@ -5,14 +5,28 @@ import DropdownButton from "react-bootstrap/DropdownButton";
 import ModalT from "../ModalT";
 import DossierUser from "./DossierUser";
 import MentionsLegales from "./MentionsLegales";
+import UserBook from "./UserBook";
 
 import CardMD from "./CardMD";
 import "../../style/css/dashboardmenu.css";
 
 function DashboardMenu() {
+  const user = {
+    email: "user1@example.com",
+    numeroclient: 90988,
+    points: 4,
+    name: "John",
+    firstName: "Doe",
+    address: "123 Main Street 84230 Avignon",
+    favoritewine: "Lirac 2020",
+    favoritesalon: "les printemps du vins",
+    photo: "file",
+    age: 30,
+    profession: "Artiste",
+  };
   const sections = [
     { name: "Toutes mes commandes et factures", contentmod: <DossierUser /> },
-    { name: "Informations personnelles", contentmod: "Content" },
+    { name: "Informations personnelles", contentmod: <UserBook user={user} /> },
   ];
 
   const handleHelpClick = (e) => {
