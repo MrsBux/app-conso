@@ -104,27 +104,29 @@ function DashboardBoard({
         </div>
         <div className="board__box__card3   board__box__card">
           <h5 className="board__box__card3__title"> Mon compte</h5>
-          <div className="board__box__card3__pn">
-            <p className="board__box__card3__pn__prenom  board__box__card3__p">
-              {" "}
-              Camille
-              {prenom}
-            </p>
-            <p className="board__box__card3__pn__nom  board__box__card3__p">
-              {" "}
-              Siesse
-              {nom}
-            </p>
+          <div className="board__box__card3__px">
+            <div className="board__box__card3__px__name">
+              <p className="board__box__card3__px__prenom  board__box__card3__px">
+                {" "}
+                Camille
+                {prenom}
+              </p>
+              <p className="board__box__card3__px__nom  board__box__card3__px">
+                {" "}
+                Siesse
+                {nom}
+              </p>
+            </div>
           </div>
-          <p className="board__box__card3__email board__box__card3__p">
+          <p className="board__box__card3__email board__box__card3__px">
             {" "}
             camille.siesse@gmail.com
             {email}
           </p>
-          <p className="board__box__card3__dateinscription board__box__card3__p">
+          <p className="board__box__card3__dateinscription board__box__card3__px">
             {datei} 12/04/2024
           </p>
-          <p className="board__box__card3__vincoeur board__box__card3__p">
+          <p className="board__box__card3__vincoeur board__box__card3__px">
             Mon vin préféré :{vincoeur}
           </p>
         </div>

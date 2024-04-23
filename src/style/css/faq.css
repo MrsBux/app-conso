@@ -55,12 +55,20 @@
   }
 }
 .faq__box {
-  width: 80%;
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
   gap: 30px;
+}
+
+.accordion-header {
+  width: 100%;
+}
+
+.accordion-collapse {
+  max-width: 60%;
 }
 
 /*# sourceMappingURL=faq.css.map */

@@ -1,5 +1,6 @@
 import React from "react";
 import Form from "react-bootstrap/Form";
+import { Link } from "react-router-dom";
 import "../style/css/login.css";
 import btle from "../assets/ch9R.webp";
 import btle2 from "../assets/ch9R15.webp";
@@ -49,8 +50,9 @@ function Login() {
         >
           Se connecter{" "}
         </button>
-
-        <p className="login__register"> Créer un compte</p>
+        <Link to="/signup">
+          <p className="login__register"> Créer un compte</p>{" "}
+        </Link>
       </Form>
     </div>
   );

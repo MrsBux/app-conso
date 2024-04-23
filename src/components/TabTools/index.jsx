@@ -1,11 +1,11 @@
-import SearchBox from "./SearchBox";
+// import SearchBox from "./SearchBox";
 import "../../style/css/tabtools.css";
 import { Navbar, Nav } from "react-bootstrap";
 
 function TabTools({ sectionsPage }) {
   return (
     <div className="tabtools">
-      <SearchBox />
+      {/* <SearchBox /> */}
 
       <nav className="tabtools__nav">
         {sectionsPage.map((section, index) => (

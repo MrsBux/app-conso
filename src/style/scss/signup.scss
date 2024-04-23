@@ -3,7 +3,7 @@ $light-peach: #ffebe2;
 $red-wine: #b6124d;
 $green-leaf: #124b38;
 
-.login {
+.signup {
   max-width: 100%;
   margin: 0px;
   display: flex;
@@ -11,7 +11,7 @@ $green-leaf: #124b38;
   justify-content: space-around;
   align-items: flex-start;
   gap: 75px;
-  background-color: $main-peach;
+  background-color: $green-leaf;
 
   @media all and (min-width: 901px) and (max-width: 1200px) {
     gap: 30px;
@@ -28,16 +28,6 @@ $green-leaf: #124b38;
     flex-direction: column-reverse;
     justify-content: flex-start;
     align-items: center;
-  }
-
-  & a {
-    text-decoration: none;
-  }
-  &__register {
-    padding-top: 10px;
-    font-size: 20px;
-    color: $light-peach;
-    text-decoration: none;
   }
 
   &__btlles {
@@ -60,10 +50,10 @@ $green-leaf: #124b38;
   }
   &__form {
     margin-top: 20%;
-    max-width: 40%;
-    background-color: #b6124d;
+    max-width: 50%;
+    background-color: $main-peach;
     height: fit-content;
-    max-height: 500px;
+    max-height: 600px;
     width: 50%;
     border-radius: 15px;
     padding: 70px 25px 100px 25px;
@@ -72,7 +62,7 @@ $green-leaf: #124b38;
     justify-content: center;
     align-items: center;
     gap: 15px;
-    color: $light-peach;
+    color: $red-wine;
     font-size: 18px;
 
     @media all and (min-width: 901px) and (max-width: 1200px) {
@@ -88,7 +78,7 @@ $green-leaf: #124b38;
     }
 
     &__title {
-      color: $main-peach;
+      color: $red-wine;
       padding: 50px 0px 0px 0px;
       margin: 0px;
       font-weight: 800;
@@ -118,18 +108,27 @@ $green-leaf: #124b38;
       display: flex;
       flex-direction: column;
       gap: 5px;
-      width: 70%;
+      width: 100%;
 
       @media all and (max-width: 600px) {
         margin: 10px 0px;
+      }
+
+      &__id {
+        width: 100%;
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: space-between;
+        gap: 15px;
       }
     }
 
     &__btn {
       background-color: #124b38;
-      min-width: fit-content;
-      padding: 15px 20px;
-      border-radius: 50px;
+      min-width: 110px;
+      max-height: fit-content;
+      padding: 5px 15px;
+      border-radius: 40px;
       border: 0;
       box-shadow: 6px 6px 25px rgba(0, 0, 0, 0.5);
       color: $light-peach;
@@ -140,20 +139,20 @@ $green-leaf: #124b38;
       @media all and (min-width: 901px) and (max-width: 1100px) {
         white-space: nowrap;
         font-size: 0.9em;
-        padding: 15px 10px;
+        padding: 10px 15px;
       }
 
       @media all and (min-width: 801px) and (max-width: 900px) {
         white-space: nowrap;
         font-size: 0.9em;
-        padding: 15px 5px;
+        padding: 10px 15px;
         width: 48%;
       }
 
       @media all and (min-width: 451px) and (max-width: 800px) {
         white-space: nowrap;
         font-size: 0.9em;
-        padding: 15px 2px;
+        padding: 5px 2px;
         width: 45%;
       }
 
@@ -165,6 +164,15 @@ $green-leaf: #124b38;
       }
     }
   }
+  & a {
+    text-decoration: none;
+  }
+  &__login {
+    padding-top: 10px;
+    font-size: 20px;
+    color: $red-wine;
+    text-decoration: none;
+  }
 }
 
 .img2 {
@@ -173,7 +181,15 @@ $green-leaf: #124b38;
   }
 }
 
-#email_login,
-#password_login {
-  background-color: $main-peach;
+#email_signup,
+#nom_signup,
+#prenom_signup,
+#password_signup {
+  color: $green-leaf;
+}
+
+::placeholder,
+input {
+  background-color: $light-peach;
+  color: #124b38;
 }

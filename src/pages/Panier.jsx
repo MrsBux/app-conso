@@ -1,14 +1,10 @@
 import React, { useState } from "react";
-
 import { Link } from "react-router-dom";
-
 import ItemPanier from "../components/Panier/item";
 import Form from "react-bootstrap/Form";
-
 import ModalT from "../components/ModalT";
-
+import RetraitSalon from "../components/RetraitSalon";
 import "../style/css/panier.css";
-
 import ch9B from "../assets/ch9B.webp";
 import logofidelite from "../assets/logofidelite.webp";
 import logoexp from "../assets/logoexpedition.webp";
@@ -50,6 +46,8 @@ function Panier() {
 
   const [selectedOption3, setSelectedOption3] = useState(null);
 
+  const [selectedSalon, setSelectedSalon] = useState(null);
+
   // Fonction pour mettre à jour la quantité d'un article
   const handleQuantiteChange = (index, newQuantite) => {
     const updatedItems = [...items];
@@ -59,10 +57,15 @@ function Panier() {
 
   const handleRadioChange = (value) => {
     if (selectedOption === value) {
-      // Si l'option sélectionnée est déjà celle cliquée, désélectionnez-la
+      // Si l'option sélectionnée est déjà celle cliquée, désélectionnez-la et réinitialisez les salons
       setSelectedOption(null);
+      setSelectedSalon(null);
     } else {
       setSelectedOption(value);
+      // Réinitialise selectedSalon si la nouvelle option n'est pas 'option2' (retrait en salon)
+      if (value !== "option2") {
+        setSelectedSalon(null);
+      }
     }
   };
 
@@ -83,6 +86,43 @@ function Panier() {
       setSelectedOption3(value);
     }
   };
+
+  const handleSalonSelection = (salon) => {
+    setSelectedSalon(salon);
+  };
+
+  const salons = [
+    {
+      name: "Les Printemps des vins",
+
+      date: "8-10 avril 2024",
+      localisation: "Châteaneuf du Pape (84)",
+    },
+    {
+      name: "Les Printemps des vins",
+
+      date: "8-10 avril 2024",
+      localisation: "Châteaneuf du Pape (84)",
+    },
+    {
+      name: "Les Printemps des vins",
+
+      date: "8-10 avril 2024",
+      localisation: "Châteaneuf du Pape (84)",
+    },
+    {
+      name: "Les Printemps des vins",
+
+      date: "8-10 avril 2024",
+      localisation: "Châteaneuf du Pape (84)",
+    },
+    {
+      name: "Les Printemps des vins",
+
+      date: "8-10 avril 2024",
+      localisation: "Châteaneuf du Pape (84)",
+    },
+  ];
 
   // Calcul du total
   const total = items.reduce((acc, item) => {
@@ -318,8 +358,21 @@ function Panier() {
                         onChange={() => handleRadioChange("option2")}
                       />
                     }
-                    modalContent={"Choisir le salon"}
+                    title={"Retrait en salon"}
+                    modalContent={
+                      <RetraitSalon
+                        salons={salons}
+                        onSalonSelect={handleSalonSelection}
+                      />
+                    }
+                    btnname={"Retour"}
                   />
+                  {selectedSalon && (
+                    <p>
+                      Salon sélectionné : {selectedSalon.name} le{" "}
+                      {selectedSalon.date} à {selectedSalon.localisation}
+                    </p>
+                  )}
 
                   <ModalT
                     btnShow={

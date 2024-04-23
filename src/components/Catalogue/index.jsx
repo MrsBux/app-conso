@@ -12,8 +12,6 @@ import pitchotte from "../../assets/pitchotte.webp";
 import Form from "react-bootstrap/Form";
 
 import BtnAjouter from "../BtnAjouter";
-import BtnSupprimer from "../BtnSupprimer";
-import BtnModifier from "../BtnModifier";
 
 import "../../style/css/catalogue.css";
 
@@ -21,6 +19,7 @@ function Catalogue() {
   const vins = [
     {
       image: ch9B,
+      couleur: "blanc",
       nom: "Châteauneuf-du-Pape Blanc",
       AOC: "Châteauneuf du Pape",
       prix: 25,
@@ -28,6 +27,7 @@ function Catalogue() {
     },
     {
       image: ch9R,
+      couleur: "rouge",
       nom: "Châteauneuf-du-Pape Rouge",
       AOC: "Châteauneuf du Pape",
       prix: 25,
@@ -35,6 +35,7 @@ function Catalogue() {
     },
     {
       image: ch9R,
+      couleur: "rouge",
       nom: "Châteauneuf-du-Pape Rouge",
       AOC: "Châteauneuf du Pape",
       prix: 28,
@@ -42,6 +43,7 @@ function Catalogue() {
     },
     {
       image: ch9R,
+      couleur: "rouge",
       nom: "Châteauneuf-du-Pape Rouge",
       AOC: "Châteauneuf du Pape",
       prix: 28,
@@ -49,6 +51,7 @@ function Catalogue() {
     },
     {
       image: lirac,
+      couleur: "rouge",
       nom: "Lirac",
       AOC: "Lirac, grand cru classé des côtes du rhônes",
       prix: 15,
@@ -56,6 +59,7 @@ function Catalogue() {
     },
     {
       image: viognier,
+      couleur: "blanc",
       nom: "100% Viogner",
       AOC: "Vin de france",
       prix: 12,
@@ -63,6 +67,7 @@ function Catalogue() {
     },
     {
       image: pitchotte,
+      couleur: "rouge",
       nom: "La Pitchotte",
       AOC: "Vin de france",
       prix: 8,
@@ -71,103 +76,112 @@ function Catalogue() {
   ];
 
   const filtres = [
-    { filtreName: "Couleur" },
-    { filtreName: "Millésimes" },
-    { filtreName: "Prix" },
-    { filtreName: "Appelation" },
+    { filtreName: "couleur", options: ["rouge", "blanc"] },
+    {
+      filtreName: "Millésimes",
+      options: [2016, 2018, 2019, 2020, 2021, 2022, 2023],
+    },
+    { filtreName: "Prix", options: ["0-10", "10-20", "20-30", "30+"] },
+    {
+      filtreName: "Appelation",
+      options: ["Châteauneuf du Pape", "Lirac", "Vin de France"],
+    },
   ];
 
+  // État pour stocker les vins filtrés et sélectionner la bouteille
+  const [filteredVins, setFilteredVins] = useState(vins);
   const [selectedBottle, setSelectedBottle] = useState(0);
-
   const [selectedFilter, setSelectedFilter] = useState("Tous");
 
-  const handleFilterClick = (filterName) => {
+  // Fonction pour gérer le filtrage des vins
+  const handleFilterClick = (filterName, option) => {
     setSelectedBottle(0);
     setSelectedFilter(filterName);
+
+    // Filtrer les vins en fonction de l'option sélectionnée
+    if (option === null || option === "Tous") {
+      setFilteredVins(vins); // Afficher tous les vins si "Tous" est sélectionné
+    } else {
+      console.log("Avant filtrage :", vins); // Afficher les vins avant le filtrage
+
+      const filtered = vins.filter((vin) => {
+        console.log(option);
+        console.log(vin.couleur);
+        console.log("Vin couleur :", vin.couleur); // Ajouter ce console.log
+        return vin.couleur == option;
+      });
+      console.log("Après filtrage :", filtered); // Afficher les vins après le filtrage
+      setFilteredVins(filtered); // Afficher les vins de la couleur sélectionnée
+    }
   };
 
+  const handleFilterSelection = (selectedOption) => {
+    // Traiter la valeur de l'option sélectionnée comme vous le souhaitez
+    console.log("Option sélectionnée :", selectedOption);
+  };
+
+  // Fonction pour sélectionner une bouteille
   const handleSelect = (selectedIndex, e) => {
     setSelectedBottle(selectedIndex);
   };
 
+  // Fonction pour gérer le clic sur le bouton Ajouter
   const handleAdmiBtn = () => {
     console.log("click");
   };
 
   return (
     <section className="catalogue">
+      {/* Affichage des filtres */}
       <div className="catalogue__filtres">
+        {/* Filtre "Tous" */}
         <Filtre
           filtreName={"Tous"}
+          options={["Tous"]}
           isSelected={selectedFilter === "Tous"}
-          onClick={() => handleFilterClick("Tous")}
+          onFilterClick={handleFilterClick} // Passer la fonction handleFilterClick comme prop
+          onFilterSelection={handleFilterSelection}
         />
 
+        {/* Autres filtres */}
         {filtres.map((item, index) => (
           <Filtre
             key={index}
             filtreName={item.filtreName}
+            options={item.options}
             isSelected={selectedFilter === item.filtreName}
-            onClick={() => handleFilterClick(item.filtreName)}
+            onFilterClick={handleFilterClick} // Passer la fonction handleFilterClick comme prop
+            onFilterSelection={handleFilterSelection} // Passer la fonction handleFilterSelection comme prop
           />
         ))}
       </div>
 
+      {/* Affichage des bouteilles */}
       <div className="catalogue__bouteilles">
-        {vins.map((item, index) => (
+        {filteredVins.map((vin, index) => (
           <img
             key={index}
-            src={item.image}
-            alt={item.nom}
+            src={vin.image}
+            alt={vin.nom}
             className="catalogue__bouteilles__bt"
             onClick={() => setSelectedBottle(index)}
-          ></img>
-        ))}{" "}
-        <ModalT
-          title={"Ajouter un nouveau vin"}
-          btnShow={<BtnAjouter onClick={handleAdmiBtn} />}
-          modalContent={
-            <Form className="form__ajout__vins form__ajout">
-              <Form.Group className="form__groupe" controlId="image__ajoutvin">
-                <Form.Label>Image</Form.Label>
-                <Form.Control type="file" accept="image/*" />
-              </Form.Group>
-
-              <Form.Group className="form__groupe" controlId="nom__ajoutvin">
-                <Form.Label>Nom</Form.Label>
-                <Form.Control type="text" placeholder="Nom du vin" />
-              </Form.Group>
-
-              <Form.Group className="form__groupe" controlId="AOC__ajoutvin">
-                <Form.Label>AOC</Form.Label>
-                <Form.Control
-                  type="text"
-                  placeholder="Appellation d'Origine Contrôlée"
-                />
-              </Form.Group>
-
-              <Form.Group className="form__groupe" controlId="prix__ajoutvin">
-                <Form.Label>Prix</Form.Label>
-                <Form.Control type="number" placeholder="Prix du vin" />
-              </Form.Group>
-
-              <Form.Group
-                className="form__groupe"
-                controlId="millesime__ajoutvin"
-              >
-                <Form.Label>Millésime</Form.Label>
-                <Form.Control type="number" placeholder="Millésime du vin" />
-              </Form.Group>
-
-              <button className="btn__submit" type="submit">
-                Submit
-              </button>
-            </Form>
-          }
-          btnname={"Retour"}
-        />
+          />
+        ))}
       </div>
 
+      {/* Modal d'ajout */}
+      <ModalT
+        title={"Ajouter un nouveau vin"}
+        btnShow={<BtnAjouter onClick={handleAdmiBtn} />}
+        modalContent={
+          <Form className="form__ajout__vins form__ajout">
+            {/* Contenu du formulaire */}
+          </Form>
+        }
+        btnname={"Retour"}
+      />
+
+      {/* Carousel de bouteilles */}
       <div className="catalogue__bouteille">
         <Carousel
           slide={false}
@@ -175,12 +189,12 @@ function Catalogue() {
           onSelect={handleSelect}
           className="catalogue__bouteilles__carousel"
         >
-          {vins.map((item, index) => (
+          {filteredVins.map((vin, index) => (
             <Carousel.Item key={index}>
               <img
                 className="d-block w-100"
-                src={item.image}
-                alt={item.nom}
+                src={vin.image}
+                alt={vin.nom}
                 onClick={() => setSelectedBottle(index)}
               />
               <Carousel.Caption></Carousel.Caption>
@@ -189,13 +203,17 @@ function Catalogue() {
         </Carousel>
       </div>
 
-      {selectedBottle !== null && (
-        <BouteilleCard
-          name={vins[selectedBottle].nom}
-          AOC={vins[selectedBottle].AOC}
-          prix={`${vins[selectedBottle].prix} euros `}
-        />
-      )}
+      {/* Affichage de la carte de la bouteille sélectionnée */}
+      {/* Affichage de la carte de la bouteille sélectionnée */}
+      {selectedBottle !== null &&
+        selectedBottle >= 0 &&
+        selectedBottle < filteredVins.length && (
+          <BouteilleCard
+            name={filteredVins[selectedBottle].nom}
+            AOC={filteredVins[selectedBottle].AOC}
+            prix={`${filteredVins[selectedBottle].prix} euros`}
+          />
+        )}
     </section>
   );
 }

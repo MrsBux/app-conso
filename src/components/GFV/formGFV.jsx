@@ -7,8 +7,10 @@ function FormGFV() {
     <Form className="form__gfv">
       <h3 className="form__title__gfv">
         {" "}
-        Envie de rejoindre l'aventure ? Rejoignez notre GFV !
+        Envie d'en savoir plus sur notre GFV ?
       </h3>
+
+      <h4> Rentrez vos coordonnées et recevez la documentation explicative.</h4>
 
       <Form.Group className="form__groupe" controlId="email_contact_gfv">
         <Form.Label>Email address</Form.Label>

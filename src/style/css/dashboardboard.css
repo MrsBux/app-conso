@@ -144,14 +144,14 @@
   align-items: center;
 }
 .board__box__card2__title {
-  font-size: 138px;
+  font-size: 118px;
   font-weight: 600;
   padding: 0px;
   margin: 0px;
 }
 @media all and (min-width: 951px) and (max-width: 1100px) {
   .board__box__card2__title {
-    font-size: 98px;
+    font-size: 78px;
   }
 }
 @media all and (min-width: 801px) and (max-width: 950px) {
@@ -248,6 +248,29 @@
     padding-top: 20px;
   }
 }
+.board__box__card3__px {
+  padding: 0px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 0px;
+}
+@media all and (min-width: 801px) and (max-width: 950px) {
+  .board__box__card3__px {
+    padding-top: 0px;
+  }
+}
+@media all and (max-width: 600px) {
+  .board__box__card3__px {
+    padding-top: 0px;
+  }
+}
+.board__box__card3__px__name {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
 .board__box__card3__p {
   font-weight: 400;
   width: 100%;
@@ -263,12 +286,12 @@
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  gap: 20px;
+  gap: 15px;
 }
 .board__box__card4__title {
-  font-size: 28px;
+  font-size: 26px;
   font-weight: 600;
-  padding: 0px 0px 50px 0px;
+  padding: 0px 0px 30px 0px;
   margin: 0px;
 }
 @media all and (min-width: 801px) and (max-width: 950px) {
