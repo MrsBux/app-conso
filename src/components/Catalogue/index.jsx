@@ -52,8 +52,8 @@ function Catalogue() {
     {
       image: lirac,
       couleur: "rouge",
-      nom: "Lirac",
-      AOC: "Lirac, grand cru classé des côtes du rhônes",
+      nom: "Lirac, grand cru classé des côtes du rhônes",
+      AOC: "Lirac",
       prix: 15,
       millésime: 2022,
     },
@@ -76,16 +76,11 @@ function Catalogue() {
   ];
 
   const filtres = [
-    { filtreName: "couleur", options: ["rouge", "blanc"] },
-    {
-      filtreName: "Millésimes",
-      options: [2016, 2018, 2019, 2020, 2021, 2022, 2023],
-    },
-    { filtreName: "Prix", options: ["0-10", "10-20", "20-30", "30+"] },
-    {
-      filtreName: "Appelation",
-      options: ["Châteauneuf du Pape", "Lirac", "Vin de France"],
-    },
+    { filtreName: "Blanc" },
+    { filtreName: "Rouge" },
+    { filtreName: "Châteauneuf du Pape" },
+    { filtreName: "Lirac" },
+    { filtreName: "Vin de France" },
   ];
 
   // État pour stocker les vins filtrés et sélectionner la bouteille
@@ -94,30 +89,33 @@ function Catalogue() {
   const [selectedFilter, setSelectedFilter] = useState("Tous");
 
   // Fonction pour gérer le filtrage des vins
-  const handleFilterClick = (filterName, option) => {
+  const handleFilterClick = (filterName) => {
     setSelectedBottle(0);
     setSelectedFilter(filterName);
 
-    // Filtrer les vins en fonction de l'option sélectionnée
-    if (option === null || option === "Tous") {
-      setFilteredVins(vins); // Afficher tous les vins si "Tous" est sélectionné
+    if (filterName === "Tous" || filterName === null) {
+      setFilteredVins(vins);
     } else {
-      console.log("Avant filtrage :", vins); // Afficher les vins avant le filtrage
-
       const filtered = vins.filter((vin) => {
-        console.log(option);
-        console.log(vin.couleur);
-        console.log("Vin couleur :", vin.couleur); // Ajouter ce console.log
-        return vin.couleur == option;
+        if (filterName === "Blanc") {
+          return vin.couleur === "blanc";
+        }
+        if (filterName === "Rouge") {
+          return vin.couleur === "rouge";
+        }
+        if (filterName === "Lirac") {
+          return vin.AOC === "Lirac";
+        }
+        if (filterName === "Vin de France") {
+          return vin.AOC === "Vin de france";
+        }
+        if (filterName === "Châteauneuf du Pape") {
+          return vin.AOC === "Châteauneuf du Pape";
+        }
+        return false;
       });
-      console.log("Après filtrage :", filtered); // Afficher les vins après le filtrage
-      setFilteredVins(filtered); // Afficher les vins de la couleur sélectionnée
+      setFilteredVins(filtered);
     }
-  };
-
-  const handleFilterSelection = (selectedOption) => {
-    // Traiter la valeur de l'option sélectionnée comme vous le souhaitez
-    console.log("Option sélectionnée :", selectedOption);
   };
 
   // Fonction pour sélectionner une bouteille
@@ -139,8 +137,7 @@ function Catalogue() {
           filtreName={"Tous"}
           options={["Tous"]}
           isSelected={selectedFilter === "Tous"}
-          onFilterClick={handleFilterClick} // Passer la fonction handleFilterClick comme prop
-          onFilterSelection={handleFilterSelection}
+          onClick={() => handleFilterClick("Tous")}
         />
 
         {/* Autres filtres */}
@@ -150,19 +147,18 @@ function Catalogue() {
             filtreName={item.filtreName}
             options={item.options}
             isSelected={selectedFilter === item.filtreName}
-            onFilterClick={handleFilterClick} // Passer la fonction handleFilterClick comme prop
-            onFilterSelection={handleFilterSelection} // Passer la fonction handleFilterSelection comme prop
+            onClick={() => handleFilterClick(item.filtreName)}
           />
         ))}
       </div>
 
       {/* Affichage des bouteilles */}
       <div className="catalogue__bouteilles">
-        {filteredVins.map((vin, index) => (
+        {filteredVins.map((item, index) => (
           <img
             key={index}
-            src={vin.image}
-            alt={vin.nom}
+            src={item.image}
+            alt={item.nom}
             className="catalogue__bouteilles__bt"
             onClick={() => setSelectedBottle(index)}
           />
