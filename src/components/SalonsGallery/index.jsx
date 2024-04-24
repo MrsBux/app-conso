@@ -17,8 +17,105 @@ import "../../style/css/salongallery.css";
 import ch9R12 from "../../assets/ch9R12.webp";
 
 function SalonGallery() {
+  const salons = [
+    {
+      name: "Les Printemps des vins",
+      logo: logo,
+      date: "8-10 avril 2024",
+      region: "PACA",
+      localisation: "Châteaneuf du Pape (84)",
+    },
+    {
+      name: "Les Printemps des vins",
+      logo: logo2,
+      region: "Bretagne",
+      date: "8-10 avril 2024",
+      localisation: "Châteaneuf du Pape (84)",
+    },
+    {
+      name: "Les Printemps des vins",
+      logo: logo3,
+      region: "Île-de-France",
+      date: "8-10 avril 2024",
+      localisation: "Châteaneuf du Pape (84)",
+    },
+    {
+      name: "Les Printemps des vins",
+      logo: logo4,
+      region: "Auvergne-Rhône-Alpes",
+      date: "8-10 avril 2024",
+      localisation: "Châteaneuf du Pape (84)",
+    },
+    {
+      name: "Les Printemps des vins",
+      logo: logo,
+      date: "8-10 avril 2024",
+      region: "Grand Nord",
+      localisation: "Châteaneuf du Pape (84)",
+    },
+    {
+      name: "Les Printemps des vins",
+      logo: logo,
+      date: "8-10 avril 2024",
+      region: "PACA",
+      localisation: "Châteaneuf du Pape (84)",
+    },
+    {
+      name: "Les Printemps des vins",
+      logo: logo2,
+      region: "Bretagne",
+      date: "8-10 avril 2024",
+      localisation: "Châteaneuf du Pape (84)",
+    },
+    {
+      name: "Les Printemps des vins",
+      logo: logo3,
+      region: "Île-de-France",
+      date: "8-10 avril 2024",
+      localisation: "Châteaneuf du Pape (84)",
+    },
+    {
+      name: "Les Printemps des vins",
+      logo: logo4,
+      region: "Auvergne-Rhône-Alpes",
+      date: "8-10 avril 2024",
+      localisation: "Châteaneuf du Pape (84)",
+    },
+    {
+      name: "Les Printemps des vins",
+      logo: logo,
+      date: "8-10 avril 2024",
+      region: "Grand Nord",
+      localisation: "Châteaneuf du Pape (84)",
+    },
+    {
+      name: "Les Printemps des vins",
+      logo: logo4,
+      region: "Auvergne-Rhône-Alpes",
+      date: "8-10 avril 2024",
+      localisation: "Châteaneuf du Pape (84)",
+    },
+    {
+      name: "Les Printemps des vins",
+      logo: logo,
+      date: "8-10 avril 2024",
+      region: "Grand Nord",
+      localisation: "Châteaneuf du Pape (84)",
+    },
+  ];
+
+  const filtres = [
+    { filtreName: "PACA" },
+    { filtreName: "Auvergne-Rhône-Alpes" },
+    { filtreName: "Bretagne" },
+    { filtreName: "Grand Nord" },
+    { filtreName: "Île-de-France" },
+  ];
+
   const [visibleSalon, setVisibleSalon] = useState();
   const [isMobileS, setIsMobileS] = useState(window.innerWidth <= 400);
+  const [filteredSalons, setFilteredSalons] = useState(salons);
+  const [selectedFilter, setSelectedFilter] = useState("Tous");
 
   const handleAdmiBtn = () => {
     console.log("click");
@@ -38,97 +135,24 @@ function SalonGallery() {
     };
   }, [isMobileS]);
 
-  const salons = [
-    {
-      name: "Les Printemps des vins",
-      logo: logo,
-      date: "8-10 avril 2024",
-      localisation: "Châteaneuf du Pape (84)",
-    },
-    {
-      name: "Les Printemps des vins",
-      logo: logo2,
-      date: "8-10 avril 2024",
-      localisation: "Châteaneuf du Pape (84)",
-    },
-    {
-      name: "Les Printemps des vins",
-      logo: logo3,
-      date: "8-10 avril 2024",
-      localisation: "Châteaneuf du Pape (84)",
-    },
-    {
-      name: "Les Printemps des vins",
-      logo: logo4,
-      date: "8-10 avril 2024",
-      localisation: "Châteaneuf du Pape (84)",
-    },
-    {
-      name: "Les Printemps des vins",
-      logo: logo,
-      date: "8-10 avril 2024",
-      localisation: "Châteaneuf du Pape (84)",
-    },
-    {
-      name: "Les Printemps des vins",
-      logo: logo3,
-      date: "8-10 avril 2024",
-      localisation: "Châteaneuf du Pape (84)",
-    },
-    {
-      name: "Les Printemps des vins",
-      logo: logo2,
-      date: "8-10 avril 2024",
-      localisation: "Châteaneuf du Pape (84)",
-    },
-    {
-      name: "Les Printemps des vins",
-      logo: logo,
-      date: "8-10 avril 2024",
-      localisation: "Châteaneuf du Pape (84)",
-    },
-    {
-      name: "Les Printemps des vins",
-      logo: logo,
-      date: "8-10 avril 2024",
-      localisation: "Châteaneuf du Pape (84)",
-    },
-    {
-      name: "Les Printemps des vins",
-      logo: logo2,
-      date: "8-10 avril 2024",
-      localisation: "Châteaneuf du Pape (84)",
-    },
-    {
-      name: "Les Printemps des vins",
-      logo: logo,
-      date: "8-10 avril 2024",
-      localisation: "Châteaneuf du Pape (84)",
-    },
-    {
-      name: "Les Printemps des vins",
-      logo: logo4,
-      date: "8-10 avril 2024",
-      localisation: "Châteaneuf du Pape (84)",
-    },
-  ];
-
-  const filtres = [
-    { filtreName: "Date" },
-    { filtreName: "Localisation" },
-    { filtreName: "Type" },
-  ];
-
   const handleToggleVisibility = () => {
     setVisibleSalon((visible) => (visible === 4 ? salons.length : 4));
   };
-  const [selectedFilter, setSelectedFilter] = useState("Tous");
 
   const handleFilterClick = (filterName) => {
     setSelectedFilter(filterName);
+
+    if (filterName === "Tous" || filterName === null) {
+      setFilteredSalons(salons);
+    } else {
+      const filtered = salons.filter((salon) => {
+        return salon.region.toLowerCase() === filterName.toLowerCase(); // Convertir en minuscules pour une comparaison insensible à la casse
+      });
+      setFilteredSalons(filtered);
+    }
   };
 
-  const visibleSalons = salons.slice(0, visibleSalon);
+  const visibleSalons = filteredSalons.slice(0, visibleSalon);
 
   return (
     <div className="salongallery">

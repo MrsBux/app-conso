@@ -11,9 +11,18 @@ import Form from "react-bootstrap/Form";
 
 import BtnAjouter from "../BtnAjouter";
 
-function NosPartenaires() {
+function NosPartenaires({ partners }) {
+  const filtres = [
+    { filtreName: "Restaurateurs" },
+    { filtreName: "Caviste" },
+    { filtreName: "Importateur" },
+    { filtreName: "Autre" },
+  ];
+
   const [visiblePartner, setVisiblePartner] = useState();
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 600);
+  const [filteredPartners, setFilteredPartners] = useState(partners);
+  const [selectedFilter, setSelectedFilter] = useState("Tous");
 
   useEffect(() => {
     const handleResize = () => {
@@ -30,151 +39,6 @@ function NosPartenaires() {
     };
   }, [isMobile]);
 
-  const partners = [
-    {
-      name: "Le Petit Patio",
-      description: "restaurant à orange",
-      contact: "https://au-petit-patio-orange.eatbu.com/?lang=fr",
-      category: "restaurateur",
-      localisation: 84,
-      logo: logopp,
-    },
-    {
-      name: "La vinothèque des alpes",
-      description: "Caviste dans les alpes",
-      contact: "https://www.lavinothequedesalpes.fr/",
-      category: "caviste",
-      localisation: 38,
-      logo: logovintq,
-    },
-    {
-      name: "AllStarWine",
-      description: "Revendeur US",
-      contact:
-        "https://www.allstarwine.com/wines/Domaine-La-Consonniere-Chateauneuf-Du-Pape-2019-w5680855kz",
-      category: "caviste",
-      localisation: 0,
-      logo: logoasw,
-    },
-    {
-      name: "Le Petit Patio",
-      description: "restaurant à orange",
-      contact: "https://au-petit-patio-orange.eatbu.com/?lang=fr",
-      category: "restaurateur",
-      localisation: 84,
-      logo: logopp,
-    },
-    {
-      name: "La vinothèque des alpes",
-      description: "Caviste dans les alpes",
-      contact: "https://www.lavinothequedesalpes.fr/",
-      category: "caviste",
-      localisation: 38,
-      logo: logovintq,
-    },
-    {
-      name: "AllStarWine",
-      description: "Revendeur US",
-      contact:
-        "https://www.allstarwine.com/wines/Domaine-La-Consonniere-Chateauneuf-Du-Pape-2019-w5680855kz",
-      category: "caviste",
-      localisation: 0,
-      logo: logoasw,
-    },
-    {
-      name: "Le Petit Patio",
-      description: "restaurant à orange",
-      contact: "https://au-petit-patio-orange.eatbu.com/?lang=fr",
-      category: "restaurateur",
-      localisation: 84,
-      logo: logopp,
-    },
-    {
-      name: "La vinothèque des alpes",
-      description: "Caviste dans les alpes",
-      contact: "https://www.lavinothequedesalpes.fr/",
-      category: "caviste",
-      localisation: 38,
-      logo: logovintq,
-    },
-    {
-      name: "AllStarWine",
-      description: "Revendeur US",
-      contact:
-        "https://www.allstarwine.com/wines/Domaine-La-Consonniere-Chateauneuf-Du-Pape-2019-w5680855kz",
-      category: "caviste",
-      localisation: 0,
-      logo: logoasw,
-    },
-    {
-      name: "Le Petit Patio",
-      description: "restaurant à orange",
-      contact: "https://au-petit-patio-orange.eatbu.com/?lang=fr",
-      category: "restaurateur",
-      localisation: 84,
-      logo: logopp,
-    },
-    {
-      name: "La vinothèque des alpes",
-      description: "Caviste dans les alpes",
-      contact: "https://www.lavinothequedesalpes.fr/",
-      category: "caviste",
-      localisation: 38,
-      logo: logovintq,
-    },
-    {
-      name: "AllStarWine",
-      description: "Revendeur US",
-      contact:
-        "https://www.allstarwine.com/wines/Domaine-La-Consonniere-Chateauneuf-Du-Pape-2019-w5680855kz",
-      category: "caviste",
-      localisation: 0,
-      logo: logoasw,
-    },
-    {
-      name: "La vinothèque des alpes",
-      description: "Caviste dans les alpes",
-      contact: "https://www.lavinothequedesalpes.fr/",
-      category: "caviste",
-      localisation: 38,
-      logo: logovintq,
-    },
-    {
-      name: "AllStarWine",
-      description: "Revendeur US",
-      contact:
-        "https://www.allstarwine.com/wines/Domaine-La-Consonniere-Chateauneuf-Du-Pape-2019-w5680855kz",
-      category: "caviste",
-      localisation: 0,
-      logo: logoasw,
-    },
-    {
-      name: "Le Petit Patio",
-      description: "restaurant à orange",
-      contact: "https://au-petit-patio-orange.eatbu.com/?lang=fr",
-      category: "restaurateur",
-      localisation: 84,
-      logo: logopp,
-    },
-    {
-      name: "La vinothèque des alpes",
-      description: "Caviste dans les alpes",
-      contact: "https://www.lavinothequedesalpes.fr/",
-      category: "caviste",
-      localisation: 38,
-      logo: logovintq,
-    },
-    {
-      name: "AllStarWine",
-      description: "Revendeur US",
-      contact:
-        "https://www.allstarwine.com/wines/Domaine-La-Consonniere-Chateauneuf-Du-Pape-2019-w5680855kz",
-      category: "caviste",
-      localisation: 0,
-      logo: logoasw,
-    },
-  ];
-
   const handleToggleVisibility = () => {
     setVisiblePartner((visible) => (visible === 4 ? partners.length : 4));
   };
@@ -185,16 +49,17 @@ function NosPartenaires() {
 
   const visiblePartners = partners.slice(0, visiblePartner);
 
-  const filtres = [
-    { filtreName: "Localisation" },
-    { filtreName: "Restaurateurs" },
-    { filtreName: "Caviste" },
-    { filtreName: "Importateur" },
-    { filtreName: "Autre" },
-  ];
+  const handleFilterClick = (filterName) => {
+    setSelectedFilter(filterName);
 
-  const handleFiltersClick = () => {
-    console.log("click");
+    if (filterName === "Tous" || filterName === null) {
+      setFilteredPartners(partners);
+    } else {
+      const filtered = partners.filter((partner) => {
+        return partner.category === filterName;
+      });
+      setFilteredPartners(filtered);
+    }
   };
 
   return (
@@ -203,7 +68,7 @@ function NosPartenaires() {
       <div className="nospartenaires__filtresmobiles">
         <Filtre
           filtreName={"Tous"}
-          onClick={handleFiltersClick}
+          onClick={handleFilterClick}
           isSelected={false}
         />
       </div>
