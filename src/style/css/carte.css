@@ -1,9 +1,27 @@
 .carte {
+  margin: 50px 10px 0px 10px;
   width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+@media all and (max-width: 600px) {
+  .carte {
+    margin: 10px 0px 0px 0px;
+  }
+}
+.carte__title {
+  font-size: 70px;
+  padding-bottom: 60px;
+  color: #b6124d;
+}
+@media all and (max-width: 600px) {
+  .carte__title {
+    font-size: 42px;
+    text-align: center;
+    padding-bottom: 30px;
+  }
 }
 @media all and (min-width: 601px) and (max-width: 900px) {
   .carte__img {

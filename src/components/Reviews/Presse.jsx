@@ -16,7 +16,7 @@ function Presse() {
       <div className="presse__box">
         <ModalT
           btnShow={
-            <button
+            <div
               className="presse__box__btn"
               aria-label="Voir la presse et les récompenses"
             >
@@ -26,7 +26,7 @@ function Presse() {
                 alt="logo médaille et presse"
                 className="presse__box__btn__img"
               />
-            </button>
+            </div>
           }
           title={"Dossier de Presse"}
           modalContent={<DossierDePresse />}

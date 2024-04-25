@@ -103,7 +103,6 @@ header {
 }
 .menu__link__logo3 {
   max-width: 50%;
-  display: none;
 }
 @media all and (max-width: 700px) {
   .menu__link__logo3 {

@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import { PanierContext } from "../../store/panierContext";
 import like from "../../assets/like.webp";
 import liked from "../../assets/liked.webp";
 import caddy from "../../assets/caddy.webp";
@@ -9,6 +10,8 @@ import BtnModifier from "../BtnModifier";
 import "../../style/css/bouteilleCard.css";
 
 function BouteilleCard({
+  id,
+  img_btlle,
   name,
   AOC,
   prix,
@@ -16,11 +19,34 @@ function BouteilleCard({
   couleur,
   presse,
   degustation,
+  quantite,
 }) {
+  const { ajouterAuPanier } = useContext(PanierContext);
+
   const [isLiked, setIsLiked] = useState(false);
 
   const handleAdmiBtn = () => {
     console.log("click");
+  };
+
+  const handleAjouterAuPanier = () => {
+    const article = {
+      id,
+      img_btlle,
+      name,
+      AOC,
+      prix,
+      millesime,
+      couleur,
+    };
+
+    ajouterAuPanier(article, 1);
+
+    // Affichez une alerte pour confirmer l'ajout de l'article au panier
+    alert(`L'article "${name}" a été ajouté au panier`);
+
+    // Affichez les détails de l'article ajouté dans la console
+    console.log("Article ajouté au panier :", article);
   };
 
   const handleHeartClick = () => {
@@ -36,6 +62,7 @@ function BouteilleCard({
       <div className="bouteille__card">
         <div className="bouteille__card__box1">
           <h3 className="bouteille__card__box1__name">{name}</h3>
+          <p className="bouteille__card__box1__AOC">ID: {id}</p>
           <p className="bouteille__card__box1__AOC">{AOC}</p>
           <p className="bouteille__card__box1__prix">{prix}</p>
 
@@ -60,7 +87,7 @@ function BouteilleCard({
                 </button>
                 <button className="modalt__txt__btn__caddy">
                   <img
-                    classname="modalt__txt__btn__caddy"
+                    className="modalt__txt__btn__caddy"
                     src={caddy}
                     id="caddy"
                   ></img>
@@ -132,7 +159,8 @@ function BouteilleCard({
 
           <button className="bouteille__card__box2__caddy">
             <img
-              classname="bouteille__card__box2__like__caddy"
+              className="bouteille__card__box2__like__caddy"
+              onClick={handleAjouterAuPanier}
               src={caddy}
               id="caddy"
             ></img>

@@ -3,10 +3,8 @@ import { useState } from "react";
 import Actualite from "./actualite";
 import "../../style/css/nosactus.css";
 import Form from "react-bootstrap/Form";
-import Button from "react-bootstrap/esm/Button";
-
 import BtnAjouter from "../BtnAjouter";
-import BtnSupprimer from "../BtnSupprimer";
+
 import ModalT from "../ModalT";
 
 function NosActus() {

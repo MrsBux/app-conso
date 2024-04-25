@@ -1,30 +1,49 @@
-import React, { useState } from "react";
-
+import React, { useState, useContext } from "react";
+import { PanierContext } from "../../store/panierContext";
 import poubelle from "../../assets/poubelle.webp";
 
 import "../../style/css/itempanier.css";
 function ItemPanier({
+  id,
   img_btlle,
   name,
+  AOC,
   couleur,
   millesime,
   prix,
+  quantiteArticle,
   onQuantiteChange,
 }) {
-  const [quantite, setQuantite] = useState(1);
+  const { ajouterAuPanier, retirerDuPanier, diminuerQuantite } =
+    useContext(PanierContext);
 
   const handleClickPlus = () => {
-    const newQuantite = quantite + 1;
-    setQuantite(newQuantite);
-    onQuantiteChange(newQuantite);
+    const article = {
+      id,
+      img_btlle,
+      name,
+      AOC,
+      prix,
+      millesime,
+      couleur,
+    };
+    // Ajouter l'article au panier avec une quantité de 1
+    ajouterAuPanier(article, 1);
   };
 
   const handleClickMoins = () => {
-    const newQuantite = Math.max(1, quantite - 1);
-    setQuantite(newQuantite);
-    onQuantiteChange(newQuantite);
+    // Diminuer la quantité de l'article dans le panier
+    diminuerQuantite(id);
   };
-  const total = prix * quantite;
+
+  const handleDeleteItemClick = () => {
+    // Retirer l'article du panier
+    retirerDuPanier(id);
+  };
+
+  const total = prix * quantiteArticle;
+  console.log(prix, quantiteArticle, total);
+
   return (
     <div className="item">
       <img src={img_btlle} className="item__img"></img>
@@ -36,7 +55,7 @@ function ItemPanier({
         <p className="item__details__prix">{prix} euros</p>
       </div>
       <div className="item__quantite">
-        <p className="item__quantite__number"> {quantite} </p>
+        <p className="item__quantite__number"> {quantiteArticle} </p>
         <div className="item__quantite__btns">
           <button
             className="item__quantite__btns__plus"
@@ -53,7 +72,11 @@ function ItemPanier({
         </div>
       </div>
       <div className="item__total">
-        <img src={poubelle} className="item__total__delete"></img>
+        <img
+          src={poubelle}
+          className="item__total__delete"
+          onClick={handleDeleteItemClick}
+        ></img>
         <p className="item__total__prix">{total} euros</p>
       </div>
     </div>

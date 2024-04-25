@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
-import ReactDOM from "react-dom/client";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-
+import { PanierProvider } from "./store/panierContext.jsx";
+import ReactDOM from "react-dom/client";
 import Home from "./pages/Home.jsx";
 import Gallery from "./pages/Gallery.jsx";
 import Salons from "./pages/Salons.jsx";
@@ -26,22 +26,25 @@ function App() {
   return (
     <React.StrictMode>
       <Router>
-        <Header />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/gallery" element={<Gallery />} />
-          <Route path="/salons" element={<Salons />} />
-          <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/dashboardadmin" element={<DashboardAdmin />} />
-          <Route path="/signup" element={<Signup />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/loginadmin" element={<LoginAdmin />} />
-          <Route path="/panier" element={<Panier />} />
-          <Route path="/partners" element={<Partners />} />
-          <Route path="/prestations" element={<Prestations />} />
-          <Route path="*" element={<Error />} />
-        </Routes>
-        <Footer />
+        <PanierProvider>
+          {" "}
+          <Header />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/gallery" element={<Gallery />} />
+            <Route path="/salons" element={<Salons />} />
+            <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/dashboardadmin" element={<DashboardAdmin />} />
+            <Route path="/signup" element={<Signup />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/loginadmin" element={<LoginAdmin />} />
+            <Route path="/panier" element={<Panier />} />
+            <Route path="/partners" element={<Partners />} />
+            <Route path="/prestations" element={<Prestations />} />
+            <Route path="*" element={<Error />} />
+          </Routes>
+          <Footer />{" "}
+        </PanierProvider>
       </Router>
     </React.StrictMode>
   );

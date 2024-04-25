@@ -5,8 +5,12 @@ import btle from "../assets/ch9B.webp";
 import btle2 from "../assets/ch9B15r.webp";
 
 function LoginAdmin() {
+  const handleSubmit = () => {
+    console.log("Click Sbmit");
+  };
+
   return (
-    <div className="loginadmin" onSubmit={""}>
+    <div className="loginadmin" onSubmit={handleSubmit}>
       <div className="loginadmin__btlles">
         <img
           src={btle}
@@ -23,10 +27,7 @@ function LoginAdmin() {
       <Form className="loginadmin__form">
         <h3 className="loginadmin__form__title"> Se connecter</h3>
 
-        <Form.Group
-          className="loginadmin__form__groupe"
-          controlId="loginadmin_email"
-        >
+        <Form.Group className="loginadmin__form__groupe">
           <Form.Label>Email address</Form.Label>
           <Form.Control
             id="inputemail"
@@ -35,10 +36,7 @@ function LoginAdmin() {
           />
         </Form.Group>
 
-        <Form.Group
-          className="loginadmin__form__groupe"
-          controlId="loginadmin_password"
-        >
+        <Form.Group className="loginadmin__form__groupe">
           <Form.Label>Password</Form.Label>
           <Form.Control
             type="password"

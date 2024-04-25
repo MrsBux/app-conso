@@ -6,8 +6,12 @@ import btle from "../assets/lirac.webp";
 import btle2 from "../assets/lirac13.webp";
 
 function Signup() {
+  const handleSubmit = () => {
+    console.log("Click Sbmit");
+  };
+
   return (
-    <div className="signup" onSubmit={""}>
+    <div className="signup" onSubmit={handleSubmit}>
       <div className="signup__btlles">
         <img
           src={btle}
@@ -24,7 +28,7 @@ function Signup() {
       <Form className="signup__form">
         <h3 className="signup__form__title"> Créer un compte client </h3>
 
-        <Form.Group className="signup__form__groupe " controlId="signup_email">
+        <Form.Group className="signup__form__groupe ">
           <Form.Label>Email address</Form.Label>
           <Form.Control
             id="email_signup"
@@ -34,27 +38,18 @@ function Signup() {
         </Form.Group>
 
         <div className="signup__form__groupe__id">
-          <Form.Group
-            className="form__identite__groupe signup__form__groupe"
-            controlId="nom_contact_signup"
-          >
+          <Form.Group className="form__identite__groupe signup__form__groupe">
             <Form.Label>Nom</Form.Label>
             <Form.Control type="text" placeholder="Nom" id="nom_signup" />
           </Form.Group>
 
-          <Form.Group
-            className="form__identite__groupe signup__form__groupe"
-            controlId="prenom_contact_signup"
-          >
+          <Form.Group className="form__identite__groupe signup__form__groupe">
             <Form.Label>Prénom</Form.Label>
             <Form.Control type="text" placeholder="Prénom" id="prenom_signup" />
           </Form.Group>
         </div>
 
-        <Form.Group
-          className="signup__form__groupe"
-          controlId="signup_password"
-        >
+        <Form.Group className="signup__form__groupe">
           <Form.Label>Password</Form.Label>
           <Form.Control
             id="password_signup"

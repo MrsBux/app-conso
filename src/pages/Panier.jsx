@@ -1,16 +1,24 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import { PanierContext } from "../store/panierContext";
 import { Link } from "react-router-dom";
 import ItemPanier from "../components/Panier/item";
 import Form from "react-bootstrap/Form";
 import ModalT from "../components/ModalT";
 import RetraitSalon from "../components/RetraitSalon";
 import "../style/css/panier.css";
+import ch9R from "../assets/ch9R.webp";
 import ch9B from "../assets/ch9B.webp";
+import lirac from "../assets/lirac.webp";
+import viognier from "../assets/viognier.webp";
+import pitchotte from "../assets/pitchotte.webp";
 import logofidelite from "../assets/logofidelite.webp";
 import logoexp from "../assets/logoexpedition.webp";
 import logopaypal from "../assets/logopaypal.webp";
 
 function Panier() {
+  const { panier } = useContext(PanierContext);
+  console.log(panier);
+
   const handleMailTo = () => {
     window.location.href = `mailto:contact@domainelaconsonniere.fr?subject=Retrait de commande`;
   };
@@ -20,25 +28,6 @@ function Panier() {
     // Par exemple : window.location.href = "lien_vers_page_paypal";
     alert("Vous allez être redirigé vers la page de paiement PayPal.");
   };
-
-  const [items, setItems] = useState([
-    {
-      img_btlle: ch9B,
-      name: "Châteauneuf du Pape",
-      couleur: "Blanc",
-      millesime: 2020,
-      prix: 25,
-      quantite: 1, // Ajoutez la propriété quantite à chaque élément
-    },
-    {
-      img_btlle: ch9B,
-      name: "Châteauneuf du Pape",
-      couleur: "Blanc",
-      millesime: 2022,
-      prix: 28,
-      quantite: 1, // Ajoutez la propriété quantite à chaque élément
-    },
-  ]);
 
   const [selectedOption, setSelectedOption] = useState(null);
 
@@ -50,11 +39,10 @@ function Panier() {
 
   // Fonction pour mettre à jour la quantité d'un article
   const handleQuantiteChange = (index, newQuantite) => {
-    const updatedItems = [...items];
-    updatedItems[index].quantite = newQuantite;
-    setItems(updatedItems);
+    const updatedPanier = [...panier];
+    updatedPanier[index].quantite = newQuantite;
+    setPanier(updatedPanier);
   };
-
   const handleRadioChange = (value) => {
     if (selectedOption === value) {
       // Si l'option sélectionnée est déjà celle cliquée, désélectionnez-la et réinitialisez les salons
@@ -91,6 +79,19 @@ function Panier() {
     setSelectedSalon(salon);
   };
 
+  const vins = panier.map((article) => ({
+    AOC: article.AOC,
+    couleur: article.couleur,
+    id: article.id,
+    img_btlle: article.img_btlle,
+    millesime: article.millesime,
+    name: article.name,
+    prix: article.prix,
+    quantite: article.quantite,
+  }));
+
+  console.log("vins =", vins);
+
   const salons = [
     {
       name: "Les Printemps des vins",
@@ -124,14 +125,43 @@ function Panier() {
     },
   ];
 
+  const totalQuantite = panier.reduce(
+    (acc, article) => acc + article.quantite,
+    0
+  );
+
   // Calcul du total
-  const total = items.reduce((acc, item) => {
-    return acc + item.prix * item.quantite;
+  const total = panier.reduce((acc, article) => {
+    console.log(article.prix);
+    return acc + article.prix * article.quantite;
   }, 0);
 
-  const livraison = 30;
+  const nombreTotalArticles = panier.reduce(
+    (total, article) => total + article.quantite,
+    0
+  );
 
-  const totalAll = total + livraison;
+  const calculerFraisLivraison = (nombreTotalArticles) => {
+    let fraisLivraison = 0;
+
+    if (nombreTotalArticles <= 5) {
+      fraisLivraison = 7; // 1 bouteille à partir de 7 euros
+    } else if (nombreTotalArticles <= 11) {
+      fraisLivraison = 20; // 6 bouteilles à partir de 20 euros
+    } else if (nombreTotalArticles <= 17) {
+      fraisLivraison = 30; // 12 bouteilles à partir de 30 euros
+    } else if (nombreTotalArticles <= 23) {
+      fraisLivraison = 50; // 18 bouteilles à partir de 50 euros
+    } else {
+      fraisLivraison = "Contactez-nous"; // Plus de 18 bouteilles, contactez-nous
+    }
+
+    return fraisLivraison;
+  };
+
+  const fraisLivraison = calculerFraisLivraison(nombreTotalArticles);
+
+  const totalAll = total + fraisLivraison;
 
   return (
     <>
@@ -141,21 +171,24 @@ function Panier() {
 
           <div className="panier__box1">
             <div className="panier__box1__items">
-              {items.map((item, index) => (
+              {panier.map((article, index) => (
                 <ItemPanier
                   key={index}
-                  img_btlle={item.img_btlle}
-                  name={item.name}
-                  couleur={item.couleur}
-                  millesime={item.millesime}
-                  prix={item.prix}
-                  quantite={item.quantite}
+                  img_btlle={article.img_btlle}
+                  id={article.id}
+                  name={article.name}
+                  AOC={article.AOC}
+                  couleur={article.couleur}
+                  millesime={article.millesime}
+                  prix={article.prix}
+                  quantiteArticle={article.quantite}
                   onQuantiteChange={(newQuantite) =>
                     handleQuantiteChange(index, newQuantite)
                   }
                 />
               ))}
             </div>
+
             <div className="panier__box1__container">
               <div className="panier__box1__container__total">
                 <div className="panier__box1__container__total__produits">
@@ -175,10 +208,10 @@ function Panier() {
                     </p>
                     <ModalT
                       btnShow={
-                        <button className="panier__box1__container__total__livraison__box__q">
+                        <div className="panier__box1__container__total__livraison__box__q">
                           {" "}
                           ?{" "}
-                        </button>
+                        </div>
                       }
                       title={"Explications de nos frais d'expédition"}
                       btnname={"Fermer"}
@@ -198,6 +231,10 @@ function Panier() {
                             <li>6 bouteilles : à partir de 20 euros.</li>{" "}
                             <li>12 bouteilles : à partir de 30 euros.</li>{" "}
                             <li> 18 bouteilles : à partir de 50 euros.</li>
+                            <li>
+                              {" "}
+                              Pour plus de 18 bouteilles, contactez nous !
+                            </li>
                           </ul>
                           <p className="modalt__txt__p">
                             {" "}
@@ -213,7 +250,7 @@ function Panier() {
                     />
                   </div>
                   <p className="panier__box1__container__total__livraison__p">
-                    {livraison} euros
+                    {fraisLivraison} euros
                   </p>
                 </div>
 

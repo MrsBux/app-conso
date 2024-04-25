@@ -18,60 +18,74 @@ import "../../style/css/catalogue.css";
 function Catalogue() {
   const vins = [
     {
+      id: 1,
       image: ch9B,
       couleur: "blanc",
       nom: "Châteauneuf-du-Pape Blanc",
       AOC: "Châteauneuf du Pape",
       prix: 25,
-      millésime: 2022,
+      millesime: 2022,
+      quantite: 4,
     },
     {
+      id: 2,
       image: ch9R,
       couleur: "rouge",
       nom: "Châteauneuf-du-Pape Rouge",
       AOC: "Châteauneuf du Pape",
       prix: 25,
-      millésime: 2020,
+      millesime: 2020,
+      quantite: 1,
     },
     {
+      id: 3,
       image: ch9R,
       couleur: "rouge",
       nom: "Châteauneuf-du-Pape Rouge",
       AOC: "Châteauneuf du Pape",
       prix: 28,
-      millésime: 2019,
+      millesime: 2019,
+      quantite: 1,
     },
     {
+      id: 4,
       image: ch9R,
       couleur: "rouge",
       nom: "Châteauneuf-du-Pape Rouge",
       AOC: "Châteauneuf du Pape",
       prix: 28,
-      millésime: 2018,
+      millesime: 2018,
+      quantite: 1,
     },
     {
+      id: 5,
       image: lirac,
       couleur: "rouge",
       nom: "Lirac, grand cru classé des côtes du rhônes",
       AOC: "Lirac",
       prix: 15,
-      millésime: 2022,
+      millesime: 2022,
+      quantite: 1,
     },
     {
+      id: 6,
       image: viognier,
       couleur: "blanc",
       nom: "100% Viogner",
       AOC: "Vin de france",
       prix: 12,
-      millésime: 2023,
+      millesime: 2023,
+      quantite: 1,
     },
     {
+      id: 7,
       image: pitchotte,
       couleur: "rouge",
       nom: "La Pitchotte",
       AOC: "Vin de france",
       prix: 8,
-      millésime: 2023,
+      millesime: 2023,
+      quantite: 1,
     },
   ];
 
@@ -205,9 +219,14 @@ function Catalogue() {
         selectedBottle >= 0 &&
         selectedBottle < filteredVins.length && (
           <BouteilleCard
+            id={filteredVins[selectedBottle].id}
+            img_btlle={filteredVins[selectedBottle].image}
             name={filteredVins[selectedBottle].nom}
+            couleur={filteredVins[selectedBottle].couleur}
+            millesime={filteredVins[selectedBottle].millesime}
             AOC={filteredVins[selectedBottle].AOC}
-            prix={`${filteredVins[selectedBottle].prix} euros`}
+            prix={filteredVins[selectedBottle].prix}
+            quantite={filteredVins[selectedBottle].quantite}
           />
         )}
     </section>

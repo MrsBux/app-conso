@@ -96,7 +96,6 @@ header {
 
     &__logo3 {
       max-width: 50%;
-      display: none;
       @media all and (max-width: 700px) {
         max-height: 50px;
         max-width: fit-content;

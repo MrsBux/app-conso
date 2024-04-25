@@ -43,7 +43,12 @@ function NosPrestations() {
             <Btn txt_btnG={"En savoir plus !"} id="nosprestations__btn" />
           </Link>
           <ModalT
-            btnShow={<Btn txt_btnG={"Réserver votre prestation!"} />}
+            btnShow={
+              <div>
+                {" "}
+                <p>Réserver votre prestation!</p>
+              </div>
+            }
             modalContent={<ReservationForm />}
             title={<h3>Demande de réservation</h3>}
             btnname={"retour"}
