@@ -17,10 +17,7 @@ function DashboardAdmin() {
             <DashboardMenuAdmin />
           </div>
           <div className="dashboard__box">
-            <DashboardBanner
-              nom_utilisateur={"Domaine la Consonnière"}
-              img_utilisateur={dom}
-            />
+            <DashboardBanner name={"Domaine la Consonnière"} photoURL={dom} />
             <DashboardBoardAdmin />
           </div>
         </div>

@@ -18,9 +18,9 @@ function DashboardMenu() {
     name: "John",
     firstName: "Doe",
     address: "123 Main Street 84230 Avignon",
-    favoritewine: "Lirac 2020",
-    favoritesalon: "les printemps du vins",
-    photo: "file",
+    favoriteWine: "Lirac 2020",
+    favoriteSalon: "les printemps du vins",
+    photoURL: "file",
     age: 30,
     profession: "Artiste",
   };

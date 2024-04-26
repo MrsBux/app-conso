@@ -18,144 +18,110 @@ function Partners() {
     {
       name: "Le Petit Patio",
       description: "restaurant à orange",
-      contact: "https://au-petit-patio-orange.eatbu.com/?lang=fr",
+      contactUrl: "https://au-petit-patio-orange.eatbu.com/?lang=fr",
       category: "restaurateur",
       localisation: 84,
-      logo: logopp,
+      logoPUrl: logopp,
     },
     {
       name: "La vinothèque des alpes",
       description: "Caviste dans les alpes",
-      contact: "https://www.lavinothequedesalpes.fr/",
+      contactUrl: "https://www.lavinothequedesalpes.fr/",
       category: "caviste",
       localisation: 38,
-      logo: logovintq,
+      logoPUrl: logovintq,
     },
     {
       name: "AllStarWine",
       description: "Revendeur US",
-      contact:
+      contactUrl:
         "https://www.allstarwine.com/wines/Domaine-La-Consonniere-Chateauneuf-Du-Pape-2019-w5680855kz",
       category: "caviste",
       localisation: 0,
-      logo: logoasw,
+      logoPUrl: logoasw,
     },
     {
       name: "Le Petit Patio",
       description: "restaurant à orange",
-      contact: "https://au-petit-patio-orange.eatbu.com/?lang=fr",
+      contactUrl: "https://au-petit-patio-orange.eatbu.com/?lang=fr",
       category: "restaurateur",
       localisation: 84,
-      logo: logopp,
+      logoPUrl: logopp,
     },
     {
       name: "La vinothèque des alpes",
       description: "Caviste dans les alpes",
-      contact: "https://www.lavinothequedesalpes.fr/",
+      contactUrl: "https://www.lavinothequedesalpes.fr/",
       category: "caviste",
       localisation: 38,
-      logo: logovintq,
+      logoPUrl: logovintq,
     },
     {
       name: "AllStarWine",
       description: "Revendeur US",
-      contact:
+      contactUrl:
         "https://www.allstarwine.com/wines/Domaine-La-Consonniere-Chateauneuf-Du-Pape-2019-w5680855kz",
       category: "caviste",
       localisation: 0,
-      logo: logoasw,
+      logoPUrl: logoasw,
     },
     {
       name: "Le Petit Patio",
       description: "restaurant à orange",
-      contact: "https://au-petit-patio-orange.eatbu.com/?lang=fr",
+      contactUrl: "https://au-petit-patio-orange.eatbu.com/?lang=fr",
       category: "restaurateur",
       localisation: 84,
-      logo: logopp,
+      logoPUrl: logopp,
     },
     {
       name: "La vinothèque des alpes",
       description: "Caviste dans les alpes",
-      contact: "https://www.lavinothequedesalpes.fr/",
+      contactUrl: "https://www.lavinothequedesalpes.fr/",
       category: "caviste",
       localisation: 38,
-      logo: logovintq,
+      logoPUrl: logovintq,
     },
     {
       name: "AllStarWine",
       description: "Revendeur US",
-      contact:
+      contactUrl:
         "https://www.allstarwine.com/wines/Domaine-La-Consonniere-Chateauneuf-Du-Pape-2019-w5680855kz",
       category: "caviste",
       localisation: 0,
-      logo: logoasw,
+      logoPUrl: logoasw,
     },
     {
       name: "Le Petit Patio",
       description: "restaurant à orange",
-      contact: "https://au-petit-patio-orange.eatbu.com/?lang=fr",
+      contactUrl: "https://au-petit-patio-orange.eatbu.com/?lang=fr",
       category: "restaurateur",
       localisation: 84,
-      logo: logopp,
+      logoPUrl: logopp,
     },
     {
       name: "La vinothèque des alpes",
       description: "Caviste dans les alpes",
-      contact: "https://www.lavinothequedesalpes.fr/",
+      contactUrl: "https://www.lavinothequedesalpes.fr/",
       category: "caviste",
       localisation: 38,
-      logo: logovintq,
+      logoPUrl: logovintq,
     },
     {
       name: "AllStarWine",
       description: "Revendeur US",
-      contact:
+      contactUrl:
         "https://www.allstarwine.com/wines/Domaine-La-Consonniere-Chateauneuf-Du-Pape-2019-w5680855kz",
       category: "caviste",
       localisation: 0,
-      logo: logoasw,
+      logoPUrl: logoasw,
     },
     {
       name: "La vinothèque des alpes",
       description: "Caviste dans les alpes",
-      contact: "https://www.lavinothequedesalpes.fr/",
+      contactUrl: "https://www.lavinothequedesalpes.fr/",
       category: "caviste",
       localisation: 38,
-      logo: logovintq,
-    },
-    {
-      name: "AllStarWine",
-      description: "Revendeur US",
-      contact:
-        "https://www.allstarwine.com/wines/Domaine-La-Consonniere-Chateauneuf-Du-Pape-2019-w5680855kz",
-      category: "caviste",
-      localisation: 0,
-      logo: logoasw,
-    },
-    {
-      name: "Le Petit Patio",
-      description: "restaurant à orange",
-      contact: "https://au-petit-patio-orange.eatbu.com/?lang=fr",
-      category: "restaurateur",
-      localisation: 84,
-      logo: logopp,
-    },
-    {
-      name: "La vinothèque des alpes",
-      description: "Caviste dans les alpes",
-      contact: "https://www.lavinothequedesalpes.fr/",
-      category: "caviste",
-      localisation: 38,
-      logo: logovintq,
-    },
-    {
-      name: "AllStarWine",
-      description: "Revendeur US",
-      contact:
-        "https://www.allstarwine.com/wines/Domaine-La-Consonniere-Chateauneuf-Du-Pape-2019-w5680855kz",
-      category: "caviste",
-      localisation: 0,
-      logo: logoasw,
+      logoPUrl: logovintq,
     },
   ];
 
@@ -185,7 +151,7 @@ function Partners() {
       setFilteredPartners(filtered);
     }
   };
-
+  console.log(filteredPartners);
   return (
     <>
       {" "}
@@ -198,7 +164,12 @@ function Partners() {
         />
         <div className="partenaires">
           <section className="partenaires__box" id="partners-list">
-            <NosPartenaires partners={filteredPartners} />{" "}
+            <NosPartenaires
+              partners={filteredPartners}
+              selectedFilter={selectedFilter}
+              onFilterClick={handleFilterClick}
+            />
+
             {/* Utilisez filteredPartners au lieu de partners */}
             <div className="partenaires__filtresbox">
               <img

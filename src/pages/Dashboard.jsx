@@ -18,10 +18,7 @@ function Dashboard() {
             <DashboardMenu />
           </div>
           <div className="dashboard__box">
-            <DashboardBanner
-              nom_utilisateur={"Camille"}
-              img_utilisateur={selfie}
-            />
+            <DashboardBanner name={"Camille"} photoURL={selfie} />
             <DashboardBoard />
           </div>
         </div>

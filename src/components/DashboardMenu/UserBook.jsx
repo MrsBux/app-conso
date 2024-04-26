@@ -59,7 +59,7 @@ function UserBook({ user }) {
       <div className="userbook__box">
         <div className="userbook__box__txt">
           <strong className="userbook__box__txt__str">Vin préféré:</strong>{" "}
-          <p className="userbook__box__txt__p">{user.favoritewine}</p>{" "}
+          <p className="userbook__box__txt__p">{user.favoriteWine}</p>{" "}
         </div>
         {!user.favoritewine && <BtnAjouterUser onClick={handleClick} />}
         {user.favoritewine && (
@@ -73,7 +73,7 @@ function UserBook({ user }) {
       <div className="userbook__box">
         <div className="userbook__box__txt">
           <strong className="userbook__box__txt__str">Salon favori:</strong>{" "}
-          <p className="userbook__box__txt__p">{user.favoritesalon} </p>
+          <p className="userbook__box__txt__p">{user.favoriteSalon} </p>
         </div>
         {!user.favoritesalon && <BtnAjouterUser onClick={handleClick} />}
         {user.favoritesalon && (

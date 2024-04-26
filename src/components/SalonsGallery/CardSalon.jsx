@@ -4,7 +4,18 @@ import ModalT from "../ModalT";
 import BtnSupprimer from "../BtnSupprimer";
 import BtnModifier from "../BtnModifier";
 
-function CardSalon({ logo, name, date, localisation, type, imgsalon }) {
+function CardSalon({
+  id,
+  logoUrl,
+  name,
+  date,
+  localisation,
+  type,
+  invitation,
+  debut,
+  fin,
+  description,
+}) {
   const [isCardFlipped, setIsCardFlipped] = useState(false);
   const handleAdmiBtn = () => {
     console.log("click");
@@ -21,7 +32,7 @@ function CardSalon({ logo, name, date, localisation, type, imgsalon }) {
           <ModalT
             btnShow={
               <div className="cardSalon__front">
-                <img src={logo} className="cardSalon__front__img"></img>
+                <img src={logoUrl} className="cardSalon__front__img"></img>
                 <p className="cardSalon__front__name">{name}</p>
               </div>
             }
@@ -30,11 +41,17 @@ function CardSalon({ logo, name, date, localisation, type, imgsalon }) {
               <div className="modalt">
                 <p>{name}</p>
                 <p>{type}</p>
-                <img src={imgsalon}></img>
+                <img src={logoUrl}></img>
                 <p>{localisation}</p>
                 <p> {date}</p>
+                <p>{description}</p>
+
                 <button className="modalt__txt__btn">
-                  Télécharger ou demander votre invitation
+                  {" "}
+                  <a href={invitation}>
+                    {" "}
+                    Télécharger ou demander votre invitation
+                  </a>
                 </button>
                 <ModalT
                   btnShow={<BtnModifier />}
@@ -58,9 +75,10 @@ function CardSalon({ logo, name, date, localisation, type, imgsalon }) {
               <div className="modalt">
                 <p>{name}</p>
                 <p>{type}</p>
-                <img src={imgsalon}></img>
+                <img src={logoUrl}></img>
                 <p>{localisation}</p>
                 <p> {date}</p>
+                <p>{description}</p>
                 <button className="modalt__txt__btn">
                   Télécharger ou demander votre invitation
                 </button>{" "}

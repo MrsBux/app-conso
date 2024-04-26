@@ -74,7 +74,14 @@ function NosPartenaires({ partners }) {
       </div>
       <div className="nospartenaires__gallery">
         {visiblePartners.map((item, index) => (
-          <CardPartner key={index} logo={item.logo} name={item.name} />
+          <CardPartner
+            key={index}
+            logoPUrl={item.logoPUrl}
+            name={item.name}
+            contactUrl={item.contactUrl}
+            type={item.type}
+            localisation={item.localisation}
+          />
         ))}
         {isMobile && (
           <button

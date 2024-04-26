@@ -47,7 +47,7 @@ function ReservationForm() {
           >
             <option value="">-- Sélectionnez --</option>
             <option value="Prestation 1">
-              Désgutation au caveau (Gratuite)
+              Dégustation au caveau (Gratuite)
             </option>
             <option value="Prestation 2">
               Dégustation en grand groupe au caveau (+8 personnes) (5€/ par

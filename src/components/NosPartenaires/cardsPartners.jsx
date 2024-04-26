@@ -3,7 +3,7 @@ import "../../style/css/cardpartner.css";
 import ModalT from "../ModalT";
 import BtnSupprimer from "../BtnSupprimer";
 
-function CardPartner({ logo, name, coordonates, type }) {
+function CardPartner({ logoPUrl, name, contactUrl, type, localisation }) {
   const [isCardFlipped, setIsCardFlipped] = useState(false);
   const handleAdmiBtn = () => {
     console.log("click");
@@ -20,13 +20,14 @@ function CardPartner({ logo, name, coordonates, type }) {
           <ModalT
             btnShow={
               <div className="logo__front">
-                <img src={logo} className="logo__front__img"></img>
+                <img src={logoPUrl} className="logo__front__img"></img>
               </div>
             }
             title={name}
             modalContent={
               <div className="modalt">
-                <p>{coordonates}</p>
+                <p>{contactUrl}</p>
+                <p>{localisation}</p>
                 <p>{type}</p>
                 <BtnSupprimer onClick={handleAdmiBtn} />
               </div>
@@ -42,7 +43,7 @@ function CardPartner({ logo, name, coordonates, type }) {
             title={name}
             modalContent={
               <div className="modalt">
-                <p>{coordonates}</p>
+                <p>{contactUrl}</p>
                 <p>{type}</p>
                 <BtnSupprimer onClick={handleAdmiBtn} />
               </div>

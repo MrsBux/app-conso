@@ -2,15 +2,11 @@ import React from "react";
 
 import "../../style/css/dashboardbanner.css";
 
-function DashboardBanner({ nom_utilisateur, img_utilisateur }) {
+function DashboardBanner({ name, photoURL }) {
   return (
     <section className="bannerd">
-      <p className="bannerd__title"> Bienvenue {nom_utilisateur}</p>
-      <img
-        src={img_utilisateur}
-        className="bannerd__img"
-        alt="img utilisateur"
-      ></img>
+      <p className="bannerd__title"> Bienvenue {name}</p>
+      <img src={photoURL} className="bannerd__img" alt="img utilisateur"></img>
     </section>
   );
 }

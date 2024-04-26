@@ -23,53 +23,88 @@ import logo4 from "../../../assets/logobeige.webp";
 function DossierListAdmin() {
   const vins = [
     {
+      id: 1,
       image: ch9B,
+      couleur: "blanc",
       nom: "Châteauneuf-du-Pape Blanc",
       AOC: "Châteauneuf du Pape",
       prix: 25,
+      volume: "75cl",
       millesime: 2022,
+      degustationVideo:
+        "https://www.youtube.com/watch?v=oz7RerYHmkk&list=RDoz7RerYHmkk&start_radio=1",
     },
     {
+      id: 2,
       image: ch9R,
+      couleur: "rouge",
       nom: "Châteauneuf-du-Pape Rouge",
       AOC: "Châteauneuf du Pape",
       prix: 25,
+      volume: "75cl",
       millesime: 2020,
+      degustationVideo:
+        "https://www.youtube.com/watch?v=oz7RerYHmkk&list=RDoz7RerYHmkk&start_radio=1",
     },
     {
+      id: 3,
       image: ch9R,
+      couleur: "rouge",
       nom: "Châteauneuf-du-Pape Rouge",
       AOC: "Châteauneuf du Pape",
       prix: 28,
+      volume: "75cl",
       millesime: 2019,
+      degustationVideo:
+        "https://www.youtube.com/watch?v=oz7RerYHmkk&list=RDoz7RerYHmkk&start_radio=1",
     },
     {
+      id: 4,
       image: ch9R,
+      couleur: "rouge",
       nom: "Châteauneuf-du-Pape Rouge",
       AOC: "Châteauneuf du Pape",
+      volume: "75cl",
       prix: 28,
       millesime: 2018,
+      degustationVideo:
+        "https://www.youtube.com/watch?v=oz7RerYHmkk&list=RDoz7RerYHmkk&start_radio=1",
     },
     {
+      id: 5,
       image: lirac,
-      nom: "Lirac",
-      AOC: "Lirac, grand cru classé des côtes du rhônes",
+      couleur: "rouge",
+      nom: "Lirac, grand cru classé des côtes du rhônes",
+      AOC: "Lirac",
+      volume: "75cl",
       prix: 15,
       millesime: 2022,
+      degustationVideo:
+        "https://www.youtube.com/watch?v=oz7RerYHmkk&list=RDoz7RerYHmkk&start_radio=1",
     },
     {
+      id: 6,
       image: viognier,
+      couleur: "blanc",
       nom: "100% Viogner",
       AOC: "Vin de france",
       prix: 12,
+      volume: "75cl",
       millesime: 2023,
+      degustationVideo:
+        "https://www.youtube.com/watch?v=oz7RerYHmkk&list=RDoz7RerYHmkk&start_radio=1",
     },
     {
+      id: 7,
       image: pitchotte,
+      couleur: "rouge",
       nom: "La Pitchotte",
       AOC: "Vin de france",
+      volume: "75cl",
       prix: 8,
       millesime: 2023,
+      degustationVideo:
+        "https://www.youtube.com/watch?v=oz7RerYHmkk&list=RDoz7RerYHmkk&start_radio=1",
     },
   ];
 

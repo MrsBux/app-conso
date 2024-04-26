@@ -16,10 +16,11 @@ function BouteilleCard({
   AOC,
   prix,
   millesime,
+  volume,
+  degustationVideo,
   couleur,
   presse,
   degustation,
-  quantite,
 }) {
   const { ajouterAuPanier } = useContext(PanierContext);
 
@@ -79,8 +80,18 @@ function BouteilleCard({
                 <p>{millesime}</p>
                 <p>{couleur}</p>
                 <p>{prix}</p>
+                <p>{volume}</p>
                 <p>{presse}</p>
                 <p>{degustation}</p>
+                <a
+                  href={degustationVideo}
+                  alt="Vidéo explicative dégustation du vin"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {" "}
+                  Découvrez notre dégustation filmée
+                </a>
                 <button className="modalt__txt__btn">
                   {" "}
                   Télécharger la fiche détail du vin

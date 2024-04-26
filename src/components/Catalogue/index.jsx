@@ -24,8 +24,10 @@ function Catalogue() {
       nom: "Châteauneuf-du-Pape Blanc",
       AOC: "Châteauneuf du Pape",
       prix: 25,
+      volume: "75cl",
       millesime: 2022,
-      quantite: 4,
+      degustationVideo:
+        "https://www.youtube.com/watch?v=oz7RerYHmkk&list=RDoz7RerYHmkk&start_radio=1",
     },
     {
       id: 2,
@@ -34,8 +36,10 @@ function Catalogue() {
       nom: "Châteauneuf-du-Pape Rouge",
       AOC: "Châteauneuf du Pape",
       prix: 25,
+      volume: "75cl",
       millesime: 2020,
-      quantite: 1,
+      degustationVideo:
+        "https://www.youtube.com/watch?v=oz7RerYHmkk&list=RDoz7RerYHmkk&start_radio=1",
     },
     {
       id: 3,
@@ -44,8 +48,10 @@ function Catalogue() {
       nom: "Châteauneuf-du-Pape Rouge",
       AOC: "Châteauneuf du Pape",
       prix: 28,
+      volume: "75cl",
       millesime: 2019,
-      quantite: 1,
+      degustationVideo:
+        "https://www.youtube.com/watch?v=oz7RerYHmkk&list=RDoz7RerYHmkk&start_radio=1",
     },
     {
       id: 4,
@@ -53,9 +59,11 @@ function Catalogue() {
       couleur: "rouge",
       nom: "Châteauneuf-du-Pape Rouge",
       AOC: "Châteauneuf du Pape",
+      volume: "75cl",
       prix: 28,
       millesime: 2018,
-      quantite: 1,
+      degustationVideo:
+        "https://www.youtube.com/watch?v=oz7RerYHmkk&list=RDoz7RerYHmkk&start_radio=1",
     },
     {
       id: 5,
@@ -63,9 +71,11 @@ function Catalogue() {
       couleur: "rouge",
       nom: "Lirac, grand cru classé des côtes du rhônes",
       AOC: "Lirac",
+      volume: "75cl",
       prix: 15,
       millesime: 2022,
-      quantite: 1,
+      degustationVideo:
+        "https://www.youtube.com/watch?v=oz7RerYHmkk&list=RDoz7RerYHmkk&start_radio=1",
     },
     {
       id: 6,
@@ -74,8 +84,10 @@ function Catalogue() {
       nom: "100% Viogner",
       AOC: "Vin de france",
       prix: 12,
+      volume: "75cl",
       millesime: 2023,
-      quantite: 1,
+      degustationVideo:
+        "https://www.youtube.com/watch?v=oz7RerYHmkk&list=RDoz7RerYHmkk&start_radio=1",
     },
     {
       id: 7,
@@ -83,9 +95,11 @@ function Catalogue() {
       couleur: "rouge",
       nom: "La Pitchotte",
       AOC: "Vin de france",
+      volume: "75cl",
       prix: 8,
       millesime: 2023,
-      quantite: 1,
+      degustationVideo:
+        "https://www.youtube.com/watch?v=oz7RerYHmkk&list=RDoz7RerYHmkk&start_radio=1",
     },
   ];
 
@@ -226,7 +240,8 @@ function Catalogue() {
             millesime={filteredVins[selectedBottle].millesime}
             AOC={filteredVins[selectedBottle].AOC}
             prix={filteredVins[selectedBottle].prix}
-            quantite={filteredVins[selectedBottle].quantite}
+            volume={filteredVins[selectedBottle].volume}
+            degustationVideo={filteredVins[selectedBottle].degustationVideo}
           />
         )}
     </section>
