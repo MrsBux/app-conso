@@ -6,12 +6,43 @@ import btle from "../assets/lirac.webp";
 import btle2 from "../assets/lirac13.webp";
 
 function Signup() {
-  const handleSubmit = () => {
-    console.log("Click Sbmit");
+  const handleSubmit = (event) => {
+    event.preventDefault(); // Empêche le rechargement de la page par défaut
+
+    const formData = {
+      email: event.target.elements.email_signup.value,
+      password: event.target.elements.password_signup.value,
+      firstname: event.target.elements.firstname.value,
+      name: event.target.elements.name.value,
+    };
+
+    fetch("http://localhost:3000/api/user/signup", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(formData),
+    })
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Erreur lors de la création du compte");
+        }
+        return response.json();
+      })
+      .then((data) => {
+        localStorage.setItem("token", data.token); // Stocke le token utilisateur dans le stockage local
+
+        alert("Compte créé!");
+
+        window.location.href = "/login"; // Redirige vers la page de connexion après 3 secondes
+      })
+      .catch((error) => {
+        console.error("Erreur lors de la création du compte :", error);
+      });
   };
 
   return (
-    <div className="signup" onSubmit={handleSubmit}>
+    <div className="signup">
       <div className="signup__btlles">
         <img
           src={btle}
@@ -25,7 +56,7 @@ function Signup() {
         ></img>
       </div>
 
-      <Form className="signup__form">
+      <Form className="signup__form" onSubmit={handleSubmit}>
         <h3 className="signup__form__title"> Créer un compte client </h3>
 
         <Form.Group className="signup__form__groupe ">
@@ -40,12 +71,12 @@ function Signup() {
         <div className="signup__form__groupe__id">
           <Form.Group className="form__identite__groupe signup__form__groupe">
             <Form.Label>Nom</Form.Label>
-            <Form.Control type="text" placeholder="Nom" id="nom_signup" />
+            <Form.Control type="text" placeholder="Nom" id="name" />
           </Form.Group>
 
           <Form.Group className="form__identite__groupe signup__form__groupe">
             <Form.Label>Prénom</Form.Label>
-            <Form.Control type="text" placeholder="Prénom" id="prenom_signup" />
+            <Form.Control type="text" placeholder="Prénom" id="firstname" />
           </Form.Group>
         </div>
 

@@ -1,4 +1,4 @@
-import "../style/css/main.css";
+import React from "react";
 import TabTools from "../components/TabTools/index";
 import Banner from "../components/Banner/index";
 import WhoWeAre from "../components/Whoweare";
@@ -6,6 +6,7 @@ import NosVins from "../components/NosVins";
 import NosPrestations from "../components/NosPrestations";
 import Contact from "../components/Contact";
 import NosActus from "../components/NosActualites";
+import { isTokenPresent } from "../store/auth";
 
 function Home() {
   const sectionsPage = [
@@ -15,6 +16,8 @@ function Home() {
     { page: "contact-us", item: "Contactez-nous" },
     { page: "latest-news", item: "Dernières actualités" },
   ];
+
+  const isAuthenticated = isTokenPresent();
 
   return (
     <>
@@ -34,8 +37,15 @@ function Home() {
           <Contact />
         </div>
         <div id="latest-news">
-          <NosActus />
+          <NosActus isAuthenticated={isAuthenticated} />
         </div>
+        {isAuthenticated ? (
+          <div className="authenticated-message">You are logged in!</div>
+        ) : (
+          <div className="login-prompt">
+            Please log in to access more features.
+          </div>
+        )}
       </div>
     </>
   );

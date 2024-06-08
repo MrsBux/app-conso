@@ -1,36 +1,89 @@
-import React from "react";
-import { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Actualite from "./actualite";
 import "../../style/css/nosactus.css";
 import Form from "react-bootstrap/Form";
 import BtnAjouter from "../BtnAjouter";
-
 import ModalT from "../ModalT";
 
-function NosActus() {
+function NosActus({ isAuthenticated }) {
   const [visibleActus, setVisibleActus] = useState(4);
+  const [actus, setActus] = useState([]);
+
+  useEffect(() => {
+    fetch("http://localhost:3000/api/actu/All")
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Erreur lors de la récupération des actualités");
+        }
+        return response.json();
+      })
+      .then((data) => {
+        setActus(data);
+        console.log(data);
+      })
+      .catch((error) => {
+        console.error(
+          "Il y a eu une erreur lors de la récupération des actualités :",
+          error
+        );
+      });
+  }, []);
 
   const handleVoirPlusClick = () => {
-    setVisibleActus(actus.length); // Affiche toutes les actus
+    setVisibleActus(actus.length);
   };
 
   const handleVoirMoinsClick = () => {
-    setVisibleActus(4); // Revenir à l'état initial (afficher seulement les trois premières actus)
+    setVisibleActus(4);
   };
 
-  const handleAdmiBtn = () => {
-    console.log("click");
+  const handlePost = (formData) => {
+    fetch("http://localhost:3000/api/actu/New", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(formData),
+    })
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Erreur lors de la création de l'actualité");
+        }
+        return response.json();
+      })
+      .then((data) => {
+        // Traitez la réponse si nécessaire
+        console.log("Actualité créée avec succès :", data);
+        // Mettre à jour l'état des actualités si nécessaire
+        setActus(data);
+        window.location.href = "/";
+      })
+      .catch((error) => {
+        console.error("Erreur lors de la création de l'actualité :", error);
+      });
   };
 
-  const actus = [
-    { date: "12/03/24", title: "TITRE7", text: "text de l'actu" },
-    { date: "12/03/24", title: "TITRE6", text: "text de l'actu" },
-    { date: "12/03/24", title: "TITRE5", text: "text de l'actu" },
-    { date: "12/03/24", title: "TITRE4", text: "text de l'actu" },
-    { date: "12/04/24", title: "TITRE3", text: "text de l'actu" },
-    { date: "13/03/24", title: "TITRE2", text: "text de l'actu" },
-    { date: "12/03/24", title: "TITRE1", text: "text de l'actu" },
-  ];
+  const handleDelete = (id) => {
+    fetch(`http://localhost:3000/api/actu/${id}`, {
+      method: "DELETE",
+    })
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Erreur lors de la suppression de l'actualité");
+        }
+        return response.json();
+      })
+      .then((data) => {
+        // Traitez la réponse si nécessaire
+        console.log("Actualité supprimée avec succès ");
+        // Mettre à jour l'état des actualités si nécessaire
+        setActus(data);
+        window.location.href = "/";
+      })
+      .catch((error) => {
+        console.error("Erreur lors de la suppression de l'actualité :", error);
+      });
+  };
 
   return (
     <div className="nosactus">
@@ -55,55 +108,60 @@ function NosActus() {
               Voir moins{" "}
             </button>
           )}
-          <ModalT
-            title={"Ajouter une nouvelle actu"}
-            btnShow={<BtnAjouter onClick={handleAdmiBtn} />}
-            modalContent={
-              <Form className="form__ajout__actu form__ajout">
-                <Form.Group
-                  className="form__groupe"
-                  controlId="date__ajoutactu"
-                >
-                  <Form.Label>Date</Form.Label>
-                  <Form.Control type="date" placeholder="date" />
-                </Form.Group>
-
-                <Form.Group
-                  className="form__groupe"
-                  controlId="title__ajoutactu"
-                >
-                  <Form.Label>Title</Form.Label>
-                  <Form.Control type="text" placeholder="title" />
-                </Form.Group>
-
-                <Form.Group
-                  className="form__groupe"
-                  controlId="text__ajoutactu"
-                >
-                  <Form.Label>Contenu</Form.Label>
-                  <Form.Control
-                    as="textarea"
-                    rows={5}
-                    placeholder="texte actu"
-                  />
-                </Form.Group>
-                <button className="btn__submit" type="submit">
-                  Submit
-                </button>
-              </Form>
-            }
-            btnname={"Retour"}
-          />
         </div>
+      )}
+
+      {isAuthenticated && (
+        <ModalT
+          title={"Ajouter une nouvelle actu"}
+          btnShow={<BtnAjouter />}
+          modalContent={
+            <Form className="form__ajout__actu form__ajout">
+              <Form.Group className="form__groupe" controlId="date__ajoutactu">
+                <Form.Label>Date</Form.Label>
+                <Form.Control type="date" placeholder="date" />
+              </Form.Group>
+
+              <Form.Group className="form__groupe" controlId="title__ajoutactu">
+                <Form.Label>Title</Form.Label>
+                <Form.Control type="text" placeholder="title" />
+              </Form.Group>
+
+              <Form.Group className="form__groupe" controlId="text__ajoutactu">
+                <Form.Label>Contenu</Form.Label>
+                <Form.Control as="textarea" rows={5} placeholder="texte actu" />
+              </Form.Group>
+              <button
+                className="btn__submit"
+                type="submit"
+                onClick={(event) => {
+                  event.preventDefault(); // Empêche le rechargement de la page par défaut
+                  const formData = {
+                    // Récupération des valeurs du formulaire
+                    date: event.target.form[0].value,
+                    title: event.target.form[1].value,
+                    text: event.target.form[2].value,
+                  };
+                  handlePost(formData); // Appel de la fonction handlePost avec les données du formulaire
+                }}
+              >
+                Submit
+              </button>
+            </Form>
+          }
+          btnname={"Retour"}
+        />
       )}
 
       <div className="nosactus__box">
         {actus.slice(0, visibleActus).map((item, index) => (
           <Actualite
             key={index}
+            id={item._id}
             date={item.date}
             title={item.title}
             text={item.text}
+            handleDelete={() => handleDelete(item._id)} // Correction ici
           />
         ))}
       </div>

@@ -3,10 +3,10 @@ import Card from "react-bootstrap/Card";
 import "../../style/css/actualite.css";
 import BtnSupprimer from "../BtnSupprimer";
 
-function Actualite({ date, title, text }) {
+function Actualite({ date, title, text, id, handleDelete }) {
   return (
     <div className="actu">
-      <Card className="actu__card card">
+      <Card className="actu__card card" id={`actu id n${id}`}>
         <Card.Header className="actu__card__header" id="actu_header">
           {" "}
           ACTU DU {date}
@@ -18,7 +18,7 @@ function Actualite({ date, title, text }) {
           <Card.Text className="actu__card__body__txt" id="actu_txt">
             {text}
           </Card.Text>
-          <BtnSupprimer />
+          <BtnSupprimer onClick={handleDelete} />
         </Card.Body>
       </Card>
       <br />
