@@ -40,18 +40,13 @@ function NosPrestations() {
         </p>
         <div className="nosprestations__box__btns">
           <Link to="/prestations">
-            <Btn txt_btnG={"En savoir plus !"} id="nosprestations__btn" />
+            <Btn txt_btnG={"En savoir plus !"} />
           </Link>
           <ModalT
-            btnShow={
-              <div>
-                {" "}
-                <p>Réserver votre prestation!</p>
-              </div>
-            }
+            btnShow={<Btn txt_btnG={"Réserver votre prestation"} />}
             modalContent={<ReservationForm />}
             title={<h3>Demande de réservation</h3>}
-            btnname={"retour"}
+            btnname="retour"
           />
         </div>
       </div>

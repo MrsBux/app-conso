@@ -11,22 +11,45 @@ function ReservationForm() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Ici, vous pouvez gérer l'envoi de la demande de réservation, par exemple, en envoyant les données à un backend
-    console.log({
+
+    const bookingData = {
       prestation,
       date,
       heure,
       email,
       nom,
       telephone,
-    });
+    };
 
-    setPrestation("");
-    setDate("");
-    setHeure("");
-    setEmail("");
-    setNom("");
-    setTelephone("");
+    console.log("Booking data to be sent:", bookingData);
+
+    fetch("/api/formbooking/post", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(bookingData),
+    })
+      .then((response) => {
+        console.log("Response received:", response);
+        if (!response.ok) {
+          throw new Error("Erreur lors de l'envoi du formulaire");
+        }
+        return response.json();
+      })
+      .then((data) => {
+        console.log("Success data:", data);
+        // Reset form fields after successful submission
+        setPrestation("");
+        setDate("");
+        setHeure("");
+        setEmail("");
+        setNom("");
+        setTelephone("");
+      })
+      .catch((error) => {
+        console.error("Error during form submission:", error);
+      });
   };
 
   return (
@@ -46,30 +69,30 @@ function ReservationForm() {
             onChange={(e) => setPrestation(e.target.value)}
           >
             <option value="">-- Sélectionnez --</option>
-            <option value="Prestation 1">
+            <option value="Dégustation au caveau (Gratuite)">
               Dégustation au caveau (Gratuite)
             </option>
-            <option value="Prestation 2">
+            <option value="Dégustation en grand groupe au caveau (+8 personnes) (5€/ par personne)">
               Dégustation en grand groupe au caveau (+8 personnes) (5€/ par
               personne)
             </option>
-            <option value="Prestation 3">
+            <option value="Rétrospective complète et analyse des vins du domaine (25€/ par personne (à partir de 6 personnes))">
               Rétrospective complète et analyse des vins du domaine (25€/ par
-              personne (à partir de 6personnes))
+              personne (à partir de 6 personnes))
             </option>
-            <option value="Prestation 4">
+            <option value="Repas accord mets et vins (à partir de 35€ par personne)">
               Repas accord mets et vins (à partir de 35€ par personne)
             </option>
-            <option value="Prestation 5">
+            <option value="Visite complète du domaine, master class et dégustation (à partir de 30€ par personne)">
               Visite complète du domaine, master class et dégustation (à partir
               de 30€ par personne)
             </option>
-            <option value="Prestation 6">
+            <option value="Visite et dégustation directement dans la vigne (à partir de 40€ par personne)">
               Visite et dégustation directement dans la vigne (à partir de 40€
               par personne)
             </option>
-            <option value="Prestation 7">
-              Prestation 100% personnalisable{" "}
+            <option value="Prestation 100% personnalisable">
+              Prestation 100% personnalisable
             </option>
           </Form.Control>
         </Form.Group>
@@ -116,9 +139,7 @@ function ReservationForm() {
             onChange={(e) => setNom(e.target.value)}
           />
         </Form.Group>
-        <Button variant="primary" type="submit">
-          Envoyer
-        </Button>
+        <button type="submit">Envoyer</button>
       </Form>
     </div>
   );

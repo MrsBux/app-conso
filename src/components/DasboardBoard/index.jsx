@@ -15,7 +15,6 @@ function DashboardBoard({
   prenom,
   nom,
   email,
-  datei,
   vincoeur,
 }) {
   const handleBtn = () => {
@@ -48,7 +47,7 @@ function DashboardBoard({
           />
         </div>
         <div className="board__box__card2 board__box__card">
-          <h5 className="board__box__card2__title">{numberofpoints}273</h5>
+          <h5 className="board__box__card2__title">{numberofpoints}</h5>
           <p className="board__box__card2__p"> pts</p>
           <ModalT
             title={"Programme de fidélité"}
@@ -108,24 +107,19 @@ function DashboardBoard({
             <div className="board__box__card3__px__name">
               <p className="board__box__card3__px__prenom  board__box__card3__px">
                 {" "}
-                Camille
                 {prenom}
               </p>
               <p className="board__box__card3__px__nom  board__box__card3__px">
                 {" "}
-                Siesse
                 {nom}
               </p>
             </div>
           </div>
           <p className="board__box__card3__email board__box__card3__px">
             {" "}
-            camille.siesse@gmail.com
             {email}
           </p>
-          <p className="board__box__card3__dateinscription board__box__card3__px">
-            {datei} 12/04/2024
-          </p>
+          <p className="board__box__card3__dateinscription board__box__card3__px"></p>
           <p className="board__box__card3__vincoeur board__box__card3__px">
             Mon vin préféré :{vincoeur}
           </p>

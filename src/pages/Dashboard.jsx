@@ -26,7 +26,7 @@ function Dashboard() {
       })
       .then((data) => {
         setUser(data);
-        console.log(user);
+        console.log(user, "user");
       })
       .catch((error) => {
         console.error(
@@ -46,7 +46,13 @@ function Dashboard() {
           </div>
           <div className="dashboard__box">
             {user && <DashboardBanner name={user.name} photoURL={selfie} />}
-            <DashboardBoard />
+            <DashboardBoard
+              lastc={""}
+              numberofpoints={user.points}
+              prenom={user.firstname}
+              nom={user.name}
+              email={user.email}
+            />
           </div>
         </div>
       </main>

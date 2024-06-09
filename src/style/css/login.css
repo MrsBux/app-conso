@@ -37,6 +37,56 @@
   color: #ffebe2;
   text-decoration: none;
 }
+.login__deco {
+  min-height: 800px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.login__deco__btn {
+  background-color: #b6124d;
+  min-width: fit-content;
+  padding: 15px 20px;
+  border-radius: 50px;
+  border: 0;
+  box-shadow: 6px 6px 25px rgba(0, 0, 0, 0.5);
+  color: #ffebe2;
+  font-family: "Manrope" sans-serif;
+  font-size: 100%;
+  transition: all 800ms;
+}
+@media all and (min-width: 901px) and (max-width: 1100px) {
+  .login__deco__btn {
+    white-space: nowrap;
+    font-size: 0.9em;
+    padding: 15px 10px;
+  }
+}
+@media all and (min-width: 801px) and (max-width: 900px) {
+  .login__deco__btn {
+    white-space: nowrap;
+    font-size: 0.9em;
+    padding: 15px 5px;
+    width: 48%;
+  }
+}
+@media all and (min-width: 451px) and (max-width: 800px) {
+  .login__deco__btn {
+    white-space: nowrap;
+    font-size: 0.9em;
+    padding: 15px 2px;
+    width: 45%;
+  }
+}
+@media all and (min-width: 251px) and (max-width: 450px) {
+  .login__deco__btn {
+    white-space: nowrap;
+    font-size: 0.8em;
+    padding: 15px 2px;
+    width: 48%;
+  }
+}
 .login__btlles {
   display: flex;
   flex-direction: column-reverse;
