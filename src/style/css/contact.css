@@ -126,4 +126,20 @@
   transform: scale(1.15);
 }
 
+#contact__box__btns__2__btn {
+  color: #ffd2b8;
+  background-color: #124b38;
+  border-radius: 5px;
+  padding: 20px;
+  height: 120px;
+  width: 120px;
+  box-shadow: 6px 6px 25px rgba(0, 0, 0, 0.3);
+  transition: all 800ms;
+  border: none;
+}
+
+#contact__box__btns__2__btn:hover {
+  transform: scale(1.15);
+}
+
 /*# sourceMappingURL=contact.css.map */

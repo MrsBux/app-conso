@@ -3,7 +3,7 @@ import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import "../style/css/modalt.css";
 
-function ModalT({ title, modalContent, btnShow, btnname }) {
+function ModalT({ title, modalContent, btnShow, btnname, id }) {
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
@@ -12,7 +12,7 @@ function ModalT({ title, modalContent, btnShow, btnname }) {
   return (
     <div>
       <div>
-        <Button variant="none" onClick={handleShow}>
+        <Button id={id} onClick={handleShow}>
           {btnShow}
         </Button>
       </div>

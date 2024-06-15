@@ -115,6 +115,7 @@ function NosActus({ isAuthenticated }) {
         <ModalT
           title={"Ajouter une nouvelle actu"}
           btnShow={<BtnAjouter />}
+          id={"none"}
           modalContent={
             <Form className="form__ajout__actu form__ajout">
               <Form.Group className="form__groupe" controlId="date__ajoutactu">

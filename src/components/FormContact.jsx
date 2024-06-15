@@ -101,7 +101,7 @@ function FormContact() {
 
       {statusMessage && <div className="form__status">{statusMessage}</div>}
 
-      <button type="submit" className="btnG">
+      <button type="submit" id="btnGV">
         Envoyer
       </button>
     </Form>

@@ -255,6 +255,7 @@ function SalonGallery() {
         )}{" "}
         <ModalT
           title={"Ajouter un nouveau salon"}
+          id="none3"
           btnShow={<BtnAjouter onClick={handleAdmiBtn} />}
           modalContent={
             <Form className="form__ajout__salon form__ajout">

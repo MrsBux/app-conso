@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Form, Button } from "react-bootstrap";
+import "../style/index.css";
 
 function ReservationForm() {
   const [prestation, setPrestation] = useState("");
@@ -23,7 +24,7 @@ function ReservationForm() {
 
     console.log("Booking data to be sent:", bookingData);
 
-    fetch("/api/formbooking/post", {
+    fetch("http://127.0.0.1:3000/api/formbooking/post", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -46,6 +47,8 @@ function ReservationForm() {
         setEmail("");
         setNom("");
         setTelephone("");
+
+        alert("Formulaire envoyé !");
       })
       .catch((error) => {
         console.error("Error during form submission:", error);
@@ -54,13 +57,15 @@ function ReservationForm() {
 
   return (
     <div className="reservation-form">
-      <p>
+      <p className="formtxt">
         Choisissez la prestation qui vous convient, sélectionnez la date et
         l'heure, nous vous recontactons pour vous confirmer votre réservation et
         nous nous occupons des détails!
       </p>
 
-      <Form onSubmit={handleSubmit}>
+      <p className="formwarning"> Attention, tous les champs sont requis !</p>
+
+      <Form className="formmodal" onSubmit={handleSubmit}>
         <Form.Group controlId="prestation">
           <Form.Label>Choisissez une prestation :</Form.Label>
           <Form.Control
@@ -139,7 +144,9 @@ function ReservationForm() {
             onChange={(e) => setNom(e.target.value)}
           />
         </Form.Group>
-        <button type="submit">Envoyer</button>
+        <button type="submit" id="btnform">
+          Envoyer
+        </button>
       </Form>
     </div>
   );

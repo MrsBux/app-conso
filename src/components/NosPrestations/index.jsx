@@ -7,6 +7,12 @@ import ModalT from "../ModalT";
 import ReservationForm from "../ReservationsForm";
 
 function NosPrestations() {
+  console.log("modale");
+
+  const handleclick = () => {
+    window.location.href = "/prestations";
+  };
+
   return (
     <div className="nosprestations">
       <div className="nosprestations__box">
@@ -39,11 +45,11 @@ function NosPrestations() {
           différentes activités.
         </p>
         <div className="nosprestations__box__btns">
-          <Link to="/prestations">
-            <Btn txt_btnG={"En savoir plus !"} />
-          </Link>
+          <Btn txt_btnG={"En savoir plus !"} onclick={handleclick} />
+
           <ModalT
-            btnShow={<Btn txt_btnG={"Réserver votre prestation"} />}
+            btnShow={"Réserver votre prestation"}
+            id={"btnG"}
             modalContent={<ReservationForm />}
             title={<h3>Demande de réservation</h3>}
             btnname="retour"

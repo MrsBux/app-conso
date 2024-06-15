@@ -9,17 +9,20 @@
   font-family: "Manrope" sans-serif;
   font-size: 100%;
   transition: all 800ms;
+  min-width: fit-content;
 }
-@media all and (min-width: 1251px) and (max-width: 1550px) {
+@media all and (min-width: 1251px) {
   #btnG {
     white-space: nowrap;
     font-size: 0.8em;
+    width: fit-content;
   }
 }
 @media all and (min-width: 1101px) and (max-width: 1250px) {
   #btnG {
     white-space: nowrap;
     font-size: 0.7em;
+    width: fit-content;
   }
 }
 @media all and (min-width: 901px) and (max-width: 1100px) {

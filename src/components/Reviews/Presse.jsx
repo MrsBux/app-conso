@@ -28,6 +28,7 @@ function Presse() {
               />
             </div>
           }
+          id={"none"}
           title={"Dossier de Presse"}
           modalContent={<DossierDePresse />}
           btnname={"Fermer"}

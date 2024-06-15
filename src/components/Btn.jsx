@@ -2,10 +2,10 @@ import React from "react";
 import Button from "react-bootstrap/Button";
 import "../style/css/btn.css";
 
-function Btn({ txt_btnG }) {
+function Btn({ txt_btnG, onclick }) {
   return (
     <>
-      <Button variant="light" id="btnG">
+      <Button variant="light" id="btnG" onClick={onclick}>
         {txt_btnG}
       </Button>{" "}
     </>

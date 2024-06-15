@@ -39,13 +39,6 @@ function Home() {
         <div id="latest-news">
           <NosActus isAuthenticated={isAuthenticated} />
         </div>
-        {isAuthenticated ? (
-          <div className="authenticated-message">You are logged in!</div>
-        ) : (
-          <div className="login-prompt">
-            Please log in to access more features.
-          </div>
-        )}
       </div>
     </>
   );

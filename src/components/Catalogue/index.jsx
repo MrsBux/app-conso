@@ -193,18 +193,6 @@ function Catalogue() {
         ))}
       </div>
 
-      {/* Modal d'ajout */}
-      <ModalT
-        title={"Ajouter un nouveau vin"}
-        btnShow={<BtnAjouter onClick={handleAdmiBtn} />}
-        modalContent={
-          <Form className="form__ajout__vins form__ajout">
-            {/* Contenu du formulaire */}
-          </Form>
-        }
-        btnname={"Retour"}
-      />
-
       {/* Carousel de bouteilles */}
       <div className="catalogue__bouteille">
         <Carousel

@@ -1,0 +1,71 @@
+#btnform {
+  background-color: #b6124d;
+  border-radius: 30px;
+  margin: 20px;
+  padding: 10px 20px;
+  color: #ffebe2;
+  border: none;
+}
+
+#btnGV {
+  background-color: #124b38;
+  border-radius: 30px;
+  margin: 20px;
+  padding: 10px 20px;
+  color: #ffebe2;
+  border: none;
+  transition: 1000ms;
+}
+
+.modal-header {
+  padding: 0px 20px !important;
+  text-align: center;
+}
+
+.modal-title {
+  padding-top: 50px;
+}
+
+.reservation-form {
+  padding: 0px 20px;
+}
+
+.formtxt {
+  text-align: justify;
+}
+
+.formwarning {
+  color: #b6124d;
+}
+
+.formmodal {
+  padding: 15px;
+}
+
+.btnform {
+  background-color: #b6124d;
+  border-radius: 30px;
+  color: #ffebe2;
+  border: none;
+}
+
+#none {
+  background-color: #ffd2b8;
+  border: none;
+}
+
+#none3 {
+  background-color: #ffebe2;
+  border: none;
+}
+
+#btnGV:hover {
+  transform: scale(1.1);
+}
+
+#none2 {
+  background-color: #ffebe2;
+  border: none;
+  height: 5px;
+  width: 5px;
+}

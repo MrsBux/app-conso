@@ -54,7 +54,7 @@ function FormInscriptionNL() {
 
         {statusMessage && <div className="FIN__status">{statusMessage}</div>}
 
-        <button type="submit" className="btnG">
+        <button type="submit" className="btnG" id="btnform">
           Envoyer
         </button>
       </Form>
