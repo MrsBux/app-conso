@@ -1,5 +1,5 @@
 #btnG {
-  background-color: #b6124d;
+  background-color: #b6124d !important;
   width: 100%;
   padding: 15px 20px;
   border-radius: 50px;
@@ -44,7 +44,7 @@
   #btnG {
     white-space: nowrap;
     font-size: 0.8em;
-    padding: 15px 2px;
+    padding: 15px 8px;
     width: 45%;
   }
 }

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "../../style/css/dossierdepresse.css";
 
 import Awards from "./Awards";
@@ -26,54 +26,6 @@ function DossierDePresse() {
     },
   ];
 
-  const press = [
-    {
-      name: "Article Terre de Vins",
-      date: new Date(2022, 6, 7),
-      lien: "https://www.google.com",
-    },
-    {
-      name: "Mention Blog",
-      date: new Date(2024, 1, 4),
-      lien: "https://www.google.com",
-    },
-    {
-      name: "Reportage la Provence",
-      date: new Date(2023, 2, 12),
-      lien: "https://www.google.com",
-    },
-    {
-      name: "Article Terre de Vins",
-      date: new Date(2022, 6, 7),
-      lien: "https://www.google.com",
-    },
-    {
-      name: "Mention Blog",
-      date: new Date(2024, 1, 4),
-      lien: "https://www.google.com",
-    },
-    {
-      name: "Reportage la Provence",
-      date: new Date(2023, 2, 12),
-      lien: "https://www.google.com",
-    },
-    {
-      name: "Article Terre de Vins",
-      date: new Date(2022, 6, 7),
-      lien: "https://www.google.com",
-    },
-    {
-      name: "Mention Blog",
-      date: new Date(2024, 1, 4),
-      lien: "https://www.google.com",
-    },
-    {
-      name: "Reportage la Provence",
-      date: new Date(2023, 2, 12),
-      lien: "https://www.google.com",
-    },
-  ];
-
   const [visibleComponent, setVisibleComponent] = useState(null);
 
   const handleClick = (component) => {
@@ -90,9 +42,7 @@ function DossierDePresse() {
         <>
           <button
             className="dossierdepresse__btn"
-            onClick={() =>
-              handleClick(<Press press={press} onClick={handleReturnClick} />)
-            }
+            onClick={() => handleClick(<Press onClick={handleReturnClick} />)}
           >
             Revue de presse
           </button>

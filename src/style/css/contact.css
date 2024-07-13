@@ -128,7 +128,7 @@
 
 #contact__box__btns__2__btn {
   color: #ffd2b8;
-  background-color: #124b38;
+  background-color: #124b38 !important;
   border-radius: 5px;
   padding: 20px;
   height: 120px;

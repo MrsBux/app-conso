@@ -34,7 +34,7 @@ function FormContact() {
       if (!response.ok) {
         throw new Error("Erreur lors de l'envoi du formulaire");
       }
-
+      alert("Formulaire envoyé !");
       setStatusMessage("Formulaire soumis avec succès !");
       setNom("");
       setPrenom("");

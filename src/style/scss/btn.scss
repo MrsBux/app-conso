@@ -4,7 +4,7 @@ $red-wine: #b6124d;
 $green-leaf: #124b38;
 
 #btnG {
-  background-color: $red-wine;
+  background-color: $red-wine !important;
   width: 100%;
   padding: 15px 20px;
   border-radius: 50px;
@@ -44,7 +44,7 @@ $green-leaf: #124b38;
   @media all and (min-width: 451px) and (max-width: 800px) {
     white-space: nowrap;
     font-size: 0.8em;
-    padding: 15px 2px;
+    padding: 15px 8px;
     width: 45%;
   }
 

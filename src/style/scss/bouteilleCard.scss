@@ -164,7 +164,7 @@ $green-leaf: #124b38;
 
       &__btnplus {
         background-color: $green-leaf;
-        width: 80%;
+        width: 120px;
         padding: 15px;
         border-radius: 30px;
         border: 0;
@@ -259,4 +259,33 @@ $green-leaf: #124b38;
 
 .bouteille__card__box1__btnplus:hover {
   transform: scale(1.2);
+}
+
+.bouteillecard__modal {
+  text-align: center;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  &__details {
+    display: flex;
+    flex-direction: column;
+
+    &__a {
+      margin: none;
+      padding: none;
+      padding-bottom: 20px;
+    }
+  }
+}
+
+#modalt__btnsave {
+  border: 3px solid #124b38;
+}
+
+.modalt__txt__btn {
+  max-width: 350px;
+  margin: 10px 0px 50px 0px;
 }

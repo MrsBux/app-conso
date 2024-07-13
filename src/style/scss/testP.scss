@@ -1,0 +1,59 @@
+$main-peach: #ffd2b8;
+$light-peach: #ffebe2;
+$red-wine: #b6124d;
+$green-leaf: #124b38;
+
+.testP {
+  &__title {
+    color: red;
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 20px;
+    gap: 20px;
+
+    &__box {
+      padding: 5px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+
+      &__p {
+        margin: 0px;
+      }
+
+      &__container {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+      }
+      &__label {
+        color: $green-leaf;
+
+        &__input {
+          color: $red-wine;
+        }
+      }
+    }
+
+    &__btn {
+      background-color: #b6124d;
+      border: none;
+      border-radius: 5px;
+      padding: 5px;
+      color: #ffebe2;
+    }
+  }
+
+  &__result {
+    text-align: center;
+    padding: 10px;
+  }
+}
