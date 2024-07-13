@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { PanierContext } from "../../store/panierContext";
 import like from "../../assets/like.webp";
 import liked from "../../assets/liked.webp";
@@ -24,6 +24,15 @@ function BouteilleCard({
 }) {
   const { ajouterAuPanier } = useContext(PanierContext);
   const [isLiked, setIsLiked] = useState(false);
+  const [userId, setUserId] = useState("");
+
+  useEffect(() => {
+    const storedUserId = localStorage.getItem("userId");
+    if (storedUserId) {
+      setUserId(storedUserId);
+    }
+    console.log(userId);
+  }, []);
 
   const handleAjouterAuPanier = () => {
     const article = {
@@ -40,8 +49,39 @@ function BouteilleCard({
     console.log("Article ajouté au panier :", article);
   };
 
+  const fetchData = async (name) => {
+    try {
+      const response = await fetch(
+        `http://localhost:3000/api/user/update/${userId}`,
+        {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            favoriteWine: name,
+          }),
+        }
+      );
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+
+      const data = await response.json();
+      console.log("Success:", data);
+      alert("Votre vin coup de coeur a été modifié dans votre profil !");
+    } catch (error) {
+      console.error("Error:", error);
+    }
+  };
+
   const handleHeartClick = () => {
-    setIsLiked((prevIsLiked) => !prevIsLiked);
+    setIsLiked((prevIsLiked) => {
+      const newIsLiked = !prevIsLiked;
+      fetchData(newIsLiked ? name : "");
+      return newIsLiked;
+    });
   };
 
   return (
@@ -94,11 +134,15 @@ function BouteilleCard({
                   )}
                 </div>
                 <div className="bouteillecard__modal__icon">
-                  <button className="modalt__txt__btn__caddy">
+                  <button
+                    className="modalt__txt__btn__caddy"
+                    onClick={handleAjouterAuPanier}
+                  >
                     <img
                       className="modalt__txt__btn__caddy"
                       src={caddy}
                       id="caddy"
+                      alt="caddy"
                     ></img>
                   </button>
                   {isLiked ? (
@@ -111,7 +155,7 @@ function BouteilleCard({
                         src={liked}
                         id="liked"
                         alt="liked"
-                      ></img>{" "}
+                      ></img>
                     </button>
                   ) : (
                     <button
@@ -145,7 +189,7 @@ function BouteilleCard({
                 src={liked}
                 id="liked"
                 alt="liked"
-              ></img>{" "}
+              ></img>
             </button>
           ) : (
             <button
@@ -161,12 +205,15 @@ function BouteilleCard({
             </button>
           )}
 
-          <button className="bouteille__card__box2__caddy">
+          <button
+            className="bouteille__card__box2__caddy"
+            onClick={handleAjouterAuPanier}
+          >
             <img
               className="bouteille__card__box2__like__caddy"
-              onClick={handleAjouterAuPanier}
               src={caddy}
               id="caddy"
+              alt="caddy"
             ></img>
           </button>
         </div>

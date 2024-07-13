@@ -52,6 +52,8 @@ function Login() {
       const tokenExpiry = new Date().getTime() + 6 * 60 * 60 * 1000; // 6 hours in milliseconds
       localStorage.setItem("tokenUser", data.tokenUser);
       localStorage.setItem("tokenUserExpiry", tokenExpiry);
+      localStorage.setItem("userId", data.userId);
+      localStorage.setItem("name", date.name);
 
       const idUser = data.userId;
       setIsLoggedIn(true);

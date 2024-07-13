@@ -2,155 +2,24 @@ import React, { useState, useEffect } from "react";
 import CardSalon from "./CardSalon";
 import Filtre from "../Catalogue/Filtre";
 import BtnAjouter from "../BtnAjouter";
-import BtnModifier from "../BtnModifier";
-import BtnSupprimer from "../BtnSupprimer";
 import ModalT from "../ModalT";
 import Form from "react-bootstrap/Form";
 
-import logo from "../../assets/logoallstarwine.webp";
-import logo2 from "../../assets/logopetitpatio.webp";
-import logo3 from "../../assets/logovinotq.webp";
-import logo4 from "../../assets/logobeige.webp";
-
 import "../../style/css/salongallery.css";
-
 import ch9R12 from "../../assets/ch9R12.webp";
 
 function SalonGallery() {
-  const salons = [
-    {
-      id: 1,
-      name: "Les Printemps des vins",
-      logoUrl: logo,
-      region: "PACA",
-      date: "8-10 avril 2024",
+  const [salons, setSalons] = useState([]);
+  const [isMobileS, setIsMobileS] = useState(window.innerWidth <= 400);
+  const [visibleSalon, setVisibleSalon] = useState(4);
+  const [selectedFilter, setSelectedFilter] = useState("Tous");
 
-      localisation: "Châteaneuf du Pape (84)",
-      invitation: "",
-      debut: new Date(2024, 3, 10), // Les mois sont indexés à partir de 0, donc 4 représente mai
-      fin: new Date(2024, 3, 12),
-    },
-    {
-      id: 2,
-      name: "Les Printemps des vins",
-      logoUrl: logo2,
-      region: "Bretagne",
-      date: "8-10 avril 2024",
-
-      localisation: "Châteaneuf du Pape (84)",
-      invitation: "",
-    },
-    {
-      id: 3,
-      name: "Les Printemps des vins",
-      logoUrl: logo3,
-      region: "Île-de-France",
-      date: "8-10 avril 2024",
-      localisation: "Châteaneuf du Pape (84)",
-      invitation: "",
-      debut: new Date(2024, 3, 10), // Les mois sont indexés à partir de 0, donc 4 représente mai
-      fin: new Date(2024, 3, 12),
-    },
-    {
-      id: 4,
-      name: "Les Printemps des vins",
-      logoUrl: logo4,
-      region: "Auvergne-Rhône-Alpes",
-      date: "8-10 avril 2024",
-      localisation: "Châteaneuf du Pape (84)",
-      invitation: "",
-      debut: new Date(2024, 3, 10), // Les mois sont indexés à partir de 0, donc 4 représente mai
-      fin: new Date(2024, 3, 12),
-    },
-    {
-      id: 5,
-      name: "Les Printemps des vins",
-      logoUrl: logo,
-      region: "Hauts-de-France",
-      date: "8-10 avril 2024",
-      localisation: "Châteaneuf du Pape (84)",
-      invitation: "",
-      debut: new Date(2024, 3, 10), // Les mois sont indexés à partir de 0, donc 4 représente mai
-      fin: new Date(2024, 3, 12),
-    },
-    {
-      id: 6,
-      name: "Les Printemps des vins",
-      logoUrl: logo,
-      region: "PACA",
-      date: "8-10 avril 2024",
-      localisation: "Châteaneuf du Pape (84)",
-      invitation: "",
-      debut: new Date(2024, 3, 10), // Les mois sont indexés à partir de 0, donc 4 représente mai
-      fin: new Date(2024, 3, 12),
-    },
-    {
-      id: 7,
-      name: "Les Printemps des vins",
-      logoUrl: logo2,
-      region: "Bretagne",
-      date: "8-10 avril 2024",
-      debut: new Date(2024, 3, 10), // Les mois sont indexés à partir de 0, donc 4 représente mai
-      fin: new Date(2024, 3, 12),
-      localisation: "Châteaneuf du Pape (84)",
-      invitation: "",
-    },
-    {
-      id: 8,
-      name: "Les Printemps des vins",
-      logoUrl: logo3,
-      region: "Île-de-France",
-      date: "8-10 avril 2024",
-      debut: new Date(2024, 3, 10), // Les mois sont indexés à partir de 0, donc 4 représente mai
-      fin: new Date(2024, 3, 12),
-      localisation: "Châteaneuf du Pape (84)",
-      invitation: "",
-    },
-    {
-      id: 9,
-      name: "Les Printemps des vins",
-      logoUrl: logo4,
-      region: "Auvergne-Rhône-Alpes",
-      debut: new Date(2024, 3, 10), // Les mois sont indexés à partir de 0, donc 4 représente mai
-      fin: new Date(2024, 3, 12),
-      date: "8-10 avril 2024",
-      localisation: "Châteaneuf du Pape (84)",
-      invitation: "",
-    },
-    {
-      id: 10,
-      name: "Les Printemps des vins",
-      logoUrl: logo,
-      debut: new Date(2024, 3, 10), // Les mois sont indexés à partir de 0, donc 4 représente mai
-      fin: new Date(2024, 3, 12),
-      region: "Grand Nord",
-      date: "8-10 avril 2024",
-      localisation: "Châteaneuf du Pape (84)",
-      invitation: "",
-    },
-    {
-      id: 11,
-      name: "Les Printemps des vins",
-      logoUrl: logo4,
-      region: "Auvergne-Rhône-Alpes",
-      date: "8-10 avril 2024",
-      debut: new Date(2024, 3, 10), // Les mois sont indexés à partir de 0, donc 4 représente mai
-      fin: new Date(2024, 3, 12),
-      localisation: "Châteaneuf du Pape (84)",
-      invitation: "",
-    },
-    {
-      id: 12,
-      name: "Les Printemps des vins",
-      logoUrl: logo,
-      date: "8-10 avril 2024",
-      debut: new Date(2024, 3, 10), // Les mois sont indexés à partir de 0, donc 4 représente mai
-      fin: new Date(2024, 3, 12),
-      region: "Grand Nord",
-      localisation: "Châteaneuf du Pape (84)",
-      invitation: "",
-    },
-  ];
+  const [formData, setFormData] = useState({
+    name: "",
+    date: "",
+    localisation: "",
+    logoUrl: "",
+  });
 
   const filtres = [
     { filtreName: "PACA" },
@@ -161,31 +30,66 @@ function SalonGallery() {
     { filtreName: "Île-de-France" },
   ];
 
-  const [visibleSalon, setVisibleSalon] = useState();
-  const [isMobileS, setIsMobileS] = useState(window.innerWidth <= 400);
-  const [filteredSalons, setFilteredSalons] = useState(salons);
-  const [selectedFilter, setSelectedFilter] = useState("Tous");
-
-  const handleAdmiBtn = () => {
-    console.log("click");
+  const getAllSalons = async () => {
+    try {
+      const response = await fetch(`http://localhost:3000/api/salons/`);
+      if (!response.ok) {
+        throw new Error("Failed to fetch salons");
+      }
+      return await response.json();
+    } catch (error) {
+      console.error("Error fetching salons:", error);
+      throw error;
+    }
   };
 
   useEffect(() => {
-    const handleResize = () => {
-      setIsMobileS(window.innerWidth <= 400);
+    const fetchSalons = async () => {
+      try {
+        const data = await getAllSalons();
+        setSalons(data);
+        console.log("Salons fetched:", data); // Log des salons récupérés
+      } catch (error) {
+        console.error("Error fetching salons:", error);
+        // Gérer l'erreur, par exemple en affichant un message à l'utilisateur
+      }
     };
 
-    window.addEventListener("resize", handleResize);
+    fetchSalons();
+  }, []);
 
-    setVisibleSalon(isMobileS ? 4 : salons.length);
+  const newSalons = async () => {
+    try {
+      console.log(formData);
+      const url = "http://localhost:3000/api/salons/New";
+      const response = await fetch(url, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
 
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, [isMobileS]);
+      if (!response.ok) {
+        throw new Error("Failed to create salon");
+      }
+
+      const data = await response.json();
+      console.log("Salon created:", data); // Log du salon créé
+      return data;
+    } catch (error) {
+      console.error("Error creating salon:", error);
+      throw error;
+    }
+  };
+
+  const handleAdmiBtn = () => {
+    console.log("Administrative button clicked");
+  };
 
   const handleToggleVisibility = () => {
     setVisibleSalon((visible) => (visible === 4 ? salons.length : 4));
+    console.log("Toggle visibility");
   };
 
   const handleFilterClick = (filterName) => {
@@ -195,13 +99,40 @@ function SalonGallery() {
       setFilteredSalons(salons);
     } else {
       const filtered = salons.filter((salon) => {
-        return salon.region.toLowerCase() === filterName.toLowerCase(); // Convertir en minuscules pour une comparaison insensible à la casse
+        return salon.region.toLowerCase() === filterName.toLowerCase();
       });
       setFilteredSalons(filtered);
     }
+
+    console.log("Filter clicked:", filterName); // Log du filtre cliqué
   };
 
-  const visibleSalons = filteredSalons.slice(0, visibleSalon);
+  const handleChange = (e) => {
+    const { id, value } = e.target;
+    setFormData((prevFormData) => ({
+      ...prevFormData,
+      [id]: value,
+    }));
+
+    console.log("Form data changed:", id, value); // Log du changement de données du formulaire
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
+      const createdSalon = await newSalons();
+      console.log("Form submitted:", createdSalon); // Log du formulaire soumis
+      // Réinitialiser le formulaire ou effectuer d'autres actions après la création réussie du salon
+      // Exemple : fermer la modale, actualiser la liste des salons, etc.
+      // resetFormData(); // Fonction à implémenter pour réinitialiser le formulaire
+    } catch (error) {
+      console.error("Error submitting salon:", error);
+      // Gérer l'erreur, par exemple en affichant un message à l'utilisateur
+    }
+  };
+
+  const visibleSalons = salons.slice(0, visibleSalon);
 
   return (
     <div className="salongallery">
@@ -245,41 +176,114 @@ function SalonGallery() {
             invitation={item.invitation}
           />
         ))}
-        {isMobileS && (
-          <button
-            className="salongallery__box2__btn"
-            onClick={handleToggleVisibility}
-          >
-            {visibleSalon === 4 ? "Voir plus" : "Voir moins"}
-          </button>
-        )}{" "}
+        <BtnAjouter onClick={handleAdmiBtn} />
+        (
         <ModalT
           title={"Ajouter un nouveau salon"}
           id="none3"
-          btnShow={<BtnAjouter onClick={handleAdmiBtn} />}
+          btnShow={<BtnAjouter />}
           modalContent={
-            <Form className="form__ajout__salon form__ajout">
-              <Form.Group className="form__groupe" controlId="name__ajoutsalon">
+            <Form
+              className="form__ajout__salon form__ajout"
+              onSubmit={handleSubmit}
+            >
+              <Form.Group className="form__groupe" controlId="name">
                 <Form.Label>Nom du salon</Form.Label>
-                <Form.Control type="text" placeholder="Nom du salon" />
+                <Form.Control
+                  type="text"
+                  placeholder="Nom du salon"
+                  value={formData.name}
+                  onChange={handleChange}
+                />
               </Form.Group>
 
-              <Form.Group className="form__groupe" controlId="date__ajoutsalon">
-                <Form.Label>Date du salon</Form.Label>
-                <Form.Control type="text" placeholder="Date du salon" />
+              <Form.Group className="form__groupe" controlId="description">
+                <Form.Label>Description du salon</Form.Label>
+                <Form.Control
+                  as="textarea"
+                  rows={3}
+                  placeholder="Description du salon"
+                  value={formData.description}
+                  onChange={handleChange}
+                />
               </Form.Group>
 
-              <Form.Group
-                className="form__groupe"
-                controlId="localisation__ajoutsalon"
-              >
+              <Form.Group className="form__groupe" controlId="debut">
+                <Form.Label>Date de début</Form.Label>
+                <Form.Control
+                  type="date"
+                  placeholder="Date de début"
+                  value={formData.debut}
+                  onChange={handleChange}
+                />
+              </Form.Group>
+
+              <Form.Group className="form__groupe" controlId="fin">
+                <Form.Label>Date de fin</Form.Label>
+                <Form.Control
+                  type="date"
+                  placeholder="Date de fin"
+                  value={formData.fin}
+                  onChange={handleChange}
+                />{" "}
+              </Form.Group>
+
+              <Form.Group className="form__groupe" controlId="region">
+                <Form.Label>Région</Form.Label>
+                <Form.Control
+                  as="select"
+                  value={formData.region}
+                  onChange={handleChange}
+                >
+                  <option value="">Sélectionner une région</option>
+                  <option value="Auvergne-Rhône-Alpes">
+                    Auvergne-Rhône-Alpes
+                  </option>
+                  <option value="Bourgogne-Franche-Comté">
+                    Bourgogne-Franche-Comté
+                  </option>
+                  <option value="Bretagne">Bretagne</option>
+                  <option value="Centre-Val de Loire">
+                    Centre-Val de Loire
+                  </option>
+                  <option value="Corse">Corse</option>
+                  <option value="Grand Est">Grand Est</option>
+                  <option value="Hauts-de-France">Hauts-de-France</option>
+                  <option value="Île-de-France">Île-de-France</option>
+                  <option value="Normandie">Normandie</option>
+                  <option value="Nouvelle-Aquitaine">Nouvelle-Aquitaine</option>
+                  <option value="Occitanie">Occitanie</option>
+                  <option value="Pays de la Loire">Pays de la Loire</option>
+                  <option value="PACA">PACA</option>
+                </Form.Control>
+              </Form.Group>
+
+              <Form.Group className="form__groupe" controlId="localisation">
                 <Form.Label>Localisation du salon</Form.Label>
-                <Form.Control type="text" placeholder="Localisation du salon" />
+                <Form.Control
+                  type="text"
+                  placeholder="Localisation du salon"
+                  value={formData.localisation}
+                  onChange={handleChange}
+                />
               </Form.Group>
 
-              <Form.Group className="form__groupe" controlId="logo__ajoutsalon">
+              <Form.Group className="form__groupe" controlId="logoUrl">
                 <Form.Label>Logo du salon</Form.Label>
-                <Form.Control type="file" accept="image/*" />
+                <Form.Control
+                  type="file"
+                  accept="image/*"
+                  onChange={handleChange}
+                />
+              </Form.Group>
+
+              <Form.Group className="form__groupe" controlId="invitation">
+                <Form.Label>Invitation (PDF)</Form.Label>
+                <Form.Control
+                  type="file"
+                  accept=".pdf"
+                  onChange={handleChange}
+                />
               </Form.Group>
 
               <button className="btn__submit" type="submit">
@@ -289,6 +293,7 @@ function SalonGallery() {
           }
           btnname={"Retour"}
         />
+        );
       </div>
     </div>
   );
