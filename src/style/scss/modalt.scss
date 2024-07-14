@@ -4,10 +4,12 @@ $red-wine: #b6124d;
 $green-leaf: #124b38;
 
 .modalt {
+  width: 100%;
   padding: 0px;
   margin: 0px;
   background-color: $light-peach;
   color: $green-leaf;
+  text-align: center;
 
   &__title {
     color: $green-leaf;

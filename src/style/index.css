@@ -69,3 +69,14 @@
   height: 5px;
   width: 5px;
 }
+
+.div__box {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: center;
+}
+
+.box {
+  text-align: center;
+}

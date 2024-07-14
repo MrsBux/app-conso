@@ -13,8 +13,8 @@ $green-leaf: #124b38;
   border: solid 1px $green-leaf;
   border-radius: 4px;
   position: relative;
-  min-width: 170px;
-  min-height: 170px;
+  min-width: 160px;
+  min-height: 160px;
   max-width: fit-content;
   max-height: fit-content;
   perspective: 130px;
@@ -83,9 +83,10 @@ $green-leaf: #124b38;
 
       &__p {
         color: $green-leaf;
-        font-weight: 600;
-        font-size: 18px;
+        font-weight: 400;
+        font-size: 12px;
         text-align: center;
+        margin: 0px;
       }
     }
   }

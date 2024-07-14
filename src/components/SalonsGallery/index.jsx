@@ -13,15 +13,23 @@ function SalonGallery() {
   const [isMobileS, setIsMobileS] = useState(window.innerWidth <= 400);
   const [visibleSalon, setVisibleSalon] = useState(4);
   const [selectedFilter, setSelectedFilter] = useState("Tous");
+  const [salonId, setSalonId] = useState();
 
   const [formData, setFormData] = useState({
     name: "",
-    date: "",
+    description: "",
+    debut: "",
+    fin: "",
+    region: "",
     localisation: "",
-    logoUrl: "",
+    logoUrl: null,
+    invitation: null,
   });
 
+  const [filteredSalons, setFilteredSalons] = useState([]);
+
   const filtres = [
+    { filtreName: "Tous" },
     { filtreName: "PACA" },
     { filtreName: "Hauts-de-France" },
     { filtreName: "Auvergne-Rhône-Alpes" },
@@ -36,6 +44,7 @@ function SalonGallery() {
       if (!response.ok) {
         throw new Error("Failed to fetch salons");
       }
+
       return await response.json();
     } catch (error) {
       console.error("Error fetching salons:", error);
@@ -48,6 +57,7 @@ function SalonGallery() {
       try {
         const data = await getAllSalons();
         setSalons(data);
+        setFilteredSalons(data); // Initialise filteredSalons avec tous les salons
         console.log("Salons fetched:", data); // Log des salons récupérés
       } catch (error) {
         console.error("Error fetching salons:", error);
@@ -95,13 +105,13 @@ function SalonGallery() {
   const handleFilterClick = (filterName) => {
     setSelectedFilter(filterName);
 
-    if (filterName === "Tous" || filterName === null) {
-      setFilteredSalons(salons);
+    if (filterName === "Tous") {
+      setFilteredSalons(salons); // Afficher tous les salons
     } else {
       const filtered = salons.filter((salon) => {
         return salon.region.toLowerCase() === filterName.toLowerCase();
       });
-      setFilteredSalons(filtered);
+      setFilteredSalons(filtered); // Filtrer les salons par région sélectionnée
     }
 
     console.log("Filter clicked:", filterName); // Log du filtre cliqué
@@ -121,18 +131,16 @@ function SalonGallery() {
     e.preventDefault();
 
     try {
-      const createdSalon = await newSalons();
-      console.log("Form submitted:", createdSalon); // Log du formulaire soumis
-      // Réinitialiser le formulaire ou effectuer d'autres actions après la création réussie du salon
-      // Exemple : fermer la modale, actualiser la liste des salons, etc.
-      // resetFormData(); // Fonction à implémenter pour réinitialiser le formulaire
+      await newSalons();
+      alert("Salon ajouté");
+      window.location.reload(); // Recharger la page après l'ajout
     } catch (error) {
       console.error("Error submitting salon:", error);
       // Gérer l'erreur, par exemple en affichant un message à l'utilisateur
     }
   };
 
-  const visibleSalons = salons.slice(0, visibleSalon);
+  const visibleSalons = filteredSalons.slice(0, visibleSalon);
 
   return (
     <div className="salongallery">
@@ -146,11 +154,6 @@ function SalonGallery() {
       </div>
 
       <div className="salongallery__box1">
-        <Filtre
-          filtreName={"Tous"}
-          isSelected={selectedFilter === "Tous"}
-          onClick={() => handleFilterClick("Tous")}
-        />
         {filtres.map((item, index) => (
           <Filtre
             key={index}
@@ -165,10 +168,10 @@ function SalonGallery() {
         {visibleSalons.map((item, index) => (
           <CardSalon
             key={index}
-            id={item.id}
+            salonId={item._id}
             name={item.name}
             logoUrl={item.logoUrl}
-            date={item.date}
+            description={item.description}
             localisation={item.localisation}
             region={item.region}
             debut={item.debut}
@@ -176,8 +179,7 @@ function SalonGallery() {
             invitation={item.invitation}
           />
         ))}
-        <BtnAjouter onClick={handleAdmiBtn} />
-        (
+
         <ModalT
           title={"Ajouter un nouveau salon"}
           id="none3"
@@ -293,7 +295,6 @@ function SalonGallery() {
           }
           btnname={"Retour"}
         />
-        );
       </div>
     </div>
   );
