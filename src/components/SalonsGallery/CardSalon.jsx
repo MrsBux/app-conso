@@ -14,6 +14,7 @@ function CardSalon({
   region,
   type,
   invitation,
+  invitationBlob,
   debut,
   fin,
 }) {
@@ -106,6 +107,19 @@ function CardSalon({
     return `${day}-${month}-${year}`;
   }
 
+  const handleDownload = () => {
+    if (invitationBlob) {
+      const url = window.URL.createObjectURL(invitationBlob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = `${name}_invitation.pdf`;
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      window.URL.revokeObjectURL(url);
+    }
+  };
+
   return (
     <div
       className={`cardSalon ${isCardFlipped ? "flipped" : ""}`}
@@ -142,7 +156,7 @@ function CardSalon({
                 {`${formatDate(debut)} - ${formatDate(fin)}`}
               </p>
               <p>{description}</p>
-              <button className="modalt__txt__btn">
+              <button className="modalt__txt__btn" onClick={handleDownload}>
                 Télécharger ou demander votre invitation
               </button>
               <div className="div__box">

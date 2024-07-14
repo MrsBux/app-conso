@@ -11,7 +11,7 @@ import ch9R12 from "../../assets/ch9R12.webp";
 function SalonGallery() {
   const [salons, setSalons] = useState([]);
   const [isMobileS, setIsMobileS] = useState(window.innerWidth <= 400);
-  const [visibleSalon, setVisibleSalon] = useState(4);
+  const [visibleSalon, setVisibleSalon] = useState(16);
   const [selectedFilter, setSelectedFilter] = useState("Tous");
   const [salonId, setSalonId] = useState();
 
@@ -45,39 +45,49 @@ function SalonGallery() {
         throw new Error("Failed to fetch salons");
       }
 
-      return await response.json();
+      const data = await response.json();
+      const salonsWithBlobs = await Promise.all(
+        data.map(async (salon) => {
+          if (salon.invitation) {
+            const invitationBlob = await fetch(salon.invitation).then((res) =>
+              res.blob()
+            );
+            return { ...salon, invitationBlob };
+          }
+          return salon;
+        })
+      );
+
+      setSalons(salonsWithBlobs);
+      setFilteredSalons(salonsWithBlobs);
+
+      console.log("Salons fetched:", salonsWithBlobs);
     } catch (error) {
       console.error("Error fetching salons:", error);
-      throw error;
+      // Gérer l'erreur, par exemple en affichant un message à l'utilisateur
     }
   };
 
   useEffect(() => {
-    const fetchSalons = async () => {
-      try {
-        const data = await getAllSalons();
-        setSalons(data);
-        setFilteredSalons(data); // Initialise filteredSalons avec tous les salons
-        console.log("Salons fetched:", data); // Log des salons récupérés
-      } catch (error) {
-        console.error("Error fetching salons:", error);
-        // Gérer l'erreur, par exemple en affichant un message à l'utilisateur
-      }
-    };
-
-    fetchSalons();
+    getAllSalons();
   }, []);
 
-  const newSalons = async () => {
+  const newSalon = async () => {
     try {
-      console.log(formData);
+      const formDataToSend = new FormData();
+      formDataToSend.append("name", formData.name);
+      formDataToSend.append("description", formData.description);
+      formDataToSend.append("debut", formData.debut);
+      formDataToSend.append("fin", formData.fin);
+      formDataToSend.append("region", formData.region);
+      formDataToSend.append("localisation", formData.localisation);
+      formDataToSend.append("logoUrl", formData.logoUrl);
+      formDataToSend.append("invitation", formData.invitation);
+
       const url = "http://localhost:3000/api/salons/New";
       const response = await fetch(url, {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
+        body: formDataToSend,
       });
 
       if (!response.ok) {
@@ -91,15 +101,6 @@ function SalonGallery() {
       console.error("Error creating salon:", error);
       throw error;
     }
-  };
-
-  const handleAdmiBtn = () => {
-    console.log("Administrative button clicked");
-  };
-
-  const handleToggleVisibility = () => {
-    setVisibleSalon((visible) => (visible === 4 ? salons.length : 4));
-    console.log("Toggle visibility");
   };
 
   const handleFilterClick = (filterName) => {
@@ -118,20 +119,26 @@ function SalonGallery() {
   };
 
   const handleChange = (e) => {
-    const { id, value } = e.target;
-    setFormData((prevFormData) => ({
-      ...prevFormData,
-      [id]: value,
-    }));
-
-    console.log("Form data changed:", id, value); // Log du changement de données du formulaire
+    if (e.target.type === "file") {
+      const file = e.target.files[0];
+      setFormData((prevFormData) => ({
+        ...prevFormData,
+        [e.target.id]: file,
+      }));
+    } else {
+      const { id, value } = e.target;
+      setFormData((prevFormData) => ({
+        ...prevFormData,
+        [id]: value,
+      }));
+    }
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
-      await newSalons();
+      await newSalon();
       alert("Salon ajouté");
       window.location.reload(); // Recharger la page après l'ajout
     } catch (error) {
@@ -177,6 +184,7 @@ function SalonGallery() {
             debut={item.debut}
             fin={item.fin}
             invitation={item.invitation}
+            invitationBlob={item.invitationBlob}
           />
         ))}
 
@@ -227,7 +235,7 @@ function SalonGallery() {
                   placeholder="Date de fin"
                   value={formData.fin}
                   onChange={handleChange}
-                />{" "}
+                />
               </Form.Group>
 
               <Form.Group className="form__groupe" controlId="region">
