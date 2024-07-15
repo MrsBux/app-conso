@@ -53,7 +53,8 @@ function Login() {
       localStorage.setItem("tokenUser", data.tokenUser);
       localStorage.setItem("tokenUserExpiry", tokenExpiry);
       localStorage.setItem("userId", data.userId);
-      localStorage.setItem("name", date.name);
+      localStorage.setItem("name", data.name);
+      localStorage.setItem("email", email);
 
       const idUser = data.userId;
       setIsLoggedIn(true);

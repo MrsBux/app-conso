@@ -80,3 +80,9 @@
 .box {
   text-align: center;
 }
+
+.testbtn {
+  margin: 22px 10px 0px 10px !important;
+  border-radius: 15px;
+  padding: 10px 20px;
+}

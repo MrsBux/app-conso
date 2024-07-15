@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import ModalT from "../ModalT";
 import AgendaMois from "./AgendaMois";
 
@@ -7,32 +7,39 @@ import ch9B13G from "../../assets/ch9B13G.webp";
 import "../../style/css/salonagenda.css";
 
 function SalonAgenda() {
-  const salons = [
-    {
-      id: 1,
-      nom: "Les printemps du Vins de Châteaneuf du Pape",
-      debut: new Date(2024, 3, 10), // Les mois sont indexés à partir de 0, donc 4 représente mai
-      fin: new Date(2024, 3, 12),
-    },
-    {
-      id: 2,
-      nom: "Vinomedia Posy",
-      debut: new Date(2024, 4, 10), // Les mois sont indexés à partir de 0, donc 4 représente mai
-      fin: new Date(2024, 4, 12),
-    },
-    {
-      id: 3,
-      nom: "Vinomedia Morhjou",
-      debut: new Date(2024, 4, 20), // Les mois sont indexés à partir de 0, donc 4 représente mai
-      fin: new Date(2024, 4, 24),
-    },
-    {
-      id: 4,
-      nom: "Vinomedia Billom",
-      debut: new Date(2024, 5, 20), // Les mois sont indexés à partir de 0, donc 4 représente mai
-      fin: new Date(2024, 5, 24),
-    },
-  ];
+  const [salons, setSalons] = useState();
+
+  const getAllSalons = async () => {
+    try {
+      const response = await fetch(`http://localhost:3000/api/salons/`);
+      if (!response.ok) {
+        throw new Error("Failed to fetch salons");
+      }
+
+      const data = await response.json();
+
+      // Convert date strings to Date objects
+      const parsedData = data.map((salon) => ({
+        ...salon,
+        debut: new Date(salon.debut),
+        fin: new Date(salon.fin),
+      }));
+
+      setSalons(parsedData);
+      console.log(parsedData, "data agenda");
+    } catch (error) {
+      console.error("Error fetching salons:", error);
+      // Handle the error, e.g., display a message to the user
+    }
+  };
+
+  useEffect(() => {
+    getAllSalons();
+  }, []);
+
+  useEffect(() => {
+    getAllSalons();
+  }, []);
 
   return (
     <div className="salonagenda">

@@ -61,8 +61,8 @@ function AgendaMois({ salons }) {
           <ul>
             {filteredSalons.map((salon) => (
               <li key={salon.id}>
-                {salon.nom} - du {salon.debut.toLocaleDateString()} au{" "}
-                {salon.fin.toLocaleDateString()}
+                {salon.name} - du {salon.debut.toLocaleDateString()} au{" "}
+                {salon.fin.toLocaleDateString()} à {salon.localisation}
               </li>
             ))}
           </ul>

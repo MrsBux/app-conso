@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "../../style/css/cardsalon.css";
 import ModalT from "../ModalT";
 import BtnSupprimer from "../BtnSupprimer";
@@ -29,6 +29,20 @@ function CardSalon({
     logoUrl: null,
     invitation: null,
   });
+  const [emailUser, setEmailUser] = useState("");
+
+  useEffect(() => {
+    getEmail();
+  }, []);
+
+  const getEmail = () => {
+    const email = localStorage.getItem("email"); // Use a string key instead of a variable
+
+    if (email) {
+      setEmailUser(email);
+      console.log(emailUser);
+    }
+  };
 
   const handleChange = (e) => {
     const { id, value } = e.target;
@@ -36,10 +50,6 @@ function CardSalon({
       ...prevFormData,
       [id]: value,
     }));
-  };
-
-  const handleSubmit = () => {
-    console.log("click");
   };
 
   const deleteSalon = async () => {
@@ -71,7 +81,7 @@ function CardSalon({
   const updateSalon = async () => {
     try {
       console.log(formData);
-      const url = `http://localhost:3000/api/salons//Put/${salonId}`;
+      const url = `http://localhost:3000/api/salons/Put/${salonId}`;
       const response = await fetch(url, {
         method: "PUT",
         headers: {
@@ -120,6 +130,33 @@ function CardSalon({
     }
   };
 
+  const handleAskInvit = async () => {
+    try {
+      const jsonReq = {
+        name: name,
+        email: emailUser,
+      };
+
+      console.log(jsonReq, "jsonReq");
+
+      const url = `http://localhost:3000/api/forminvit/post`;
+      const response = await fetch(url, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(jsonReq), // Correctly stringify the body
+      });
+
+      alert("Invitation demandée, surveillez vos mails !");
+
+      const data = await response.json();
+    } catch (error) {
+      console.error("Error while sending the form", error);
+      throw error;
+    }
+  };
+
   return (
     <div
       className={`cardSalon ${isCardFlipped ? "flipped" : ""}`}
@@ -127,19 +164,18 @@ function CardSalon({
       onMouseLeave={() => setIsCardFlipped(false)}
     >
       <div className="cardSalon__front">
-        <img src={logoUrl} className="cardSalon__front__img" alt="Salon Logo" />
         <p className="cardSalon__front__name">{name}</p>
       </div>
       <div className="cardSalon__back">
         <p className="cardSalon__back__p">
-          <strong>Dates : </strong>{" "}
+          <strong>Dates: </strong>
           {`${formatDate(debut)} - ${formatDate(fin)}`}
         </p>
         <p className="cardSalon__back__p">
-          <strong>Région : </strong> {region}
+          <strong>Région: </strong> {region}
         </p>
         <p className="cardSalon__back__p">
-          <strong>Localisation : </strong> {localisation}
+          <strong>Localisation: </strong> {localisation}
         </p>
         <ModalT
           btnShow={<p className="cardSalon__back__p"> + </p>}
@@ -149,27 +185,76 @@ function CardSalon({
             <div className="modalt box">
               <p>{name}</p>
               <p>{type}</p>
-              <img src={logoUrl} alt="Salon" />
               <p>{localisation}</p>
               <p>
-                <strong>Dates : </strong>{" "}
+                <strong>Dates: </strong>
                 {`${formatDate(debut)} - ${formatDate(fin)}`}
               </p>
               <p>{description}</p>
-              <button className="modalt__txt__btn" onClick={handleDownload}>
-                Télécharger ou demander votre invitation
-              </button>
+
               <div className="div__box">
+                <div className="div__box" style={{ marginRight: "40px" }}>
+                  {invitation ? (
+                    <button
+                      className="modalt__txt__btn testbtn"
+                      onClick={handleDownload}
+                    >
+                      Invitation
+                    </button>
+                  ) : (
+                    <ModalT
+                      btnShow={
+                        <button className="modalt__txt__btn testbtn">
+                          Invitation
+                        </button>
+                      }
+                      id={"none2"}
+                      title={name}
+                      modalContent={
+                        <Form>
+                          <Form.Group className="form__groupe" controlId="name">
+                            <Form.Label>Nom du salon</Form.Label>
+                            <Form.Control
+                              type="text"
+                              placeholder="Nom du salon"
+                              value={name}
+                              onChange={handleChange}
+                            />
+                          </Form.Group>
+                          <Form.Group className="form__groupe" controlId="name">
+                            <Form.Label>
+                              Email ou recevoir l'invitation{" "}
+                            </Form.Label>
+                            <Form.Control
+                              type="email"
+                              placeholder="Entrez votre email"
+                              value={emailUser || ""}
+                              onChange={handleChange}
+                            />
+                          </Form.Group>
+
+                          <button
+                            className="btn__submit"
+                            onClick={handleAskInvit}
+                          >
+                            {" "}
+                            Envoyer la demande !
+                          </button>
+                        </Form>
+                      }
+                      btnname={"Fermer"}
+                    />
+                  )}{" "}
+                </div>
                 <ModalT
                   btnShow={<BtnModifier />}
                   title={"Modifier le salon"}
                   modalContent={
-                    <Form className="form__ajout__salon form__ajout">
-                      <Form.Group
-                        className="form__groupe"
-                        controlId="name"
-                        onSubmit={updateSalon}
-                      >
+                    <Form
+                      className="form__ajout__salon form__ajout"
+                      onSubmit={updateSalon}
+                    >
+                      <Form.Group className="form__groupe" controlId="name">
                         <Form.Label>Nom du salon</Form.Label>
                         <Form.Control
                           type="text"
@@ -210,7 +295,7 @@ function CardSalon({
                           placeholder="Date de fin"
                           value={formData.fin}
                           onChange={handleChange}
-                        />{" "}
+                        />
                       </Form.Group>
 
                       <Form.Group className="form__groupe" controlId="region">
@@ -283,7 +368,7 @@ function CardSalon({
                         />
                       </Form.Group>
 
-                      <button className="btn__submit" onClick={updateSalon}>
+                      <button className="btn__submit" type="submit">
                         Submit
                       </button>
                     </Form>
