@@ -276,11 +276,13 @@ $green-leaf: #124b38;
           flex-direction: column;
           justify-content: center;
           align-items: flex-start;
+          border-radius: 5px;
           gap: 20px;
           padding: 10px;
-          color: $green-leaf;
+          background-color: $green-leaf;
           font-weight: 600;
           padding-bottom: 10px;
+          margin-bottom: 25px;
         }
       }
     }
@@ -309,9 +311,12 @@ $green-leaf: #124b38;
           justify-content: center;
           gap: 20px;
           padding: 10px;
-          color: $green-leaf;
+          background-color: $green-leaf;
           font-weight: 600;
           padding-bottom: 10px;
+          margin-bottom: 25px;
+          color: $light-peach;
+          border-radius: 5px;
 
           &__input {
             font-size: 1em;
@@ -361,7 +366,8 @@ $green-leaf: #124b38;
           align-items: flex-start;
           gap: 20px;
           padding: 10px;
-          color: $green-leaf;
+          background-color: $green-leaf;
+          border-radius: 5px;
           font-weight: 600;
           padding-bottom: 10px;
         }

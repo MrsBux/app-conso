@@ -89,3 +89,10 @@ $green-leaf: #124b38;
     }
   }
 }
+.logop {
+  border: #124b38 2px solid;
+  border-radius: 5px;
+  &__name {
+    color: $green-leaf;
+  }
+}

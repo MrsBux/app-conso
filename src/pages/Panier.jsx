@@ -37,6 +37,8 @@ function Panier() {
 
   const [selectedSalon, setSelectedSalon] = useState(null);
 
+  const [statusMessage, setStatusMessage] = useState("");
+
   // Fonction pour mettre à jour la quantité d'un article
   const handleQuantiteChange = (index, newQuantite) => {
     const updatedPanier = [...panier];
@@ -162,6 +164,54 @@ function Panier() {
   const fraisLivraison = calculerFraisLivraison(nombreTotalArticles);
 
   const totalAll = total + fraisLivraison;
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+
+    // Créer l'objet de commande
+    const orderData = {
+      email: document.getElementById("email_panier").value,
+      nom: document.getElementById("nom_panier").value,
+      prenom: document.getElementById("prenom_panier").value,
+      adresse: document.getElementById("adresse_panier").value,
+      wine: vins.map((vin) => ({
+        wineName: vin.name,
+        quantite: vin.quantite,
+      })),
+      winePrice: total,
+      expeditionPrice: fraisLivraison,
+      totalPrice: totalAll,
+      paiementType: selectedOption3,
+      deliveryType: selectedOption,
+    };
+
+    try {
+      const response = await fetch("http://localhost:3000/api/order/New", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(orderData),
+      });
+
+      if (!response.ok) {
+        throw new Error("Erreur lors de la soumission de la commande");
+      }
+
+      const data = await response.json();
+      setStatusMessage(
+        `Commande enregistrée avec succès ! Numéro de commande : ${data.orderId}, vérifiez votre boite mail pour la confirmation !`
+      );
+      alert(
+        `Commande enregistrée avec succès ! Numéro de commande : ${data.orderId}, vérifiez votre boite mail pour la confirmation !`
+      );
+      window.location.href = "/";
+      // Ici, vous pouvez ajouter la logique pour vider le panier ou rediriger l'utilisateur
+    } catch (error) {
+      console.error("Erreur lors de la soumission de la commande :", error);
+      setStatusMessage("Erreur lors de la soumission de la commande.");
+    }
+  };
 
   return (
     <>
@@ -393,14 +443,16 @@ function Panier() {
                         label="Retrait lors du salon le plus proche de chez moi (gratuit) "
                         checked={selectedOption === "option2"}
                         onChange={() => handleRadioChange("option2")}
+                        disabled={true} // Désactive cette option
                       />
                     }
                     title={"Retrait en salon"}
                     modalContent={
-                      <RetraitSalon
-                        salons={salons}
-                        onSalonSelect={handleSalonSelection}
-                      />
+                      // <RetraitSalon
+                      //   salons={salons}
+                      //   onSalonSelect={handleSalonSelection}
+                      // />
+                      " Bientôt disponible !!"
                     }
                     btnname={"Retour"}
                   />
@@ -459,15 +511,6 @@ function Panier() {
             <div className="panier__box2__coordonnees">
               <Form className="panier__box2__coordonnees__form">
                 <div className="panier__box2__coordonnees__form__box">
-                  <Link to="/login">
-                    <Form.Check
-                      type="radio"
-                      id="option4"
-                      label="Je me connecte à mon espace client (ou je le créé)"
-                      checked={selectedOption2 === "option4"}
-                      onChange={() => handleRadioChange2("option4")}
-                    />
-                  </Link>
                   <Form.Check
                     type="radio"
                     id="option5"
@@ -544,45 +587,47 @@ function Panier() {
                         label="Paiement par carte"
                         checked={selectedOption3 === "option6"}
                         onChange={() => handleRadioChange3("option6")}
+                        disabled={true} // Désactive cette option
                       />
                     }
                     modalContent={
-                      <div className="paiement-paypal">
-                        <p>
-                          Vous pouvez régler votre commande en toute sécurité
-                          via PayPal, un moyen de paiement rapide et sécurisé
-                          sur internet.
-                        </p>
+                      // <div className="paiement-paypal">
+                      //   <p>
+                      //     Vous pouvez régler votre commande en toute sécurité
+                      //     via PayPal, un moyen de paiement rapide et sécurisé
+                      //     sur internet.
+                      //   </p>
 
-                        <h4>Comment Payer :</h4>
-                        <p>
-                          Après avoir cliqué sur "Valider la commande et payer",
-                          vous serez redirigé vers la page de paiement PayPal.
-                        </p>
+                      //   <h4>Comment Payer :</h4>
+                      //   <p>
+                      //     Après avoir cliqué sur "Valider la commande et payer",
+                      //     vous serez redirigé vers la page de paiement PayPal.
+                      //   </p>
 
-                        <h4>Avantages :</h4>
-                        <ul>
-                          <li>
-                            PayPal vous offre une protection des achats,
-                            garantissant la sécurité de vos transactions.
-                          </li>
-                          <li>
-                            Pas besoin de saisir vos informations bancaires à
-                            chaque fois, votre compte PayPal les conserve en
-                            toute sécurité si vous le souhaitez.
-                          </li>
-                        </ul>
+                      //   <h4>Avantages :</h4>
+                      //   <ul>
+                      //     <li>
+                      //       PayPal vous offre une protection des achats,
+                      //       garantissant la sécurité de vos transactions.
+                      //     </li>
+                      //     <li>
+                      //       Pas besoin de saisir vos informations bancaires à
+                      //       chaque fois, votre compte PayPal les conserve en
+                      //       toute sécurité si vous le souhaitez.
+                      //     </li>
+                      //   </ul>
 
-                        <h4>Contact :</h4>
-                        <p>
-                          Pour toute question concernant le paiement par PayPal,
-                          n'hésitez pas à nous contacter par e-mail à{" "}
-                          <a href="mailto:contact@domainelaconsonniere.fr">
-                            contact@domainelaconsonniere.fr
-                          </a>
-                          .
-                        </p>
-                      </div>
+                      //   <h4>Contact :</h4>
+                      //   <p>
+                      //     Pour toute question concernant le paiement par PayPal,
+                      //     n'hésitez pas à nous contacter par e-mail à{" "}
+                      //     <a href="mailto:contact@domainelaconsonniere.fr">
+                      //       contact@domainelaconsonniere.fr
+                      //     </a>
+                      //     .
+                      //   </p>
+                      // </div>
+                      <p> Bientôt disponible !!</p>
                     }
                     title={"Détails du paiement par Paypal"}
                     btnname={"Retour"}
@@ -755,7 +800,7 @@ function Panier() {
             </div>
           </div>
 
-          <button className="panier__submitbtn">
+          <button className="panier__submitbtn" onClick={handleSubmit}>
             Valider la commande et passer au paiement
           </button>
         </div>

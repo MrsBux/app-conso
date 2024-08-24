@@ -3,16 +3,40 @@ import "../../style/css/cardpartner.css";
 import ModalT from "../ModalT";
 import BtnSupprimer from "../BtnSupprimer";
 
-function CardPartner({ logoPUrl, name, contactUrl, type, localisation }) {
+function CardPartner({ id, logoPUrl, name, contactUrl, type, localisation }) {
   const [isCardFlipped, setIsCardFlipped] = useState(false);
   const handleAdmiBtn = () => {
     console.log("click");
   };
 
+  const idP = id;
+
+  const handleDelete = (id) => {
+    console.log(`http://localhost:3000/api/partners/Delete/${idP}`);
+    fetch(`http://localhost:3000/api/partners/Delete/${idP}`, {
+      method: "DELETE",
+    })
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Erreur lors de la suppression du partenaire");
+        }
+        return response.json();
+      })
+      .then(() => {
+        console.log("Partenaire supprimé avec succès");
+        alert("Partenaire supprimé");
+        window.location.href = "/partners";
+      })
+      .catch((error) => {
+        console.error("Erreur lors de la suppression du partenaire :", error);
+        setError(error.message);
+      });
+  };
+
   return (
     <>
       <div
-        className={`logo ${isCardFlipped ? "flipped" : ""}`}
+        className={`logo ${isCardFlipped ? "flipped" : ""} logop`}
         onMouseEnter={() => setIsCardFlipped(true)}
         onMouseLeave={() => setIsCardFlipped(false)}
       >
@@ -20,7 +44,8 @@ function CardPartner({ logoPUrl, name, contactUrl, type, localisation }) {
           <ModalT
             btnShow={
               <div className="logo__front">
-                <img src={logoPUrl} className="logo__front__img"></img>
+                <p className="logop__name"> {name}</p>
+                {/* <img src={logoPUrl} className="logo__front__img"></img> */}
               </div>
             }
             title={name}
@@ -45,7 +70,7 @@ function CardPartner({ logoPUrl, name, contactUrl, type, localisation }) {
               <div className="modalt">
                 <p>{contactUrl}</p>
                 <p>{type}</p>
-                <BtnSupprimer onClick={handleAdmiBtn} />
+                <BtnSupprimer onClick={handleDelete} />
               </div>
             }
             btnname={"Retour"}

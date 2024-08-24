@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import bch2020 from "../../assets/bch2020.webp";
 import bch2017 from "../../assets/bch2017.webp";
 import bchR2018 from "../../assets/bchR2018.webp";
@@ -7,14 +7,102 @@ import BtnSupprimer from "../BtnSupprimer";
 import BtnModifier from "../BtnModifier";
 
 import DemandesAd from "../DashboardMenuAdmin/DossierDemandesAdmin/DemandesAd";
-import CommandesAd from "../DashboardMenuAdmin/DossierDemandesAdmin/CommandesAd";
 import BookingAd from "../DashboardMenuAdmin/DossierDemandesAdmin/BookingAd";
+import OrderList from "../OrderList";
+import BookingList from "../BookingList";
 
 import "../../style/css/dashboardboard.css";
 
 function DashboardBoardAdmin({}) {
+  const [numberofUsers, setNumberofUsers] = useState(0);
+  const [users, setUsers] = useState([]);
+  const [orders, setOrders] = useState({});
+  const [lastOrder, setLastOrder] = useState({});
+  const [bookings, setBookings] = useState({});
+  const [lastBooking, setLastBooking] = useState({});
+
+  useEffect(() => {
+    handleCount();
+    getUsers();
+    getOrders();
+    getBookings();
+  }, []);
   const handleAdmiBtn = () => {
     console.log("click");
+  };
+
+  const handleCount = async () => {
+    console.log("Comptage des utilisateurs...");
+
+    try {
+      const response = await fetch("http://localhost:3000/api/user/count");
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+
+      const data = await response.json();
+      setNumberofUsers(data.userCount);
+      console.log(`Nombre d'utilisateurs : ${data.userCount}`);
+    } catch (err) {
+      console.error(
+        "Une erreur s'est produite lors du comptage des utilisateurs:",
+        err
+      );
+    }
+  };
+
+  const getUsers = async () => {
+    try {
+      const response = await fetch("http://localhost:3000/api/user/all");
+      const data = await response.json();
+      setUsers(data);
+      console.log(data);
+      console.log(users);
+    } catch (error) {
+      console.error("Error fetching users:", error);
+      return [];
+    }
+  };
+
+  const getOrders = async () => {
+    try {
+      const response = await fetch("http://localhost:3000/api/order/All");
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+      const data = await response.json();
+      console.log("data : ", data);
+      setOrders(data);
+      console.log(orders);
+      setLastOrder(data[0]);
+      console.log(lastOrder);
+    } catch (err) {
+      console.error(
+        "Une erreur s'est produite lors du comptage des commandes:",
+        err
+      );
+    }
+  };
+
+  const getBookings = async () => {
+    try {
+      const response = await fetch("http://localhost:3000/api/formbooking/All");
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+      const data = await response.json();
+      console.log("data : ", data);
+      setBookings(data);
+      console.log(bookings);
+      setLastBooking(data[0]);
+      console.log(lastBooking);
+    } catch (err) {
+      console.error(
+        "Une erreur s'est produite lors du comptage des commandes:",
+        err
+      );
+    }
   };
 
   const demandesdiv = [
@@ -82,98 +170,9 @@ function DashboardBoardAdmin({}) {
       contentform: "blabla",
     },
   ];
+
   const lastd = demandesdiv.slice(0, 1);
 
-  const users = [
-    {
-      email: "user1@example.com",
-      points: 4,
-      name: "John",
-      firstName: "Doe",
-      address: "123 Main Street",
-    },
-    {
-      email: "user2@example.com",
-      points: 478,
-      name: "Alice",
-      firstName: "Smith",
-      address: "456 Elm Street",
-    },
-    {
-      email: "user3@example.com",
-      points: 324,
-      name: "Bob",
-      firstName: "Johnson",
-      address: "789 Oak Street",
-    },
-    {
-      email: "user4@example.com",
-      points: 142,
-      name: "Emily",
-      firstName: "Brown",
-      address: "321 Pine Street",
-    },
-    {
-      email: "user5@example.com",
-      points: 22,
-      name: "Michael",
-      firstName: "Taylor",
-      address: "654 Cedar Street",
-    },
-    {
-      email: "user6@example.com",
-      points: 221,
-      name: "Sophia",
-      firstName: "Martinez",
-      address: "987 Maple Street",
-    },
-    {
-      email: "user7@example.com",
-      points: 2211,
-      name: "Oliver",
-      firstName: "Garcia",
-      address: "246 Birch Street",
-    },
-  ];
-
-  const numberofusers = users.length;
-
-  const commandes = [
-    { name: "name 1", date: new Date(2024, 3, 1), content: "1 ch9 rouge" },
-    { name: "name 2", date: new Date(2024, 4, 1), content: "1 lirac" },
-    { name: "name 3", date: new Date(2024, 3, 8), content: "2 pitchottes" },
-  ];
-
-  const lastc = commandes.slice(0, 1);
-
-  const bookings = [
-    {
-      name: "name A",
-      prestation: "Degust",
-      datepresta: new Date(2024, 5, 1),
-      dateform: new Date(2024, 3, 1),
-      contactmail: "email@test.fr",
-      contacttel: "06 09 09 08 07",
-    },
-    {
-      name: "name 2",
-      prestation: "Degust",
-      datepresta: new Date(2024, 5, 1),
-      dateform: new Date(2024, 3, 1),
-      contactmail: "email@test.fr",
-      contacttel: "06 09 09 08 07",
-    },
-    {
-      name: "name 3",
-      prestation: "Degust",
-      datepresta: new Date(2024, 5, 1),
-      dateform: new Date(2024, 3, 1),
-      contactmail: "email@test.fr",
-      contacttel: "06 09 09 08 07",
-    },
-  ];
-
-  const lastb = bookings.slice(0, 1);
   return (
     <section className="board">
       <div className="board__box">
@@ -211,7 +210,7 @@ function DashboardBoardAdmin({}) {
         </div>
 
         <div className="board__box__card2 board__box__card">
-          <h5 className="board__box__card2__title">{numberofusers}</h5>
+          <h5 className="board__box__card2__title">{numberofUsers}</h5>
           <p className="board__box__card2__p">users</p>{" "}
           <ModalT
             title={"Fichier Client"}
@@ -221,8 +220,7 @@ function DashboardBoardAdmin({}) {
                 {users.map((item, index) => (
                   <li key={index} className="mainbox__list__li">
                     {item.name} --- {item.firstName} --- {item.points} points
-                    --- {item.email} <BtnSupprimer />{" "}
-                    <BtnModifier id="btnmodifadmin" />
+                    --- {item.email}{" "}
                   </li>
                 ))}
               </div>
@@ -234,32 +232,16 @@ function DashboardBoardAdmin({}) {
         <div className="board__box__card3   board__box__card">
           <h5 className="board__box__card3__title"> Dernières commandes</h5>
           <div className="board__box__card3__pn">
-            {lastc.map((item, index) => (
-              <li key={index} className="mainbox__list__li">
-                {item.name} --- {item.date.toLocaleDateString()} ---
-                {item.contactmail}
-                <a
-                  href={item.contacttel}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="mainbox__list__a"
-                >
-                  Voir détails
-                </a>
-              </li>
-            ))}
+            <li key={lastOrder._id} className="mainbox__list__li">
+              {lastOrder.nom} -{lastOrder.email} - numéro de commande :
+              {lastOrder._id}
+            </li>
           </div>
 
           <ModalT
             title={"Toutes les commandes"}
             btnShow={<div className="board__box__card1__btn"> Voir toutes</div>}
-            modalContent={
-              <CommandesAd
-                commandes={commandes}
-                onClick={handleAdmiBtn}
-                number={1}
-              />
-            }
+            modalContent={<OrderList orders={orders} />}
             btnname={"Retour"}
           />
         </div>
@@ -267,32 +249,16 @@ function DashboardBoardAdmin({}) {
         <div className="board__box__card4  board__box__card">
           <h5 className="board__box__card4__title"> Réservations</h5>
           <div className="board__box__card4__box">
-            {lastb.map((item, index) => (
-              <li key={index} className="mainbox__list__li">
-                {item.name} --- {item.datepresta.toLocaleDateString()} ---
-                {item.prestation}
-                <a
-                  href={item.content}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="mainbox__list__a"
-                >
-                  Voir le détail
-                </a>
-              </li>
-            ))}
+            <li key={lastBooking._id} className="mainbox__list__li">
+              {lastBooking.nom} ---
+              {lastBooking.prestation}
+            </li>
           </div>
 
           <ModalT
             title={"Toutes les réservations"}
             btnShow={<div className="board__box__card4__btn"> Voir toutes</div>}
-            modalContent={
-              <BookingAd
-                bookings={bookings}
-                onClick={handleAdmiBtn}
-                number={1}
-              />
-            }
+            modalContent={<BookingList bookings={bookings} />}
             btnname={"Fermer"}
           />
         </div>

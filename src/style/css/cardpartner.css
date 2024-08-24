@@ -83,4 +83,12 @@
   align-items: center;
 }
 
+.logop {
+  border: #124b38 2px solid;
+  border-radius: 5px;
+}
+.logop__name {
+  color: #124b38;
+}
+
 /*# sourceMappingURL=cardpartner.css.map */

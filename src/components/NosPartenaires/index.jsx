@@ -1,15 +1,10 @@
 import React, { useState, useEffect } from "react";
 import Filtre from "../Catalogue/Filtre";
 import CardPartner from "./cardsPartners";
-import logopp from "../../assets/logopetitpatio.webp";
-import logoasw from "../../assets/logoallstarwine.webp";
-import logovintq from "../../assets/logovinotq.webp";
-import "../../style/css/nospartenaires.css";
-
+import BtnAjouter from "../BtnAjouter";
 import ModalT from "../ModalT";
 import Form from "react-bootstrap/Form";
-
-import BtnAjouter from "../BtnAjouter";
+import "../../style/css/nospartenaires.css";
 
 function NosPartenaires({ partners }) {
   const filtres = [
@@ -19,10 +14,11 @@ function NosPartenaires({ partners }) {
     { filtreName: "Autre" },
   ];
 
-  const [visiblePartner, setVisiblePartner] = useState();
+  const [visiblePartner, setVisiblePartner] = useState(4);
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 600);
-  const [filteredPartners, setFilteredPartners] = useState(partners);
+  const [filteredPartners, setFilteredPartners] = useState(partners || []);
   const [selectedFilter, setSelectedFilter] = useState("Tous");
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     const handleResize = () => {
@@ -30,47 +26,100 @@ function NosPartenaires({ partners }) {
     };
 
     window.addEventListener("resize", handleResize);
-
-    // Initialize visiblePartner based on isMobile
-    setVisiblePartner(isMobile ? 4 : partners.length);
+    setVisiblePartner(isMobile ? 4 : (partners || []).length);
 
     return () => {
       window.removeEventListener("resize", handleResize);
     };
-  }, [isMobile]);
+  }, [isMobile, partners]);
+
+  useEffect(() => {
+    setFilteredPartners(partners || []);
+  }, [partners]);
 
   const handleToggleVisibility = () => {
-    setVisiblePartner((visible) => (visible === 4 ? partners.length : 4));
+    setVisiblePartner((visible) =>
+      visible === 4 ? (partners || []).length : 4
+    );
   };
 
   const handleAdmiBtn = () => {
     console.log("click");
   };
 
-  const visiblePartners = partners.slice(0, visiblePartner);
+  const handlePost = (formData) => {
+    console.log("Fonction handlePost appelée avec les données:", formData);
+
+    fetch(`http://localhost:3000/api/partners/New`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(formData),
+    })
+      .then((response) => {
+        console.log("Réponse reçue du serveur:", response);
+        if (!response.ok) {
+          return response.text().then((text) => {
+            throw new Error(
+              `Erreur lors de la création du partenaire: ${text}`
+            );
+          });
+        }
+        return response.json();
+      })
+      .then((data) => {
+        console.log("Partenaire créé avec succès. Données reçues:", data);
+        console.log("Redirection vers la page d'accueil");
+        window.location.href = "/";
+      })
+      .catch((error) => {
+        console.error(
+          "Erreur détaillée lors de la création du partenaire:",
+          error
+        );
+        setError(error.message);
+      });
+  };
+
+  const visiblePartners = filteredPartners.slice(0, visiblePartner);
 
   const handleFilterClick = (filterName) => {
     setSelectedFilter(filterName);
 
     if (filterName === "Tous" || filterName === null) {
-      setFilteredPartners(partners);
+      setFilteredPartners(partners || []);
     } else {
-      const filtered = partners.filter((partner) => {
-        return partner.category === filterName;
+      const filtered = (partners || []).filter((partner) => {
+        return partner.category.toLowerCase() === filterName.toLowerCase();
       });
       setFilteredPartners(filtered);
     }
   };
 
+  if (!partners || partners.length === 0) {
+    return <div>Aucun partenaire disponible</div>;
+  }
+
   return (
     <div className="nospartenaires">
-      <h2 className="nospartenaires__title"> NOS PARTENAIRES</h2>
+      {error && <div className="error-message">{error}</div>}
+
+      <h2 className="nospartenaires__title">NOS PARTENAIRES</h2>
       <div className="nospartenaires__filtresmobiles">
         <Filtre
           filtreName={"Tous"}
-          onClick={handleFilterClick}
-          isSelected={false}
+          onClick={() => handleFilterClick("Tous")}
+          isSelected={selectedFilter === "Tous"}
         />
+        {filtres.map((filtre, index) => (
+          <Filtre
+            key={index}
+            filtreName={filtre.filtreName}
+            onClick={() => handleFilterClick(filtre.filtreName)}
+            isSelected={selectedFilter === filtre.filtreName}
+          />
+        ))}
       </div>
       <div className="nospartenaires__gallery">
         {visiblePartners.map((item, index) => (
@@ -81,6 +130,7 @@ function NosPartenaires({ partners }) {
             contactUrl={item.contactUrl}
             type={item.type}
             localisation={item.localisation}
+            id={item._id}
           />
         ))}
         {isMobile && (
@@ -90,58 +140,47 @@ function NosPartenaires({ partners }) {
           >
             {visiblePartner === 4 ? "Voir plus" : "Voir moins"}
           </button>
-        )}{" "}
+        )}
         <ModalT
           title={"Ajouter un nouveau partenaire"}
-          btnShow={<BtnAjouter onClick={handleAdmiBtn} />}
+          btnShow={<BtnAjouter />}
+          id={"none"}
           modalContent={
             <Form className="form__ajout__partenaire form__ajout">
               <Form.Group
                 className="form__groupe"
                 controlId="name__ajoutpartenaire"
               >
-                <Form.Label>Nom du partenaire</Form.Label>
+                <Form.Label>Nom</Form.Label>
                 <Form.Control type="text" placeholder="Nom du partenaire" />
               </Form.Group>
 
               <Form.Group
                 className="form__groupe"
-                controlId="description__ajoutpartenaire"
+                controlId="descirption__ajoutpartenaire"
               >
-                <Form.Label>Description du partenaire</Form.Label>
-                <Form.Control
-                  type="text"
-                  placeholder="Description du partenaire"
-                />
-              </Form.Group>
-
-              <Form.Group
-                className="form__groupe"
-                controlId="contact__ajoutpartenaire"
-              >
-                <Form.Label>Site web du partenaire</Form.Label>
-                <Form.Control
-                  type="text"
-                  placeholder="Site web du partenaire"
-                />
+                <Form.Label>Description</Form.Label>
+                <Form.Control type="textarea" placeholder="Description" />
               </Form.Group>
 
               <Form.Group
                 className="form__groupe"
                 controlId="category__ajoutpartenaire"
               >
-                <Form.Label>Catégorie du partenaire</Form.Label>
-                <Form.Control
-                  type="text"
-                  placeholder="Catégorie du partenaire"
-                />
+                <Form.Label>Catégorie</Form.Label>
+                <Form.Control as="select">
+                  <option>Restaurateur</option>
+                  <option>Caviste</option>
+                  <option>Importateur</option>
+                  <option>Autre</option>
+                </Form.Control>
               </Form.Group>
 
               <Form.Group
                 className="form__groupe"
                 controlId="localisation__ajoutpartenaire"
               >
-                <Form.Label>Localisation du partenaire</Form.Label>
+                <Form.Label>Localisation</Form.Label>
                 <Form.Control
                   type="text"
                   placeholder="Localisation du partenaire"
@@ -150,14 +189,47 @@ function NosPartenaires({ partners }) {
 
               <Form.Group
                 className="form__groupe"
-                controlId="logo__ajoutpartenaire"
+                controlId="contactUrl__ajoutpartenaire"
               >
-                <Form.Label>Logo du partenaire</Form.Label>
-                <Form.Control type="file" accept="image/*" />
+                <Form.Label>URL de contact</Form.Label>
+                <Form.Control type="url" placeholder="https://example.com" />
               </Form.Group>
 
-              <button className="btn__submit" type="submit">
-                Submit
+              <Form.Group
+                className="form__groupe"
+                controlId="logo__ajoutpartenaire"
+              >
+                <Form.Label>Logo</Form.Label>
+                <Form.Control type="file" accept="image/*" />
+              </Form.Group>
+              <button
+                className="btn__submit"
+                type="submit"
+                onClick={(event) => {
+                  event.preventDefault();
+                  const form = event.target.form;
+                  const partnerData = {
+                    name: form.name__ajoutpartenaire.value,
+                    category: form.category__ajoutpartenaire.value,
+                    localisation: form.localisation__ajoutpartenaire.value,
+                    contactUrl: form.contactUrl__ajoutpartenaire.value,
+                  };
+                  if (form.logo__ajoutpartenaire.files[0]) {
+                    partnerData.logo = form.logo__ajoutpartenaire.files[0];
+                  }
+                  console.log(
+                    "Données du formulaire avant envoi:",
+                    partnerData
+                  );
+                  console.log(
+                    "Données du formulaire avant envoi:",
+                    partnerData
+                  );
+
+                  handlePost(partnerData);
+                }}
+              >
+                Ajouter
               </button>
             </Form>
           }
