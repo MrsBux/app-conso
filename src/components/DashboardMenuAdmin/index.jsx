@@ -26,11 +26,11 @@ function DashboardMenuAdmin() {
     <aside className="menuD">
       <div className="menuD__box">
         <h6 className="menuD__box__title">Menu de navigation</h6>
-        <div className="menuD__box__sections">
+        {/* <div className="menuD__box__sections">
           {sections.map((item, index) => (
             <CardMD key={index} name={item.name} contentmod={item.contentmod} />
           ))}
-        </div>
+        </div> */}
 
         <DropdownButton id="dropdown-basic-button" title="Dropdown button">
           <Dropdown.Item href="#/action-1">Tableau de Bord</Dropdown.Item>

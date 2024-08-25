@@ -4,59 +4,64 @@ import DashboardMenu from "../components/DashboardMenu";
 import DashboardBanner from "../components/DasboardBanner";
 import DashboardBoard from "../components/DasboardBoard";
 import TabTools from "../components/TabTools/index";
-import selfie from "../assets/selfiee.webp";
 import "../style/css/dashboard.css";
 
 function Dashboard() {
-  // Utilisation de useParams pour récupérer le userId depuis l'URL
   const { userId } = useParams();
-  console.log("userId", userId);
   const [user, setUser] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
-    // Effectuer une requête GET pour récupérer les données de l'utilisateur
-    fetch(`http://localhost:3000/api/user/One/${userId}`)
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error(
-            "Erreur lors de la récupération des données de l'utilisateur"
-          );
-        }
-        return response.json();
-      })
-      .then((data) => {
-        setUser(data);
-        console.log(user, "user");
-      })
-      .catch((error) => {
-        console.error(
-          "Erreur lors de la récupération des données de l'utilisateur :",
-          error
-        );
-      });
+    getUser();
   }, [userId]);
 
+  const getUser = async () => {
+    setIsLoading(true);
+    setError(null);
+    try {
+      const response = await fetch(
+        `http://localhost:3000/api/user/One/${userId}`
+      );
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+      const data = await response.json();
+      setUser(data);
+    } catch (err) {
+      console.error(
+        "Une erreur s'est produite lors de la récupération de l'utilisateur:",
+        err
+      );
+      setError("Impossible de charger les données de l'utilisateur.");
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  if (isLoading) return <div>Chargement...</div>;
+  if (error) return <div>Erreur : {error}</div>;
+  if (!user) return <div>Aucun utilisateur trouvé.</div>;
+
   return (
-    <>
-      <main>
-        <TabTools sectionsPage={[""]} />
-        <div className="dashboard">
-          <div className="dashboard__box1">
-            <DashboardMenu />
-          </div>
-          <div className="dashboard__box">
-            {user && <DashboardBanner name={user.name} photoURL={selfie} />}
-            <DashboardBoard
-              lastc={""}
-              numberofpoints={user.points}
-              prenom={user.firstname}
-              nom={user.name}
-              email={user.email}
-            />
-          </div>
+    <main>
+      <TabTools sectionsPage={[""]} />
+      <div className="dashboard">
+        <div className="dashboard__box1">
+          <DashboardMenu />
         </div>
-      </main>
-    </>
+        <div className="dashboard__box">
+          <DashboardBanner name={user.name} />
+          <DashboardBoard
+            lastc={""}
+            numberofpoints={user.points}
+            prenom={user.firstname}
+            nom={user.name}
+            email={user.email}
+          />
+        </div>
+      </div>
+    </main>
   );
 }
 

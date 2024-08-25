@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { PanierContext } from "../store/panierContext";
 import { Link } from "react-router-dom";
 import ItemPanier from "../components/Panier/item";
@@ -16,6 +16,10 @@ import logoexp from "../assets/logoexpedition.webp";
 import logopaypal from "../assets/logopaypal.webp";
 
 function Panier() {
+  useEffect(() => {
+    getUserId();
+  }, []);
+
   const { panier } = useContext(PanierContext);
   console.log(panier);
 
@@ -38,6 +42,8 @@ function Panier() {
   const [selectedSalon, setSelectedSalon] = useState(null);
 
   const [statusMessage, setStatusMessage] = useState("");
+
+  const [userId, setUserId] = useState(0);
 
   // Fonction pour mettre à jour la quantité d'un article
   const handleQuantiteChange = (index, newQuantite) => {
@@ -183,6 +189,7 @@ function Panier() {
       totalPrice: totalAll,
       paiementType: selectedOption3,
       deliveryType: selectedOption,
+      userId: userId,
     };
 
     try {
@@ -211,6 +218,11 @@ function Panier() {
       console.error("Erreur lors de la soumission de la commande :", error);
       setStatusMessage("Erreur lors de la soumission de la commande.");
     }
+  };
+
+  const getUserId = () => {
+    const id = localStorage.getItem("userId");
+    setUserId(id);
   };
 
   return (

@@ -20,9 +20,9 @@ function UserBook({ user }) {
             {user.firstName} {user.name}
           </p>{" "}
         </div>
-        {(user.firstName || user.name) && (
+        {/* {(user.firstName || user.name) && (
           <BtnModifierUser onClick={handleClick} />
-        )}
+        )} */}
       </div>
 
       <div className="userbook__box">
@@ -30,7 +30,7 @@ function UserBook({ user }) {
           <strong className="userbook__box__txt__str">Email:</strong>{" "}
           <p className="userbook__box__txt__p"> {user.email}</p>{" "}
         </div>
-        {user.email && <BtnModifierUser onClick={handleClick} />}
+        {/* {user.email && <BtnModifierUser onClick={handleClick} />} */}
       </div>
 
       <div className="userbook__box">
@@ -52,8 +52,8 @@ function UserBook({ user }) {
           <strong className="userbook__box__txt__str">Adresse:</strong>
           <p className="userbook__box__txt__p"> {user.address}</p>
         </div>
-        {!user.address && <BtnAjouterUser onClick={handleClick} />}
-        {user.address && <BtnModifierUser onClick={handleClick} />}
+        {/* {!user.address && <BtnAjouterUser onClick={handleClick} />}
+        {user.address && <BtnModifierUser onClick={handleClick} />} */}
       </div>
 
       <div className="userbook__box">
@@ -61,16 +61,9 @@ function UserBook({ user }) {
           <strong className="userbook__box__txt__str">Vin préféré:</strong>{" "}
           <p className="userbook__box__txt__p">{user.favoriteWine}</p>{" "}
         </div>
-        {!user.favoritewine && <BtnAjouterUser onClick={handleClick} />}
-        {user.favoritewine && (
-          <div className="btnbox">
-            <BtnModifierUser onClick={handleClick} />
-            <BtnSupprimerUser onClick={handleClick} />
-          </div>
-        )}
       </div>
 
-      <div className="userbook__box">
+      {/* <div className="userbook__box">
         <div className="userbook__box__txt">
           <strong className="userbook__box__txt__str">Salon favori:</strong>{" "}
           <p className="userbook__box__txt__p">{user.favoriteSalon} </p>
@@ -82,9 +75,9 @@ function UserBook({ user }) {
             <BtnSupprimerUser onClick={handleClick} />
           </div>
         )}
-      </div>
+      </div> */}
 
-      <div className="userbook__box">
+      {/* <div className="userbook__box">
         <div className="userbook__box__txt">
           <strong className="userbook__box__txt__str">Âge:</strong>{" "}
           <p className="userbook__box__txt__p">{user.age}</p>{" "}
@@ -96,8 +89,8 @@ function UserBook({ user }) {
             <BtnSupprimerUser onClick={handleClick} />
           </div>
         )}
-      </div>
-      <div className="userbook__box">
+      </div> */}
+      {/* <div className="userbook__box">
         <div className="userbook__box__txt">
           <strong className="userbook__box__txt__str">Profession:</strong>
           <p className="userbook__box__txt__p"> {user.profession} </p>{" "}
@@ -109,7 +102,7 @@ function UserBook({ user }) {
             <BtnSupprimerUser onClick={handleClick} />
           </div>
         )}
-      </div>
+      </div> */}
     </div>
   );
 }

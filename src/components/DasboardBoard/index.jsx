@@ -1,4 +1,6 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
+
 import bch2020 from "../../assets/bch2020.webp";
 import bch2017 from "../../assets/bch2017.webp";
 import bchR2018 from "../../assets/bchR2018.webp";
@@ -17,6 +19,33 @@ function DashboardBoard({
   email,
   vincoeur,
 }) {
+  const { userId } = useParams();
+  console.log("userId", userId);
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    // Effectuer une requête GET pour récupérer les données de l'utilisateur
+    fetch(`http://localhost:3000/api/user/One/${userId}`)
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error(
+            "Erreur lors de la récupération des données de l'utilisateur"
+          );
+        }
+        return response.json();
+      })
+      .then((data) => {
+        setUser(data);
+        console.log("data", data);
+        console.log(user, "user");
+      })
+      .catch((error) => {
+        console.error(
+          "Erreur lors de la récupération des données de l'utilisateur :",
+          error
+        );
+      });
+  }, [userId]);
   const handleBtn = () => {
     console.log("click");
   };

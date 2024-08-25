@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import bch2020 from "../../assets/bch2020.webp";
 import bch2017 from "../../assets/bch2017.webp";
 import bchR2018 from "../../assets/bchR2018.webp";
@@ -20,13 +20,20 @@ function DashboardBoardAdmin({}) {
   const [lastOrder, setLastOrder] = useState({});
   const [bookings, setBookings] = useState({});
   const [lastBooking, setLastBooking] = useState({});
+  const [request, setRequest] = useState([]);
+  const [lastRequest, setLastRequest] = useState({});
 
   useEffect(() => {
     handleCount();
     getUsers();
     getOrders();
     getBookings();
+    getAllAskings();
   }, []);
+
+  const sortedRequest = useMemo(() => {
+    return [...request].sort((a, b) => new Date(b.Date) - new Date(a.Date));
+  }, [request]);
   const handleAdmiBtn = () => {
     console.log("click");
   };
@@ -75,7 +82,7 @@ function DashboardBoardAdmin({}) {
       console.log("data : ", data);
       setOrders(data);
       console.log(orders);
-      setLastOrder(data[0]);
+      setLastOrder(data[data.length - 1]);
       console.log(lastOrder);
     } catch (err) {
       console.error(
@@ -105,73 +112,61 @@ function DashboardBoardAdmin({}) {
     }
   };
 
-  const demandesdiv = [
-    {
-      nameForm: "name form",
-      name: "Nom",
-      date: new Date(2024, 3, 1),
-      contactmail: "email@test.fr",
-      contentform: "blabla",
-    },
-    {
-      nameForm: "name form",
-      name: "Nom",
-      date: new Date(2024, 3, 1),
-      contactmail: "email@test.fr",
-      contentform: "blabla",
-    },
-    {
-      nameForm: "name form",
-      name: "Nom",
-      date: new Date(2024, 3, 1),
-      contactmail: "email@test.fr",
-      contentform: "blabla",
-    },
-    {
-      nameForm: "name form",
-      name: "Nom",
-      date: new Date(2024, 3, 1),
-      contactmail: "email@test.fr",
-      contentform: "blabla",
-    },
-    {
-      nameForm: "name form",
-      name: "Nom",
-      date: new Date(2024, 3, 1),
-      contactmail: "email@test.fr",
-      contentform: "blabla",
-    },
-    {
-      nameForm: "name form",
-      name: "Nom",
-      date: new Date(2024, 3, 1),
-      contactmail: "email@test.fr",
-      contentform: "blabla",
-    },
-    {
-      nameForm: "name form",
-      name: "Nom",
-      date: new Date(2024, 3, 1),
-      contactmail: "email@test.fr",
-      contentform: "blabla",
-    },
-    {
-      nameForm: "name form",
-      name: "Nom",
-      date: new Date(2024, 3, 1),
-      contactmail: "email@test.fr",
-      contentform: "blabla",
-    },
-    {
-      nameForm: "name form",
-      name: "Nom",
-      date: new Date(2024, 3, 1),
-      contactmail: "email@test.fr",
-      contentform: "blabla",
-    },
-  ];
+  const SortedRequestList = ({ requests }) => {
+    const sortedRequest = [...requests].sort(
+      (a, b) => new Date(b.Date) - new Date(a.Date)
+    );
+  };
 
-  const lastd = demandesdiv.slice(0, 1);
+  const getAllAskings = async () => {
+    const routes = [
+      "/api/formcontact/All",
+      "/api/formGFV/All",
+      "/api/forminvit/All",
+      "/api/formpartner/All",
+    ];
+
+    try {
+      const allData = await Promise.all(
+        routes.map(async (route) => {
+          const response = await fetch(`http://localhost:3000${route}`);
+          if (!response.ok) {
+            throw new Error(
+              `HTTP error! status: ${response.status} for route: ${route}`
+            );
+          }
+          const data = await response.json();
+          return data.map((item) => ({
+            ...item,
+            formType: route.split("/")[2],
+          }));
+        })
+      );
+
+      const combinedData = allData.flat();
+      console.log("Combined data:", combinedData);
+      setRequest(combinedData);
+      console.log(request, "request");
+      setLastRequest(combinedData[combinedData.length - 1]);
+    } catch (err) {
+      console.error(
+        "Une erreur s'est produite lors de la récupération des données:",
+        err
+      );
+    } finally {
+    }
+  };
+
+  const formatDate = (dateString) => {
+    const date = new Date(dateString);
+    const day = date.getDate().toString().padStart(2, "0");
+    const month = (date.getMonth() + 1).toString().padStart(2, "0");
+    const year = date.getFullYear();
+    const hours = date.getHours().toString().padStart(2, "0");
+    const minutes = date.getMinutes().toString().padStart(2, "0");
+
+    return `${day}/${month}/${year} à ${hours}:${minutes}`;
+  };
 
   return (
     <section className="board">
@@ -179,31 +174,22 @@ function DashboardBoardAdmin({}) {
         <div className="board__box__card1 board__box__card">
           <h5 className="board__box__card1__title"> Dernières demandes</h5>
           <div className="board__box__card1__lastc">
-            {lastd.map((item, index) => (
-              <li key={index} className="mainbox__list__li">
-                {item.nameForm} --- {item.name} ---{" "}
-                {item.date.toLocaleDateString()} ---
-                {item.contactmail}
-                <a
-                  href={item.contentform}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="mainbox__list__a"
-                >
-                  Voir plus
-                </a>
-              </li>
-            ))}
+            Type : {lastRequest.type} - {lastRequest.nom} -{" "}
+            {formatDate(lastRequest.Date)}
           </div>
           <ModalT
             btnShow={<div className="board__box__card1__btn">Voir toutes</div>}
             title={"Demandes utilisateurs"}
             modalContent={
-              <DemandesAd
-                demandes={demandesdiv}
-                onClick={handleAdmiBtn}
-                number={1}
-              />
+              <div>
+                {sortedRequest.map((item, index) => (
+                  <div key={index}>
+                    {item.type} - {item.nom} - {item.prenom} - {item.email} -{" "}
+                    {formatDate(item.Date)} -{" "}
+                    {item.message ? item.message : "aucun message"}{" "}
+                  </div>
+                ))}
+              </div>
             }
             btnname={"Retour"}
           />

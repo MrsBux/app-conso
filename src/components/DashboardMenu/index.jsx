@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 import Dropdown from "react-bootstrap/Dropdown";
 import DropdownButton from "react-bootstrap/DropdownButton";
@@ -11,21 +12,44 @@ import CardMD from "./CardMD";
 import "../../style/css/dashboardmenu.css";
 
 function DashboardMenu() {
-  const user = {
-    email: "user1@example.com",
-    numeroclient: 90988,
-    points: 4,
-    name: "John",
-    firstName: "Doe",
-    address: "123 Main Street 84230 Avignon",
-    favoriteWine: "Lirac 2020",
-    favoriteSalon: "les printemps du vins",
-    photoURL: "file",
-    age: 30,
-    profession: "Artiste",
+  const { userId } = useParams();
+  const [user, setUser] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    getUser();
+  }, [userId]);
+
+  const getUser = async () => {
+    setIsLoading(true);
+    setError(null);
+    try {
+      const response = await fetch(
+        `http://localhost:3000/api/user/One/${userId}`
+      );
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+      const data = await response.json();
+      setUser(data);
+    } catch (err) {
+      console.error(
+        "Une erreur s'est produite lors de la récupération de l'utilisateur:",
+        err
+      );
+      setError("Impossible de charger les données de l'utilisateur.");
+    } finally {
+      setIsLoading(false);
+    }
   };
+
+  if (isLoading) return <div>Chargement...</div>;
+  if (error) return <div>Erreur : {error}</div>;
+  if (!user) return <div>Aucun utilisateur trouvé.</div>;
+
   const sections = [
-    { name: "Toutes mes commandes et factures", contentmod: <DossierUser /> },
+    { name: "Toutes mes commandes", contentmod: <DossierUser /> },
     { name: "Informations personnelles", contentmod: <UserBook user={user} /> },
   ];
 
@@ -54,9 +78,7 @@ function DashboardMenu() {
 
         <DropdownButton id="dropdown-basic-button" title="Dropdown button">
           <Dropdown.Item href="#/action-1">Tableau de Bord</Dropdown.Item>
-          <Dropdown.Item href="#/action-2">
-            Toutes mes commandes et factures
-          </Dropdown.Item>
+          <Dropdown.Item href="#/action-2">Toutes mes commandes</Dropdown.Item>
           <Dropdown.Item href="#/action-3">
             Informations personnelles
           </Dropdown.Item>{" "}
