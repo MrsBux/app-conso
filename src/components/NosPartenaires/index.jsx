@@ -48,17 +48,17 @@ function NosPartenaires({ partners }) {
   };
 
   const handlePost = (formData) => {
-    console.log("Fonction handlePost appelée avec les données:", formData);
+    const token = localStorage.getItem("token");
 
     fetch(`http://localhost:3000/api/partners/New`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
       },
       body: JSON.stringify(formData),
     })
       .then((response) => {
-        console.log("Réponse reçue du serveur:", response);
         if (!response.ok) {
           return response.text().then((text) => {
             throw new Error(
@@ -69,8 +69,6 @@ function NosPartenaires({ partners }) {
         return response.json();
       })
       .then((data) => {
-        console.log("Partenaire créé avec succès. Données reçues:", data);
-        console.log("Redirection vers la page d'accueil");
         window.location.href = "/";
       })
       .catch((error) => {
@@ -217,14 +215,6 @@ function NosPartenaires({ partners }) {
                   if (form.logo__ajoutpartenaire.files[0]) {
                     partnerData.logo = form.logo__ajoutpartenaire.files[0];
                   }
-                  console.log(
-                    "Données du formulaire avant envoi:",
-                    partnerData
-                  );
-                  console.log(
-                    "Données du formulaire avant envoi:",
-                    partnerData
-                  );
 
                   handlePost(partnerData);
                 }}

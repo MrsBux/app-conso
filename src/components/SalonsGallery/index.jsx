@@ -60,8 +60,6 @@ function SalonGallery() {
 
       setSalons(salonsWithBlobs);
       setFilteredSalons(salonsWithBlobs);
-
-      console.log("Salons fetched:", salonsWithBlobs);
     } catch (error) {
       console.error("Error fetching salons:", error);
       // Gérer l'erreur, par exemple en affichant un message à l'utilisateur
@@ -73,6 +71,8 @@ function SalonGallery() {
   }, []);
 
   const newSalon = async () => {
+    const token = localStorage.getItem("token");
+
     try {
       const formDataToSend = new FormData();
       formDataToSend.append("name", formData.name);
@@ -87,6 +87,9 @@ function SalonGallery() {
       const url = "http://localhost:3000/api/salons/New";
       const response = await fetch(url, {
         method: "POST",
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
         body: formDataToSend,
       });
 
@@ -95,7 +98,6 @@ function SalonGallery() {
       }
 
       const data = await response.json();
-      console.log("Salon created:", data); // Log du salon créé
       return data;
     } catch (error) {
       console.error("Error creating salon:", error);
@@ -114,8 +116,6 @@ function SalonGallery() {
       });
       setFilteredSalons(filtered); // Filtrer les salons par région sélectionnée
     }
-
-    console.log("Filter clicked:", filterName); // Log du filtre cliqué
   };
 
   const handleChange = (e) => {
@@ -277,7 +277,7 @@ function SalonGallery() {
                   onChange={handleChange}
                 />
               </Form.Group>
-
+              {/* 
               <Form.Group className="form__groupe" controlId="logoUrl">
                 <Form.Label>Logo du salon</Form.Label>
                 <Form.Control
@@ -285,7 +285,7 @@ function SalonGallery() {
                   accept="image/*"
                   onChange={handleChange}
                 />
-              </Form.Group>
+              </Form.Group> */}
 
               <Form.Group className="form__groupe" controlId="invitation">
                 <Form.Label>Invitation (PDF)</Form.Label>

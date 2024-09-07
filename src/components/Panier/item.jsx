@@ -42,7 +42,6 @@ function ItemPanier({
   };
 
   const total = prix * quantiteArticle;
-  console.log(prix, quantiteArticle, total);
 
   return (
     <div className="item">

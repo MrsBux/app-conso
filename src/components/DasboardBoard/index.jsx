@@ -20,12 +20,29 @@ function DashboardBoard({
   vincoeur,
 }) {
   const { userId } = useParams();
-  console.log("userId", userId);
+
   const [user, setUser] = useState(null);
 
+  const handleLogout = () => {
+    localStorage.removeItem("tokenUser");
+    localStorage.removeItem("tokenUserExpiry");
+    localStorage.removeItem("userId");
+    localStorage.removeItem("name");
+    localStorage.removeItem("email");
+    localStorage.removeItem("token");
+    window.location.href = "/login";
+  };
+
   useEffect(() => {
-    // Effectuer une requête GET pour récupérer les données de l'utilisateur
-    fetch(`http://localhost:3000/api/user/One/${userId}`)
+    const token = localStorage.getItem("token");
+
+    fetch(`http://localhost:3000/api/user/One/${userId}`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+    })
       .then((response) => {
         if (!response.ok) {
           throw new Error(
@@ -36,8 +53,6 @@ function DashboardBoard({
       })
       .then((data) => {
         setUser(data);
-        console.log("data", data);
-        console.log(user, "user");
       })
       .catch((error) => {
         console.error(
@@ -46,9 +61,7 @@ function DashboardBoard({
         );
       });
   }, [userId]);
-  const handleBtn = () => {
-    console.log("click");
-  };
+  const handleBtn = () => {};
 
   const factures = [
     { name: "name 1", date: new Date(2024, 4, 1), file: "", montant: 30 },
@@ -130,6 +143,7 @@ function DashboardBoard({
             btnname={"Fermer"}
           />
         </div>
+
         <div className="board__box__card3   board__box__card">
           <h5 className="board__box__card3__title"> Mon compte</h5>
           <div className="board__box__card3__px">
@@ -153,22 +167,11 @@ function DashboardBoard({
             Mon vin préféré :{vincoeur}
           </p>
         </div>
-        <div className="board__box__card4  board__box__card">
-          <h5 className="board__box__card4__title">
-            {" "}
-            Mes invitations sur le salons
-          </h5>
-          <a href="" className="board__box__card4__invit">
-            {" "}
-            Invits
-          </a>
 
-          <ModalT
-            btnShow={<div className="board__box__card4__btn">Voir toutes</div>}
-            modalContent={
-              <Invitations invitations={invitations} onClick={handleBtn} />
-            }
-          />
+        <div className="board__box__card4   board__box__card">
+          <button className="login__deco__btn btnG" onClick={handleLogout}>
+            Déconnexion
+          </button>
         </div>
       </div>
       <div className="board__deco">
@@ -176,10 +179,20 @@ function DashboardBoard({
         <img src={bchR2018} alt="bch" className="board__deco__img"></img>{" "}
         <img src={bch2020} alt="bch" className="board__deco__img"></img>{" "}
         <img src={bch2017} alt="bch" className="board__deco__img"></img>
-        <img src={bch2017} alt="bch" className="board__deco__img"></img>
+        <img src={bch2020} alt="bch" className="board__deco__img"></img>
         <img src={bchR2018} alt="bch" className="board__deco__img"></img>{" "}
         <img src={bch2020} alt="bch" className="board__deco__img"></img>{" "}
         <img src={bch2017} alt="bch" className="board__deco__img"></img>
+      </div>
+      <div className="board__deco">
+        <img src={bchR2018} alt="bch" className="board__deco__img"></img>
+        <img src={bch2020} alt="bch" className="board__deco__img"></img>
+        <img src={bch2017} alt="bch" className="board__deco__img"></img>
+        <img src={bch2020} alt="bch" className="board__deco__img"></img>
+        <img src={bchR2018} alt="bch" className="board__deco__img"></img>{" "}
+        <img src={bch2020} alt="bch" className="board__deco__img"></img>{" "}
+        <img src={bch2017} alt="bch" className="board__deco__img"></img>{" "}
+        <img src={bchR2018} alt="bch" className="board__deco__img"></img>{" "}
       </div>
     </section>
   );

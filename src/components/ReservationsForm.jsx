@@ -22,8 +22,6 @@ function ReservationForm() {
       telephone,
     };
 
-    console.log("Booking data to be sent:", bookingData);
-
     fetch("http://127.0.0.1:3000/api/formbooking/post", {
       method: "POST",
       headers: {
@@ -32,14 +30,12 @@ function ReservationForm() {
       body: JSON.stringify(bookingData),
     })
       .then((response) => {
-        console.log("Response received:", response);
         if (!response.ok) {
           throw new Error("Erreur lors de l'envoi du formulaire");
         }
         return response.json();
       })
       .then((data) => {
-        console.log("Success data:", data);
         // Reset form fields after successful submission
         setPrestation("");
         setDate("");

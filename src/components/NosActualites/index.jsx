@@ -19,7 +19,6 @@ function NosActus({ isAuthenticated }) {
       })
       .then((data) => {
         setActus(data);
-        console.log(data);
       })
       .catch((error) => {
         console.error(
@@ -38,10 +37,13 @@ function NosActus({ isAuthenticated }) {
   };
 
   const handlePost = (formData) => {
+    const token = localStorage.getItem("token");
+
     fetch("http://localhost:3000/api/actu/New", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
       },
       body: JSON.stringify(formData),
     })
@@ -53,7 +55,7 @@ function NosActus({ isAuthenticated }) {
       })
       .then((data) => {
         // Traitez la réponse si nécessaire
-        console.log("Actualité créée avec succès :", data);
+
         // Mettre à jour l'état des actualités si nécessaire
         setActus(data);
         window.location.href = "/";
@@ -64,8 +66,14 @@ function NosActus({ isAuthenticated }) {
   };
 
   const handleDelete = (id) => {
+    const token = localStorage.getItem("token");
+
     fetch(`http://localhost:3000/api/actu/${id}`, {
       method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
     })
       .then((response) => {
         if (!response.ok) {
@@ -75,7 +83,7 @@ function NosActus({ isAuthenticated }) {
       })
       .then((data) => {
         // Traitez la réponse si nécessaire
-        console.log("Actualité supprimée avec succès ");
+
         // Mettre à jour l'état des actualités si nécessaire
         setActus(data);
         window.location.href = "/";

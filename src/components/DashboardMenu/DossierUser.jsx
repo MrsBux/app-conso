@@ -4,7 +4,7 @@ import "../../style/css/dossierdepresse.css";
 
 function DossierUser() {
   const { userId } = useParams();
-  console.log("userId", userId);
+
   const [user, setUser] = useState(null);
   const [orders, setOrders] = useState([]);
 
@@ -21,9 +21,9 @@ function DossierUser() {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
       const data = await response.json();
-      console.log(data, "data");
+
       const filteredOrders = data.filter((order) => order.userId === userId);
-      console.log(filteredOrders, "filteredOrders");
+
       setOrders(filteredOrders);
     } catch (err) {
       console.error(

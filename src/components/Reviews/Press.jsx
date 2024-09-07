@@ -25,7 +25,6 @@ function Press({ onClick }) {
       })
       .then((data) => {
         setPress(data);
-        console.log(data, "data");
       })
       .catch((error) => {
         console.error(
@@ -53,10 +52,13 @@ function Press({ onClick }) {
     const formData = new FormData(e.target);
     const data = Object.fromEntries(formData.entries());
 
+    const token = localStorage.getItem("token");
+
     fetch("http://localhost:3000/api/press/New", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
       },
       body: JSON.stringify(data),
     })
@@ -67,7 +69,6 @@ function Press({ onClick }) {
         return response.json();
       })
       .then((data) => {
-        console.log("Press créée avec succès :", data);
         alert("item press créé avec succès !");
         setPress([...press, data]);
         window.location.href = "/gallery";
@@ -78,8 +79,14 @@ function Press({ onClick }) {
   };
 
   const handleDelete = (id) => {
+    const token = localStorage.getItem("token");
+
     fetch(`http://localhost:3000/api/press/${id}`, {
       method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
     })
       .then((response) => {
         if (!response.ok) {
@@ -88,7 +95,6 @@ function Press({ onClick }) {
         return response.json();
       })
       .then((data) => {
-        console.log("Press supprimée avec succès");
         alert("Item supprimé avec succès ");
         setPress(press.filter((item) => item.id !== id));
 

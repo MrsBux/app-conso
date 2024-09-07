@@ -50,7 +50,6 @@ function DashboardBoardAdmin({}) {
 
       const data = await response.json();
       setNumberofUsers(data.userCount);
-      console.log(`Nombre d'utilisateurs : ${data.userCount}`);
     } catch (err) {
       console.error(
         "Une erreur s'est produite lors du comptage des utilisateurs:",
@@ -60,12 +59,18 @@ function DashboardBoardAdmin({}) {
   };
 
   const getUsers = async () => {
+    const token = localStorage.getItem("token");
+
     try {
-      const response = await fetch("http://localhost:3000/api/user/all");
+      const response = await fetch("http://localhost:3000/api/user/all", {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+      });
       const data = await response.json();
       setUsers(data);
-      console.log(data);
-      console.log(users);
     } catch (error) {
       console.error("Error fetching users:", error);
       return [];
@@ -73,17 +78,24 @@ function DashboardBoardAdmin({}) {
   };
 
   const getOrders = async () => {
+    const token = localStorage.getItem("token");
+
     try {
-      const response = await fetch("http://localhost:3000/api/order/All");
+      const response = await fetch("http://localhost:3000/api/order/All", {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+      });
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
       const data = await response.json();
-      console.log("data : ", data);
+
       setOrders(data);
-      console.log(orders);
+
       setLastOrder(data[data.length - 1]);
-      console.log(lastOrder);
     } catch (err) {
       console.error(
         "Une erreur s'est produite lors du comptage des commandes:",
@@ -93,17 +105,27 @@ function DashboardBoardAdmin({}) {
   };
 
   const getBookings = async () => {
+    const token = localStorage.getItem("token");
+
     try {
-      const response = await fetch("http://localhost:3000/api/formbooking/All");
+      const response = await fetch(
+        "http://localhost:3000/api/formbooking/All",
+        {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
       const data = await response.json();
-      console.log("data : ", data);
+
       setBookings(data);
-      console.log(bookings);
+
       setLastBooking(data[0]);
-      console.log(lastBooking);
     } catch (err) {
       console.error(
         "Une erreur s'est produite lors du comptage des commandes:",
@@ -119,6 +141,8 @@ function DashboardBoardAdmin({}) {
   };
 
   const getAllAskings = async () => {
+    const token = localStorage.getItem("token");
+
     const routes = [
       "/api/formcontact/All",
       "/api/formGFV/All",
@@ -129,7 +153,13 @@ function DashboardBoardAdmin({}) {
     try {
       const allData = await Promise.all(
         routes.map(async (route) => {
-          const response = await fetch(`http://localhost:3000${route}`);
+          const response = await fetch(`http://localhost:3000${route}`, {
+            method: "GET",
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: `Bearer ${token}`,
+            },
+          });
           if (!response.ok) {
             throw new Error(
               `HTTP error! status: ${response.status} for route: ${route}`
@@ -144,9 +174,9 @@ function DashboardBoardAdmin({}) {
       );
 
       const combinedData = allData.flat();
-      console.log("Combined data:", combinedData);
+
       setRequest(combinedData);
-      console.log(request, "request");
+
       setLastRequest(combinedData[combinedData.length - 1]);
     } catch (err) {
       console.error(

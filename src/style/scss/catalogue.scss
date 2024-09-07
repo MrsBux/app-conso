@@ -19,7 +19,7 @@
     align-items: center;
     gap: 10%;
 
-    @media all and (min-width: 751px) and (max-width: 900px) {
+    @media all and (min-width: 751px) and (max-width: 1200px) {
       gap: 5%;
     }
 
@@ -42,7 +42,7 @@
     gap: 15px;
     flex-wrap: nowrap;
 
-    @media all and (min-width: 751px) and (max-width: 900px) {
+    @media all and (min-width: 751px) and (max-width: 1200px) {
       gap: 10px;
     }
 

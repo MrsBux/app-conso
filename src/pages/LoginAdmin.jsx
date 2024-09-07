@@ -38,12 +38,12 @@ function LoginAdmin() {
 
       if (response.ok) {
         const data = await response.json();
-        console.log("Login successful:", data);
 
         // Store the token in local storage with an expiration time of 6 hours
         const tokenExpiry = new Date().getTime() + 6 * 60 * 60 * 1000; // 6 hours in milliseconds
         localStorage.setItem("token", data.token);
         localStorage.setItem("tokenExpiry", tokenExpiry);
+        localStorage.setItem("type", "adm");
 
         // Update state
         setIsLoggedIn(true);
@@ -64,6 +64,7 @@ function LoginAdmin() {
   const handleLogout = () => {
     localStorage.removeItem("token");
     localStorage.removeItem("tokenExpiry");
+    localStorage.removeItem("type");
     setIsLoggedIn(false);
     window.location.href = "/loginadmin"; // Redirect to login page
   };

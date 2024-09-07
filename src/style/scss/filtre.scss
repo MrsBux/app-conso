@@ -19,6 +19,10 @@ $green-leaf: #124b38;
     color: $light-peach;
     transition: 150ms ease-in-out;
 
+    @media all and (min-width: 751px) and (max-width: 900px) {
+      min-width: 110px;
+    }
+
     @media all and (min-width: 601px) and (max-width: 750px) {
       min-width: 110px;
     }

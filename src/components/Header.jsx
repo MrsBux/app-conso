@@ -1,10 +1,25 @@
 import { Link } from "react-router-dom";
+import React, { useState, useEffect } from "react";
 import "../style/css/header.css";
 import logoBeige from "../assets/logobeige.webp";
 import user from "../assets/user.webp";
 import panier from "../assets/panier.webp";
 
 function Header() {
+  const [isLog, setIsLog] = useState(false);
+  const [userId, setUserId] = useState(null);
+
+  useEffect(() => {
+    const id = localStorage.getItem("userId");
+    setUserId(id);
+    console.log(id, userId, "id");
+    if (userId) {
+      setIsLog(true);
+    } else {
+      setIsLog(false);
+    }
+  }, []);
+
   return (
     <header>
       <div className="logo">
@@ -33,9 +48,15 @@ function Header() {
           Prestations
         </Link>
 
-        <Link to="/login" className="menu__link">
-          <img src={user} alt="logo login" className="menu__link__logo"></img>
-        </Link>
+        {isLog && userId ? (
+          <Link to={`/dashboard/${userId}`} className="menu__link">
+            <img src={user} alt="User profile" className="menu__link__logo" />
+          </Link>
+        ) : (
+          <Link to="/login" className="menu__link">
+            <img src={user} alt="User profile" className="menu__link__logo" />
+          </Link>
+        )}
 
         <Link to="/dashboard" className="menu__link">
           <img

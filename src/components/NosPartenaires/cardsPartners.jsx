@@ -12,9 +12,14 @@ function CardPartner({ id, logoPUrl, name, contactUrl, type, localisation }) {
   const idP = id;
 
   const handleDelete = (id) => {
-    console.log(`http://localhost:3000/api/partners/Delete/${idP}`);
+    const token = localStorage.getItem("token");
+
     fetch(`http://localhost:3000/api/partners/Delete/${idP}`, {
       method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
     })
       .then((response) => {
         if (!response.ok) {
@@ -23,7 +28,6 @@ function CardPartner({ id, logoPUrl, name, contactUrl, type, localisation }) {
         return response.json();
       })
       .then(() => {
-        console.log("Partenaire supprimé avec succès");
         alert("Partenaire supprimé");
         window.location.href = "/partners";
       })

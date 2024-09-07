@@ -4,10 +4,20 @@ import Admin from "../assets/Admin.webp";
 import logoInsta from "../assets/logoinst.webp";
 import logoFB from "../assets/logofb.webp";
 import BtnLogOut from "./BtnLogOut";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 function Footer() {
   const [isAdminConnected, setIsAdminConnect] = useState(false);
+
+  useEffect(() => {
+    const typage = localStorage.getItem("type");
+    const token = localStorage.getItem("token");
+    if (typage === "adm" && token) {
+      setIsAdminConnect(true);
+    } else {
+      setIsAdminConnect(false);
+    }
+  }, []);
 
   const handleAdmiBtn = () => {
     console.log(click);
@@ -20,8 +30,7 @@ function Footer() {
           <BtnLogOut onClick={handleAdmiBtn} />
           <Link
             to="/loginadmin"
-            className={`footerBox__login__a1 ${
-              isAdminConnected ? "isAdminConnectedClassLogin" : ""
+            className={`footerBox__login__a1 
             }`}
           >
             <img
@@ -37,6 +46,15 @@ function Footer() {
             {" "}
             contact@domainelaconsonniere.fr <br />
           </p>
+          {isAdminConnected ? (
+            <p
+              className="footerBox__login__p1"
+              onClick={() => (window.location.href = "/dashboardadmin")}
+            >
+              {" "}
+              DOM CONSO{" "}
+            </p>
+          ) : null}
           <p className="footerBox__coordonates__adresse">
             {" "}
             7 Chemin de Boursan, 84230 Châteauneuf-du-Pape <br /> France{" "}

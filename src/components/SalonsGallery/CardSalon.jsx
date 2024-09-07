@@ -40,7 +40,6 @@ function CardSalon({
 
     if (email) {
       setEmailUser(email);
-      console.log(emailUser);
     }
   };
 
@@ -53,6 +52,8 @@ function CardSalon({
   };
 
   const deleteSalon = async () => {
+    const token = localStorage.getItem("token");
+
     try {
       const response = await fetch(
         `http://localhost:3000/api/salons/Delete/${salonId}`,
@@ -60,6 +61,7 @@ function CardSalon({
           method: "DELETE",
           headers: {
             "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
           },
         }
       );
@@ -68,7 +70,6 @@ function CardSalon({
         throw new Error("Failed to delete this salon");
       }
 
-      console.log("salon supprimé");
       alert("Salon supprimé !");
       window.location.reload();
       return await response.json();
@@ -79,13 +80,15 @@ function CardSalon({
   };
 
   const updateSalon = async () => {
+    const token = localStorage.getItem("token");
+
     try {
-      console.log(formData);
       const url = `http://localhost:3000/api/salons/Put/${salonId}`;
       const response = await fetch(url, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
         },
         body: JSON.stringify(formData),
       });
@@ -117,27 +120,57 @@ function CardSalon({
     return `${day}-${month}-${year}`;
   }
 
-  const handleDownload = () => {
-    if (invitationBlob) {
-      const url = window.URL.createObjectURL(invitationBlob);
+  const handleDownload = async () => {
+    try {
+      const response = await fetch(
+        `http://localhost:3000/api/salons/${salonId}/download`,
+        {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
+          },
+        }
+      );
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.message || "Erreur lors du téléchargement");
+      }
+
+      const blob = await response.blob();
+      const fileName =
+        response.headers
+          .get("Content-Disposition")
+          ?.split("filename=")[1]
+          ?.replace(/"/g, "") || "invitation.pdf";
+
+      // Vérification du type MIME
+      if (blob.type !== "application/pdf") {
+        console.warn(`Type de fichier inattendu : ${blob.type}`);
+      }
+
+      const url = window.URL.createObjectURL(blob);
       const a = document.createElement("a");
       a.href = url;
-      a.download = `${name}_invitation.pdf`;
+      a.download = fileName;
       document.body.appendChild(a);
       a.click();
       a.remove();
       window.URL.revokeObjectURL(url);
+
+      console.log(
+        `Fichier téléchargé : ${fileName}, Taille : ${blob.size} octets`
+      );
+    } catch (error) {
+      console.error("Erreur de téléchargement :", error);
+      alert(`Erreur lors du téléchargement : ${error.message}`);
     }
   };
-
   const handleAskInvit = async () => {
     try {
       const jsonReq = {
         name: name,
         email: emailUser,
       };
-
-      console.log(jsonReq, "jsonReq");
 
       const url = `http://localhost:3000/api/forminvit/post`;
       const response = await fetch(url, {

@@ -64,12 +64,10 @@ $green-leaf: #124b38;
         width: 300px;
         height: 300px;
       }
-
       @media all and (min-width: 801px) and (max-width: 950px) {
         width: 275px;
         height: 275px;
       }
-
       @media all and (min-width: 601px) and (max-width: 800px) {
         width: 350px;
         height: 350px;
@@ -258,55 +256,15 @@ $green-leaf: #124b38;
   }
 }
 
-.board__box__card4 {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-  gap: 15px;
-
-  &__title {
-    font-size: 26px;
-    font-weight: 600;
-    padding: 0px 0px 30px 0px;
-    margin: 0px;
-    @media all and (min-width: 801px) and (max-width: 950px) {
-      font-size: 22px;
-      padding: 0px;
-    }
-
-    @media all and (max-width: 600px) {
-      font-size: 22px;
-      padding: 0px;
-    }
-  }
-
-  &__invit {
-    font-weight: 400;
-    width: 100%;
-    font-size: 18px;
-    text-align: center;
-    padding: 0px;
-    margin: 0px;
-    padding-bottom: 20px;
-    text-decoration: none;
-    color: $green-leaf;
-  }
-
-  &__btn {
-    background-color: $red-wine;
-    color: $light-peach;
-    border: none;
-    font-weight: 600;
-    border-radius: 20px;
-    padding: 10px 25px;
-    box-shadow: 6px 6px 25px rgba(0, 0, 0.1, 0.2);
-    transition: all 800ms;
-  }
-}
-
 .board__box__card1__btn:hover,
 .board__box__card2__btn:hover,
 .board__box__card4__btn:hover {
   transform: scale(1.2);
+}
+
+.board__box__card4 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }

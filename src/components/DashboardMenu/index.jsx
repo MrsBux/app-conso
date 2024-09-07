@@ -22,11 +22,20 @@ function DashboardMenu() {
   }, [userId]);
 
   const getUser = async () => {
+    const token = localStorage.getItem("token");
+
     setIsLoading(true);
     setError(null);
     try {
       const response = await fetch(
-        `http://localhost:3000/api/user/One/${userId}`
+        `http://localhost:3000/api/user/One/${userId}`,
+        {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+        }
       );
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
@@ -49,7 +58,6 @@ function DashboardMenu() {
   if (!user) return <div>Aucun utilisateur trouvé.</div>;
 
   const sections = [
-    { name: "Toutes mes commandes", contentmod: <DossierUser /> },
     { name: "Informations personnelles", contentmod: <UserBook user={user} /> },
   ];
 

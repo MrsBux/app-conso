@@ -26,7 +26,6 @@ function SalonAgenda() {
       }));
 
       setSalons(parsedData);
-      console.log(parsedData, "data agenda");
     } catch (error) {
       console.error("Error fetching salons:", error);
       // Handle the error, e.g., display a message to the user

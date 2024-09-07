@@ -7,8 +7,6 @@ import ModalT from "../ModalT";
 import ReservationForm from "../ReservationsForm";
 
 function NosPrestations() {
-  console.log("modale");
-
   const handleclick = () => {
     window.location.href = "/prestations";
   };

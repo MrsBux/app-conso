@@ -21,7 +21,6 @@ function Panier() {
   }, []);
 
   const { panier } = useContext(PanierContext);
-  console.log(panier);
 
   const handleMailTo = () => {
     window.location.href = `mailto:contact@domainelaconsonniere.fr?subject=Retrait de commande`;
@@ -98,8 +97,6 @@ function Panier() {
     quantite: article.quantite,
   }));
 
-  console.log("vins =", vins);
-
   const salons = [
     {
       name: "Les Printemps des vins",
@@ -140,7 +137,6 @@ function Panier() {
 
   // Calcul du total
   const total = panier.reduce((acc, article) => {
-    console.log(article.prix);
     return acc + article.prix * article.quantite;
   }, 0);
 

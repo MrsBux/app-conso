@@ -17,8 +17,6 @@ function FormGFV() {
       email,
     };
 
-    console.log(formData, "formData");
-
     try {
       const response = await fetch("http://localhost:3000/api/formGFV/post", {
         method: "POST",

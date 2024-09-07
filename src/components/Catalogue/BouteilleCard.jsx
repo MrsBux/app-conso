@@ -31,7 +31,6 @@ function BouteilleCard({
     if (storedUserId) {
       setUserId(storedUserId);
     }
-    console.log(userId);
   }, []);
 
   const handleAjouterAuPanier = () => {
@@ -46,10 +45,11 @@ function BouteilleCard({
     };
     ajouterAuPanier(article, 1);
     alert(`L'article "${name}" a été ajouté au panier`);
-    console.log("Article ajouté au panier :", article);
   };
 
   const fetchData = async (name) => {
+    const token = localStorage.getItem("token");
+
     try {
       const response = await fetch(
         `http://localhost:3000/api/user/update/${userId}`,
@@ -57,6 +57,7 @@ function BouteilleCard({
           method: "PUT",
           headers: {
             "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
           },
           body: JSON.stringify({
             favoriteWine: name,
@@ -69,7 +70,6 @@ function BouteilleCard({
       }
 
       const data = await response.json();
-      console.log("Success:", data);
       alert("Votre vin coup de coeur a été modifié dans votre profil !");
     } catch (error) {
       console.error("Error:", error);

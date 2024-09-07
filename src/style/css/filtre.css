@@ -14,6 +14,11 @@
   color: #ffebe2;
   transition: 150ms ease-in-out;
 }
+@media all and (min-width: 751px) and (max-width: 900px) {
+  .filtres__btn {
+    min-width: 110px;
+  }
+}
 @media all and (min-width: 601px) and (max-width: 750px) {
   .filtres__btn {
     min-width: 110px;

@@ -47,7 +47,6 @@ function Login() {
       }
 
       const data = await response.json();
-      console.log(data);
 
       const tokenExpiry = new Date().getTime() + 6 * 60 * 60 * 1000; // 6 hours in milliseconds
       localStorage.setItem("tokenUser", data.tokenUser);

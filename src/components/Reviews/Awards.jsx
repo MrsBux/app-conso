@@ -25,7 +25,6 @@ function Awards({ onClick }) {
       })
       .then((data) => {
         setAwards(data);
-        console.log(data, "data");
       })
       .catch((error) => {
         console.error(
@@ -48,11 +47,13 @@ function Awards({ onClick }) {
     e.preventDefault();
     const formData = new FormData(e.target);
     const data = Object.fromEntries(formData.entries());
+    const token = localStorage.getItem("token");
 
     fetch("http://localhost:3000/api/prix/New", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
       },
       body: JSON.stringify(data),
     })
@@ -63,7 +64,6 @@ function Awards({ onClick }) {
         return response.json();
       })
       .then((data) => {
-        console.log("Récompense créée avec succès :", data);
         setAwards([...awards, data]);
         window.location.href = "/gallery";
       })
@@ -73,8 +73,14 @@ function Awards({ onClick }) {
   };
 
   const handleDelete = (id) => {
+    const token = localStorage.getItem("token");
+
     fetch(`http://localhost:3000/api/prix/${id}`, {
       method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
     })
       .then((response) => {
         if (!response.ok) {
@@ -83,7 +89,6 @@ function Awards({ onClick }) {
         return response.json();
       })
       .then((data) => {
-        console.log("Récompense supprimée avec succès");
         setAwards(awards.filter((item) => item.id !== id));
         window.location.href = "/";
       })
