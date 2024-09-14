@@ -21,13 +21,15 @@ function Header() {
       setIsLog(true);
     } else if (type === "user") {
       const tok = localStorage.getItem("tokenUser");
+      const id = localStorage.getItem("userId");
+      setUserId(id);
 
       if (tok) {
         setIsLog(true);
         setToken(tok);
       }
     }
-  }, [type, token]);
+  }, [type, token, userId]);
 
   return (
     <header>
