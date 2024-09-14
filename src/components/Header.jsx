@@ -71,15 +71,10 @@ function Header() {
           </Link>
         )}
 
-        {isLog && userId ? (
-          <Link to={`/dashboard/${userId}`} className="menu__link">
-            <img src={user} alt="User profile" className="menu__link__logo" />
-          </Link>
-        ) : (
-          <Link to="/login" className="menu__link">
-            <img src={user} alt="User profile" className="menu__link__logo" />
-          </Link>
-        )}
+        <Link to="/login" className="menu__link">
+          <img src={user} alt="User profile" className="menu__link__logo" />
+        </Link>
+
         <Link to="/dashboard" className="menu__link">
           <img
             src={user}
