@@ -12,6 +12,13 @@ function Header() {
   const [type, setType] = useState();
 
   useEffect(() => {
+    const id = localStorage.getItem("userId");
+    if (id) {
+      setUserId(id);
+    }
+  }, [userId, id]);
+
+  useEffect(() => {
     const type = localStorage.getItem("type");
     setType(type);
 
@@ -21,16 +28,13 @@ function Header() {
       setIsLog(true);
     } else if (type === "user") {
       const tok = localStorage.getItem("tokenUser");
-      const id = localStorage.getItem("userId");
-      setUserId(id);
-      console.log(userId);
 
       if (tok) {
         setIsLog(true);
         setToken(tok);
       }
     }
-  }, [type, token, userId]);
+  }, [type, token]);
 
   return (
     <header>
