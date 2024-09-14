@@ -20,13 +20,13 @@ function Contact() {
             <h5 className="contact__box__btns__1__h">
               Créer un compte client fidélité / Se connecter à son compte
             </h5>{" "}
-            <button
-              className="contact__box__btns__1__btn btnc"
-              onClick={() => (window.location.href = "/login")}
-            >
+            <Link to="/login">
               {" "}
-              Compte
-            </button>
+              <button className="contact__box__btns__1__btn btnc">
+                {" "}
+                Compte
+              </button>{" "}
+            </Link>
           </div>
           <div className="contact__box__btns__2">
             <h5 className="contact__box__btns__2__h">

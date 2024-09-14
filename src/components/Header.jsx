@@ -8,6 +8,20 @@ import panier from "../assets/panier.webp";
 function Header() {
   const [isLog, setIsLog] = useState(false);
   const [userId, setUserId] = useState(null);
+  const [token, setToken] = useState(null);
+  const [type, setType] = useState();
+
+  useEffect(() => {
+    const type = localStorage.getItem("type");
+    setType(type);
+
+    if (type === "adm") {
+      const tok = localStorage.getItem("token");
+    } else if (type === null || type === "usr" || type === undefined) {
+      const tok = localStorage.getItem("tokenUser");
+      setToken(tok);
+    }
+  }, [type, token]);
 
   useEffect(() => {
     const id = localStorage.getItem("userId");
@@ -47,6 +61,15 @@ function Header() {
         <Link to="/prestations" className="menu__link">
           Prestations
         </Link>
+        {type === "adm" ? (
+          <Link to="/dashboardadmin" className="menu__link">
+            Home
+          </Link>
+        ) : (
+          <Link to={`/dashboard/${userId}`} className="menu__link">
+            Home
+          </Link>
+        )}
 
         {isLog && userId ? (
           <Link to={`/dashboard/${userId}`} className="menu__link">
@@ -57,7 +80,6 @@ function Header() {
             <img src={user} alt="User profile" className="menu__link__logo" />
           </Link>
         )}
-
         <Link to="/dashboard" className="menu__link">
           <img
             src={user}
@@ -65,7 +87,6 @@ function Header() {
             className="menu__link__logo2"
           ></img>
         </Link>
-
         <Link to="/panier" className="menu__link">
           <img
             src={panier}
