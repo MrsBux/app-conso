@@ -61,15 +61,12 @@ function Header() {
         <Link to="/prestations" className="menu__link">
           Prestations
         </Link>
+
         {type === "adm" ? (
           <Link to="/dashboardadmin" className="menu__link">
             Home
           </Link>
-        ) : (
-          <Link to={`/dashboard/${userId}`} className="menu__link">
-            Home
-          </Link>
-        )}
+        ) : null}
 
         <Link to="/login" className="menu__link">
           <img src={user} alt="User profile" className="menu__link__logo" />

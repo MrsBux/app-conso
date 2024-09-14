@@ -35,7 +35,7 @@ function Login() {
 
     try {
       const response = await fetch(
-        `https://domconso-d13067f1e717.herokuapp.com/api/user/login`,
+        `${process.env.REACT_APP_BACKEND_URL}/api/user/login`,
         {
           method: "POST",
           headers: {
@@ -60,6 +60,7 @@ function Login() {
 
       const idUser = data.userId;
       setIsLoggedIn(true);
+      window.location.href = `/dashboard/${idUser}`;
     } catch (error) {
       console.error("Erreur lors de la connexion au compte :", error);
       setErrorMessage("Erreur lors de la connexion au compte");
@@ -90,11 +91,9 @@ function Login() {
 
       {isLoggedIn ? (
         <div className="login__deco">
-          <Link to="/home">
-            <button className="login__deco__btn btnG" onClick={handleLogout}>
-              Déconnexion
-            </button>{" "}
-          </Link>
+          <button className="login__deco__btn btnG" onClick={handleLogout}>
+            Déconnexion
+          </button>
         </div>
       ) : (
         <Form className="login__form" onSubmit={handleSubmit}>
@@ -124,15 +123,14 @@ function Login() {
           {errorMessage && (
             <div className="login__form__error">{errorMessage}</div>
           )}
-          <Link to={`/dashboard/${idUser}`}>
-            <button
-              name="Envoyer"
-              className="login__form__btn btnG"
-              type="submit"
-            >
-              Se connecter
-            </button>
-          </Link>
+
+          <button
+            name="Envoyer"
+            className="login__form__btn btnG"
+            type="submit"
+          >
+            Se connecter
+          </button>
           <Link to="/signup">
             <p className="login__register">Créer un compte</p>
           </Link>
