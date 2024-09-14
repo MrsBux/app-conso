@@ -16,7 +16,7 @@ function Header() {
     if (id) {
       setUserId(id);
     }
-  }, [userId, id]);
+  }, [userId]);
 
   useEffect(() => {
     const type = localStorage.getItem("type");
