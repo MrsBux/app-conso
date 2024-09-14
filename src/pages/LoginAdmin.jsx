@@ -89,14 +89,9 @@ function LoginAdmin() {
       {isLoggedIn ? (
         <div className="loginadmin__deco">
           {" "}
-          <Link to="/home">
-            <button
-              className="loginadmin__deco__btn btnG"
-              onClick={handleLogout}
-            >
-              Déconnexion
-            </button>{" "}
-          </Link>
+          <button className="loginadmin__deco__btn btnG" onClick={handleLogout}>
+            Déconnexion
+          </button>{" "}
         </div>
       ) : (
         <Form className="loginadmin__form" onSubmit={handleSubmit}>
