@@ -75,9 +75,12 @@ function Header() {
         </Link>
 
         {isLog ? (
-          <Link to="/home" className="menu__link">
+          <Link to="/" className="menu__link">
             {" "}
-            <button onClick={() => localStorage.clear()}> Logout </button>
+            <button id="btnGV" onClick={() => localStorage.clear()}>
+              {" "}
+              Logout{" "}
+            </button>
           </Link>
         ) : null}
 

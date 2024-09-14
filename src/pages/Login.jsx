@@ -66,13 +66,6 @@ function Login() {
     }
   };
 
-  const handleLogout = () => {
-    localStorage.removeItem("tokenUser");
-    localStorage.removeItem("tokenUserExpiry");
-    setIsLoggedIn(false);
-    window.location.href = "/login";
-  };
-
   return (
     <div className="login">
       <div className="login__btlles">
@@ -88,53 +81,41 @@ function Login() {
         />
       </div>
 
-      {isLoggedIn ? (
-        <div className="login__deco">
-          <button className="login__deco__btn btnG" onClick={handleLogout}>
-            Déconnexion
-          </button>
-        </div>
-      ) : (
-        <Form className="login__form" onSubmit={handleSubmit}>
-          <h3 className="login__form__title">Se connecter</h3>
+      <Form className="login__form" onSubmit={handleSubmit}>
+        <h3 className="login__form__title">Se connecter</h3>
 
-          <Form.Group className="login__form__groupe">
-            <Form.Label>Email address</Form.Label>
-            <Form.Control
-              type="email"
-              placeholder="name@example.com"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-            />
-          </Form.Group>
+        <Form.Group className="login__form__groupe">
+          <Form.Label>Email address</Form.Label>
+          <Form.Control
+            type="email"
+            placeholder="name@example.com"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+        </Form.Group>
 
-          <Form.Group className="login__form__groupe">
-            <Form.Label>Password</Form.Label>
-            <Form.Control
-              type="password"
-              name="password"
-              placeholder="Password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-            />
-          </Form.Group>
+        <Form.Group className="login__form__groupe">
+          <Form.Label>Password</Form.Label>
+          <Form.Control
+            type="password"
+            name="password"
+            placeholder="Password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+        </Form.Group>
 
-          {errorMessage && (
-            <div className="login__form__error">{errorMessage}</div>
-          )}
+        {errorMessage && (
+          <div className="login__form__error">{errorMessage}</div>
+        )}
 
-          <button
-            name="Envoyer"
-            className="login__form__btn btnG"
-            type="submit"
-          >
-            Se connecter
-          </button>
-          <Link to="/signup">
-            <p className="login__register">Créer un compte</p>
-          </Link>
-        </Form>
-      )}
+        <button name="Envoyer" className="login__form__btn btnG" type="submit">
+          Se connecter
+        </button>
+        <Link to="/signup">
+          <p className="login__register">Créer un compte</p>
+        </Link>
+      </Form>
     </div>
   );
 }
