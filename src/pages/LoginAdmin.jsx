@@ -50,9 +50,6 @@ function LoginAdmin() {
 
         // Update state
         setIsLoggedIn(true);
-
-        // Redirect or handle successful login
-        window.location.href = "/dashboardadmin"; // Change the URL to your desired route
       } else {
         const errorData = await response.json();
         console.error("Login failed:", errorData);
