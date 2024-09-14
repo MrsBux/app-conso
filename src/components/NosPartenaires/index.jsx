@@ -50,7 +50,7 @@ function NosPartenaires({ partners }) {
   const handlePost = (formData) => {
     const token = localStorage.getItem("token");
 
-    fetch(`http://localhost:3000/api/partners/New`, {
+    fetch(`${process.env.REACT_APP_BACKEND_URL}/api/partners/New`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

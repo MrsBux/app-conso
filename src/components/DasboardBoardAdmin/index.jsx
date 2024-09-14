@@ -42,7 +42,9 @@ function DashboardBoardAdmin({}) {
     console.log("Comptage des utilisateurs...");
 
     try {
-      const response = await fetch("http://localhost:3000/api/user/count");
+      const response = await fetch(
+        `${process.env.REACT_APP_BACKEND_URL}/api/user/count`
+      );
 
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
@@ -62,13 +64,16 @@ function DashboardBoardAdmin({}) {
     const token = localStorage.getItem("token");
 
     try {
-      const response = await fetch("http://localhost:3000/api/user/all", {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
-        },
-      });
+      const response = await fetch(
+        `${process.env.REACT_APP_BACKEND_URL}/api/user/all`,
+        {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
       const data = await response.json();
       setUsers(data);
     } catch (error) {
@@ -81,13 +86,16 @@ function DashboardBoardAdmin({}) {
     const token = localStorage.getItem("token");
 
     try {
-      const response = await fetch("http://localhost:3000/api/order/All", {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
-        },
-      });
+      const response = await fetch(
+        `${process.env.REACT_APP_BACKEND_URL}/api/order/All`,
+        {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
@@ -109,7 +117,7 @@ function DashboardBoardAdmin({}) {
 
     try {
       const response = await fetch(
-        "http://localhost:3000/api/formbooking/All",
+        `${process.env.REACT_APP_BACKEND_URL}/api/formbooking/All`,
         {
           method: "GET",
           headers: {
@@ -153,13 +161,16 @@ function DashboardBoardAdmin({}) {
     try {
       const allData = await Promise.all(
         routes.map(async (route) => {
-          const response = await fetch(`http://localhost:3000${route}`, {
-            method: "GET",
-            headers: {
-              "Content-Type": "application/json",
-              Authorization: `Bearer ${token}`,
-            },
-          });
+          const response = await fetch(
+            `${process.env.REACT_APP_BACKEND_URL}${route}`,
+            {
+              method: "GET",
+              headers: {
+                "Content-Type": "application/json",
+                Authorization: `Bearer ${token}`,
+              },
+            }
+          );
           if (!response.ok) {
             throw new Error(
               `HTTP error! status: ${response.status} for route: ${route}`

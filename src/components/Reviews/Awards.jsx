@@ -16,7 +16,7 @@ function Awards({ onClick }) {
   }, []);
 
   const handleAll = () => {
-    fetch("http://localhost:3000/api/prix/All")
+    fetch(`${process.env.REACT_APP_API_URL}/api/prix/All`)
       .then((response) => {
         if (!response.ok) {
           throw new Error("Erreur lors de la récupération des récompenses");
@@ -49,7 +49,7 @@ function Awards({ onClick }) {
     const data = Object.fromEntries(formData.entries());
     const token = localStorage.getItem("token");
 
-    fetch("http://localhost:3000/api/prix/New", {
+    fetch(`${process.env.REACT_APP_API_URL}/api/prix/New`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -75,7 +75,7 @@ function Awards({ onClick }) {
   const handleDelete = (id) => {
     const token = localStorage.getItem("token");
 
-    fetch(`http://localhost:3000/api/prix/${id}`, {
+    fetch(`${process.env.REACT_APP_API_URL}/api/prix/${id}`, {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",

@@ -16,7 +16,7 @@ function Signup() {
       name: event.target.elements.name.value,
     };
 
-    fetch("http://localhost:3000/api/user/signup", {
+    fetch(`${process.env.REACT_APP_BACKEND_URL}/api/user/signup`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

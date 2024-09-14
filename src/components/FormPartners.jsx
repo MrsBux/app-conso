@@ -25,7 +25,7 @@ function FormPartners() {
 
     try {
       const response = await fetch(
-        "http://127.0.0.1:3000/api/formpartner/post",
+        `${process.env.REACT_APP_BACKEND_URL}/api/formpartner/post`,
         {
           method: "POST",
           headers: {

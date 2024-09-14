@@ -20,8 +20,6 @@ const filtres = [
   { filtreName: "Autre" },
 ];
 
-const API_URL = "http://localhost:3000";
-
 function Partners() {
   const [partners, setPartners] = useState([]);
   const [filteredPartners, setFilteredPartners] = useState([]);
@@ -29,7 +27,7 @@ function Partners() {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    fetch(`${API_URL}/api/partners/`)
+    fetch(`${process.env.REACT_APP_BACKEND_URL}/api/partners/`)
       .then((response) => {
         if (!response.ok) {
           throw new Error("Erreur lors de la récupération des partenaires");

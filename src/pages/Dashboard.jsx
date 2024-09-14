@@ -21,7 +21,7 @@ function Dashboard() {
     setError(null);
     try {
       const response = await fetch(
-        `http://localhost:3000/api/user/One/${userId}`
+        `${process.env.REACT_APP_BACKEND_URL}/api/user/One/${userId}`
       );
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);

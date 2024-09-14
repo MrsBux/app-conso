@@ -22,7 +22,7 @@ function ReservationForm() {
       telephone,
     };
 
-    fetch("http://127.0.0.1:3000/api/formbooking/post", {
+    fetch(`${process.env.REACT_APP_BACKEND_URL}/api/formbooking/post`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

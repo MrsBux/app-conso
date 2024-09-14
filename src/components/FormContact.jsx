@@ -21,7 +21,7 @@ function FormContact() {
 
     try {
       const response = await fetch(
-        "http://localhost:3000/api/formcontact/post",
+        `${process.env.REACT_APP_BACKEND_URL}/api/formcontact/post`,
         {
           method: "POST",
           headers: {

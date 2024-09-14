@@ -14,7 +14,7 @@ function CardPartner({ id, logoPUrl, name, contactUrl, type, localisation }) {
   const handleDelete = (id) => {
     const token = localStorage.getItem("token");
 
-    fetch(`http://localhost:3000/api/partners/Delete/${idP}`, {
+    fetch(`${process.env.REACT_APP_BACKEND_URL}/api/partners/Delete/${idP}`, {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",

@@ -10,7 +10,7 @@ function NosActus({ isAuthenticated }) {
   const [actus, setActus] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:3000/api/actu/All")
+    fetch(`${process.env.REACT_APP_BACKEND_URL}/api/actu/All`)
       .then((response) => {
         if (!response.ok) {
           throw new Error("Erreur lors de la récupération des actualités");
@@ -39,7 +39,7 @@ function NosActus({ isAuthenticated }) {
   const handlePost = (formData) => {
     const token = localStorage.getItem("token");
 
-    fetch("http://localhost:3000/api/actu/New", {
+    fetch(`${process.env.REACT_APP_BACKEND_URL}/api/actu/New`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -68,7 +68,7 @@ function NosActus({ isAuthenticated }) {
   const handleDelete = (id) => {
     const token = localStorage.getItem("token");
 
-    fetch(`http://localhost:3000/api/actu/${id}`, {
+    fetch(`${process.env.REACT_APP_BACKEND_URL}/api/actu/${id}`, {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",

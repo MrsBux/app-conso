@@ -36,7 +36,7 @@ function DashboardBoard({
   useEffect(() => {
     const token = localStorage.getItem("token");
 
-    fetch(`http://localhost:3000/api/user/One/${userId}`, {
+    fetch(`${process.env.REACT_APP_BACKEND_URL}/api/user/One/${userId}`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",

@@ -18,13 +18,16 @@ function FormGFV() {
     };
 
     try {
-      const response = await fetch("http://localhost:3000/api/formGFV/post", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      });
+      const response = await fetch(
+        `${process.env.REACT_APP_BACKEND_URL}/api/formGFV/post`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formData),
+        }
+      );
 
       if (!response.ok) {
         throw new Error("Erreur lors de l'envoi du formulaire");

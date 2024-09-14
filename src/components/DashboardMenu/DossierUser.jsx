@@ -16,7 +16,9 @@ function DossierUser() {
 
   const getMyOrders = async () => {
     try {
-      const response = await fetch("http://localhost:3000/api/order/All");
+      const response = await fetch(
+        `${process.env.REACT_APP_BACKEND_URL}/api/order/All`
+      );
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
       }

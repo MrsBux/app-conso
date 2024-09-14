@@ -23,7 +23,7 @@ function UserBook({ user }) {
 
     try {
       const response = fetch(
-        `http://localhost:3000/api/user/update/${userId}`,
+        `${process.env.REACT_APP_BACKEND_URL}/api/user/update/${userId}`,
         {
           method: "PUT",
           headers: {
@@ -47,7 +47,7 @@ function UserBook({ user }) {
 
     try {
       const response = fetch(
-        `http://localhost:3000/api/user/update/${userId}`,
+        `${process.env.REACT_APP_BACKEND_URL}/api/user/update/${userId}`,
         {
           method: "PUT",
           headers: {

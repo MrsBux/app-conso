@@ -28,13 +28,16 @@ function LoginAdmin() {
     event.preventDefault();
 
     try {
-      const response = await fetch("http://localhost:3000/api/admin/login", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ email, password }),
-      });
+      const response = await fetch(
+        `${process.env.REACT_APP_BACKEND_URL}/api/admin/login`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ email, password }),
+        }
+      );
 
       if (response.ok) {
         const data = await response.json();

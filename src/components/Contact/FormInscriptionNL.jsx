@@ -11,13 +11,16 @@ function FormInscriptionNL() {
     const formData = { email };
 
     try {
-      const response = await fetch("http://localhost:3000/api/newssubs/post", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      });
+      const response = await fetch(
+        `${process.env.REACT_APP_BACKEND_URL}/api/newssubs/post`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formData),
+        }
+      );
 
       if (!response.ok) {
         throw new Error("Erreur lors de l'inscription à la newsletter");
