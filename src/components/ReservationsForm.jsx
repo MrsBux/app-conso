@@ -22,7 +22,7 @@ function ReservationForm() {
       telephone,
     };
 
-    fetch(`${process.env.REACT_APP_BACKEND_URL}/api/formbooking/post`, {
+    fetch(`https://domconso-d13067f1e717.herokuapp.com/api/formbooking/post`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

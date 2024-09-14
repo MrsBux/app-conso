@@ -52,7 +52,7 @@ function BouteilleCard({
 
     try {
       const response = await fetch(
-        `${process.env.REACT_APP_BACKEND_URL}/api/user/update/${userId}`,
+        `https://domconso-d13067f1e717.herokuapp.com/api/user/update/${userId}`,
         {
           method: "PUT",
           headers: {

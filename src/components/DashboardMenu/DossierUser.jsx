@@ -17,7 +17,7 @@ function DossierUser() {
   const getMyOrders = async () => {
     try {
       const response = await fetch(
-        `${process.env.REACT_APP_BACKEND_URL}/api/order/All`
+        `https://domconso-d13067f1e717.herokuapp.com/api/order/All`
       );
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);

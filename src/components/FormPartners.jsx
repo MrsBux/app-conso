@@ -25,7 +25,7 @@ function FormPartners() {
 
     try {
       const response = await fetch(
-        `${process.env.REACT_APP_BACKEND_URL}/api/formpartner/post`,
+        `https://domconso-d13067f1e717.herokuapp.com/api/formpartner/post`,
         {
           method: "POST",
           headers: {

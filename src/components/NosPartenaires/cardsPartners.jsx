@@ -14,13 +14,16 @@ function CardPartner({ id, logoPUrl, name, contactUrl, type, localisation }) {
   const handleDelete = (id) => {
     const token = localStorage.getItem("token");
 
-    fetch(`${process.env.REACT_APP_BACKEND_URL}/api/partners/Delete/${idP}`, {
-      method: "DELETE",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`,
-      },
-    })
+    fetch(
+      `https://domconso-d13067f1e717.herokuapp.com/api/partners/Delete/${idP}`,
+      {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    )
       .then((response) => {
         if (!response.ok) {
           throw new Error("Erreur lors de la suppression du partenaire");

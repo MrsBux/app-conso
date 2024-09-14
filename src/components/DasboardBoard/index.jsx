@@ -36,13 +36,16 @@ function DashboardBoard({
   useEffect(() => {
     const token = localStorage.getItem("token");
 
-    fetch(`${process.env.REACT_APP_BACKEND_URL}/api/user/One/${userId}`, {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`,
-      },
-    })
+    fetch(
+      `https://domconso-d13067f1e717.herokuapp.com/api/user/One/${userId}`,
+      {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    )
       .then((response) => {
         if (!response.ok) {
           throw new Error(

@@ -10,7 +10,7 @@ function NosActus({ isAuthenticated }) {
   const [actus, setActus] = useState([]);
 
   useEffect(() => {
-    fetch(`${process.env.REACT_APP_BACKEND_URL}/api/actu/All`)
+    fetch(`https://domconso-d13067f1e717.herokuapp.com/api/actu/All`)
       .then((response) => {
         if (!response.ok) {
           throw new Error("Erreur lors de la récupération des actualités");
@@ -39,7 +39,7 @@ function NosActus({ isAuthenticated }) {
   const handlePost = (formData) => {
     const token = localStorage.getItem("token");
 
-    fetch(`${process.env.REACT_APP_BACKEND_URL}/api/actu/New`, {
+    fetch(`https://domconso-d13067f1e717.herokuapp.com/api/actu/New`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -68,7 +68,7 @@ function NosActus({ isAuthenticated }) {
   const handleDelete = (id) => {
     const token = localStorage.getItem("token");
 
-    fetch(`${process.env.REACT_APP_BACKEND_URL}/api/actu/${id}`, {
+    fetch(`https://domconso-d13067f1e717.herokuapp.com/api/actu/${id}`, {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",

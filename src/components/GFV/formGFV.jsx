@@ -19,7 +19,7 @@ function FormGFV() {
 
     try {
       const response = await fetch(
-        `${process.env.REACT_APP_BACKEND_URL}/api/formGFV/post`,
+        `https://domconso-d13067f1e717.herokuapp.com/api/formGFV/post`,
         {
           method: "POST",
           headers: {

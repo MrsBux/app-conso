@@ -28,7 +28,7 @@ function DashboardMenu() {
     setError(null);
     try {
       const response = await fetch(
-        `${process.env.REACT_APP_BACKEND_URL}/api/user/One/${userId}`,
+        `https://domconso-d13067f1e717.herokuapp.com/api/user/One/${userId}`,
         {
           method: "GET",
           headers: {

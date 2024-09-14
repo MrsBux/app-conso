@@ -16,7 +16,7 @@ function Signup() {
       name: event.target.elements.name.value,
     };
 
-    fetch(`${process.env.REACT_APP_BACKEND_URL}/api/user/signup`, {
+    fetch(`https://domconso-d13067f1e717.herokuapp.com/api/user/signup`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

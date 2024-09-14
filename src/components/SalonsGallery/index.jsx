@@ -41,7 +41,7 @@ function SalonGallery() {
   const getAllSalons = async () => {
     try {
       const response = await fetch(
-        `${process.env.REACT_APP_BACKEND_URL}/api/salons/`
+        `https://domconso-d13067f1e717.herokuapp.com/api/salons/`
       );
       if (!response.ok) {
         throw new Error("Failed to fetch salons");
@@ -86,7 +86,7 @@ function SalonGallery() {
       formDataToSend.append("logoUrl", formData.logoUrl);
       formDataToSend.append("invitation", formData.invitation);
 
-      const url = `${process.env.REACT_APP_BACKEND_URL}/api/salons/New`;
+      const url = `https://domconso-d13067f1e717.herokuapp.com/api/salons/New`;
       const response = await fetch(url, {
         method: "POST",
         headers: {

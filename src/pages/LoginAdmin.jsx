@@ -29,7 +29,7 @@ function LoginAdmin() {
 
     try {
       const response = await fetch(
-        `${process.env.REACT_APP_BACKEND_URL}/api/admin/login`,
+        `https://domconso-d13067f1e717.herokuapp.com/api/admin/login`,
         {
           method: "POST",
           headers: {

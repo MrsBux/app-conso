@@ -27,7 +27,7 @@ function Partners() {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    fetch(`${process.env.REACT_APP_BACKEND_URL}/api/partners/`)
+    fetch(`https://domconso-d13067f1e717.herokuapp.com/api/partners/`)
       .then((response) => {
         if (!response.ok) {
           throw new Error("Erreur lors de la récupération des partenaires");

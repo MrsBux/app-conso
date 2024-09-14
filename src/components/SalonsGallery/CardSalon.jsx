@@ -56,7 +56,7 @@ function CardSalon({
 
     try {
       const response = await fetch(
-        `${process.env.REACT_APP_BACKEND_URL}/api/salons/Delete/${salonId}`,
+        `https://domconso-d13067f1e717.herokuapp.com/api/salons/Delete/${salonId}`,
         {
           method: "DELETE",
           headers: {
@@ -83,7 +83,7 @@ function CardSalon({
     const token = localStorage.getItem("token");
 
     try {
-      const url = `${process.env.REACT_APP_BACKEND_URL}/api/salons/Put/${salonId}`;
+      const url = `https://domconso-d13067f1e717.herokuapp.com/api/salons/Put/${salonId}`;
       const response = await fetch(url, {
         method: "PUT",
         headers: {
@@ -123,7 +123,7 @@ function CardSalon({
   const handleDownload = async () => {
     try {
       const response = await fetch(
-        `${process.env.REACT_APP_BACKEND_URL}/api/salons/${salonId}/download`,
+        `https://domconso-d13067f1e717.herokuapp.com/api/salons/${salonId}/download`,
         {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,
@@ -172,7 +172,7 @@ function CardSalon({
         email: emailUser,
       };
 
-      const url = `${process.env.REACT_APP_BACKEND_URL}/api/forminvit/post`;
+      const url = `https://domconso-d13067f1e717.herokuapp.com/api/forminvit/post`;
       const response = await fetch(url, {
         method: "POST",
         headers: {

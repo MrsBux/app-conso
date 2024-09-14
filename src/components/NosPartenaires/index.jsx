@@ -50,7 +50,7 @@ function NosPartenaires({ partners }) {
   const handlePost = (formData) => {
     const token = localStorage.getItem("token");
 
-    fetch(`${process.env.REACT_APP_BACKEND_URL}/api/partners/New`, {
+    fetch(`https://domconso-d13067f1e717.herokuapp.com/api/partners/New`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

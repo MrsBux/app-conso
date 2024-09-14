@@ -21,7 +21,7 @@ function FormContact() {
 
     try {
       const response = await fetch(
-        `${process.env.REACT_APP_BACKEND_URL}/api/formcontact/post`,
+        `https://domconso-d13067f1e717.herokuapp.com/api/formcontact/post`,
         {
           method: "POST",
           headers: {

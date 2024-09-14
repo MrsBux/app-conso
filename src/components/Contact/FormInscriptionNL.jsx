@@ -12,7 +12,7 @@ function FormInscriptionNL() {
 
     try {
       const response = await fetch(
-        `${process.env.REACT_APP_BACKEND_URL}/api/newssubs/post`,
+        `https://domconso-d13067f1e717.herokuapp.com/api/newssubs/post`,
         {
           method: "POST",
           headers: {

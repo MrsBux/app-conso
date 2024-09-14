@@ -43,7 +43,7 @@ function DashboardBoardAdmin({}) {
 
     try {
       const response = await fetch(
-        `${process.env.REACT_APP_BACKEND_URL}/api/user/count`
+        `https://domconso-d13067f1e717.herokuapp.com/api/user/count`
       );
 
       if (!response.ok) {
@@ -65,7 +65,7 @@ function DashboardBoardAdmin({}) {
 
     try {
       const response = await fetch(
-        `${process.env.REACT_APP_BACKEND_URL}/api/user/all`,
+        `https://domconso-d13067f1e717.herokuapp.com/api/user/all`,
         {
           method: "GET",
           headers: {
@@ -87,7 +87,7 @@ function DashboardBoardAdmin({}) {
 
     try {
       const response = await fetch(
-        `${process.env.REACT_APP_BACKEND_URL}/api/order/All`,
+        `https://domconso-d13067f1e717.herokuapp.com/api/order/All`,
         {
           method: "GET",
           headers: {
@@ -117,7 +117,7 @@ function DashboardBoardAdmin({}) {
 
     try {
       const response = await fetch(
-        `${process.env.REACT_APP_BACKEND_URL}/api/formbooking/All`,
+        `https://domconso-d13067f1e717.herokuapp.com/api/formbooking/All`,
         {
           method: "GET",
           headers: {
@@ -162,7 +162,7 @@ function DashboardBoardAdmin({}) {
       const allData = await Promise.all(
         routes.map(async (route) => {
           const response = await fetch(
-            `${process.env.REACT_APP_BACKEND_URL}${route}`,
+            `https://domconso-d13067f1e717.herokuapp.com${route}`,
             {
               method: "GET",
               headers: {

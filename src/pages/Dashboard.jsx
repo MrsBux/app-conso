@@ -21,7 +21,7 @@ function Dashboard() {
     setError(null);
     try {
       const response = await fetch(
-        `${process.env.REACT_APP_BACKEND_URL}/api/user/One/${userId}`
+        `https://domconso-d13067f1e717.herokuapp.com/api/user/One/${userId}`
       );
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
