@@ -79,6 +79,13 @@ function Header() {
           <img src={user} alt="User profile" className="menu__link__logo" />
         </Link>
 
+        {isLog ? (
+          <Link to="/home" className="menu__link">
+            {" "}
+            <button onClick={() => localStorage.clear()}> Logout </button>
+          </Link>
+        ) : null}
+
         <Link to="/dashboard" className="menu__link">
           <img
             src={user}

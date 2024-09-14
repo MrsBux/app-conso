@@ -86,52 +86,43 @@ function LoginAdmin() {
         />
       </div>
 
-      {isLoggedIn ? (
-        <div className="loginadmin__deco">
-          {" "}
-          <button className="loginadmin__deco__btn btnG" onClick={handleLogout}>
-            Déconnexion
-          </button>{" "}
-        </div>
-      ) : (
-        <Form className="loginadmin__form" onSubmit={handleSubmit}>
-          <h3 className="loginadmin__form__title">Se connecter</h3>
+      <Form className="loginadmin__form" onSubmit={handleSubmit}>
+        <h3 className="loginadmin__form__title">Se connecter</h3>
 
-          <Form.Group className="loginadmin__form__groupe">
-            <Form.Label>Email address</Form.Label>
-            <Form.Control
-              id="inputemail"
-              type="email"
-              placeholder="name@example.com"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-            />
-          </Form.Group>
+        <Form.Group className="loginadmin__form__groupe">
+          <Form.Label>Email address</Form.Label>
+          <Form.Control
+            id="inputemail"
+            type="email"
+            placeholder="name@example.com"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+        </Form.Group>
 
-          <Form.Group className="loginadmin__form__groupe">
-            <Form.Label>Password</Form.Label>
-            <Form.Control
-              type="password"
-              name="password"
-              placeholder="Password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-            />
-          </Form.Group>
+        <Form.Group className="loginadmin__form__groupe">
+          <Form.Label>Password</Form.Label>
+          <Form.Control
+            type="password"
+            name="password"
+            placeholder="Password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+        </Form.Group>
 
-          {errorMessage && (
-            <div className="loginadmin__form__error">{errorMessage}</div>
-          )}
+        {errorMessage && (
+          <div className="loginadmin__form__error">{errorMessage}</div>
+        )}
 
-          <button
-            name="Envoyer"
-            className="loginadmin__form__btn btnG"
-            type="submit"
-          >
-            Se connecter
-          </button>
-        </Form>
-      )}
+        <button
+          name="Envoyer"
+          className="loginadmin__form__btn btnG"
+          type="submit"
+        >
+          Se connecter
+        </button>
+      </Form>
     </div>
   );
 }
