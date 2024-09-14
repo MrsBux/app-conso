@@ -7,8 +7,8 @@ import panier from "../assets/panier.webp";
 
 function Header() {
   const [isLog, setIsLog] = useState(false);
-  const [userId, setUserId] = useState(null);
-  const [token, setToken] = useState(null);
+  const [userId, setUserId] = useState();
+  const [token, setToken] = useState();
   const [type, setType] = useState();
 
   useEffect(() => {
@@ -23,6 +23,7 @@ function Header() {
       const tok = localStorage.getItem("tokenUser");
       const id = localStorage.getItem("userId");
       setUserId(id);
+      console.log(userId);
 
       if (tok) {
         setIsLog(true);
