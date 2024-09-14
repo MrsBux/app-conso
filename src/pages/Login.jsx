@@ -60,7 +60,6 @@ function Login() {
 
       const idUser = data.userId;
       setIsLoggedIn(true);
-      window.location.href = `/dashboard/${idUser}`;
     } catch (error) {
       console.error("Erreur lors de la connexion au compte :", error);
       setErrorMessage("Erreur lors de la connexion au compte");

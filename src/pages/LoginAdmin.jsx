@@ -69,7 +69,6 @@ function LoginAdmin() {
     localStorage.removeItem("tokenExpiry");
     localStorage.removeItem("type");
     setIsLoggedIn(false);
-    window.location.href = "/loginadmin"; // Redirect to login page
   };
 
   return (
