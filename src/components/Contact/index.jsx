@@ -22,7 +22,7 @@ function Contact() {
             </h5>{" "}
             <button
               className="contact__box__btns__1__btn btnc"
-              onClick={handleClick}
+              onClick={() => (window.location.href = "/login")}
             >
               {" "}
               Compte
