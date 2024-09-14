@@ -19,8 +19,7 @@ function Header() {
       const tok = localStorage.getItem("token");
       setToken(tok);
       setIsLog(true);
-    } else if (type === null || type === "usr" || type === undefined) {
-      setType("null");
+    } else if (type === "user") {
       const tok = localStorage.getItem("tokenUser");
 
       if (tok) {
@@ -64,7 +63,7 @@ function Header() {
           </Link>
         ) : null}
 
-        {type === "null" && token ? (
+        {type === "user" ? (
           <Link to={`/dashboard/${userId}`} className="menu__link">
             Home{" "}
           </Link>

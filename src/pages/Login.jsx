@@ -57,6 +57,7 @@ function Login() {
       localStorage.setItem("userId", data.userId);
       localStorage.setItem("name", data.name);
       localStorage.setItem("email", email);
+      localStorage.setItem("type", "user");
 
       const idUser = data.userId;
       setIsLoggedIn(true);
