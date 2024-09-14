@@ -47,6 +47,7 @@ function LoginAdmin() {
         localStorage.setItem("token", data.token);
         localStorage.setItem("tokenExpiry", tokenExpiry);
         localStorage.setItem("type", "adm");
+        alert("Connexion reussie");
 
         // Update state
         setIsLoggedIn(true);

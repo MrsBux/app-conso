@@ -35,7 +35,7 @@ function Login() {
 
     try {
       const response = await fetch(
-        `${process.env.REACT_APP_BACKEND_URL}/api/user/login`,
+        `https://domconso-d13067f1e717.herokuapp.com/api/user/login`,
         {
           method: "POST",
           headers: {
@@ -60,6 +60,7 @@ function Login() {
 
       const idUser = data.userId;
       setIsLoggedIn(true);
+      alert("Connexion reussie");
     } catch (error) {
       console.error("Erreur lors de la connexion au compte :", error);
       setErrorMessage("Erreur lors de la connexion au compte");
