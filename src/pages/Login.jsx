@@ -60,7 +60,6 @@ function Login() {
 
       const idUser = data.userId;
       setIsLoggedIn(true);
-      window.location.href = `/dashboard/${idUser}`;
     } catch (error) {
       console.error("Erreur lors de la connexion au compte :", error);
       setErrorMessage("Erreur lors de la connexion au compte");
@@ -91,9 +90,11 @@ function Login() {
 
       {isLoggedIn ? (
         <div className="login__deco">
-          <button className="login__deco__btn btnG" onClick={handleLogout}>
-            Déconnexion
-          </button>
+          <Link to="/home">
+            <button className="login__deco__btn btnG" onClick={handleLogout}>
+              Déconnexion
+            </button>{" "}
+          </Link>
         </div>
       ) : (
         <Form className="login__form" onSubmit={handleSubmit}>
@@ -123,14 +124,15 @@ function Login() {
           {errorMessage && (
             <div className="login__form__error">{errorMessage}</div>
           )}
-
-          <button
-            name="Envoyer"
-            className="login__form__btn btnG"
-            type="submit"
-          >
-            Se connecter
-          </button>
+          <Link to={`/dashboard/${idUser}`}>
+            <button
+              name="Envoyer"
+              className="login__form__btn btnG"
+              type="submit"
+            >
+              Se connecter
+            </button>
+          </Link>
           <Link to="/signup">
             <p className="login__register">Créer un compte</p>
           </Link>

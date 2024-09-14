@@ -50,9 +50,6 @@ function LoginAdmin() {
 
         // Update state
         setIsLoggedIn(true);
-
-        // Redirect or handle successful login
-        window.location.href = "/dashboardadmin"; // Change the URL to your desired route
       } else {
         const errorData = await response.json();
         console.error("Login failed:", errorData);
@@ -89,9 +86,15 @@ function LoginAdmin() {
 
       {isLoggedIn ? (
         <div className="loginadmin__deco">
-          <button className="loginadmin__deco__btn btnG" onClick={handleLogout}>
-            Déconnexion
-          </button>{" "}
+          {" "}
+          <Link to="/home">
+            <button
+              className="loginadmin__deco__btn btnG"
+              onClick={handleLogout}
+            >
+              Déconnexion
+            </button>{" "}
+          </Link>
         </div>
       ) : (
         <Form className="loginadmin__form" onSubmit={handleSubmit}>
@@ -122,14 +125,15 @@ function LoginAdmin() {
           {errorMessage && (
             <div className="loginadmin__form__error">{errorMessage}</div>
           )}
-
-          <button
-            name="Envoyer"
-            className="loginadmin__form__btn btnG"
-            type="submit"
-          >
-            Se connecter
-          </button>
+          <Link to={`/dashboardadmin`}>
+            <button
+              name="Envoyer"
+              className="loginadmin__form__btn btnG"
+              type="submit"
+            >
+              Se connecter
+            </button>{" "}
+          </Link>
         </Form>
       )}
     </div>
