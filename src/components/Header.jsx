@@ -17,23 +17,18 @@ function Header() {
 
     if (type === "adm") {
       const tok = localStorage.getItem("token");
+      setToken(tok);
+      setIsLog(true);
     } else if (type === null || type === "usr" || type === undefined) {
       setType("null");
       const tok = localStorage.getItem("tokenUser");
-      setToken(tok);
+
+      if (tok) {
+        setIsLog(true);
+        setToken(tok);
+      }
     }
   }, [type, token]);
-
-  useEffect(() => {
-    const id = localStorage.getItem("userId");
-    setUserId(id);
-    console.log(id, userId, "id");
-    if (userId) {
-      setIsLog(true);
-    } else {
-      setIsLog(false);
-    }
-  }, []);
 
   return (
     <header>
