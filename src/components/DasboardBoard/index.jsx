@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { useAuth } from "../../store/AuthContext";
 
 import bch2020 from "../../assets/bch2020.webp";
@@ -25,8 +25,11 @@ function DashboardBoard({
 
   const [user, setUser] = useState(null);
 
+  const navigate = useNavigate();
+
   const handleLogout = () => {
     logout();
+    navigate("/login");
   };
 
   useEffect(() => {
