@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useNavigate } from "react";
 import Form from "react-bootstrap/Form";
 import "../style/css/loginadmin.css";
 import btle from "../assets/ch9B.webp";
@@ -23,6 +23,8 @@ function LoginAdmin() {
       setIsLoggedIn(false);
     }
   }, []);
+
+  const navigate = useNavigate();
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -51,6 +53,7 @@ function LoginAdmin() {
 
         // Update state
         setIsLoggedIn(true);
+        navigate("/");
       } else {
         const errorData = await response.json();
         console.error("Login failed:", errorData);
@@ -86,7 +89,6 @@ function LoginAdmin() {
 
       <Form className="loginadmin__form" onSubmit={handleSubmit}>
         <h3 className="loginadmin__form__title">Se connecter</h3>
-
         <Form.Group className="loginadmin__form__groupe">
           <Form.Label>Email address</Form.Label>
           <Form.Control
@@ -97,7 +99,6 @@ function LoginAdmin() {
             onChange={(e) => setEmail(e.target.value)}
           />
         </Form.Group>
-
         <Form.Group className="loginadmin__form__groupe">
           <Form.Label>Password</Form.Label>
           <Form.Control
@@ -108,19 +109,16 @@ function LoginAdmin() {
             onChange={(e) => setPassword(e.target.value)}
           />
         </Form.Group>
-
         {errorMessage && (
           <div className="loginadmin__form__error">{errorMessage}</div>
         )}
-        <Link to="/">
-          <button
-            name="Envoyer"
-            className="loginadmin__form__btn btnG"
-            type="submit"
-          >
-            Se connecter
-          </button>{" "}
-        </Link>
+        <button
+          name="Envoyer"
+          className="loginadmin__form__btn btnG"
+          type="submit"
+        >
+          Se connecter
+        </button>{" "}
       </Form>
     </div>
   );

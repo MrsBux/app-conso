@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useNavigate } from "react";
 import Form from "react-bootstrap/Form";
 import { Link } from "react-router-dom";
 import "../style/css/login.css";
@@ -24,6 +24,10 @@ function Login() {
       setIsLoggedIn(false);
     }
   }, []);
+
+  const navigate = useNavigate();
+  // Redirection vers la page d'accueil
+  navigate("/");
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -85,7 +89,6 @@ function Login() {
 
       <Form className="login__form" onSubmit={handleSubmit}>
         <h3 className="login__form__title">Se connecter</h3>
-
         <Form.Group className="login__form__groupe">
           <Form.Label>Email address</Form.Label>
           <Form.Control
@@ -95,7 +98,6 @@ function Login() {
             onChange={(e) => setEmail(e.target.value)}
           />
         </Form.Group>
-
         <Form.Group className="login__form__groupe">
           <Form.Label>Password</Form.Label>
           <Form.Control
@@ -106,19 +108,12 @@ function Login() {
             onChange={(e) => setPassword(e.target.value)}
           />
         </Form.Group>
-
         {errorMessage && (
           <div className="login__form__error">{errorMessage}</div>
         )}
-        <Link to="/">
-          <button
-            name="Envoyer"
-            className="login__form__btn btnG"
-            type="submit"
-          >
-            Se connecter
-          </button>{" "}
-        </Link>
+        <button name="Envoyer" className="login__form__btn btnG" type="submit">
+          Se connecter
+        </button>{" "}
         <Link to="/signup">
           <p className="login__register">Créer un compte</p>
         </Link>
