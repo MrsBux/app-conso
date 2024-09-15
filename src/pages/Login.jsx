@@ -62,7 +62,6 @@ function Login() {
       const idUser = data.userId;
       setIsLoggedIn(true);
       alert("Connexion reussie");
-      window.location.reload();
     } catch (error) {
       console.error("Erreur lors de la connexion au compte :", error);
       setErrorMessage("Erreur lors de la connexion au compte");
@@ -111,10 +110,15 @@ function Login() {
         {errorMessage && (
           <div className="login__form__error">{errorMessage}</div>
         )}
-
-        <button name="Envoyer" className="login__form__btn btnG" type="submit">
-          Se connecter
-        </button>
+        <Link to="/">
+          <button
+            name="Envoyer"
+            className="login__form__btn btnG"
+            type="submit"
+          >
+            Se connecter
+          </button>{" "}
+        </Link>
         <Link to="/signup">
           <p className="login__register">Créer un compte</p>
         </Link>

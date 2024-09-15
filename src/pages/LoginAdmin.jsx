@@ -51,7 +51,6 @@ function LoginAdmin() {
 
         // Update state
         setIsLoggedIn(true);
-        window.location.reload();
       } else {
         const errorData = await response.json();
         console.error("Login failed:", errorData);
@@ -113,14 +112,15 @@ function LoginAdmin() {
         {errorMessage && (
           <div className="loginadmin__form__error">{errorMessage}</div>
         )}
-
-        <button
-          name="Envoyer"
-          className="loginadmin__form__btn btnG"
-          type="submit"
-        >
-          Se connecter
-        </button>
+        <Link to="/">
+          <button
+            name="Envoyer"
+            className="loginadmin__form__btn btnG"
+            type="submit"
+          >
+            Se connecter
+          </button>{" "}
+        </Link>
       </Form>
     </div>
   );
