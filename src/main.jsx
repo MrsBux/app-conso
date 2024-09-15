@@ -23,13 +23,6 @@ function App() {
     window.scrollTo(0, 0); // Scroll to the top on component mount
   }, []);
 
-  useEffect(() => {
-    const type = localStorage.getItem("type");
-    if (type) {
-      window.location.reload();
-    }
-  }, []);
-
   return (
     <React.StrictMode>
       <Router>
