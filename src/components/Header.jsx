@@ -36,7 +36,7 @@ function Header() {
     }
   }, [type, token]);
 
-  const handle = () => {
+  const handlelogout = () => {
     localStorage.clear();
     window.location.reload();
   };
@@ -90,7 +90,7 @@ function Header() {
         {isLog ? (
           <Link to="/" className="menu__link">
             {" "}
-            <button id="btnGV" onClick={() => localStorage.clear()}>
+            <button id="btnGV" onClick={handlelogout}>
               {" "}
               Logout{" "}
             </button>
