@@ -54,6 +54,7 @@ function LoginAdmin() {
 
         // Update state
         setIsLoggedIn(true);
+
         navigate("/");
       } else {
         const errorData = await response.json();

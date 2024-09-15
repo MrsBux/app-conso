@@ -66,6 +66,7 @@ function Login() {
       const idUser = data.userId;
       setIsLoggedIn(true);
       alert("Connexion reussie");
+
       navigate("/");
     } catch (error) {
       console.error("Erreur lors de la connexion au compte :", error);
