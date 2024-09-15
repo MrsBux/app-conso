@@ -36,6 +36,11 @@ function Header() {
     }
   }, [type, token]);
 
+  const handle = () => {
+    localStorage.clear();
+    window.location.reload();
+  };
+
   return (
     <header>
       <div className="logo">
@@ -66,19 +71,21 @@ function Header() {
 
         {type === "adm" ? (
           <Link to="/dashboardadmin" className="menu__link">
-            Home
+            Mon espace
           </Link>
         ) : null}
 
         {type === "user" ? (
           <Link to={`/dashboard/${userId}`} className="menu__link">
-            Home{" "}
+            Mon espace
           </Link>
         ) : null}
 
-        <Link to="/login" className="menu__link">
-          <img src={user} alt="User profile" className="menu__link__logo" />
-        </Link>
+        {type === "user" ? null : (
+          <Link to="/login" className="menu__link">
+            <img src={user} alt="User profile" className="menu__link__logo" />
+          </Link>
+        )}
 
         {isLog ? (
           <Link to="/" className="menu__link">

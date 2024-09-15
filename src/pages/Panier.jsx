@@ -375,10 +375,10 @@ function Panier() {
                     btnShow={
                       <Form.Check
                         type="radio"
-                        id="option1"
+                        id="retrait-domaine"
                         label="Retrait au domaine sous 31 jours (gratuit)"
-                        checked={selectedOption === "option1"}
-                        onChange={() => handleRadioChange("option1")}
+                        checked={selectedOption === "retrait-domaine"}
+                        onChange={() => handleRadioChange("retrait-domaine")}
                       />
                     }
                     modalContent={
@@ -450,10 +450,10 @@ function Panier() {
                     btnShow={
                       <Form.Check
                         type="radio"
-                        id="option2"
+                        id="retrait-salon"
                         label="Retrait lors du salon le plus proche de chez moi (gratuit) "
-                        checked={selectedOption === "option2"}
-                        onChange={() => handleRadioChange("option2")}
+                        checked={selectedOption === "retrait-salon"}
+                        onChange={() => handleRadioChange("retrait-salon")}
                         disabled={true} // Désactive cette option
                       />
                     }
@@ -478,10 +478,10 @@ function Panier() {
                     btnShow={
                       <Form.Check
                         type="radio"
-                        id="option3"
+                        id="livraison"
                         label="Livraison à domicile (voir la grille explicative des tarifs)"
-                        checked={selectedOption === "option3"}
-                        onChange={() => handleRadioChange("option3")}
+                        checked={selectedOption === "livraison"}
+                        onChange={() => handleRadioChange("livraison")}
                       />
                     }
                     title={"Explications de nos frais d'expédition"}
@@ -524,10 +524,10 @@ function Panier() {
                 <div className="panier__box2__coordonnees__form__box">
                   <Form.Check
                     type="radio"
-                    id="option5"
+                    id="coordonnées"
                     label="Je rentre directement mes coordonnées "
-                    checked={selectedOption2 === "option5"}
-                    onChange={() => handleRadioChange2("option5")}
+                    checked={selectedOption2 === "coordonnées"}
+                    onChange={() => handleRadioChange2("coordonnées")}
                   />
 
                   <div className=" panier__box2__coordonnees__form__box__input">
@@ -594,10 +594,12 @@ function Panier() {
                     btnShow={
                       <Form.Check
                         type="radio"
-                        id="option6"
+                        id="paiement-par-carte"
                         label="Paiement par carte"
-                        checked={selectedOption3 === "option6"}
-                        onChange={() => handleRadioChange3("option6")}
+                        checked={selectedOption3 === "paiement-par-carte"}
+                        onChange={() =>
+                          handleRadioChange3("paiement-par-carte")
+                        }
                         disabled={true} // Désactive cette option
                       />
                     }
@@ -648,10 +650,10 @@ function Panier() {
                     btnShow={
                       <Form.Check
                         type="radio"
-                        id="option7"
+                        id="paiement-virement"
                         label=" Paiement par virement "
-                        checked={selectedOption3 === "option7"}
-                        onChange={() => handleRadioChange3("option7")}
+                        checked={selectedOption3 === "paiement-virement"}
+                        onChange={() => handleRadioChange3("paiement-virement")}
                       />
                     }
                     modalContent={
@@ -710,10 +712,10 @@ function Panier() {
                     btnShow={
                       <Form.Check
                         type="radio"
-                        id="option9"
+                        id="paiement-cheque"
                         label="Paiement par chèque"
-                        checked={selectedOption3 === "option9"}
-                        onChange={() => handleRadioChange3("option9")}
+                        checked={selectedOption3 === "paiement-cheque"}
+                        onChange={() => handleRadioChange3("paiement-cheque")}
                       />
                     }
                     modalContent={
@@ -764,10 +766,10 @@ function Panier() {
                     btnShow={
                       <Form.Check
                         type="radio"
-                        id="option8"
+                        id="paiement-retrait"
                         label="Paiement au retrait (si option retrait au domaine ou en salon choisie)"
-                        checked={selectedOption3 === "option8"}
-                        onChange={() => handleRadioChange3("option8")}
+                        checked={selectedOption3 === "paiment-retrait"}
+                        onChange={() => handleRadioChange3("paiment-retrait")}
                       />
                     }
                     modalContent={
