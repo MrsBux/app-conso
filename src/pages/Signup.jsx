@@ -1,11 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import Form from "react-bootstrap/Form";
 import "../style/css/signup.css";
 import btle from "../assets/lirac.webp";
 import btle2 from "../assets/lirac13.webp";
 
 function Signup() {
+  const navigate = useNavigate();
   const handleSubmit = (event) => {
     event.preventDefault(); // Empêche le rechargement de la page par défaut
 
@@ -34,7 +36,7 @@ function Signup() {
 
         alert("Compte créé!");
 
-        window.location.href = "/login"; // Redirige vers la page de connexion après 3 secondes
+        navigate("/login"); // Redirige vers la page de connexion après 3 secondes
       })
       .catch((error) => {
         console.error("Erreur lors de la création du compte :", error);

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import Filtre from "../Catalogue/Filtre";
 import CardPartner from "./cardsPartners";
 import BtnAjouter from "../BtnAjouter";
@@ -7,6 +8,7 @@ import Form from "react-bootstrap/Form";
 import "../../style/css/nospartenaires.css";
 
 function NosPartenaires({ partners }) {
+  const navigate = useNavigate();
   const filtres = [
     { filtreName: "Restaurateurs" },
     { filtreName: "Caviste" },
@@ -69,7 +71,7 @@ function NosPartenaires({ partners }) {
         return response.json();
       })
       .then((data) => {
-        window.location.href = "/";
+        navigate("/partners");
       })
       .catch((error) => {
         console.error(
