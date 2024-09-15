@@ -71,6 +71,7 @@ function NosPartenaires({ partners }) {
         return response.json();
       })
       .then((data) => {
+        alert("Partenaire enregistré");
         navigate("/partners");
       })
       .catch((error) => {

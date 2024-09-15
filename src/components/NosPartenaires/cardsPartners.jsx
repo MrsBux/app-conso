@@ -1,9 +1,11 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "../../style/css/cardpartner.css";
 import ModalT from "../ModalT";
 import BtnSupprimer from "../BtnSupprimer";
 
 function CardPartner({ id, logoPUrl, name, contactUrl, type, localisation }) {
+  const navigate = useNavigate();
   const [isCardFlipped, setIsCardFlipped] = useState(false);
   const handleAdmiBtn = () => {
     console.log("click");
@@ -32,7 +34,7 @@ function CardPartner({ id, logoPUrl, name, contactUrl, type, localisation }) {
       })
       .then(() => {
         alert("Partenaire supprimé");
-        window.location.href = "/partners";
+        navigate("/partners");
       })
       .catch((error) => {
         console.error("Erreur lors de la suppression du partenaire :", error);
