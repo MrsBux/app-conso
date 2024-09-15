@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import { useAuth } from "../store/AuthContext";
 import DashboardMenu from "../components/DashboardMenu";
 import DashboardBanner from "../components/DasboardBanner";
 import DashboardBoard from "../components/DasboardBoard";
@@ -7,6 +8,7 @@ import TabTools from "../components/TabTools/index";
 import "../style/css/dashboard.css";
 
 function Dashboard() {
+  const { isLoggedIn, userType, logout } = useAuth();
   const { userId } = useParams();
   const [user, setUser] = useState(null);
   const [isLoading, setIsLoading] = useState(true);

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import { useAuth } from "../../store/AuthContext";
 
 import bch2020 from "../../assets/bch2020.webp";
 import bch2017 from "../../assets/bch2017.webp";
@@ -19,18 +20,13 @@ function DashboardBoard({
   email,
   vincoeur,
 }) {
+  const { isLoggedIn, logout } = useAuth();
   const { userId } = useParams();
 
   const [user, setUser] = useState(null);
 
   const handleLogout = () => {
-    localStorage.removeItem("tokenUser");
-    localStorage.removeItem("tokenUserExpiry");
-    localStorage.removeItem("userId");
-    localStorage.removeItem("name");
-    localStorage.removeItem("email");
-    localStorage.removeItem("token");
-    window.location.href = "/login";
+    logout();
   };
 
   useEffect(() => {
