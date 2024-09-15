@@ -23,6 +23,13 @@ function App() {
     window.scrollTo(0, 0); // Scroll to the top on component mount
   }, []);
 
+  useEffect(() => {
+    const type = localStorage.getItem("type");
+    if (type) {
+      window.location.reload();
+    }
+  }, []);
+
   return (
     <React.StrictMode>
       <Router>
@@ -30,7 +37,7 @@ function App() {
           {" "}
           <Header />
           <Routes>
-            <Route path="/home" element={<Home />} />
+            <Route path="/" element={<Home />} />
             <Route path="/gallery" element={<Gallery />} />
             <Route path="/salons" element={<Salons />} />
             <Route path="/dashboard/:userId" element={<Dashboard />} />

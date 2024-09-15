@@ -44,7 +44,7 @@ function Header() {
   return (
     <header>
       <div className="logo">
-        <Link to="/home">
+        <Link to="/">
           <img
             src={logoBeige}
             alt="logo bux web compagnie"
@@ -53,7 +53,7 @@ function Header() {
         </Link>
       </div>
       <nav className="menu">
-        <Link to="/home" className="menu__link">
+        <Link to="/" className="menu__link">
           Accueil
         </Link>
         <Link to="/gallery" className="menu__link">
@@ -88,7 +88,7 @@ function Header() {
         )}
 
         {isLog ? (
-          <Link to="/home" className="menu__link">
+          <Link to="/" className="menu__link">
             {" "}
             <button id="btnGV" onClick={handlelogout}>
               {" "}
