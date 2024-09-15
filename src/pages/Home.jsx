@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import TabTools from "../components/TabTools/index";
 import Banner from "../components/Banner/index";
 import WhoWeAre from "../components/Whoweare";
@@ -16,6 +16,13 @@ function Home() {
     { page: "contact-us", item: "Contactez-nous" },
     { page: "latest-news", item: "Dernières actualités" },
   ];
+
+  useEffect(() => {
+    const type = localStorage.getItem("type");
+    if (type === "adm" || type === "user") {
+      window.location.reload();
+    }
+  }, []);
 
   const isAuthenticated = isTokenPresent();
 

@@ -12,10 +12,6 @@ function Header() {
   const [type, setType] = useState();
 
   useEffect(() => {
-    window.location.reload();
-  }, []);
-
-  useEffect(() => {
     const id = localStorage.getItem("userId");
     if (id) {
       setUserId(id);
