@@ -54,7 +54,7 @@ function LoginAdmin() {
 
         // Update state
         setIsLoggedIn(true);
-        navigate("/home");
+        navigate("/");
       } else {
         const errorData = await response.json();
         console.error("Login failed:", errorData);

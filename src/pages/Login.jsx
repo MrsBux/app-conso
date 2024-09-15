@@ -28,7 +28,7 @@ function Login() {
 
   const navigate = useNavigate();
   // Redirection vers la page d'accueil
-  navigate("/home");
+  navigate("/");
 
   const handleSubmit = async (event) => {
     event.preventDefault();
