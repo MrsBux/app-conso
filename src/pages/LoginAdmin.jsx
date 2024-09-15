@@ -1,31 +1,17 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Form from "react-bootstrap/Form";
 import "../style/css/loginadmin.css";
 import btle from "../assets/ch9B.webp";
 import btle2 from "../assets/ch9B15r.webp";
+import { useAuth } from "../store/AuthContext";
 
 function LoginAdmin() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-
-  useEffect(() => {
-    const token = localStorage.getItem("token");
-    const tokenExpiry = localStorage.getItem("tokenExpiry");
-    const currentTime = new Date().getTime();
-
-    if (token && tokenExpiry && currentTime < tokenExpiry) {
-      setIsLoggedIn(true);
-    } else {
-      localStorage.removeItem("token");
-      localStorage.removeItem("tokenExpiry");
-      setIsLoggedIn(false);
-    }
-  }, []);
-
   const navigate = useNavigate();
+  const { login } = useAuth();
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -44,34 +30,18 @@ function LoginAdmin() {
 
       if (response.ok) {
         const data = await response.json();
-
-        // Store the token in local storage with an expiration time of 6 hours
-        const tokenExpiry = new Date().getTime() + 6 * 60 * 60 * 1000; // 6 hours in milliseconds
-        localStorage.setItem("token", data.token);
-        localStorage.setItem("tokenExpiry", tokenExpiry);
-        localStorage.setItem("type", "adm");
+        const tokenExpiry = new Date().getTime() + 6 * 60 * 60 * 1000;
+        login("adm", data.adminId, data.token, tokenExpiry);
         alert("Connexion reussie");
-
-        // Update state
-        setIsLoggedIn(true);
-
         navigate("/");
       } else {
         const errorData = await response.json();
-        console.error("Login failed:", errorData);
         setErrorMessage(errorData.error || "Login failed");
       }
     } catch (error) {
       console.error("An error occurred:", error);
       setErrorMessage("An error occurred during login");
     }
-  };
-
-  const handleLogout = () => {
-    localStorage.removeItem("token");
-    localStorage.removeItem("tokenExpiry");
-    localStorage.removeItem("type");
-    setIsLoggedIn(false);
   };
 
   return (
@@ -88,7 +58,6 @@ function LoginAdmin() {
           className="loginadmin__btlles__img imgadmin2"
         />
       </div>
-
       <Form className="loginadmin__form" onSubmit={handleSubmit}>
         <h3 className="loginadmin__form__title">Se connecter</h3>
         <Form.Group className="loginadmin__form__groupe">
@@ -120,7 +89,7 @@ function LoginAdmin() {
           type="submit"
         >
           Se connecter
-        </button>{" "}
+        </button>
       </Form>
     </div>
   );

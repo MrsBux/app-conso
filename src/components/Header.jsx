@@ -1,43 +1,16 @@
+import React from "react";
 import { Link } from "react-router-dom";
-import React, { useState, useEffect } from "react";
 import "../style/css/header.css";
 import logoBeige from "../assets/logobeige.webp";
 import user from "../assets/user.webp";
 import panier from "../assets/panier.webp";
+import { useAuth } from "../store/AuthContext";
 
 function Header() {
-  const [isLog, setIsLog] = useState(false);
-  const [userId, setUserId] = useState();
-  const [token, setToken] = useState();
-  const [type, setType] = useState();
+  const { isLoggedIn, userId, userType, logout } = useAuth();
 
-  useEffect(() => {
-    const id = localStorage.getItem("userId");
-    if (id) {
-      setUserId(id);
-    }
-  }, [userId]);
-
-  useEffect(() => {
-    const type = localStorage.getItem("type");
-    setType(type);
-
-    if (type === "adm") {
-      const tok = localStorage.getItem("token");
-      setToken(tok);
-      setIsLog(true);
-    } else if (type === "user") {
-      const tok = localStorage.getItem("tokenUser");
-
-      if (tok) {
-        setIsLog(true);
-        setToken(tok);
-      }
-    }
-  }, [type, token]);
-
-  const handlelogout = () => {
-    localStorage.clear();
+  const handleLogout = () => {
+    logout();
     window.location.reload();
   };
 
@@ -49,7 +22,7 @@ function Header() {
             src={logoBeige}
             alt="logo bux web compagnie"
             className="logobeige"
-          ></img>
+          />
         </Link>
       </div>
       <nav className="menu">
@@ -69,47 +42,34 @@ function Header() {
           Prestations
         </Link>
 
-        {type === "adm" ? (
+        {userType === "adm" && (
           <Link to="/dashboardadmin" className="menu__link">
             Mon espace
           </Link>
-        ) : null}
+        )}
 
-        {type === "user" ? (
+        {userType === "user" && (
           <Link to={`/dashboard/${userId}`} className="menu__link">
             Mon espace
           </Link>
-        ) : null}
+        )}
 
-        {type === "user" ? null : (
+        {!isLoggedIn && (
           <Link to="/login" className="menu__link">
             <img src={user} alt="User profile" className="menu__link__logo" />
           </Link>
         )}
 
-        {isLog ? (
+        {isLoggedIn && (
           <Link to="/" className="menu__link">
-            {" "}
-            <button id="btnGV" onClick={handlelogout}>
-              {" "}
-              Logout{" "}
+            <button id="btnGV" onClick={handleLogout}>
+              Logout
             </button>
           </Link>
-        ) : null}
+        )}
 
-        <Link to="/dashboard" className="menu__link">
-          <img
-            src={user}
-            alt="logo login/dashboard"
-            className="menu__link__logo2"
-          ></img>
-        </Link>
         <Link to="/panier" className="menu__link">
-          <img
-            src={panier}
-            alt="logo panier"
-            className="menu__link__logo3"
-          ></img>
+          <img src={panier} alt="logo panier" className="menu__link__logo3" />
         </Link>
       </nav>
     </header>

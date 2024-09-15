@@ -1,6 +1,7 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { PanierProvider } from "./store/panierContext.jsx";
+import { AuthProvider } from "./store/AuthContext.jsx";
 import ReactDOM from "react-dom/client";
 import Home from "./pages/Home.jsx";
 import Gallery from "./pages/Gallery.jsx";
@@ -19,35 +20,34 @@ import Header from "./components/Header.jsx";
 import Footer from "./components/Footer.jsx";
 
 function App() {
-  useEffect(() => {
-    window.scrollTo(0, 0); // Scroll to the top on component mount
-  }, []);
-
   return (
     <React.StrictMode>
       <Router>
-        <PanierProvider>
-          {" "}
-          <Header />
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/gallery" element={<Gallery />} />
-            <Route path="/salons" element={<Salons />} />
-            <Route path="/dashboard/:userId" element={<Dashboard />} />
-            <Route path="/dashboardadmin" element={<DashboardAdmin />} />
-            <Route path="/signup" element={<Signup />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/loginadmin" element={<LoginAdmin />} />
-            <Route path="/panier" element={<Panier />} />
-            <Route path="/partners" element={<Partners />} />
-            <Route path="/prestations" element={<Prestations />} />
-            <Route path="*" element={<Error />} />
-          </Routes>
-          <Footer />{" "}
-        </PanierProvider>
+        <AuthProvider>
+          <PanierProvider>
+            <Header />
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/gallery" element={<Gallery />} />
+              <Route path="/salons" element={<Salons />} />
+              <Route path="/dashboard/:userId" element={<Dashboard />} />
+              <Route path="/dashboardadmin" element={<DashboardAdmin />} />
+              <Route path="/signup" element={<Signup />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/loginadmin" element={<LoginAdmin />} />
+              <Route path="/panier" element={<Panier />} />
+              <Route path="/partners" element={<Partners />} />
+              <Route path="/prestations" element={<Prestations />} />
+              <Route path="*" element={<Error />} />
+            </Routes>
+            <Footer />
+          </PanierProvider>
+        </AuthProvider>
       </Router>
     </React.StrictMode>
   );
 }
 
 ReactDOM.createRoot(document.getElementById("root")).render(<App />);
+
+export default App;

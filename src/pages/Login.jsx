@@ -1,76 +1,45 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Form from "react-bootstrap/Form";
 import { Link } from "react-router-dom";
 import "../style/css/login.css";
 import btle from "../assets/ch9R.webp";
 import btle2 from "../assets/ch9R15.webp";
+import { useAuth } from "../store/AuthContext";
 
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
-
-  useEffect(() => {
-    const token = localStorage.getItem("tokenUser");
-    const tokenExpiry = localStorage.getItem("tokenUserExpiry");
-    const currentTime = new Date().getTime();
-
-    if (token && tokenExpiry && currentTime < tokenExpiry) {
-      setIsLoggedIn(true);
-    } else {
-      localStorage.removeItem("tokenUser");
-      localStorage.removeItem("tokenUserExpiry");
-      setIsLoggedIn(false);
-    }
-  }, []);
-
   const navigate = useNavigate();
-  // Redirection vers la page d'accueil
+  const { login } = useAuth();
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-
-    const formData = {
-      email: email,
-      password: password,
-    };
 
     try {
       const response = await fetch(
         `https://domconso-d13067f1e717.herokuapp.com/api/user/login`,
         {
           method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(formData),
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ email, password }),
         }
       );
 
-      if (!response.ok) {
-        throw new Error("Erreur lors de la connexion au compte");
+      if (response.ok) {
+        const data = await response.json();
+        const tokenExpiry = new Date().getTime() + 6 * 60 * 60 * 1000;
+        login("user", data.userId, data.tokenUser, tokenExpiry);
+        alert("Connexion reussie");
+        navigate("/");
+      } else {
+        const errorData = await response.json();
+        setErrorMessage(errorData.error || "Login failed");
       }
-
-      const data = await response.json();
-
-      const tokenExpiry = new Date().getTime() + 6 * 60 * 60 * 1000; // 6 hours in milliseconds
-      localStorage.setItem("tokenUser", data.tokenUser);
-      localStorage.setItem("tokenUserExpiry", tokenExpiry);
-      localStorage.setItem("userId", data.userId);
-      localStorage.setItem("name", data.name);
-      localStorage.setItem("email", email);
-      localStorage.setItem("type", "user");
-
-      const idUser = data.userId;
-      setIsLoggedIn(true);
-      alert("Connexion reussie");
-
-      navigate("/");
     } catch (error) {
-      console.error("Erreur lors de la connexion au compte :", error);
-      setErrorMessage("Erreur lors de la connexion au compte");
+      console.error("An error occurred:", error);
+      setErrorMessage("An error occurred during login");
     }
   };
 
@@ -88,7 +57,6 @@ function Login() {
           className="login__btlles__img img2"
         />
       </div>
-
       <Form className="login__form" onSubmit={handleSubmit}>
         <h3 className="login__form__title">Se connecter</h3>
         <Form.Group className="login__form__groupe">
@@ -115,7 +83,7 @@ function Login() {
         )}
         <button name="Envoyer" className="login__form__btn btnG" type="submit">
           Se connecter
-        </button>{" "}
+        </button>
         <Link to="/signup">
           <p className="login__register">Créer un compte</p>
         </Link>

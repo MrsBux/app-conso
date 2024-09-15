@@ -1,4 +1,5 @@
-import React, { useEffect } from "react";
+import React from "react";
+import { useAuth } from "../store/AuthContext";
 import TabTools from "../components/TabTools/index";
 import Banner from "../components/Banner/index";
 import WhoWeAre from "../components/Whoweare";
@@ -6,9 +7,10 @@ import NosVins from "../components/NosVins";
 import NosPrestations from "../components/NosPrestations";
 import Contact from "../components/Contact";
 import NosActus from "../components/NosActualites";
-import { isTokenPresent } from "../store/auth";
 
 function Home() {
+  const { isLoggedIn } = useAuth();
+
   const sectionsPage = [
     { page: "who-we-are", item: "Qui sommes-nous" },
     { page: "our-wines", item: "Nos vins" },
@@ -16,15 +18,6 @@ function Home() {
     { page: "contact-us", item: "Contactez-nous" },
     { page: "latest-news", item: "Dernières actualités" },
   ];
-
-  useEffect(() => {
-    const type = localStorage.getItem("type");
-    if (type === "adm" || type === "user") {
-      window.location.reload();
-    }
-  }, [type]);
-
-  const isAuthenticated = isTokenPresent();
 
   return (
     <>
@@ -44,7 +37,7 @@ function Home() {
           <Contact />
         </div>
         <div id="latest-news">
-          <NosActus isAuthenticated={isAuthenticated} />
+          <NosActus isAuthenticated={isLoggedIn} />
         </div>
       </div>
     </>
