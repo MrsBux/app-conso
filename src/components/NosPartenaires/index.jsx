@@ -72,7 +72,7 @@ function NosPartenaires({ partners }) {
       })
       .then((data) => {
         alert("Partenaire enregistré");
-        navigate("/partners");
+        navigate("/");
       })
       .catch((error) => {
         console.error(

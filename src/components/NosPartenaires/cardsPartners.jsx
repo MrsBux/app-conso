@@ -34,7 +34,7 @@ function CardPartner({ id, logoPUrl, name, contactUrl, type, localisation }) {
       })
       .then(() => {
         alert("Partenaire supprimé");
-        navigate("/partners");
+        navigate("/");
       })
       .catch((error) => {
         console.error("Erreur lors de la suppression du partenaire :", error);
