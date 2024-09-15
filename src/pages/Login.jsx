@@ -28,7 +28,6 @@ function Login() {
 
   const navigate = useNavigate();
   // Redirection vers la page d'accueil
-  navigate("/");
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -67,6 +66,7 @@ function Login() {
       const idUser = data.userId;
       setIsLoggedIn(true);
       alert("Connexion reussie");
+      navigate("/");
     } catch (error) {
       console.error("Erreur lors de la connexion au compte :", error);
       setErrorMessage("Erreur lors de la connexion au compte");
