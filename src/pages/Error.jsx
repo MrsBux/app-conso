@@ -13,7 +13,7 @@ function Error() {
             Oups! La page que vous demandez n'existe pas.{" "}
           </p>
           <div className="error__link">
-            <Link to="/" className="error__link__l" id="errora">
+            <Link to="/home" className="error__link__l" id="errora">
               {" "}
               Retourner sur la page d'accueil{" "}
             </Link>
