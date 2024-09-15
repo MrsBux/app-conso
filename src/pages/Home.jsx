@@ -22,7 +22,7 @@ function Home() {
     if (type === "adm" || type === "user") {
       window.location.reload();
     }
-  }, []);
+  }, [type]);
 
   const isAuthenticated = isTokenPresent();
 
