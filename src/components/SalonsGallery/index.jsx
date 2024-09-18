@@ -107,6 +107,18 @@ function SalonGallery() {
     }
   };
 
+  const clearAll = () => {
+    setFormData({
+      name: "",
+      description: "",
+      debut: "",
+      fin: "",
+      region: "",
+      localisation: "",
+      logoUrl: null,
+      invitation: null,
+    });
+  };
   const handleFilterClick = (filterName) => {
     setSelectedFilter(filterName);
 
@@ -143,6 +155,7 @@ function SalonGallery() {
       await newSalon();
       alert("Salon ajouté");
       getAllSalons();
+      clearAll();
       // Recharger la page après l'ajout
     } catch (error) {
       console.error("Error submitting salon:", error);

@@ -75,11 +75,26 @@ function CardSalon({
 
       functionpostaction();
 
+      clearAll();
+
       return await response.json();
     } catch (error) {
       console.error("Error deleting salon:", error);
       throw error;
     }
+  };
+
+  const clearAll = () => {
+    setFormData({
+      name: "",
+      description: "",
+      debut: "",
+      fin: "",
+      region: "",
+      localisation: "",
+      logoUrl: null,
+      invitation: null,
+    });
   };
 
   const updateSalon = async () => {
@@ -104,6 +119,8 @@ function CardSalon({
       alert("Salon Modifié");
 
       functionpostaction();
+
+      clearAll();
 
       return data;
     } catch (error) {
