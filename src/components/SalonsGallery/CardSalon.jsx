@@ -104,6 +104,8 @@ function CardSalon({
       alert("Salon Modifié");
 
       functionpostaction();
+
+      return data;
     } catch (error) {
       console.error("Error creating salon:", error);
       throw error;
@@ -286,10 +288,7 @@ function CardSalon({
                   btnShow={<BtnModifier />}
                   title={"Modifier le salon"}
                   modalContent={
-                    <Form
-                      className="form__ajout__salon form__ajout"
-                      onSubmit={updateSalon}
-                    >
+                    <Form className="form__ajout__salon form__ajout">
                       <Form.Group className="form__groupe" controlId="name">
                         <Form.Label>Nom du salon</Form.Label>
                         <Form.Control
@@ -404,7 +403,7 @@ function CardSalon({
                         />
                       </Form.Group>
 
-                      <button className="btn__submit" type="submit">
+                      <button className="btn__submit" onClick={updateSalon}>
                         Submit
                       </button>
                     </Form>
