@@ -68,7 +68,7 @@ function Partners() {
   };
 
   if (error) {
-    return <div>Erreur : {error}</div>;
+    return <div>Erreur: {error}</div>;
   }
 
   return (
