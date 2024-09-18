@@ -73,8 +73,6 @@ function CardSalon({
 
       alert("Salon supprimé !");
 
-      functionpostaction();
-
       clearAll();
 
       return await response.json();
