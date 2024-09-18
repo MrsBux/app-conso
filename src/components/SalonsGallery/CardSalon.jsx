@@ -104,8 +104,6 @@ function CardSalon({
       alert("Salon Modifié");
 
       functionpostaction();
-
-      return data;
     } catch (error) {
       console.error("Error creating salon:", error);
       throw error;
