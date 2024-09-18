@@ -71,7 +71,7 @@ function CardSalon({
       }
 
       alert("Salon supprimé !");
-      window.location.reload();
+
       return await response.json();
     } catch (error) {
       console.error("Error deleting salon:", error);
@@ -99,7 +99,7 @@ function CardSalon({
 
       const data = await response.json();
       alert("Salon Modifié");
-      window.location.reload();
+
       return data;
     } catch (error) {
       console.error("Error creating salon:", error);

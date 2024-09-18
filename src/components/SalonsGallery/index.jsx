@@ -142,6 +142,7 @@ function SalonGallery() {
     try {
       await newSalon();
       alert("Salon ajouté");
+      getAllSalons();
       // Recharger la page après l'ajout
     } catch (error) {
       console.error("Error submitting salon:", error);
