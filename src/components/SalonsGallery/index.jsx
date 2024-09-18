@@ -188,6 +188,7 @@ function SalonGallery() {
             fin={item.fin}
             invitation={item.invitation}
             invitationBlob={item.invitationBlob}
+            functionpostaction={getAllSalons()}
           />
         ))}
 
