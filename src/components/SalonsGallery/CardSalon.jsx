@@ -118,8 +118,6 @@ function CardSalon({
       const data = await response.json();
       alert("Salon Modifié");
 
-      functionpostaction();
-
       clearAll();
 
       return data;

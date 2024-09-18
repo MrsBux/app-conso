@@ -128,7 +128,7 @@ function SalonGallery() {
       const filtered = salons.filter((salon) => {
         return salon.region.toLowerCase() === filterName.toLowerCase();
       });
-      setFilteredSalons(filtered); // Filtrer les salons par région sélectionnée
+      setFilteredSalons(filtered);
     }
   };
 
@@ -156,7 +156,6 @@ function SalonGallery() {
       alert("Salon ajouté");
       getAllSalons();
       clearAll();
-      // Recharger la page après l'ajout
     } catch (error) {
       console.error("Error submitting salon:", error);
       // Gérer l'erreur, par exemple en affichant un message à l'utilisateur
