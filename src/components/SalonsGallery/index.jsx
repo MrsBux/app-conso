@@ -156,6 +156,7 @@ function SalonGallery() {
       alert("Salon ajouté");
       getAllSalons();
       clearAll();
+      window.locatin.href = "/salons";
     } catch (error) {
       console.error("Error submitting salon:", error);
       // Gérer l'erreur, par exemple en affichant un message à l'utilisateur

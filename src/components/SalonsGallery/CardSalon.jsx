@@ -74,6 +74,7 @@ function CardSalon({
       alert("Salon supprimé !");
 
       clearAll();
+      window.locatin.href = "/salons";
 
       return await response.json();
     } catch (error) {
