@@ -297,10 +297,11 @@ function SalonGallery() {
                   onChange={handleChange}
                 />
               </Form.Group>
-
-              <button className="btn__submit" type="submit">
-                Submit
-              </button>
+              <Link to="/salons" className="btn__submit">
+                <button className="btn__submit" type="submit">
+                  Submit
+                </button>{" "}
+              </Link>
             </Form>
           }
           btnname={"Retour"}
