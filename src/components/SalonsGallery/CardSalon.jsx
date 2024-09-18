@@ -117,6 +117,7 @@ function CardSalon({
       alert("Salon Modifié");
 
       clearAll();
+      window.locatin.href = "/salons";
 
       return data;
     } catch (error) {
