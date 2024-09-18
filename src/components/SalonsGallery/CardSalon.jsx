@@ -17,6 +17,7 @@ function CardSalon({
   invitationBlob,
   debut,
   fin,
+  functionpostaction,
 }) {
   const [isCardFlipped, setIsCardFlipped] = useState(false);
   const [formData, setFormData] = useState({
@@ -72,6 +73,8 @@ function CardSalon({
 
       alert("Salon supprimé !");
 
+      functionpostaction();
+
       return await response.json();
     } catch (error) {
       console.error("Error deleting salon:", error);
@@ -99,6 +102,8 @@ function CardSalon({
 
       const data = await response.json();
       alert("Salon Modifié");
+
+      functionpostaction();
 
       return data;
     } catch (error) {
