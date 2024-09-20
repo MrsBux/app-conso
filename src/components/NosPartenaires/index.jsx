@@ -159,7 +159,7 @@ function NosPartenaires({ partners }) {
 
               <Form.Group
                 className="form__groupe"
-                controlId="descirption__ajoutpartenaire"
+                controlId="description__ajoutpartenaire"
               >
                 <Form.Label>Description</Form.Label>
                 <Form.Control type="textarea" placeholder="Description" />
@@ -214,6 +214,7 @@ function NosPartenaires({ partners }) {
                     name: form.name__ajoutpartenaire.value,
                     category: form.category__ajoutpartenaire.value,
                     localisation: form.localisation__ajoutpartenaire.value,
+                    description: form.description__ajoutpartenaire.value,
                     contactUrl: form.contactUrl__ajoutpartenaire.value,
                   };
                   if (form.logo__ajoutpartenaire.files[0]) {
@@ -235,3 +236,4 @@ function NosPartenaires({ partners }) {
 }
 
 export default NosPartenaires;
+i;
