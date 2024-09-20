@@ -72,7 +72,7 @@ function NosPartenaires({ partners }) {
       })
       .then((data) => {
         alert("Partenaire enregistré");
-        navigate("/");
+        navigate("/partners");
       })
       .catch((error) => {
         console.error(
@@ -131,7 +131,6 @@ function NosPartenaires({ partners }) {
             contactUrl={item.contactUrl}
             type={item.type}
             localisation={item.localisation}
-            description={item.description}
             id={item._id}
           />
         ))}
@@ -159,7 +158,7 @@ function NosPartenaires({ partners }) {
 
               <Form.Group
                 className="form__groupe"
-                controlId="description__ajoutpartenaire"
+                controlId="descirption__ajoutpartenaire"
               >
                 <Form.Label>Description</Form.Label>
                 <Form.Control type="textarea" placeholder="Description" />
@@ -214,7 +213,6 @@ function NosPartenaires({ partners }) {
                     name: form.name__ajoutpartenaire.value,
                     category: form.category__ajoutpartenaire.value,
                     localisation: form.localisation__ajoutpartenaire.value,
-                    description: form.description__ajoutpartenaire.value,
                     contactUrl: form.contactUrl__ajoutpartenaire.value,
                   };
                   if (form.logo__ajoutpartenaire.files[0]) {
@@ -236,4 +234,3 @@ function NosPartenaires({ partners }) {
 }
 
 export default NosPartenaires;
-i;
