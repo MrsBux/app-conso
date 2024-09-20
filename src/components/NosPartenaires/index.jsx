@@ -50,6 +50,7 @@ function NosPartenaires({ partners }) {
   };
 
   const handlePost = (formData) => {
+    console.log(partnerData);
     const token = localStorage.getItem("token");
 
     fetch(`https://domconso-d13067f1e717.herokuapp.com/api/partners/New`, {
@@ -220,8 +221,6 @@ function NosPartenaires({ partners }) {
                   if (form.logo__ajoutpartenaire.files[0]) {
                     partnerData.logo = form.logo__ajoutpartenaire.files[0];
                   }
-
-                  console.log(partnerData);
 
                   handlePost(partnerData);
                 }}
