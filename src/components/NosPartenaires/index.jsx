@@ -221,6 +221,8 @@ function NosPartenaires({ partners }) {
                     partnerData.logo = form.logo__ajoutpartenaire.files[0];
                   }
 
+                  console.log(partnerData);
+
                   handlePost(partnerData);
                 }}
               >
