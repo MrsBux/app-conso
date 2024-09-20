@@ -4,7 +4,15 @@ import "../../style/css/cardpartner.css";
 import ModalT from "../ModalT";
 import BtnSupprimer from "../BtnSupprimer";
 
-function CardPartner({ id, logoPUrl, name, contactUrl, type, localisation }) {
+function CardPartner({
+  id,
+  logoPUrl,
+  name,
+  contactUrl,
+  type,
+  localisation,
+  description,
+}) {
   const navigate = useNavigate();
   const [isCardFlipped, setIsCardFlipped] = useState(false);
   const handleAdmiBtn = () => {
@@ -63,6 +71,7 @@ function CardPartner({ id, logoPUrl, name, contactUrl, type, localisation }) {
                 <p>{contactUrl}</p>
                 <p>{localisation}</p>
                 <p>{type}</p>
+                <p>{description}</p>
                 <BtnSupprimer onClick={handleAdmiBtn} />
               </div>
             }
