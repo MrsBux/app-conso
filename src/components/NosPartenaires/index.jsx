@@ -131,6 +131,7 @@ function NosPartenaires({ partners }) {
             contactUrl={item.contactUrl}
             type={item.type}
             localisation={item.localisation}
+            description={item.description}
             id={item._id}
           />
         ))}
