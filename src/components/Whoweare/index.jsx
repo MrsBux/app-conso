@@ -56,14 +56,14 @@ function WhoWeAre() {
       chiffre: "1880",
       text_chiffre: "Date de l'acquisition des premières parcelles du domaine",
     },
-    { chiffre: "8,2", text_chiffre: "Superficie actuelle du domaine " },
+    { chiffre: "14,5", text_chiffre: "Superficie actuelle du domaine " },
     {
       chiffre: "5",
       text_chiffre:
         "Nombre de vins produits : Chateauneuf du Pape Blanc, Châteauneuf du Pape Rouge, Lirac, Vin de pays 100% Viognier, Vin de Pays la Pitchotte",
     },
     {
-      chiffre: "25",
+      chiffre: "18",
       text_chiffre:
         "Nombre de salons où nous venons vous rencontrer ppour vous faire découvrir nos vins.",
     },
