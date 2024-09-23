@@ -23,7 +23,12 @@ function NosVins() {
   return (
     <div className="nosvins">
       <h2 className="nosvins__title"> NOS VINS</h2>
-      <img src={nosVins} className="nosvins__img" alt="Nos Vins"></img>
+      <img
+        src={nosVins}
+        className="nosvins__img"
+        alt="Nos Vins"
+        onClick={() => (window.location.href = "/gallery")}
+      ></img>
       <div className="nosvins__btns">
         {txt.map((item, index) => (
           <BtnNosvins

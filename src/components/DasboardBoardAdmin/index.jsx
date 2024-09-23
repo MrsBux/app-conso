@@ -189,6 +189,7 @@ function DashboardBoardAdmin({}) {
       setRequest(combinedData);
 
       setLastRequest(combinedData[combinedData.length - 1]);
+      console.log(lastRequest);
     } catch (err) {
       console.error(
         "Une erreur s'est produite lors de la récupération des données:",
