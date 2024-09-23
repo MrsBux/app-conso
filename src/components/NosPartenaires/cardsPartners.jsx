@@ -86,10 +86,12 @@ function CardPartner({
             title={name}
             modalContent={
               <div className="modalt">
-                <p>{contactUrl}</p>
-                <p>{localisation}</p>
-                <p>{description}</p>
+                <p>{name}</p>
                 <p>{type}</p>
+                <p>{description}</p>
+                <p>{localisation}</p>
+
+                <a href={contactUrl}>Site internet </a>
                 <BtnSupprimer onClick={handleDelete} />
               </div>
             }
