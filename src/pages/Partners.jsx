@@ -35,6 +35,7 @@ function Partners() {
         return response.json();
       })
       .then((data) => {
+        console.log(data);
         setPartners(data);
         setFilteredPartners(data);
       })
