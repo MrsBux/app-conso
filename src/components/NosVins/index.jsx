@@ -16,7 +16,7 @@ function NosVins() {
     { txtbtn: "J'en veux !", page: "/gallery" },
     { txtbtn: "Où est-ce que je peux en trouver?", page: "/partners" },
     { txtbtn: "Tester votre palais !", handleClick: handleShow },
-    { txtbtn: "GFV3", page: "/prestations" },
+    { txtbtn: "GFV", page: "/prestations" },
     { txtbtn: "Venez déguster en salon!", page: "/salons" },
   ];
 
