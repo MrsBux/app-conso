@@ -29,7 +29,7 @@ function DashboardBoardAdmin({}) {
     getOrders();
     getBookings();
     getAllAskings();
-  }, []);
+  }, [lastRequest, lastBooking, lastOrder]);
 
   const sortedRequest = useMemo(() => {
     return [...request].sort((a, b) => new Date(b.Date) - new Date(a.Date));
