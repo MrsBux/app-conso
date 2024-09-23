@@ -51,7 +51,6 @@ function NosPartenaires({ partners }) {
 
   const handlePost = (formData) => {
     const token = localStorage.getItem("token");
-    console.log(formData, "formData");
 
     fetch(`https://domconso-d13067f1e717.herokuapp.com/api/partners/New`, {
       method: "POST",

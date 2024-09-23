@@ -29,7 +29,7 @@ function DashboardBoardAdmin({}) {
     getOrders();
     getBookings();
     getAllAskings();
-  }, [lastRequest]);
+  }, []);
 
   const sortedRequest = useMemo(() => {
     return [...request].sort((a, b) => new Date(b.Date) - new Date(a.Date));
@@ -187,9 +187,10 @@ function DashboardBoardAdmin({}) {
       const combinedData = allData.flat();
 
       setRequest(combinedData);
+      console.log(request, "request");
 
       setLastRequest(combinedData[combinedData.length - 1]);
-      console.log(lastRequest);
+      console.log(lastRequest, "lastRequest");
     } catch (err) {
       console.error(
         "Une erreur s'est produite lors de la récupération des données:",
