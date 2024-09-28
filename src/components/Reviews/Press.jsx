@@ -65,6 +65,7 @@ function Press({ onClick }) {
         "Content-Type": "application/json",
         Authorization: `Bearer ${token}`,
       },
+
       body: JSON.stringify(formData),
     })
       .then((response) => {
