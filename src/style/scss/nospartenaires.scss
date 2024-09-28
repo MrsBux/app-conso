@@ -32,6 +32,8 @@ $green-leaf: #124b38;
     display: none;
     @media all and (max-width: 600px) {
       display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
     }
   }
 

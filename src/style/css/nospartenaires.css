@@ -32,6 +32,8 @@
 @media all and (max-width: 600px) {
   .nospartenaires__filtresmobiles {
     display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
   }
 }
 .nospartenaires__gallery {

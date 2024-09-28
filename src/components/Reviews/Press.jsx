@@ -59,7 +59,7 @@ function Press({ onClick }) {
 
     const token = localStorage.getItem("token");
 
-    fetch(`https://domconso-d13067f1e717.herokuapp.com//api/press/New`, {
+    fetch(`https://domconso-d13067f1e717.herokuapp.com/api/press/New`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
