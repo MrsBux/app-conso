@@ -90,7 +90,7 @@ function Awards({ onClick }) {
       })
       .then((data) => {
         setAwards(awards.filter((item) => item.id !== id));
-        window.location.href = "/";
+        window.location.href = "/gallery";
       })
       .catch((error) => {
         console.error("Erreur lors de la suppression de la récompense:", error);

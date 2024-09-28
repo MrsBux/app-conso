@@ -113,10 +113,7 @@ function Press({ onClick }) {
         title={"Ajouter une nouvelle mention"}
         btnShow={<BtnAjouter onClick={handleAdmiBtn} />}
         modalContent={
-          <Form
-            className="form__ajout__mention form__ajout"
-            onSubmit={handlePost}
-          >
+          <Form className="form__ajout__mention form__ajout">
             <Form.Group className="form__groupe" controlId="name__ajoutmention">
               <Form.Label>Nom de la mention</Form.Label>
               <Form.Control
@@ -147,7 +144,7 @@ function Press({ onClick }) {
               />
             </Form.Group>
 
-            <button className="btn__submit" type="submit">
+            <button className="btn__submit" type="submit" onClick={handlePost}>
               Créer
             </button>
           </Form>
