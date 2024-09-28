@@ -10,6 +10,9 @@ import BtnSupprimer from "../BtnSupprimer";
 function Press({ onClick }) {
   const [press, setPress] = useState([]);
   const [showAll, setShowAll] = useState(false);
+  const [name, setName] = useState("");
+  const [date, setDate] = useState("");
+  const [lien, setLien] = useState("");
 
   useEffect(() => {
     handleAll();
@@ -49,8 +52,10 @@ function Press({ onClick }) {
 
   const handlePost = (e) => {
     e.preventDefault();
-    const formData = new FormData(e.target);
-    const data = Object.fromEntries(formData.entries());
+    const formData = new FormData();
+    formData.append("name", name);
+    formData.append("date", date);
+    formData.append("lien", lien);
 
     const token = localStorage.getItem("token");
 
@@ -60,7 +65,7 @@ function Press({ onClick }) {
         "Content-Type": "application/json",
         Authorization: `Bearer ${token}`,
       },
-      body: JSON.stringify(data),
+      body: JSON.stringify(formData),
     })
       .then((response) => {
         if (!response.ok) {
@@ -120,6 +125,7 @@ function Press({ onClick }) {
                 type="text"
                 name="name"
                 placeholder="Nom de la mention"
+                onChange={(e) => setName(e.target.value)}
                 required
               />
             </Form.Group>
@@ -130,6 +136,7 @@ function Press({ onClick }) {
                 type="date"
                 name="date"
                 placeholder="Date de la mention"
+                onChange={(e) => setDate(e.target.value)}
                 required
               />
             </Form.Group>
@@ -140,6 +147,7 @@ function Press({ onClick }) {
                 type="text"
                 name="lien"
                 placeholder="Lien vers la mention"
+                onChange={(e) => setLien(e.target.value)}
                 required
               />
             </Form.Group>

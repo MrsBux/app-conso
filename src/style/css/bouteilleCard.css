@@ -147,6 +147,38 @@
     font-size: 1.3em;
   }
 }
+.bouteille__card__box1__millesime {
+  margin: 0px;
+  padding: 0px;
+  color: #b6124d;
+  font-family: "Atkinson Hyperlegible", sans-serif;
+  font-size: 1.8em;
+}
+@media all and (min-width: 1101px) and (max-width: 1250px) {
+  .bouteille__card__box1__millesime {
+    font-size: 1.7em;
+  }
+}
+@media all and (min-width: 901px) and (max-width: 1100px) {
+  .bouteille__card__box1__millesime {
+    font-size: 1.6em;
+  }
+}
+@media all and (min-width: 601px) and (max-width: 900px) {
+  .bouteille__card__box1__millesime {
+    font-size: 1.5em;
+  }
+}
+@media all and (min-width: 400px) and (max-width: 600px) {
+  .bouteille__card__box1__millesime {
+    font-size: 1.4em;
+  }
+}
+@media all and (max-width: 450px) {
+  .bouteille__card__box1__millesime {
+    font-size: 1.3em;
+  }
+}
 .bouteille__card__box1__prix {
   margin: 0px;
   padding: 0px;
