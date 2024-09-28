@@ -52,10 +52,11 @@ function Press({ onClick }) {
 
   const handlePost = (e) => {
     e.preventDefault();
-    const formData = new FormData();
-    formData.append("name", name);
-    formData.append("date", date);
-    formData.append("lien", lien);
+    const pressData = {
+      name: name,
+      date: date,
+      lien: lien,
+    };
 
     const token = localStorage.getItem("token");
 
@@ -65,7 +66,7 @@ function Press({ onClick }) {
         "Content-Type": "application/json",
         Authorization: `Bearer ${token}`,
       },
-      body: JSON.stringify(formData),
+      body: JSON.stringify(pressData),
     })
       .then((response) => {
         if (!response.ok) {
@@ -76,10 +77,16 @@ function Press({ onClick }) {
       .then((data) => {
         alert("item press créé avec succès !");
         setPress([...press, data]);
-        window.location.href = "/gallery";
+        // Nettoyage des champs du formulaire
+        setName("");
+        setDate("");
+        setLien("");
+        // Fermer le modal si nécessaire
+        // closeModal(); // Décommentez si vous avez une fonction pour fermer le modal
       })
       .catch((error) => {
         console.error("Erreur lors de la création de l'actualité :", error);
+        alert("Erreur lors de la création de l'actualité. Veuillez réessayer.");
       });
   };
 
