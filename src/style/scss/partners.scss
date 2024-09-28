@@ -30,8 +30,7 @@ $green-leaf: #124b38;
     max-width: fit-content;
 
     @media all and (min-width: 600px) and (max-width: 900px) {
-      width: 45%;
-      padding: 0px 0px 0px 0px;
+      display: none;
     }
 
     @media all and (max-width: 600px) {

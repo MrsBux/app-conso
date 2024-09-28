@@ -16,7 +16,7 @@ function Awards({ onClick }) {
   }, []);
 
   const handleAll = () => {
-    fetch(`${process.env.REACT_APP_API_URL}/api/prix/All`)
+    fetch(`https://domconso-d13067f1e717.herokuapp.com/api/prix/All`)
       .then((response) => {
         if (!response.ok) {
           throw new Error("Erreur lors de la récupération des récompenses");
@@ -49,7 +49,7 @@ function Awards({ onClick }) {
     const data = Object.fromEntries(formData.entries());
     const token = localStorage.getItem("token");
 
-    fetch(`${process.env.REACT_APP_API_URL}/api/prix/New`, {
+    fetch(`https://domconso-d13067f1e717.herokuapp.com/api/prix/New`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -75,7 +75,7 @@ function Awards({ onClick }) {
   const handleDelete = (id) => {
     const token = localStorage.getItem("token");
 
-    fetch(`${process.env.REACT_APP_API_URL}/api/prix/${id}`, {
+    fetch(`https://domconso-d13067f1e717.herokuapp.com/api/prix/${id}`, {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",

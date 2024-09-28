@@ -16,7 +16,7 @@ function Press({ onClick }) {
   }, []);
 
   const handleAll = () => {
-    fetch(`${process.env.REACT_APP_API_URL}/api/press/All`)
+    fetch(`https://domconso-d13067f1e717.herokuapp.com/api/press/All`)
       .then((response) => {
         if (!response.ok) {
           throw new Error("Erreur lors de la récupération des actualités");
@@ -54,7 +54,7 @@ function Press({ onClick }) {
 
     const token = localStorage.getItem("token");
 
-    fetch(`${process.env.REACT_APP_API_URL}/api/press/New`, {
+    fetch(`https://domconso-d13067f1e717.herokuapp.com//api/press/New`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -81,7 +81,7 @@ function Press({ onClick }) {
   const handleDelete = (id) => {
     const token = localStorage.getItem("token");
 
-    fetch(`${process.env.REACT_APP_API_URL}/api/press/${id}`, {
+    fetch(`https://domconso-d13067f1e717.herokuapp.com/api/press/${id}`, {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",

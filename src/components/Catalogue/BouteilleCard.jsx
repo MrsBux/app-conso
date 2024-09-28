@@ -89,6 +89,8 @@ function BouteilleCard({
       <div className="bouteille__card">
         <div className="bouteille__card__box1">
           <h3 className="bouteille__card__box1__name">{name}</h3>
+
+          <p className="bouteille__card__box1__millesime">{millesime}</p>
           {AOC === "Vin de France" ? (
             <p className="bouteille__card__box1__AOC">{AOC}</p>
           ) : (
