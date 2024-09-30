@@ -189,6 +189,8 @@ function Panier() {
     };
 
     try {
+      console.log(orderData, "orderData");
+
       const response = await fetch(
         `https://domconso-d13067f1e717.herokuapp.com/api/order/New`,
         {
