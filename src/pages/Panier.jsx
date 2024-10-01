@@ -191,6 +191,8 @@ function Panier() {
       userId: userId,
     };
 
+    console.log(orderData, "orderData");
+
     try {
       console.log(orderData, "orderData");
 
