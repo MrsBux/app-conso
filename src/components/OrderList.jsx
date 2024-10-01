@@ -30,7 +30,8 @@ const OrderList = ({ orders }) => {
           <ul>
             {order.wine.map((item, index) => (
               <li key={index}>
-                {item.wineName} - Quantité: {item.quantite}
+                {item.wineName} - Quantité: {item.quantite} - Millésime :{" "}
+                {item.wineMillesime}
               </li>
             ))}
           </ul>
