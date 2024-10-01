@@ -172,6 +172,12 @@ function Panier() {
 
     console.log("cins", vins);
 
+    // Créer un objet Date pour la date du jour
+    const today = new Date();
+
+    // Formater la date en string (format: "YYYY-MM-DD")
+    const dateString = today.toISOString().split("T")[0];
+
     // Créer l'objet de commande
     const orderData = {
       email: document.getElementById("email_panier").value,
@@ -191,6 +197,7 @@ function Panier() {
       paiementType: selectedOption3,
       deliveryType: selectedOption,
       userId: userId,
+      Date: dateString,
     };
 
     console.log(orderData, "orderData");

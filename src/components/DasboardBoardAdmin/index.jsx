@@ -264,6 +264,7 @@ function DashboardBoardAdmin({}) {
             <li key={lastOrder._id} className="mainbox__list__li">
               {lastOrder.nom} -{lastOrder.email} - numéro de commande :
               {lastOrder._id}
+              {lastOrder.Date ? ` - ${lastOrder.Date}` : ""}
             </li>
           </div>
 
