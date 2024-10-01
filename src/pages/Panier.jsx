@@ -17,9 +17,8 @@ import logopaypal from "../assets/logopaypal.webp";
 
 function Panier() {
   useEffect(() => {
-    console.log(vins, "vins");
     getUserId();
-  }, [vins]);
+  }, []);
 
   const { panier } = useContext(PanierContext);
 
@@ -98,8 +97,6 @@ function Panier() {
     quantite: article.quantite,
   }));
 
-  console.log(vins, "vins");
-
   const salons = [
     {
       name: "Les Printemps des vins",
@@ -172,6 +169,8 @@ function Panier() {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+
+    console.log("cins", vins);
 
     // Créer l'objet de commande
     const orderData = {
