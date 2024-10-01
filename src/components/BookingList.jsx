@@ -8,8 +8,8 @@ const BookingList = ({ bookings }) => {
           <h5>Réservation ID: {booking._id}</h5>
           <p>Nom: {booking.nom}</p>
           <p>Prestation: {booking.prestation}</p>
-          {/* {booking.date ? <p>Date: {booking.date}</p> : null}
-          {booking.heure ? <p>Heure: {booking.heure}</p> : null} */}
+          {booking.date ? <p>Date: {booking.date}</p> : null}
+          {/* {booking.heure ? <p>Heure: {booking.heure}</p> : null} */}
           <p>Email: {booking.email}</p>
           <p>Téléphone: {booking.telephone}</p>
         </div>

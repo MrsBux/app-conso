@@ -281,7 +281,7 @@ function DashboardBoardAdmin({}) {
           <div className="board__box__card4__box">
             <li key={lastBooking._id} className="mainbox__list__li">
               {lastBooking.nom} ---
-              {lastBooking.prestation}
+              {lastBooking.prestation} --- {formatDate(lastBooking.date)} ---{" "}
             </li>
           </div>
 
