@@ -197,7 +197,6 @@ function Panier() {
       paiementType: selectedOption3,
       deliveryType: selectedOption,
       userId: userId,
-      Date: dateString,
     };
 
     console.log(orderData, "orderData");
