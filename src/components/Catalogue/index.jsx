@@ -63,19 +63,6 @@ function Catalogue() {
       pdf: ch9rpdf,
     },
     {
-      id: 4,
-      image: ch9R,
-      couleur: "Rouge",
-      nom: "Châteauneuf du Pape Rouge",
-      AOC: "Châteauneuf du Pape",
-      volume: "75cl",
-      prix: 28,
-      millesime: 2018,
-      degustationVideo:
-        "https://www.youtube.com/watch?v=oz7RerYHmkk&list=RDoz7RerYHmkk&start_radio=1",
-      pdf: ch9rpdf,
-    },
-    {
       id: 5,
       image: lirac,
       couleur: "Rouge",
