@@ -17,8 +17,9 @@ import logopaypal from "../assets/logopaypal.webp";
 
 function Panier() {
   useEffect(() => {
+    console.log(vins, "vins");
     getUserId();
-  }, []);
+  }, [vins]);
 
   const { panier } = useContext(PanierContext);
 
@@ -96,6 +97,8 @@ function Panier() {
     prix: article.prix,
     quantite: article.quantite,
   }));
+
+  console.log(vins, "vins");
 
   const salons = [
     {
