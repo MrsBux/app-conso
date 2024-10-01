@@ -84,8 +84,10 @@
 }
 
 .logop {
-  border: #124b38 2px solid;
-  border-radius: 5px;
+  border: #b6124d 2px solid;
+  border-radius: 75px;
+  background-color: #b6124d;
+  color: #ffebe2;
 }
 .logop__name {
   color: #124b38;

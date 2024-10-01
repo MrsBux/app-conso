@@ -90,8 +90,10 @@ $green-leaf: #124b38;
   }
 }
 .logop {
-  border: #124b38 2px solid;
-  border-radius: 5px;
+  border: #b6124d 2px solid;
+  border-radius: 75px;
+  background-color: #b6124d;
+  color: $light-peach;
   &__name {
     color: $green-leaf;
   }
