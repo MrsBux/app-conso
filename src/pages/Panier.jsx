@@ -176,9 +176,12 @@ function Panier() {
       nom: document.getElementById("nom_panier").value,
       prenom: document.getElementById("prenom_panier").value,
       adresse: document.getElementById("adresse_panier").value,
+      ville: document.getElementById("ville_panier").value,
+      codePostal: document.getElementById("codePostal_panier").value,
       wine: vins.map((vin) => ({
         wineName: vin.name,
         quantite: vin.quantite,
+        wineMillesime: vin.millesime,
       })),
       winePrice: total,
       expeditionPrice: fraisLivraison,
