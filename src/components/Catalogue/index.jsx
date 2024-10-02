@@ -199,7 +199,7 @@ function Catalogue() {
         )}
 
       <Btn
-        txt_btnG={"je file voir mon panier"}
+        txt_btnG={"Je file voir mon panier !"}
         onclick={() => (window.location.href = "/panier")}
       />
     </section>

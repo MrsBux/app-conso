@@ -65,7 +65,7 @@ function WhoWeAre() {
     {
       chiffre: "18",
       text_chiffre:
-        "Nombre de salons où nous venons vous rencontrer ppour vous faire découvrir nos vins.",
+        "Nombre de salons où nous venons vous rencontrer pour vous faire découvrir nos vins.",
     },
   ];
 
