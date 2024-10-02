@@ -13,6 +13,7 @@ import ch9rpdf from "../../assets/pdf/ch9r.pdf";
 import lirpdf from "../../assets/pdf/lirac.pdf";
 import viopdf from "../../assets/pdf/vio.pdf";
 import ch9bpdf from "../../assets/pdf/ch9b.pdf";
+import Btn from "../Btn";
 
 function Catalogue() {
   const filtres = [
@@ -196,6 +197,11 @@ function Catalogue() {
             pdf={filteredVins[selectedBottle].pdf}
           />
         )}
+
+      <Btn
+        txt_btnG={"je file voir mon panier"}
+        onclick={() => (window.location.href = "/panier")}
+      />
     </section>
   );
 }
