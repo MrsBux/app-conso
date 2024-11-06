@@ -221,8 +221,7 @@ function CardSalon({
       </div>
       <div className="cardSalon__back">
         <p className="cardSalon__back__p">
-          <strong>Dates: </strong>
-          {`${formatDate(debut)} - ${formatDate(fin)}`}
+          <strong>{`${formatDate(debut)} - ${formatDate(fin)}`}</strong>
         </p>
         <p className="cardSalon__back__p">
           <strong>Région: </strong> {region}
