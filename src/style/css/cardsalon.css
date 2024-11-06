@@ -3,8 +3,8 @@
   border: solid 1px #124b38;
   border-radius: 4px;
   position: relative;
-  min-width: 160px;
-  min-height: 160px;
+  min-width: 180px;
+  min-height: 180px;
   max-width: fit-content;
   max-height: fit-content;
   perspective: 130px;
@@ -17,10 +17,10 @@
 }
 @media all and (min-width: 501px) and (max-width: 600px) {
   .cardSalon {
-    min-width: 140px;
-    min-height: 140px;
-    max-width: fit-content;
-    max-height: fit-content;
+    width: 150px;
+    height: 150px;
+    max-width: 450px;
+    max-height: 450px;
   }
 }
 @media all and (min-width: 401px) and (max-width: 500px) {
@@ -31,6 +31,8 @@
 }
 @media all and (max-width: 400px) {
   .cardSalon {
+    width: 250px;
+    height: 250px;
     min-width: 250px;
     min-height: 250px;
   }
@@ -61,7 +63,7 @@
   padding-top: 10px;
   color: #124b38;
   font-weight: 800;
-  font-size: 20px;
+  font-size: 14px;
   text-align: center;
 }
 @media all and (min-width: 401px) and (max-width: 600px) {
