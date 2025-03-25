@@ -113,6 +113,19 @@ function Catalogue() {
         "https://www.youtube.com/watch?v=oz7RerYHmkk&list=RDoz7RerYHmkk&start_radio=1",
       pdf: pitpdf,
     },
+    {
+      id: 8,
+      image: ch9B,
+      couleur: "Blanc",
+      nom: "Châteauneuf du Pape Blanc",
+      AOC: "Châteaneuf du Pape",
+      volume: "75cl",
+      prix: 29,
+      millesime: 2024,
+      degustationVideo:
+        "https://www.youtube.com/watch?v=oz7RerYHmkk&list=RDoz7RerYHmkk&start_radio=1",
+      pdf: ch9bpdf,
+    },
   ];
 
   const [filteredVins, setFilteredVins] = useState(vins);
