@@ -2,18 +2,30 @@ import React from "react";
 
 const OrderList = ({ orders }) => {
   function formatDate(dateString) {
-    const date = new Date(dateString);
-    const day = String(date.getDate()).padStart(2, "0");
-    const month = String(date.getMonth() + 1).padStart(2, "0");
-    const year = date.getFullYear();
-    return `${day}/${month}/${year}`;
+    // Vérifier si dateString est valide
+    if (!dateString) return "Date non disponible";
+
+    try {
+      const date = new Date(dateString);
+      // Vérifier si la date est valide
+      if (isNaN(date.getTime())) return "Date invalide";
+
+      const day = String(date.getDate()).padStart(2, "0");
+      const month = String(date.getMonth() + 1).padStart(2, "0");
+      const year = date.getFullYear();
+      return `${day}/${month}/${year}`;
+    } catch (error) {
+      console.error("Erreur lors du formatage de la date:", error);
+      return "Erreur de date";
+    }
   }
 
-  // Tri des commandes de la plus ancienne à la plus récente
+  // Tri des commandes de la plus récente à la plus ancienne
+  // Correction: utiliser le champ "Date" (majuscule) qui est référencé dans le formatDate et l'affichage
   const sortedOrders = [...orders].sort((a, b) => {
-    const dateA = new Date(a.Date);
-    const dateB = new Date(b.Date);
-    return dateA - dateB;
+    const dateA = new Date(a.Date || 0); // Utiliser 0 comme fallback si a.Date est undefined
+    const dateB = new Date(b.Date || 0); // Utiliser 0 comme fallback si b.Date est undefined
+    return dateB - dateA; // Inversé pour trier de la plus récente à la plus ancienne
   });
 
   return (
