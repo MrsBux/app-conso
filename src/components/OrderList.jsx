@@ -1,27 +1,34 @@
 import React from "react";
-// push
+
 const OrderList = ({ orders }) => {
   function formatDate(dateString) {
     const date = new Date(dateString);
     const day = String(date.getDate()).padStart(2, "0");
     const month = String(date.getMonth() + 1).padStart(2, "0");
     const year = date.getFullYear();
-    return `${day} ${month} ${year}`;
+    return `${day}/${month}/${year}`;
   }
+
+  // Tri des commandes de la plus ancienne à la plus récente
+  const sortedOrders = [...orders].sort((a, b) => {
+    const dateA = new Date(a.Date);
+    const dateB = new Date(b.Date);
+    return dateA - dateB;
+  });
 
   return (
     <div className="order-list">
-      {orders.map((order) => (
+      {sortedOrders.map((order) => (
         <div key={order._id} className="order-item">
           <h5>Commande ID: {order._id}</h5>
-          {order.date ? <p> Date :{order.date.toLocaleDateString()}</p> : null}
-
-          {order.statut ? <p> Statut : {order.statut}</p> : null}
+          {order.date ? <p>Date : {order.date.toLocaleDateString()}</p> : null}
+          {order.statut ? <p>Statut : {order.statut}</p> : null}
           <p>
             Client: {order.nom} {order.prenom}
           </p>
           <p>Email: {order.email}</p>
           <p>Adresse: {order.adresse}</p>
+
           <p> Code Postal {order.codePostal}</p>
           <p>Ville : {order.ville}</p>
           <p>Total: {order.totalPrice}€</p>
@@ -42,4 +49,5 @@ const OrderList = ({ orders }) => {
     </div>
   );
 };
+
 export default OrderList;
