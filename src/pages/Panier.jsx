@@ -148,16 +148,28 @@ function Panier() {
   const calculerFraisLivraison = (nombreTotalArticles) => {
     let fraisLivraison = 0;
 
-    if (nombreTotalArticles <= 5) {
-      fraisLivraison = 7; // 1 bouteille à partir de 7 euros
-    } else if (nombreTotalArticles <= 11) {
-      fraisLivraison = 20; // 6 bouteilles à partir de 20 euros
-    } else if (nombreTotalArticles <= 17) {
-      fraisLivraison = 30; // 12 bouteilles à partir de 30 euros
-    } else if (nombreTotalArticles <= 23) {
-      fraisLivraison = 50; // 18 bouteilles à partir de 50 euros
+    if (nombreTotalArticles === 1) {
+      fraisLivraison = 12.5; // 1 bouteille
+    } else if (nombreTotalArticles === 2) {
+      fraisLivraison = 14; // 2 bouteilles
+    } else if (nombreTotalArticles === 3) {
+      fraisLivraison = 16; // 3 bouteilles
+    } else if (nombreTotalArticles >= 4 && nombreTotalArticles <= 6) {
+      fraisLivraison = 21; // 4, 5, 6 bouteilles
+    } else if (nombreTotalArticles === 7) {
+      fraisLivraison = 33.5; // 7 bouteilles
+    } else if (nombreTotalArticles === 8) {
+      fraisLivraison = 35; // 8 bouteilles
+    } else if (nombreTotalArticles === 9) {
+      fraisLivraison = 25; // 9 bouteilles
+    } else if (nombreTotalArticles >= 10 && nombreTotalArticles <= 12) {
+      fraisLivraison = 31; // 10, 11, 12 bouteilles
+    } else if (nombreTotalArticles >= 13 && nombreTotalArticles <= 15) {
+      fraisLivraison = 47; // 13, 14, 15 bouteilles
+    } else if (nombreTotalArticles >= 16 && nombreTotalArticles <= 18) {
+      fraisLivraison = 52; // 16, 17, 18 bouteilles
     } else {
-      fraisLivraison = "Contactez-nous"; // Plus de 18 bouteilles, contactez-nous
+      fraisLivraison = "Contactez-nous"; // Plus de 18 bouteilles
     }
 
     return fraisLivraison;
@@ -300,13 +312,22 @@ function Panier() {
                           </p>
                           <ul>
                             {" "}
-                            Tarifs :<li>
+                            Tarifs :<li> 1 bouteille : 12.50euros</li>{" "}
+                            <li>2 bouteilles : 14 euros</li>{" "}
+                            <li>3 bouteilles : 16 euros</li>{" "}
+                            <li>4, 5, 6 bouteilles : 21 euros</li>{" "}
+                            <li>
                               {" "}
-                              1 bouteille : à partir de 7 euros.
-                            </li>{" "}
-                            <li>6 bouteilles : à partir de 20 euros.</li>{" "}
-                            <li>12 bouteilles : à partir de 30 euros.</li>{" "}
-                            <li> 18 bouteilles : à partir de 50 euros.</li>
+                              Les tarifs par 7 ou 8 bouteilles sont plus élévés
+                              du fait des modalités d'envoi proposées par la
+                              poste.
+                            </li>
+                            <li> 7 bouteilles : 33.50 euros (6 + 1)</li>
+                            <li> 8 bouteilles : 35 euros (6+2)</li>
+                            <li>9 bouteilles : 25 euros</li>{" "}
+                            <li>10, 11, 12 bouteilles : 31 euros</li>{" "}
+                            <li> 13, 14, 15 bouteilles 47 euros</li>
+                            <li> 16, 17, 18 bouteilles : 52 euros</li>
                             <li>
                               {" "}
                               Pour plus de 18 bouteilles, contactez nous !
@@ -510,13 +531,27 @@ function Panier() {
                         </p>
                         <ul>
                           {" "}
-                          Tarifs :<li>
+                          Tarifs :<li> 1 bouteille : 12.50euros</li>{" "}
+                          <li>2 bouteilles : 14 euros</li>{" "}
+                          <li>3 bouteilles : 16 euros</li>{" "}
+                          <li>4, 5, 6 bouteilles : 21 euros</li>{" "}
+                          <li>
                             {" "}
-                            1 bouteille : à partir de 7 euros.
-                          </li>{" "}
-                          <li>6 bouteilles : à partir de 20 euros.</li>{" "}
-                          <li>12 bouteilles : à partir de 30 euros.</li>{" "}
-                          <li> 18 bouteilles : à partir de 50 euros.</li>
+                            Les tarifs par 7 ou 8 bouteilles sont plus élévés du
+                            fait des modalités d'envoi proposées par la poste.
+                          </li>
+                          <li> 7 bouteilles : 33.50 euros (6 + 1)</li>
+                          <li> 8 bouteilles : 35 euros (6+2)</li>
+                          <li>9 bouteilles : 25 euros</li>{" "}
+                          <li>10, 11, 12 bouteilles : 31 euros</li>{" "}
+                          <li> 13, 14, 15 bouteilles 47 euros</li>
+                          <li> 16, 17, 18 bouteilles : 52 euros</li>
+                          <li>
+                            {" "}
+                            Pour plus de 18 bouteilles n'hésitez pas à nous
+                            contacter pour discuter des possibilités d'envoi par
+                            transporteur pour réduire les coûts.
+                          </li>
                         </ul>
                         <p className="modalt__txt__p">
                           {" "}

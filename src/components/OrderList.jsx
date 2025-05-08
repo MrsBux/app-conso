@@ -22,6 +22,8 @@ const OrderList = ({ orders }) => {
           </p>
           <p>Email: {order.email}</p>
           <p>Adresse: {order.adresse}</p>
+          <p> Code Postal {order.codePostal}</p>
+          <p>Ville : {order.ville}</p>
           <p>Total: {order.totalPrice}€</p>
           <p>Type de paiement: {order.paiementType}</p>
           <p>Date : {formatDate(order.Date)}</p>
