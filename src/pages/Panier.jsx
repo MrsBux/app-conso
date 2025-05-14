@@ -166,10 +166,10 @@ function Panier() {
       fraisLivraison = 31; // 10, 11, 12 bouteilles
     } else if (nombreTotalArticles >= 13 && nombreTotalArticles <= 15) {
       fraisLivraison = 47; // 13, 14, 15 bouteilles
-    } else if (nombreTotalArticles >= 16 && nombreTotalArticles <= 18) {
+    } else if (nombreTotalArticles >= 16 && nombreTotalArticles <= 1) {
       fraisLivraison = 52; // 16, 17, 18 bouteilles
-    } else {
-      fraisLivraison = "Contactez-nous"; // Plus de 18 bouteilles
+    } else if (nombreTotalArticles > 18) {
+      fraisLivraison = "      Contactez nous ! ";
     }
 
     return fraisLivraison;

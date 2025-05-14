@@ -48,6 +48,7 @@ function SalonGallery() {
       }
 
       const data = await response.json();
+      console.log(data);
       const salonsWithBlobs = await Promise.all(
         data.map(async (salon) => {
           if (salon.invitation) {
