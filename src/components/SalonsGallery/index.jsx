@@ -60,7 +60,7 @@ function SalonGallery() {
           return salon;
         })
       );
-
+      console.log(salonsWithBlobs);
       setSalons(salonsWithBlobs);
       setFilteredSalons(salonsWithBlobs);
     } catch (error) {
@@ -72,6 +72,10 @@ function SalonGallery() {
   useEffect(() => {
     getAllSalons();
   }, []);
+
+  useEffect(() => {
+    console.log(salons);
+  }, [salons]);
 
   const newSalon = async () => {
     const token = localStorage.getItem("token");
