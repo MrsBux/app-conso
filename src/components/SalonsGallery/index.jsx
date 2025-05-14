@@ -11,7 +11,7 @@ import ch9R12 from "../../assets/ch9R12.webp";
 function SalonGallery() {
   const [salons, setSalons] = useState([]);
   const [isMobileS, setIsMobileS] = useState(window.innerWidth <= 400);
-  const [visibleSalon, setVisibleSalon] = useState(16);
+  const [visibleSalon, setVisibleSalon] = useState(25);
   const [selectedFilter, setSelectedFilter] = useState("Tous");
   const [salonId, setSalonId] = useState();
 
@@ -48,7 +48,6 @@ function SalonGallery() {
       }
 
       const data = await response.json();
-      console.log(data);
       const salonsWithBlobs = await Promise.all(
         data.map(async (salon) => {
           if (salon.invitation) {
@@ -60,7 +59,6 @@ function SalonGallery() {
           return salon;
         })
       );
-      console.log(salonsWithBlobs);
       setSalons(salonsWithBlobs);
       setFilteredSalons(salonsWithBlobs);
     } catch (error) {
@@ -72,10 +70,6 @@ function SalonGallery() {
   useEffect(() => {
     getAllSalons();
   }, []);
-
-  useEffect(() => {
-    console.log(salons);
-  }, [salons]);
 
   const newSalon = async () => {
     const token = localStorage.getItem("token");
