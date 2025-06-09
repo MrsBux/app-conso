@@ -19,26 +19,12 @@ function CardSalon({
   fin,
   functionpostaction,
 }) {
-  console.log("🔵 CardSalon - Props reçues:", {
-    salonId,
-    logoUrl,
-    name,
-    description,
-    localisation,
-    region,
-    type,
-    invitation,
-    invitationBlob,
-    debut,
-    fin,
-  });
-
   const [isCardFlipped, setIsCardFlipped] = useState(false);
   const [formData, setFormData] = useState({
     name: name,
     description: description,
-    debut: debut ? debut.split("T")[0] : "", // Format correct pour input date
-    fin: fin ? fin.split("T")[0] : "", // Format correct pour input date
+    debut: debut,
+    fin: fin,
     region: region,
     localisation: localisation,
     logoUrl: null,
@@ -46,106 +32,58 @@ function CardSalon({
   });
   const [emailUser, setEmailUser] = useState("");
 
-  console.log("🟡 CardSalon - État initial formData:", formData);
-
   useEffect(() => {
-    console.log("🟢 CardSalon - useEffect appelé");
     getEmail();
   }, []);
 
   const getEmail = () => {
-    console.log("📧 getEmail - Début");
-    const email = localStorage.getItem("email");
-    console.log("📧 getEmail - Email récupéré:", email);
+    const email = localStorage.getItem("email"); // Use a string key instead of a variable
 
     if (email) {
       setEmailUser(email);
-      console.log("📧 getEmail - Email défini dans l'état:", email);
-    } else {
-      console.log("📧 getEmail - Aucun email trouvé dans localStorage");
     }
   };
 
-  // Fonction corrigée pour gérer les différents types d'inputs
   const handleChange = (e) => {
-    console.log("🔄 handleChange - Début");
-    const { id, value, files, type } = e.target;
-    console.log("🔄 handleChange - Données:", { id, value, files, type });
-
-    if (type === "file") {
-      console.log("📁 handleChange - Fichier détecté:", files[0]);
-      setFormData((prevFormData) => {
-        const newData = {
-          ...prevFormData,
-          [id]: files[0], // Pour les fichiers
-        };
-        console.log("📁 handleChange - Nouveau formData (fichier):", newData);
-        return newData;
-      });
-    } else {
-      console.log("📝 handleChange - Texte/autre détecté:", value);
-      setFormData((prevFormData) => {
-        const newData = {
-          ...prevFormData,
-          [id]: value, // Pour les autres inputs
-        };
-        console.log("📝 handleChange - Nouveau formData (texte):", newData);
-        return newData;
-      });
-    }
-  };
-
-  // Fonction corrigée pour gérer l'email dans le formulaire d'invitation
-  const handleEmailChange = (e) => {
-    console.log("✉️ handleEmailChange - Début");
-    const newEmail = e.target.value;
-    console.log("✉️ handleEmailChange - Nouvel email:", newEmail);
-    setEmailUser(newEmail);
+    const { id, value } = e.target;
+    setFormData((prevFormData) => ({
+      ...prevFormData,
+      [id]: value,
+    }));
   };
 
   const deleteSalon = async () => {
-    console.log("🗑️ deleteSalon - Début");
-    console.log("🗑️ deleteSalon - salonId:", salonId);
-
     const token = localStorage.getItem("token");
-    console.log(
-      "🗑️ deleteSalon - Token:",
-      token ? "Token présent" : "Pas de token"
-    );
 
     try {
-      const url = `https://domconso-d13067f1e717.herokuapp.com/api/salons/Delete/${salonId}`;
-      console.log("🗑️ deleteSalon - URL:", url);
-
-      const response = await fetch(url, {
-        method: "DELETE",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
-        },
-      });
-
-      console.log("🗑️ deleteSalon - Response status:", response.status);
-      console.log("🗑️ deleteSalon - Response ok:", response.ok);
+      const response = await fetch(
+        `https://domconso-d13067f1e717.herokuapp.com/api/salons/Delete/${salonId}`,
+        {
+          method: "DELETE",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
 
       if (!response.ok) {
-        const errorText = await response.text();
-        console.error("🗑️ deleteSalon - Erreur response:", errorText);
         throw new Error("Failed to delete this salon");
       }
 
-      console.log("🗑️ deleteSalon - Succès!");
       alert("Salon supprimé !");
+
       clearAll();
-      window.location.href = "/salons";
+      window.locatin.href = "/salons";
+
+      return await response.json();
     } catch (error) {
-      console.error("🗑️ deleteSalon - Erreur catch:", error);
+      console.error("Error deleting salon:", error);
       throw error;
     }
   };
 
   const clearAll = () => {
-    console.log("🧹 clearAll - Nettoyage du formulaire");
     setFormData({
       name: "",
       description: "",
@@ -156,218 +94,131 @@ function CardSalon({
       logoUrl: null,
       invitation: null,
     });
-    console.log("🧹 clearAll - Formulaire nettoyé");
   };
 
-  // Fonction corrigée pour l'update avec FormData pour les fichiers
   const updateSalon = async () => {
-    console.log("✏️ updateSalon - Début");
-    console.log("✏️ updateSalon - formData actuel:", formData);
-
     const token = localStorage.getItem("token");
-    console.log(
-      "✏️ updateSalon - Token:",
-      token ? "Token présent" : "Pas de token"
-    );
 
     try {
       const url = `https://domconso-d13067f1e717.herokuapp.com/api/salons/Put/${salonId}`;
-      console.log("✏️ updateSalon - URL:", url);
 
-      // Créer FormData pour gérer les fichiers
-      const formDataToSend = new FormData();
-      formDataToSend.append("name", formData.name);
-      formDataToSend.append("description", formData.description);
-      formDataToSend.append("debut", formData.debut);
-      formDataToSend.append("fin", formData.fin);
-      formDataToSend.append("region", formData.region);
-      formDataToSend.append("localisation", formData.localisation);
-
-      console.log("✏️ updateSalon - Données de base ajoutées au FormData");
-
-      // Ajouter les fichiers s'ils existent
-      if (formData.logoUrl) {
-        formDataToSend.append("logoUrl", formData.logoUrl);
-        console.log("✏️ updateSalon - Logo ajouté:", formData.logoUrl.name);
-      }
-      if (formData.invitation) {
-        formDataToSend.append("invitation", formData.invitation);
-        console.log(
-          "✏️ updateSalon - Invitation ajoutée:",
-          formData.invitation.name
-        );
-      }
-
-      // Afficher le contenu du FormData
-      console.log("✏️ updateSalon - Contenu FormData:");
-      for (let [key, value] of formDataToSend.entries()) {
-        console.log(`  ${key}:`, value);
-      }
-
-      console.log("✏️ updateSalon - Envoi de la requête...");
+      console.log(url, "url");
       const response = await fetch(url, {
         method: "PUT",
         headers: {
+          "Content-Type": "application/json",
           Authorization: `Bearer ${token}`,
-          // Ne pas définir Content-Type pour FormData, le navigateur le fait automatiquement
         },
-        body: formDataToSend,
+        body: JSON.stringify(formData),
       });
 
-      console.log("✏️ updateSalon - Response status:", response.status);
-      console.log("✏️ updateSalon - Response ok:", response.ok);
+      console.log(formData, "formData");
 
       if (!response.ok) {
-        const errorData = await response.text();
-        console.error("✏️ updateSalon - Erreur response:", errorData);
-        throw new Error(`Failed to update salon: ${errorData}`);
+        throw new Error("Failed to create salon");
       }
 
       const data = await response.json();
-      console.log("✏️ updateSalon - Données de réponse:", data);
       alert("Salon Modifié");
-      clearAll();
-      window.location.reload();
+
+      //clearAll();
+      //window.locatin.href = "/salons";
+
       return data;
     } catch (error) {
-      console.error("✏️ updateSalon - Erreur catch:", error);
-      alert(`Erreur lors de la modification: ${error.message}`);
+      console.error("Error creating salon:", error);
       throw error;
     }
   };
 
   function formatDate(dateString) {
-    console.log("📅 formatDate - Date d'entrée:", dateString);
+    // Crée un nouvel objet Date à partir de la chaîne de date
     const date = new Date(dateString);
-    const day = date.getDate().toString().padStart(2, "0");
-    const month = (date.getMonth() + 1).toString().padStart(2, "0");
+
+    // Récupère le jour, le mois et l'année de la date
+    const day = date.getDate().toString().padStart(2, "0"); // padStart ajoute un '0' devant si nécessaire
+    const month = (date.getMonth() + 1).toString().padStart(2, "0"); // +1 car getMonth() renvoie de 0 à 11
     const year = date.getFullYear();
-    const formattedDate = `${day}-${month}-${year}`;
-    console.log("📅 formatDate - Date formatée:", formattedDate);
-    return formattedDate;
+
+    // Retourne la date formatée sous forme de chaîne de caractères
+    return `${day}-${month}-${year}`;
   }
 
   const handleDownload = async () => {
-    console.log("📥 handleDownload - Début");
-    console.log("📥 handleDownload - salonId:", salonId);
-
     try {
-      const url = `https://domconso-d13067f1e717.herokuapp.com/api/salons/${salonId}/download`;
-      console.log("📥 handleDownload - URL:", url);
-
-      const token = localStorage.getItem("token");
-      console.log(
-        "📥 handleDownload - Token:",
-        token ? "Token présent" : "Pas de token"
+      const response = await fetch(
+        `https://domconso-d13067f1e717.herokuapp.com/api/salons/${salonId}/download`,
+        {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
+          },
+        }
       );
-
-      const response = await fetch(url, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      });
-
-      console.log("📥 handleDownload - Response status:", response.status);
-      console.log("📥 handleDownload - Response ok:", response.ok);
 
       if (!response.ok) {
         const errorData = await response.json();
-        console.error("📥 handleDownload - Erreur response:", errorData);
         throw new Error(errorData.message || "Erreur lors du téléchargement");
       }
 
       const blob = await response.blob();
-      console.log("📥 handleDownload - Blob créé:", blob.size, "octets");
-
       const fileName =
         response.headers
           .get("Content-Disposition")
           ?.split("filename=")[1]
           ?.replace(/"/g, "") || "invitation.pdf";
 
-      console.log("📥 handleDownload - Nom du fichier:", fileName);
-
+      // Vérification du type MIME
       if (blob.type !== "application/pdf") {
-        console.warn(
-          `📥 handleDownload - Type de fichier inattendu : ${blob.type}`
-        );
+        console.warn(`Type de fichier inattendu : ${blob.type}`);
       }
 
-      const downloadUrl = window.URL.createObjectURL(blob);
+      const url = window.URL.createObjectURL(blob);
       const a = document.createElement("a");
-      a.href = downloadUrl;
+      a.href = url;
       a.download = fileName;
       document.body.appendChild(a);
       a.click();
       a.remove();
-      window.URL.revokeObjectURL(downloadUrl);
+      window.URL.revokeObjectURL(url);
 
-      console.log("📥 handleDownload - Téléchargement terminé");
       console.log(
-        `📥 handleDownload - Fichier téléchargé : ${fileName}, Taille : ${blob.size} octets`
+        `Fichier téléchargé : ${fileName}, Taille : ${blob.size} octets`
       );
     } catch (error) {
-      console.error("📥 handleDownload - Erreur catch:", error);
+      console.error("Erreur de téléchargement :", error);
       alert(`Erreur lors du téléchargement : ${error.message}`);
     }
   };
-
   const handleAskInvit = async () => {
-    console.log("📮 handleAskInvit - Début");
-    console.log("📮 handleAskInvit - Nom du salon:", name);
-    console.log("📮 handleAskInvit - Email utilisateur:", emailUser);
-
     try {
       const jsonReq = {
         name: name,
         email: emailUser,
       };
-      console.log("📮 handleAskInvit - Données à envoyer:", jsonReq);
 
       const url = `https://domconso-d13067f1e717.herokuapp.com/api/forminvit/post`;
-      console.log("📮 handleAskInvit - URL:", url);
-
       const response = await fetch(url, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(jsonReq),
+        body: JSON.stringify(jsonReq), // Correctly stringify the body
       });
 
-      console.log("📮 handleAskInvit - Response status:", response.status);
-      console.log("📮 handleAskInvit - Response ok:", response.ok);
-
-      if (!response.ok) {
-        const errorText = await response.text();
-        console.error("📮 handleAskInvit - Erreur response:", errorText);
-        throw new Error("Erreur lors de l'envoi de la demande");
-      }
-
-      console.log("📮 handleAskInvit - Succès!");
       alert("Invitation demandée, surveillez vos mails !");
+
       const data = await response.json();
-      console.log("📮 handleAskInvit - Données de réponse:", data);
     } catch (error) {
-      console.error("📮 handleAskInvit - Erreur catch:", error);
-      alert(`Erreur lors de l'envoi: ${error.message}`);
+      console.error("Error while sending the form", error);
       throw error;
     }
   };
 
-  console.log("🔵 CardSalon - Rendu du composant");
-
   return (
     <div
       className={`cardSalon ${isCardFlipped ? "flipped" : ""}`}
-      onMouseEnter={() => {
-        console.log("🖱️ Mouse enter - Card flip activé");
-        setIsCardFlipped(true);
-      }}
-      onMouseLeave={() => {
-        console.log("🖱️ Mouse leave - Card flip désactivé");
-        setIsCardFlipped(false);
-      }}
+      onMouseEnter={() => setIsCardFlipped(true)}
+      onMouseLeave={() => setIsCardFlipped(false)}
     >
       <div className="cardSalon__front">
         <p className="cardSalon__front__name">{name}</p>
@@ -402,10 +253,7 @@ function CardSalon({
                   {invitation ? (
                     <button
                       className="modalt__txt__btn testbtn"
-                      onClick={() => {
-                        console.log("🔘 Bouton téléchargement cliqué");
-                        handleDownload();
-                      }}
+                      onClick={handleDownload}
                     >
                       Invitation
                     </button>
@@ -420,50 +268,39 @@ function CardSalon({
                       title={name}
                       modalContent={
                         <Form>
-                          <Form.Group
-                            className="form__groupe"
-                            controlId="salonName"
-                          >
+                          <Form.Group className="form__groupe" controlId="name">
                             <Form.Label>Nom du salon</Form.Label>
                             <Form.Control
                               type="text"
                               placeholder="Nom du salon"
                               value={name}
-                              readOnly // Le nom ne devrait pas être modifiable ici
+                              onChange={handleChange}
                             />
                           </Form.Group>
-                          <Form.Group
-                            className="form__groupe"
-                            controlId="email"
-                          >
+                          <Form.Group className="form__groupe" controlId="name">
                             <Form.Label>
-                              Email où recevoir l'invitation
+                              Email ou recevoir l'invitation{" "}
                             </Form.Label>
                             <Form.Control
                               type="email"
                               placeholder="Entrez votre email"
                               value={emailUser || ""}
-                              onChange={handleEmailChange} // Fonction séparée pour l'email
+                              onChange={handleChange}
                             />
                           </Form.Group>
 
                           <button
-                            type="button"
                             className="btn__submit"
-                            onClick={() => {
-                              console.log(
-                                "🔘 Bouton demande invitation cliqué"
-                              );
-                              handleAskInvit();
-                            }}
+                            onClick={handleAskInvit}
                           >
+                            {" "}
                             Envoyer la demande !
                           </button>
                         </Form>
                       }
                       btnname={"Fermer"}
                     />
-                  )}
+                  )}{" "}
                 </div>
                 <ModalT
                   btnShow={<BtnModifier />}
@@ -584,26 +421,14 @@ function CardSalon({
                         />
                       </Form.Group>
 
-                      <button
-                        type="button"
-                        className="btn__submit"
-                        onClick={() => {
-                          console.log("🔘 Bouton modifier salon cliqué");
-                          updateSalon();
-                        }}
-                      >
+                      <button className="btn__submit" onClick={updateSalon}>
                         Submit
                       </button>
                     </Form>
                   }
                   btnname={"Retour"}
                 />
-                <BtnSupprimer
-                  onClick={() => {
-                    console.log("🔘 Bouton supprimer salon cliqué");
-                    deleteSalon();
-                  }}
-                />
+                <BtnSupprimer onClick={deleteSalon} />
               </div>
             </div>
           }
