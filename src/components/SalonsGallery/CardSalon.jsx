@@ -23,8 +23,8 @@ function CardSalon({
   const [formData, setFormData] = useState({
     name: name,
     description: description,
-    debut: debut,
-    fin: fin,
+    debut: debut ? debut.split("T")[0] : "", // Format correct pour input date
+    fin: fin ? fin.split("T")[0] : "", // Format correct pour input date
     region: region,
     localisation: localisation,
     logoUrl: null,
@@ -37,19 +37,33 @@ function CardSalon({
   }, []);
 
   const getEmail = () => {
-    const email = localStorage.getItem("email"); // Use a string key instead of a variable
+    const email = localStorage.getItem("email");
 
     if (email) {
       setEmailUser(email);
     }
   };
 
+  // Fonction corrigée pour gérer les différents types d'inputs
   const handleChange = (e) => {
-    const { id, value } = e.target;
-    setFormData((prevFormData) => ({
-      ...prevFormData,
-      [id]: value,
-    }));
+    const { id, value, files, type } = e.target;
+
+    if (type === "file") {
+      setFormData((prevFormData) => ({
+        ...prevFormData,
+        [id]: files[0], // Pour les fichiers
+      }));
+    } else {
+      setFormData((prevFormData) => ({
+        ...prevFormData,
+        [id]: value, // Pour les autres inputs
+      }));
+    }
+  };
+
+  // Fonction corrigée pour gérer l'email dans le formulaire d'invitation
+  const handleEmailChange = (e) => {
+    setEmailUser(e.target.value);
   };
 
   const deleteSalon = async () => {
@@ -72,11 +86,8 @@ function CardSalon({
       }
 
       alert("Salon supprimé !");
-
       clearAll();
-      window.locatin.href = "/salons";
-
-      return await response.json();
+      window.location.href = "/salons"; // Correction du typo
     } catch (error) {
       console.error("Error deleting salon:", error);
       throw error;
@@ -96,51 +107,62 @@ function CardSalon({
     });
   };
 
+  // Fonction corrigée pour l'update avec FormData pour les fichiers
   const updateSalon = async () => {
     const token = localStorage.getItem("token");
 
     try {
       const url = `https://domconso-d13067f1e717.herokuapp.com/api/salons/Put/${salonId}`;
 
+      // Créer FormData pour gérer les fichiers
+      const formDataToSend = new FormData();
+      formDataToSend.append("name", formData.name);
+      formDataToSend.append("description", formData.description);
+      formDataToSend.append("debut", formData.debut);
+      formDataToSend.append("fin", formData.fin);
+      formDataToSend.append("region", formData.region);
+      formDataToSend.append("localisation", formData.localisation);
+
+      // Ajouter les fichiers s'ils existent
+      if (formData.logoUrl) {
+        formDataToSend.append("logoUrl", formData.logoUrl);
+      }
+      if (formData.invitation) {
+        formDataToSend.append("invitation", formData.invitation);
+      }
+
       console.log(url, "url");
       const response = await fetch(url, {
         method: "PUT",
         headers: {
-          "Content-Type": "application/json",
           Authorization: `Bearer ${token}`,
+          // Ne pas définir Content-Type pour FormData, le navigateur le fait automatiquement
         },
-        body: JSON.stringify(formData),
+        body: formDataToSend,
       });
 
-      console.log(formData, "formData");
-
       if (!response.ok) {
-        throw new Error("Failed to create salon");
+        const errorData = await response.text();
+        throw new Error(`Failed to update salon: ${errorData}`);
       }
 
       const data = await response.json();
       alert("Salon Modifié");
-
       clearAll();
-      window.locatin.reload();
-
+      window.location.reload(); // Correction du typo
       return data;
     } catch (error) {
-      console.error("Error creating salon:", error);
+      console.error("Error updating salon:", error);
+      alert(`Erreur lors de la modification: ${error.message}`);
       throw error;
     }
   };
 
   function formatDate(dateString) {
-    // Crée un nouvel objet Date à partir de la chaîne de date
     const date = new Date(dateString);
-
-    // Récupère le jour, le mois et l'année de la date
-    const day = date.getDate().toString().padStart(2, "0"); // padStart ajoute un '0' devant si nécessaire
-    const month = (date.getMonth() + 1).toString().padStart(2, "0"); // +1 car getMonth() renvoie de 0 à 11
+    const day = date.getDate().toString().padStart(2, "0");
+    const month = (date.getMonth() + 1).toString().padStart(2, "0");
     const year = date.getFullYear();
-
-    // Retourne la date formatée sous forme de chaîne de caractères
     return `${day}-${month}-${year}`;
   }
 
@@ -167,7 +189,6 @@ function CardSalon({
           ?.split("filename=")[1]
           ?.replace(/"/g, "") || "invitation.pdf";
 
-      // Vérification du type MIME
       if (blob.type !== "application/pdf") {
         console.warn(`Type de fichier inattendu : ${blob.type}`);
       }
@@ -189,6 +210,7 @@ function CardSalon({
       alert(`Erreur lors du téléchargement : ${error.message}`);
     }
   };
+
   const handleAskInvit = async () => {
     try {
       const jsonReq = {
@@ -202,14 +224,18 @@ function CardSalon({
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(jsonReq), // Correctly stringify the body
+        body: JSON.stringify(jsonReq),
       });
 
-      alert("Invitation demandée, surveillez vos mails !");
+      if (!response.ok) {
+        throw new Error("Erreur lors de l'envoi de la demande");
+      }
 
+      alert("Invitation demandée, surveillez vos mails !");
       const data = await response.json();
     } catch (error) {
       console.error("Error while sending the form", error);
+      alert(`Erreur lors de l'envoi: ${error.message}`);
       throw error;
     }
   };
@@ -268,39 +294,45 @@ function CardSalon({
                       title={name}
                       modalContent={
                         <Form>
-                          <Form.Group className="form__groupe" controlId="name">
+                          <Form.Group
+                            className="form__groupe"
+                            controlId="salonName"
+                          >
                             <Form.Label>Nom du salon</Form.Label>
                             <Form.Control
                               type="text"
                               placeholder="Nom du salon"
                               value={name}
-                              onChange={handleChange}
+                              readOnly // Le nom ne devrait pas être modifiable ici
                             />
                           </Form.Group>
-                          <Form.Group className="form__groupe" controlId="name">
+                          <Form.Group
+                            className="form__groupe"
+                            controlId="email"
+                          >
                             <Form.Label>
-                              Email ou recevoir l'invitation{" "}
+                              Email où recevoir l'invitation
                             </Form.Label>
                             <Form.Control
                               type="email"
                               placeholder="Entrez votre email"
                               value={emailUser || ""}
-                              onChange={handleChange}
+                              onChange={handleEmailChange} // Fonction séparée pour l'email
                             />
                           </Form.Group>
 
                           <button
+                            type="button"
                             className="btn__submit"
                             onClick={handleAskInvit}
                           >
-                            {" "}
                             Envoyer la demande !
                           </button>
                         </Form>
                       }
                       btnname={"Fermer"}
                     />
-                  )}{" "}
+                  )}
                 </div>
                 <ModalT
                   btnShow={<BtnModifier />}
@@ -421,7 +453,11 @@ function CardSalon({
                         />
                       </Form.Group>
 
-                      <button className="btn__submit" onClick={updateSalon}>
+                      <button
+                        type="button"
+                        className="btn__submit"
+                        onClick={updateSalon}
+                      >
                         Submit
                       </button>
                     </Form>
