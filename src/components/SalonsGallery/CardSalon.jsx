@@ -101,6 +101,8 @@ function CardSalon({
 
     try {
       const url = `https://domconso-d13067f1e717.herokuapp.com/api/salons/Put/${salonId}`;
+
+      console.log(url, "url");
       const response = await fetch(url, {
         method: "PUT",
         headers: {
@@ -110,6 +112,8 @@ function CardSalon({
         body: JSON.stringify(formData),
       });
 
+      console.log(formData, "formData");
+
       if (!response.ok) {
         throw new Error("Failed to create salon");
       }
@@ -118,7 +122,7 @@ function CardSalon({
       alert("Salon Modifié");
 
       clearAll();
-      window.locatin.href = "/salons";
+      window.locatin.reload();
 
       return data;
     } catch (error) {
